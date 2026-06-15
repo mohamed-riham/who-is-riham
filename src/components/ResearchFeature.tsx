@@ -215,7 +215,7 @@ export default function ResearchFeature() {
               </div>
 
               <div className="flex justify-between items-center mt-2 pt-2 border-t border-slate-900">
-                <div className="flex gap-4 text-[9px] font-mono">
+                <div className="flex flex-wrap gap-x-4 gap-y-1.5 text-[9px] font-mono">
                   <span className="flex items-center gap-1 text-slate-500">
                     <span className="w-1.5 h-1.5 rounded-full bg-slate-700" /> Legitimate (0.52%)
                   </span>

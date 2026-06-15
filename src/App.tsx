@@ -13,7 +13,9 @@ import {
   CheckCircle, 
   ExternalLink,
   Shield,
-  FileSpreadsheet
+  FileSpreadsheet,
+  Menu,
+  X
 } from 'lucide-react';
 import { PERSONAL_INFO, PROJECTS } from './data';
 import ProjectCard from './components/ProjectCard';
@@ -27,6 +29,7 @@ import SearchInsights from './components/SearchInsights';
 
 export default function App() {
   const [activeSection, setActiveSection] = useState('architect');
+  const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   const [projectFilter, setProjectFilter] = useState<'all' | 'iot' | 'data-science' | 'software' | 'full-stack'>('all');
   const [terminalCommand, setTerminalCommand] = useState('');
   const [terminalHistory, setTerminalHistory] = useState<Array<{ type: 'cmd' | 'resp'; text: string }>>([
@@ -149,7 +152,7 @@ export default function App() {
       <div className="absolute bottom-[-10%] right-[-10%] w-[50%] h-[50%] bg-cyan-900/10 blur-[130px] rounded-full pointer-events-none" />
 
       {/* 1. Header Navigation */}
-      <nav className="fixed top-0 left-0 w-full bg-slate-950/80 backdrop-blur-md border-b border-slate-900/90 z-40">
+      <nav className="fixed top-0 left-0 w-full bg-slate-950/90 backdrop-blur-md border-b border-slate-900/90 z-40">
         <div className="max-w-7xl mx-auto px-4 md:px-8 h-16 flex items-center justify-between">
           <div className="flex items-center gap-2.5">
             <motion.div 
@@ -194,30 +197,78 @@ export default function App() {
             })}
           </div>
 
-          {/* Social Icons Right */}
-          <div className="flex items-center gap-2.5">
-            <a 
-              id="header-shortcut-github"
-              href={PERSONAL_INFO.github} 
-              target="_blank" 
-              rel="noopener noreferrer" 
-              className="p-1.5 bg-slate-900 hover:bg-slate-850 hover:text-white border border-slate-800 rounded transition-all"
-              title="GitHub"
+          {/* Controls Right */}
+          <div className="flex items-center gap-2">
+            {/* Social Icons Desktop/Tablet */}
+            <div className="flex items-center gap-2">
+              <a 
+                id="header-shortcut-github"
+                href={PERSONAL_INFO.github} 
+                target="_blank" 
+                rel="noopener noreferrer" 
+                className="p-1.5 bg-slate-900 hover:bg-slate-850 hover:text-white border border-slate-800 rounded transition-all"
+                title="GitHub"
+              >
+                <Github className="w-4 h-4 text-slate-400" />
+              </a>
+              <a 
+                id="header-shortcut-linkedin"
+                href={PERSONAL_INFO.linkedin} 
+                target="_blank" 
+                rel="noopener noreferrer" 
+                className="p-1.5 bg-slate-900 hover:bg-slate-850 hover:text-white border border-slate-800 rounded transition-all"
+                title="LinkedIn"
+              >
+                <Linkedin className="w-4 h-4 text-slate-400" />
+              </a>
+            </div>
+
+            {/* Mobile Menu Open/Close Button Toggle */}
+            <button
+              id="mobile-nav-burger-btn"
+              type="button"
+              onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
+              className="lg:hidden p-1.5 bg-slate-900 hover:bg-slate-850 hover:text-slate-100 border border-slate-850 rounded text-slate-400 transition-all focus:outline-none cursor-pointer"
+              aria-label="Toggle navigation parameters"
             >
-              <Github className="w-4 h-4 text-slate-400" />
-            </a>
-            <a 
-              id="header-shortcut-linkedin"
-              href={PERSONAL_INFO.linkedin} 
-              target="_blank" 
-              rel="noopener noreferrer" 
-              className="p-1.5 bg-slate-900 hover:bg-slate-850 hover:text-white border border-slate-800 rounded transition-all"
-              title="LinkedIn"
-            >
-              <Linkedin className="w-4 h-4 text-slate-400" />
-            </a>
+              {isMobileMenuOpen ? <X className="w-4 h-4" /> : <Menu className="w-4 h-4" />}
+            </button>
           </div>
         </div>
+
+        {/* Mobile Dropdown Panel Drawer */}
+        <AnimatePresence>
+          {isMobileMenuOpen && (
+            <motion.div
+              initial={{ height: 0, opacity: 0 }}
+              animate={{ height: "auto", opacity: 1 }}
+              exit={{ height: 0, opacity: 0 }}
+              transition={{ duration: 0.25, ease: "easeInOut" }}
+              className="lg:hidden border-t border-slate-900/60 bg-slate-950/95 backdrop-blur-lg overflow-hidden absolute left-0 w-full"
+            >
+              <div className="p-4 flex flex-col gap-2.5 text-xs font-mono">
+                {navLinks.map((link) => {
+                  const isActive = activeSection === link.id;
+                  return (
+                    <a
+                      key={link.id}
+                      href={`#${link.id}`}
+                      onClick={() => setIsMobileMenuOpen(false)}
+                      className={`flex items-center justify-between p-3 rounded-lg border transition-all ${
+                        isActive 
+                          ? 'bg-indigo-950/40 border-indigo-600/40 text-indigo-300 font-bold' 
+                          : 'bg-slate-900/20 border-transparent text-slate-400 hover:bg-slate-900/40 hover:text-slate-200'
+                      }`}
+                    >
+                      <span>{link.label}</span>
+                      {isActive && <span className="w-1.5 h-1.5 rounded-full bg-indigo-400 animate-pulse" />}
+                    </a>
+                  );
+                })}
+              </div>
+            </motion.div>
+          )}
+        </AnimatePresence>
       </nav>
 
       {/* 2. Hero Section */}

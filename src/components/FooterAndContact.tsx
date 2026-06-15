@@ -10,7 +10,8 @@ import {
   CheckCircle,
   MapPin,
   ExternalLink,
-  MessageSquareCode
+  MessageSquareCode,
+  Instagram
 } from 'lucide-react';
 import { PERSONAL_INFO } from '../data';
 
@@ -214,7 +215,7 @@ export default function FooterAndContact() {
           <div className="space-y-3">
             <span className="text-[10px] uppercase font-mono text-slate-500 block">External Network Links Directory</span>
             
-            <div className="grid grid-cols-2 gap-2">
+            <div className="grid grid-cols-1 sm:grid-cols-2 gap-2.5">
               <a 
                 id="social-link-linkedin"
                 href={PERSONAL_INFO.linkedin}
@@ -258,16 +259,30 @@ export default function FooterAndContact() {
               </a>
 
               <a 
-                id="social-link-academic"
-                href={PERSONAL_INFO.academicPortfolio}
+                id="social-link-medium"
+                href={PERSONAL_INFO.medium}
                 target="_blank"
                 rel="noopener noreferrer"
                 className="p-3 bg-slate-950 hover:bg-slate-900 border border-slate-900 hover:border-slate-800 rounded-lg flex items-center gap-2 group transition-all cursor-pointer"
               >
                 <BookOpen className="w-4 h-4 text-emerald-400 shrink-0" />
                 <div className="truncate">
-                  <span className="block text-[10px] font-mono text-slate-500 uppercase leading-none mb-1">Academic</span>
-                  <span className="text-slate-200 text-xs font-semibold group-hover:text-white transition-colors">Axis Profile</span>
+                  <span className="block text-[10px] font-mono text-slate-500 uppercase leading-none mb-1">Medium</span>
+                  <span className="text-slate-200 text-xs font-semibold group-hover:text-white transition-colors">@mohamed-riham</span>
+                </div>
+              </a>
+
+              <a 
+                id="social-link-instagram"
+                href={PERSONAL_INFO.instagram}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="p-3 bg-slate-950 hover:bg-slate-900 border border-slate-900 hover:border-slate-800 rounded-lg flex items-center gap-2 group transition-all cursor-pointer"
+              >
+                <Instagram className="w-4 h-4 text-pink-400 shrink-0" />
+                <div className="truncate">
+                  <span className="block text-[10px] font-mono text-slate-500 uppercase leading-none mb-1">Instagram</span>
+                  <span className="text-slate-200 text-xs font-semibold group-hover:text-white transition-colors">@_mohamed_riham</span>
                 </div>
               </a>
             </div>

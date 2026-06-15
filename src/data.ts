@@ -10,7 +10,7 @@ export const PERSONAL_INFO = {
   linkedin: "https://linkedin.com/in/mohamed-riham",
   devTo: "https://dev.to/mohamed-riham",
   medium: "https://medium.com/@mohamed-riham",
-  academicPortfolio: "https://axisacademy.edu.lk/mohamed-riham/",
+  instagram: "https://www.instagram.com/_mohamed_riham/",
 };
 
 export const PROJECTS: Project[] = [
