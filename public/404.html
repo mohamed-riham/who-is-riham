@@ -183,26 +183,7 @@
         Return to Matrix Home
       </a>
     </div>
-
-    <div class="redirect-note">
-      Connecting back in <span id="countdown">10</span> seconds...
-    </div>
   </div>
-
-  <script>
-    // Intelligent auto countdown redirect to secure production domain
-    let secondsLeft = 10;
-    const countdownEl = document.getElementById('countdown');
-    
-    const interval = setInterval(() => {
-      secondsLeft--;
-      countdownEl.textContent = secondsLeft;
-      if (secondsLeft <= 0) {
-        clearInterval(interval);
-        window.location.href = "https://mohamed-riham.github.io/who-is-riham/";
-      }
-    }, 1000);
-  </script>
 
 </body>
 </html>
