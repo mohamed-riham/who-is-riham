@@ -26,6 +26,7 @@ import ArticlesFeature from './components/ArticlesFeature';
 import FooterAndContact from './components/FooterAndContact';
 import ProfileAvatarHub from './components/ProfileAvatarHub';
 import SearchInsights from './components/SearchInsights';
+import MathMatrixLab from './components/MathMatrixLab';
 
 export default function App() {
   const [activeSection, setActiveSection] = useState('architect');
@@ -63,6 +64,7 @@ export default function App() {
     { id: 'skills', label: 'Skills & Badges' },
     { id: 'search', label: 'Search Insights' },
     { id: 'case-studies', label: 'Case Studies' },
+    { id: 'math-lab', label: 'Math Lab' },
     { id: 'contact', label: 'Contact Node' }
   ];
 
@@ -556,7 +558,14 @@ export default function App() {
         </div>
       </section>
 
-      {/* 8. Section: Contact Node & Footer Connections Dashboard */}
+      {/* 9. Section: Computational Mathematics & Group Theory Lab */}
+      <section id="math-lab" className="py-20 md:py-24 border-t border-slate-900 bg-slate-950/20">
+        <div className="max-w-7xl mx-auto px-4 md:px-8">
+          <MathMatrixLab />
+        </div>
+      </section>
+
+      {/* 10. Section: Contact Node & Footer Connections Dashboard */}
       <section id="contact" className="py-20 md:py-24 border-t border-slate-900 bg-slate-950/30">
         <div className="max-w-7xl mx-auto px-4 md:px-8">
           <FooterAndContact />

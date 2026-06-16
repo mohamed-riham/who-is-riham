@@ -244,13 +244,13 @@ export default function ResearchFeature() {
             </p>
 
             {/* Metrics Toggler */}
-            <div className="flex justify-start gap-1 p-1 bg-slate-950 rounded-lg border border-slate-900">
+            <div className="flex justify-start gap-1 p-1 bg-slate-950 rounded-lg border border-slate-900 overflow-x-auto">
               {RESEARCH_DATA.metrics.map((m) => (
                 <button
                   key={m.metric}
                   id={`btn-metric-type-${m.metric}`}
                   onClick={() => setSelectedMetric(m.metric)}
-                  className={`flex-1 text-center py-1.5 px-2 rounded-md font-mono text-[11px] font-semibold transition-all cursor-pointer ${selectedMetric === m.metric ? 'bg-indigo-600 text-white shadow-md' : 'text-slate-500 hover:text-slate-300'}`}
+                  className={`flex-1 text-center py-1 md:py-1.5 px-1 md:px-2 rounded-md font-mono text-[10px] sm:text-[11px] font-semibold transition-all cursor-pointer whitespace-nowrap ${selectedMetric === m.metric ? 'bg-indigo-600 text-white shadow-md' : 'text-slate-500 hover:text-slate-300'}`}
                 >
                   {m.metric}
                 </button>
