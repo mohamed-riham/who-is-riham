@@ -218,7 +218,7 @@ export default function SearchInsights() {
                 <div className="space-y-1">
                   <div className="flex items-center gap-1.5 text-[10px] font-mono text-slate-500">
                     <Globe className="w-3.5 h-3.5 text-slate-500" />
-                    <span>https://mohamed-riham.github.io &gt; profile &gt; {currentSelection.id}</span>
+                    <span>https://mohamed-riham.github.io/who-is-riham &gt; {currentSelection.id}</span>
                   </div>
                   
                   <h3 className="text-lg md:text-xl font-heading font-bold text-indigo-400 leading-snug">

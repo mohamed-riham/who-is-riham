@@ -27,6 +27,7 @@ import FooterAndContact from './components/FooterAndContact';
 import ProfileAvatarHub from './components/ProfileAvatarHub';
 import SearchInsights from './components/SearchInsights';
 import MathMatrixLab from './components/MathMatrixLab';
+import MobilePortfolioApp from './components/MobilePortfolioApp';
 
 export default function App() {
   const [activeSection, setActiveSection] = useState('architect');
@@ -139,6 +140,8 @@ export default function App() {
   return (
     <div className="min-h-screen bg-slate-950 text-slate-100 overflow-x-hidden relative font-sans">
       
+      {/* ─── DESKTOP PC PORTAL (lg:block hidden) ─── */}
+      <div className="hidden lg:block relative w-full">
       {/* Smooth Mouse Tracking Spotlight Glow */}
       <motion.div
         style={{
@@ -571,6 +574,12 @@ export default function App() {
           <FooterAndContact />
         </div>
       </section>
+      </div>
+
+      {/* ─── MOBILE CLIENT OS PORTAL (block lg:hidden) ─── */}
+      <div className="block lg:hidden relative w-full">
+        <MobilePortfolioApp />
+      </div>
 
     </div>
   );
