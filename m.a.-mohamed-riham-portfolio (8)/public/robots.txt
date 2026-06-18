@@ -1,4 +1,0 @@
-User-agent: *
-Allow: /
-
-Sitemap: https://mohamed-riham.github.io/who-is-riham/sitemap.xml
