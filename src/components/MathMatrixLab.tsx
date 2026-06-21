@@ -112,24 +112,24 @@ export default function MathMatrixLab() {
       <div className="absolute inset-0 bg-[radial-gradient(#1e293b_1px,transparent_1px)] [background-size:20px_20px] opacity-15 pointer-events-none" />
 
       {/* Header Panel */}
-      <div className="flex flex-col md:flex-row md:items-end justify-between gap-4 border-b border-slate-800 pb-6 relative z-10">
+      <div className="flex flex-col md:flex-row md:items-end justify-between gap-4 border-b border-rose-950 pb-6 relative z-10">
         <div className="space-y-1.5 text-left">
-          <div className="flex items-center gap-2 text-cyan-400 font-mono text-xs uppercase tracking-widest font-semibold">
+          <div className="flex items-center gap-2 text-rose-400 font-mono text-xs uppercase tracking-widest font-semibold">
             <span className="flex h-2 w-2 relative">
-              <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-cyan-400 opacity-75"></span>
-              <span className="relative inline-flex rounded-full h-2 w-2 bg-cyan-500"></span>
+              <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-rose-400 opacity-75"></span>
+              <span className="relative inline-flex rounded-full h-2 w-2 bg-rose-500"></span>
             </span>
             05 // Academic Presentation Lab
           </div>
-          <h3 className="text-xl md:text-2xl font-heading font-bold text-slate-100 tracking-tight leading-none">
-            Computational Group Theory & Matrix Laboratory
+          <h3 className="text-xl md:text-2xl font-heading font-black text-slate-100 tracking-tight leading-none bg-gradient-to-r from-rose-500 to-cyan-300 bg-clip-text text-transparent">
+            Computational Group Theory &amp; Matrix Laboratory
           </h3>
           <p className="text-slate-400 text-xs md:text-sm max-w-2xl font-sans">
-            Reflecting Riham's scholarly syllabus deck <strong className="text-indigo-400">"Why Group Theory is Essential for Computing Students"</strong>. Interactively manipulate 2D space coordinate vectors with linear transformation matrices.
+            Reflecting Riham's scholarly syllabus deck <strong className="text-rose-400">"Why Group Theory is Essential for Computing Students"</strong>. Interactively manipulate 2D space coordinate vectors with linear transformation matrices.
           </p>
         </div>
-
-        <div className="flex items-center gap-2 px-3 py-1 bg-slate-950/85 border border-slate-850 rounded-lg text-[10px] font-mono text-slate-500">
+ 
+        <div className="flex items-center gap-2 px-3 py-1 bg-slate-950/85 border border-rose-900/35 rounded-lg text-[10px] font-mono text-rose-400">
           <Binary className="w-3.5 h-3.5 text-cyan-400 animate-pulse" />
           <span>Framer-Motion Trigonometry</span>
         </div>
@@ -236,54 +236,54 @@ export default function MathMatrixLab() {
               <button
                 id="btn-matrix-identity"
                 onClick={() => setActiveOp("identity")}
-                className={`p-3 text-left rounded-xl border text-xs font-mono transition-all flex flex-col justify-between cursor-pointer ${activeOp === "identity" ? 'bg-indigo-950/50 border-indigo-500/50 text-indigo-300' : 'bg-slate-950 hover:bg-slate-900 border-slate-900 text-slate-450 hover:text-slate-200'}`}
+                className={`p-3 text-left rounded-xl border text-xs font-mono transition-all flex flex-col justify-between cursor-pointer ${activeOp === "identity" ? 'bg-indigo-950/50 border-rose-500/50 text-rose-300' : 'bg-slate-950 hover:bg-slate-900 border-rose-950/30 text-slate-450 hover:text-slate-200'}`}
               >
-                <span className="text-[10px] text-slate-500 block uppercase font-bold mb-1">E_OP</span>
+                <span className="text-[10px] text-rose-500 block uppercase font-bold mb-1">E_OP</span>
                 <span>Identity Matrix</span>
               </button>
 
               <button
                 id="btn-matrix-rotate90"
                 onClick={() => setActiveOp("rotate90")}
-                className={`p-3 text-left rounded-xl border text-xs font-mono transition-all flex flex-col justify-between cursor-pointer ${activeOp === "rotate90" ? 'bg-indigo-950/50 border-indigo-500/50 text-indigo-300' : 'bg-slate-950 hover:bg-slate-900 border-slate-900 text-slate-450 hover:text-slate-200'}`}
+                className={`p-3 text-left rounded-xl border text-xs font-mono transition-all flex flex-col justify-between cursor-pointer ${activeOp === "rotate90" ? 'bg-indigo-950/50 border-rose-500/50 text-rose-300' : 'bg-slate-950 hover:bg-slate-900 border-rose-950/30 text-slate-450 hover:text-slate-200'}`}
               >
-                <span className="text-[10px] text-slate-500 block uppercase font-bold mb-1">C4_R90</span>
+                <span className="text-[10px] text-rose-500 block uppercase font-bold mb-1">C4_R90</span>
                 <span>Rotate 90° CCW</span>
               </button>
 
               <button
                 id="btn-matrix-rotate180"
                 onClick={() => setActiveOp("rotate180")}
-                className={`p-3 text-left rounded-xl border text-xs font-mono transition-all flex flex-col justify-between cursor-pointer ${activeOp === "rotate180" ? 'bg-indigo-950/50 border-indigo-500/50 text-indigo-300' : 'bg-slate-950 hover:bg-slate-900 border-slate-900 text-slate-450 hover:text-slate-200'}`}
+                className={`p-3 text-left rounded-xl border text-xs font-mono transition-all flex flex-col justify-between cursor-pointer ${activeOp === "rotate180" ? 'bg-indigo-950/50 border-rose-500/50 text-rose-300' : 'bg-slate-950 hover:bg-slate-900 border-rose-950/30 text-slate-450 hover:text-slate-200'}`}
               >
-                <span className="text-[10px] text-slate-500 block uppercase font-bold mb-1">C2_R180</span>
+                <span className="text-[10px] text-rose-500 block uppercase font-bold mb-1">C2_R180</span>
                 <span>Rotate 180°</span>
               </button>
 
               <button
                 id="btn-matrix-reflectX"
                 onClick={() => setActiveOp("reflectX")}
-                className={`p-3 text-left rounded-xl border text-xs font-mono transition-all flex flex-col justify-between cursor-pointer ${activeOp === "reflectX" ? 'bg-indigo-950/50 border-indigo-500/50 text-indigo-300' : 'bg-slate-950 hover:bg-slate-900 border-slate-900 text-slate-450 hover:text-slate-200'}`}
+                className={`p-3 text-left rounded-xl border text-xs font-mono transition-all flex flex-col justify-between cursor-pointer ${activeOp === "reflectX" ? 'bg-indigo-950/50 border-rose-500/50 text-rose-300' : 'bg-slate-950 hover:bg-slate-900 border-rose-950/30 text-slate-450 hover:text-slate-200'}`}
               >
-                <span className="text-[10px] text-slate-500 block uppercase font-bold mb-1">σ_H</span>
+                <span className="text-[10px] text-rose-500 block uppercase font-bold mb-1">σ_H</span>
                 <span>Reflect X-Axis</span>
               </button>
 
               <button
                 id="btn-matrix-reflectY"
                 onClick={() => setActiveOp("reflectY")}
-                className={`p-3 text-left rounded-xl border text-xs font-mono transition-all flex flex-col justify-between cursor-pointer ${activeOp === "reflectY" ? 'bg-indigo-950/50 border-indigo-500/50 text-indigo-300' : 'bg-slate-950 hover:bg-slate-900 border-slate-900 text-slate-450 hover:text-slate-200'}`}
+                className={`p-3 text-left rounded-xl border text-xs font-mono transition-all flex flex-col justify-between cursor-pointer ${activeOp === "reflectY" ? 'bg-indigo-950/50 border-rose-500/50 text-rose-300' : 'bg-slate-950 hover:bg-slate-900 border-rose-950/30 text-slate-450 hover:text-slate-200'}`}
               >
-                <span className="text-[10px] text-slate-500 block uppercase font-bold mb-1">σ_V</span>
+                <span className="text-[10px] text-rose-500 block uppercase font-bold mb-1">σ_V</span>
                 <span>Reflect Y-Axis</span>
               </button>
 
               <button
                 id="btn-matrix-shear"
                 onClick={() => setActiveOp("shearX")}
-                className={`p-3 text-left rounded-xl border text-xs font-mono transition-all flex flex-col justify-between cursor-pointer ${activeOp === "shearX" ? 'bg-indigo-950/50 border-indigo-500/50 text-indigo-300' : 'bg-slate-950 hover:bg-slate-900 border-slate-900 text-slate-450 hover:text-slate-200'}`}
+                className={`p-3 text-left rounded-xl border text-xs font-mono transition-all flex flex-col justify-between cursor-pointer ${activeOp === "shearX" ? 'bg-indigo-950/50 border-rose-500/50 text-rose-300' : 'bg-slate-950 hover:bg-slate-900 border-rose-950/30 text-slate-450 hover:text-slate-200'}`}
               >
-                <span className="text-[10px] text-slate-500 block uppercase font-bold mb-1">M_SHEAR</span>
+                <span className="text-[10px] text-rose-500 block uppercase font-bold mb-1">M_SHEAR</span>
                 <span>Shear Map</span>
               </button>
             </div>

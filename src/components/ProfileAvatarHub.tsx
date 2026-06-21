@@ -52,47 +52,56 @@ export default function ProfileAvatarHub() {
               />
 
               {/* Verified Badge Icon Absolute Overlay */}
-              <div className="absolute bottom-1.5 right-1.5 bg-slate-950/80 backdrop-blur-sm border border-emerald-500/30 rounded-lg p-1.5" title="Real Official Account">
-                <CheckCircle className="w-4.5 h-4.5 text-emerald-400" />
+              <div className="absolute bottom-1.5 right-1.5 bg-slate-950/85 backdrop-blur-sm border border-rose-500/30 rounded-lg p-1.5" title="Verified Professional Node">
+                <CheckCircle className="w-4.5 h-4.5 text-rose-500 animate-pulse" />
               </div>
             </div>
           </div>
-
-          <div className="flex items-center gap-1.5 px-2.5 py-1 bg-slate-950/90 border border-slate-850 rounded-lg text-[10px] font-mono text-slate-400">
+ 
+          <div className="flex items-center gap-1.5 px-2.5 py-1 bg-slate-950/90 border border-rose-950/40 rounded-lg text-[10px] font-mono text-rose-300">
             <Cpu className="w-3 h-3 text-cyan-400 animate-pulse" />
             <span>SECURE LIVE CON</span>
           </div>
         </div>
-
+ 
         {/* Profile Presentation Column */}
         <div className="flex-1 space-y-4 text-center sm:text-left min-w-0">
           <div>
             <div className="flex flex-wrap items-center justify-center sm:justify-start gap-2 mb-2.5">
-              <span className="text-[9px] uppercase font-mono tracking-widest text-indigo-400 font-bold bg-indigo-500/10 px-2.5 py-1 rounded border border-indigo-500/20">
+              <span className="text-[9px] uppercase font-mono tracking-widest text-rose-400 font-bold bg-rose-500/10 px-2.5 py-1 rounded border border-rose-500/20">
                 Official Live Photo
               </span>
-              <span className="flex items-center gap-1 px-2.5 py-0.5 rounded bg-emerald-500/10 border border-emerald-500/20 text-emerald-400 text-[9px] font-mono">
-                <span className="w-1.5 h-1.5 rounded-full bg-emerald-400 animate-ping" />
+              <span className="flex items-center gap-1 px-2.5 py-0.5 rounded bg-cyan-500/10 border border-cyan-500/20 text-cyan-400 text-[9px] font-mono">
+                <span className="w-1.5 h-1.5 rounded-full bg-cyan-400 animate-ping" />
                 <span>ONLINE PORTFOLIO</span>
               </span>
             </div>
             
-            <h2 className="text-xl md:text-2xl font-heading font-extrabold text-slate-100 tracking-tight leading-normal">
-              {PERSONAL_INFO.name}
-            </h2>
+            <div className="flex items-center justify-center sm:justify-start gap-3">
+              <h2 className="text-xl md:text-2xl font-heading font-extrabold text-slate-100 tracking-tight leading-normal">
+                {PERSONAL_INFO.name}
+              </h2>
+              {/* Elegant cyber spiderman decoration */}
+              <img 
+                src="/src/assets/images/spiderman_icon_1782029691948.jpg" 
+                alt="Cyber Spider Emblem" 
+                referrerPolicy="no-referrer"
+                className="w-7 h-7 rounded-full border border-rose-550/40 shadow-inner inline-block"
+              />
+            </div>
             <p className="text-xs md:text-sm text-slate-300 leading-relaxed mt-2 font-sans max-w-xl">
               BSc (Hons) in Data Science candidate and dual-disciplinary engineer based in Sri Lanka. Blends solid, pattern-oriented software standards with modern quantitative deep learning modules.
             </p>
           </div>
-
+  
           {/* Demographics Details Grid */}
           <div className="flex flex-wrap items-center justify-center sm:justify-start gap-x-4 gap-y-2 text-xs text-slate-400 py-1.5 border-t border-b border-slate-850/60 font-sans">
             <div className="flex items-center gap-1.5">
-              <MapPin className="w-3.5 h-3.5 text-slate-500 shrink-0" />
+              <MapPin className="w-3.5 h-3.5 text-rose-500 shrink-0" />
               <span>Sri Lanka (Central SLT Node)</span>
             </div>
             <div className="flex items-center gap-1.5 sm:border-l sm:border-slate-800 sm:pl-4">
-              <Award className="w-3.5 h-3.5 text-slate-500 shrink-0" />
+              <Award className="w-3.5 h-3.5 text-cyan-400 shrink-0" />
               <span>BSc Data Science Undergraduate</span>
             </div>
           </div>

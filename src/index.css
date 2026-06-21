@@ -6,34 +6,44 @@
   --font-heading: "Space Grotesk", sans-serif;
   --font-mono: "JetBrains Mono", ui-monospace, SFMono-Regular, monospace;
 
-  /* Override standard slate scales for Elegant Dark (#0A0A0A canvas, #111111 container, #1A1A1A/#2A2A2A border) */
-  --color-slate-950: #0A0A0A;
-  --color-slate-900: #111111;
-  --color-slate-850: #151515;
-  --color-slate-800: #1A1A1A;
-  --color-slate-700: #2A2A2A;
-  --color-slate-600: #4B5563;
-  --color-slate-500: #6B7280;
-  --color-slate-400: #9CA3AF;
-  --color-slate-300: #E5E5E5;
-  --color-slate-200: #F3F4F6;
-  --color-slate-100: #F9FAFB;
+  /* Custom spider web black & cosmic deep space palette overrides */
+  --color-slate-950: #020206; /* Immersive Void */
+  --color-slate-900: #09090f; /* Dark Graphite */
+  --color-slate-850: #0f0f18; /* Cosmic Steel */
+  --color-slate-800: #151522; /* High-contrast Dark border */
+  --color-slate-705: #1b1b2d;
+  --color-slate-700: #1d1d2e;
+  --color-slate-600: #33334c;
+  --color-slate-500: #555577;
+  --color-slate-400: #8fa0c0;
+  --color-slate-350: #b0c0dd;
+  --color-slate-300: #cbd5e1;
+  --color-slate-200: #f1f5f9;
+  --color-slate-100: #f8fafc;
 
-  /* Override indigo with premium tech-focused Blue accents (#2563eb / #3b82f6) */
-  --color-indigo-950: #060F2B;
-  --color-indigo-900: #0A1435;
-  --color-indigo-800: #1E40AF;
-  --color-indigo-700: #1D4ED8;
-  --color-indigo-600: #2563EB;
-  --color-indigo-550: #3B82F6;
-  --color-indigo-500: #3B82F6;
-  --color-indigo-400: #60A5FA;
-  --color-indigo-300: #93C5FD;
-  --color-indigo-200: #BFDBFE;
-  --color-indigo-100: #DBEAFE;
+  /* Override Indigo palette with glowing Spider-Man Scarlet Crimson */
+  --color-indigo-950: #1a0208; /* Deep Scarlet Shadow */
+  --color-indigo-900: #2d0412; 
+  --color-indigo-800: #5c0722; 
+  --color-indigo-700: #9f1239; 
+  --color-indigo-600: #be123c; /* Spider-man Crimson Red */
+  --color-indigo-505: #dc2626; 
+  --color-indigo-500: #e11d48; /* Neon Scarlet */
+  --color-indigo-400: #f43f5e; /* Vibrating Sensor Red */
+  --color-indigo-300: #fb7185; 
+  --color-indigo-200: #fecdd3; 
+  --color-indigo-100: #ffe4e6; 
+
+  /* Dynamic Electric Portal Cyan for webs and spacetime folds */
+  --color-cyan-950: #021a24;
+  --color-cyan-900: #042f40;
+  --color-cyan-600: #0891b2;
+  --color-cyan-500: #06b6d4;
+  --color-cyan-400: #00f0ff; /* Electric Spidey Suit Blue */
+  --color-cyan-300: #67e8f9;
 
   /* Custom borders */
-  --border-color-default: #1A1A1A;
+  --border-color-default: #151522;
   --animate-spin-slow: spin 12s linear infinite;
 }
 

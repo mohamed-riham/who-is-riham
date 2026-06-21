@@ -28,16 +28,17 @@ import ProfileAvatarHub from './components/ProfileAvatarHub';
 import SearchInsights from './components/SearchInsights';
 import MathMatrixLab from './components/MathMatrixLab';
 import MobilePortfolioApp from './components/MobilePortfolioApp';
+import QuantumSpideyCanvas from './components/QuantumSpideyCanvas';
 
 export default function App() {
-  const [activeSection, setActiveSection] = useState('architect');
+  const [activeSection, setActiveSection] = useState('journey');
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   const [projectFilter, setProjectFilter] = useState<'all' | 'iot' | 'data-science' | 'software' | 'full-stack'>('all');
   const [terminalCommand, setTerminalCommand] = useState('');
   const [terminalHistory, setTerminalHistory] = useState<Array<{ type: 'cmd' | 'resp'; text: string }>>([
     { type: 'resp', text: 'Initializing Riham-Core compiler v4.11...' },
-    { type: 'resp', text: 'Status: Dual-disciplinary system ready (Software Engineering × Data Science).' },
-    { type: 'resp', text: 'Type "help" to view custom operational macros.' }
+    { type: 'resp', text: 'Status: Dual-disciplinary system ready (Software Engineering × Data Science). [Theme Mode: Dark Spider]' },
+    { type: 'resp', text: 'Type "help" to view custom academic and professional operational macros.' }
   ]);
 
   // Premium Mouse Spotlight Dynamics
@@ -57,6 +58,44 @@ export default function App() {
       window.removeEventListener('mousemove', handleGlobalMouseMove);
     };
   }, [mouseX, mouseY]);
+
+  // Dynamic Query Parameter & Hash Routing for Indexability and "Real Extra Pages"
+  useEffect(() => {
+    const params = new URLSearchParams(window.location.search);
+    const targetPage = params.get('page') || params.get('tab') || window.location.hash.substring(1);
+    
+    if (targetPage) {
+      const normalized = targetPage.toLowerCase();
+      let targetId = '';
+      if (normalized === 'home' || normalized === 'architect' || normalized === 'journey') {
+        targetId = 'journey';
+      } else if (normalized === 'projects' || normalized === 'web' || normalized === 'tech-web') {
+        targetId = 'projects';
+      } else if (normalized === 'research' || normalized === 'fraud' || normalized === 'quantum-fraud') {
+        targetId = 'research';
+      } else if (normalized === 'skills' || normalized === 'badges' || normalized === 'genetic') {
+        targetId = 'skills';
+      } else if (normalized === 'search' || normalized === 'insights' || normalized === 'multiverse') {
+        targetId = 'search';
+      } else if (normalized === 'case-studies' || normalized === 'cases' || normalized === 'chronicle') {
+        targetId = 'case-studies';
+      } else if (normalized === 'math-lab' || normalized === 'math' || normalized === 'labs' || normalized === 'wormhole') {
+        targetId = 'math-lab';
+      } else if (normalized === 'contact' || normalized === 'connect' || normalized === 'portal') {
+        targetId = 'contact';
+      }
+
+      if (targetId) {
+        setTimeout(() => {
+          const el = document.getElementById(targetId);
+          if (el) {
+            el.scrollIntoView({ behavior: 'smooth', block: 'start' });
+            setActiveSection(targetId);
+          }
+        }, 300);
+      }
+    }
+  }, []);
 
   const navLinks = [
     { id: 'journey', label: 'Career Journey' },
@@ -110,11 +149,11 @@ export default function App() {
         { type: 'resp', text: `Title: ${PERSONAL_INFO.title}` },
         { type: 'resp', text: `Bio: ${PERSONAL_INFO.biography}` }
       );
-    } else if (cmd === 'skills') {
+    } else if (cmd === 'skills' || cmd === 'webs') {
       newHistory.push(
         { type: 'resp', text: 'Primary Matrix: Python (95%), SQL (90%), C# (80%), OpenCV (88%), YOLOv8 (90%), Streamlit (92%)' }
       );
-    } else if (cmd === 'contact') {
+    } else if (cmd === 'contact' || cmd === 'portal') {
       newHistory.push(
         { type: 'resp', text: `Direct Mail: ${PERSONAL_INFO.email}` },
         { type: 'resp', text: 'GitHub Hub: github.com/mohamed-riham' },
@@ -140,8 +179,11 @@ export default function App() {
   return (
     <div className="min-h-screen bg-slate-950 text-slate-100 overflow-x-hidden relative font-sans">
       
+      {/* 🌌 Space-Time Web Continuum Layer */}
+      <QuantumSpideyCanvas />
+      
       {/* ─── DESKTOP PC PORTAL (lg:block hidden) ─── */}
-      <div className="hidden lg:block relative w-full">
+      <div className="hidden lg:block relative w-full z-10">
       {/* Smooth Mouse Tracking Spotlight Glow */}
       <motion.div
         style={{
@@ -149,30 +191,30 @@ export default function App() {
           top: glowY,
           transform: 'translate(-50%, -50%)',
         }}
-        className="fixed w-[600px] h-[600px] bg-[radial-gradient(circle_at_center,rgba(99,102,241,0.06),rgba(6,182,212,0.025),transparent_65%)] rounded-full pointer-events-none z-[1] select-none"
+        className="fixed w-[600px] h-[600px] bg-[radial-gradient(circle_at_center,rgba(244,63,94,0.08),rgba(6,182,212,0.035),transparent_65%)] rounded-full pointer-events-none z-[1] select-none"
       />
 
       {/* Decorative Atmospheric Lights */}
-      <div className="absolute top-[-10%] left-[-10%] w-[50%] h-[50%] bg-indigo-900/10 blur-[130px] rounded-full pointer-events-none" />
-      <div className="absolute bottom-[-10%] right-[-10%] w-[50%] h-[50%] bg-cyan-900/10 blur-[130px] rounded-full pointer-events-none" />
+      <div className="absolute top-[-10%] left-[-10%] w-[50%] h-[50%] bg-rose-950/15 blur-[130px] rounded-full pointer-events-none animate-pulse-slow" />
+      <div className="absolute bottom-[-10%] right-[-10%] w-[50%] h-[50%] bg-cyan-950/15 blur-[130px] rounded-full pointer-events-none animate-pulse-slow" />
 
       {/* 1. Header Navigation */}
-      <nav className="fixed top-0 left-0 w-full bg-slate-950/90 backdrop-blur-md border-b border-slate-900/90 z-40">
+      <nav className="fixed top-0 left-0 w-full bg-slate-950/80 backdrop-blur-md border-b border-rose-950/35 z-40">
         <div className="max-w-7xl mx-auto px-4 md:px-8 h-16 flex items-center justify-between">
           <div className="flex items-center gap-2.5">
             <motion.div 
-              animate={{ scale: [1, 1.05, 1] }}
-              transition={{ repeat: Infinity, duration: 4, ease: "easeInOut" }}
-              className="w-8 h-8 rounded-lg bg-gradient-to-br from-indigo-600 to-indigo-800 flex items-center justify-center font-heading font-medium text-white shadow-md select-none"
+              animate={{ scale: [1, 1.15, 1], rotate: [0, 5, -5, 0] }}
+              transition={{ repeat: Infinity, duration: 6, ease: "easeInOut" }}
+              className="w-9 h-9 rounded-lg bg-gradient-to-br from-rose-600 to-indigo-900 flex items-center justify-center font-heading text-lg text-white shadow-lg border border-rose-500/25 select-none"
             >
-              MR
+              🕸️
             </motion.div>
             <div>
-              <span className="font-heading font-bold text-sm tracking-tight block text-slate-100 leading-none">
+              <span className="font-heading font-black text-sm tracking-tight block text-slate-100 leading-none">
                 {PERSONAL_INFO.name}
               </span>
-              <span className="text-[10px] font-mono text-indigo-400 font-bold tracking-widest leading-none mt-1 block uppercase">
-                [SE × DS] Double Core
+              <span className="text-[9px] font-mono text-rose-400 font-bold tracking-widest leading-none mt-1.5 block uppercase">
+                [SE × DS] DOUBLE CORE
               </span>
             </div>
           </div>
@@ -309,12 +351,12 @@ export default function App() {
                 hidden: { opacity: 0, y: 15 },
                 visible: { opacity: 1, y: 0 }
               }}
-              className="inline-flex items-center gap-2 px-3 py-1 bg-indigo-500/10 text-indigo-400 border border-indigo-500/15 rounded-full font-mono text-xs font-semibold uppercase tracking-wider"
+              className="inline-flex items-center gap-2 px-3 py-1 bg-rose-500/10 text-rose-400 border border-rose-500/15 rounded-full font-mono text-xs font-semibold uppercase tracking-wider"
             >
-              <Cpu className="w-3.5 h-3.5 animate-spin-slow" />
-              <span>Full-Stack AI & Analytics Node</span>
+              <Cpu className="w-3.5 h-3.5 animate-spin-slow text-rose-500" />
+              <span>Full-Stack AI &amp; Analytics Node</span>
             </motion.div>
-
+ 
             <motion.h1 
               variants={{
                 hidden: { opacity: 0, y: 20 },
@@ -322,9 +364,9 @@ export default function App() {
               }}
               className="text-4xl sm:text-5xl md:text-6xl font-heading font-extrabold text-slate-100 tracking-tight leading-none"
             >
-              M.A. Mohamed <span className="bg-gradient-to-r from-indigo-400 via-indigo-200 to-cyan-300 bg-clip-text text-transparent">Riham</span>
+              M.A. Mohamed <span className="bg-gradient-to-r from-rose-500 via-rose-300 to-cyan-400 bg-clip-text text-transparent">Riham</span>
             </motion.h1>
-
+ 
             <motion.p 
               variants={{
                 hidden: { opacity: 0, y: 15 },
@@ -334,7 +376,7 @@ export default function App() {
             >
               {PERSONAL_INFO.subTitle}
             </motion.p>
-
+ 
             <motion.p 
               variants={{
                 hidden: { opacity: 0, y: 15 },
@@ -344,7 +386,7 @@ export default function App() {
             >
               {PERSONAL_INFO.biography}
             </motion.p>
-
+ 
             {/* Quick Actions */}
             <motion.div 
               variants={{
@@ -356,7 +398,7 @@ export default function App() {
               <a
                 id="hero-scroll-projects"
                 href="#projects"
-                className="px-5 py-2.5 bg-indigo-600 hover:bg-indigo-505 bg-indigo-700/80 hover:bg-indigo-600 text-white rounded-lg text-xs font-mono font-semibold transition-all shadow-md cursor-pointer flex items-center gap-2"
+                className="px-5 py-2.5 bg-rose-600 hover:bg-rose-550 bg-rose-700/80 hover:bg-rose-650 text-white rounded-lg text-xs font-mono font-semibold transition-all shadow-md cursor-pointer flex items-center gap-2 border border-rose-500/30"
               >
                 <span>Access Projects Registry</span>
                 <ChevronRight className="w-3.5 h-3.5" />
@@ -364,9 +406,9 @@ export default function App() {
               <a
                 id="hero-scroll-research"
                 href="#research"
-                className="px-5 py-2.5 bg-slate-900 hover:bg-slate-850 border border-slate-800 rounded-lg text-xs font-mono font-semibold text-slate-300 hover:text-white transition-all cursor-pointer flex items-center gap-2"
+                className="px-5 py-2.5 bg-slate-900 hover:bg-slate-850 border border-slate-850 rounded-lg text-xs font-mono font-semibold text-slate-300 hover:text-white transition-all cursor-pointer flex items-center gap-2"
               >
-                <Terminal className="w-3.5 h-3.5" />
+                <Terminal className="w-3.5 h-3.5 text-rose-500" />
                 <span>Read Fraud Report</span>
               </a>
             </motion.div>

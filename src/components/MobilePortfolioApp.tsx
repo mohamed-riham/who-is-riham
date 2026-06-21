@@ -76,6 +76,27 @@ export default function MobilePortfolioApp() {
     };
   }, []);
 
+  // Mobile Router Link Support for Search Engine Crawling
+  useEffect(() => {
+    const params = new URLSearchParams(window.location.search);
+    const targetPage = params.get('page') || params.get('tab') || window.location.hash.substring(1);
+    
+    if (targetPage) {
+      const normalized = targetPage.toLowerCase();
+      if (normalized === 'home' || normalized === 'journey') {
+        setActiveTab('home');
+      } else if (normalized === 'projects') {
+        setActiveTab('projects');
+      } else if (normalized === 'research') {
+        setActiveTab('research');
+      } else if (['labs', 'skills', 'search', 'case-studies', 'math-lab'].includes(normalized)) {
+        setActiveTab('labs');
+      } else if (normalized === 'contact' || normalized === 'connect') {
+        setActiveTab('connect');
+      }
+    }
+  }, []);
+
   const runMobileCommand = (cmdText: string) => {
     const cleanCmd = cmdText.trim().toLowerCase();
     const newLogs = [...terminalLogs, { type: 'cmd' as const, text: `$ ${cmdText}` }];
@@ -131,9 +152,9 @@ export default function MobilePortfolioApp() {
     <div className="min-h-screen bg-slate-950 text-slate-100 flex flex-col justify-between select-none relative pb-20">
       
       {/* Native-style Top Status Bar */}
-      <div className="sticky top-0 bg-slate-950/90 backdrop-blur-md border-b border-slate-900/80 px-4 py-2 flex items-center justify-between z-30 text-[10px] font-mono text-slate-400">
+      <div className="sticky top-0 bg-slate-950/90 backdrop-blur-md border-b border-rose-950/30 px-4 py-2 flex items-center justify-between z-30 text-[10px] font-mono text-slate-400">
         <div className="flex items-center gap-1.5">
-          <span className="w-1.5 h-1.5 rounded-full bg-emerald-500 animate-ping" />
+          <span className="w-1.5 h-1.5 rounded-full bg-rose-500 animate-pulse" />
           <span className="font-bold text-slate-300">RihamOS v4.11</span>
         </div>
         <div className="text-slate-300 font-semibold">{currentTime}</div>
@@ -143,15 +164,15 @@ export default function MobilePortfolioApp() {
             <span className="text-[9px]">5G</span>
           </div>
           <div className="flex items-center gap-1">
-            <Battery className="w-3.5 h-3.5 text-emerald-400" />
+            <Battery className="w-3.5 h-3.5 text-rose-500" />
             <span>{batteryLevel}%</span>
           </div>
         </div>
       </div>
-
+  
       {/* Main Pocket Body Viewport inside tab router */}
       <div className="flex-1 w-full max-w-md mx-auto px-4 py-6 overflow-x-hidden space-y-6">
-
+  
         <AnimatePresence mode="wait">
           
           {/* TAB 1: HOME OS DASHBOARD */}
@@ -165,8 +186,8 @@ export default function MobilePortfolioApp() {
               className="space-y-6 text-left"
             >
               {/* Dynamic Interactive Welcome Mini Header Card */}
-              <div className="p-4 rounded-2xl bg-gradient-to-br from-indigo-950/40 to-slate-900/60 border border-slate-850 relative overflow-hidden">
-                <div className="absolute top-0 right-0 w-24 h-24 bg-indigo-500/10 blur-xl pointer-events-none" />
+              <div className="p-4 rounded-2xl bg-gradient-to-br from-rose-950/20 to-slate-900/50 border border-rose-900/30 relative overflow-hidden">
+                <div className="absolute top-0 right-0 w-24 h-24 bg-rose-500/10 blur-xl pointer-events-none" />
                 
                 <div className="flex items-center gap-3">
                   <div className="relative">
@@ -176,10 +197,10 @@ export default function MobilePortfolioApp() {
                       onError={(e) => {
                         (e.target as HTMLImageElement).src = "https://avatar.iran.liara.run/public/boy";
                       }}
-                      className="w-12 h-12 rounded-xl object-cover border border-indigo-500/30 shadow"
+                      className="w-12 h-12 rounded-xl object-cover border border-rose-500/30 shadow"
                     />
-                    <div className="absolute -bottom-1 -right-1 bg-emerald-500 border-2 border-slate-950 w-3.5 h-3.5 rounded-full flex items-center justify-center">
-                      <span className="w-1.5 h-1.5 bg-white rounded-full animate-pulse" />
+                    <div className="absolute -bottom-1 -right-1 bg-rose-500 border-2 border-slate-950 w-3.5 h-3.5 rounded-full flex items-center justify-center">
+                      <span className="w-1.5 h-1.5 bg-white rounded-full animate-ping" />
                     </div>
                   </div>
                   <div>
@@ -191,14 +212,14 @@ export default function MobilePortfolioApp() {
                     </p>
                   </div>
                 </div>
-
+  
                 <p className="text-xs text-slate-350 leading-relaxed mt-4 font-sans border-t border-slate-900 pt-3">
                   A dual-disciplinary developer from Sri Lanka. Integrates rigorous software design benchmarks with modern deep neural networks.
                 </p>
-
+  
                 <div className="flex flex-wrap items-center gap-x-3 gap-y-1.5 pt-3 text-[10px] text-slate-450 font-sans font-medium">
                   <span className="flex items-center gap-1">
-                    <MapPin className="w-3 h-3 text-indigo-400" />
+                    <MapPin className="w-3 h-3 text-rose-400" />
                     Sri Lanka Node
                   </span>
                   <span className="text-slate-700">|</span>
@@ -208,7 +229,7 @@ export default function MobilePortfolioApp() {
                   </span>
                 </div>
               </div>
-
+ 
               {/* Bento Quick Status Mini Grid Widget */}
               <div className="grid grid-cols-2 gap-3">
                 <button 
