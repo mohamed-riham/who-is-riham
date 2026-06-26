@@ -13,6 +13,7 @@ import {
   Layers,
   Activity
 } from 'lucide-react';
+import { playHoverTick, playCyberClick } from '../lib/audio';
 
 interface Point {
   x: number;
@@ -235,7 +236,8 @@ export default function MathMatrixLab() {
             <div className="grid grid-cols-2 md:grid-cols-3 gap-2">
               <button
                 id="btn-matrix-identity"
-                onClick={() => setActiveOp("identity")}
+                onMouseEnter={playHoverTick}
+                onClick={() => { playCyberClick(); setActiveOp("identity"); }}
                 className={`p-3 text-left rounded-xl border text-xs font-mono transition-all flex flex-col justify-between cursor-pointer ${activeOp === "identity" ? 'bg-indigo-950/50 border-rose-500/50 text-rose-300' : 'bg-slate-950 hover:bg-slate-900 border-rose-950/30 text-slate-450 hover:text-slate-200'}`}
               >
                 <span className="text-[10px] text-rose-500 block uppercase font-bold mb-1">E_OP</span>
@@ -244,7 +246,8 @@ export default function MathMatrixLab() {
 
               <button
                 id="btn-matrix-rotate90"
-                onClick={() => setActiveOp("rotate90")}
+                onMouseEnter={playHoverTick}
+                onClick={() => { playCyberClick(); setActiveOp("rotate90"); }}
                 className={`p-3 text-left rounded-xl border text-xs font-mono transition-all flex flex-col justify-between cursor-pointer ${activeOp === "rotate90" ? 'bg-indigo-950/50 border-rose-500/50 text-rose-300' : 'bg-slate-950 hover:bg-slate-900 border-rose-950/30 text-slate-450 hover:text-slate-200'}`}
               >
                 <span className="text-[10px] text-rose-500 block uppercase font-bold mb-1">C4_R90</span>
@@ -253,7 +256,8 @@ export default function MathMatrixLab() {
 
               <button
                 id="btn-matrix-rotate180"
-                onClick={() => setActiveOp("rotate180")}
+                onMouseEnter={playHoverTick}
+                onClick={() => { playCyberClick(); setActiveOp("rotate180"); }}
                 className={`p-3 text-left rounded-xl border text-xs font-mono transition-all flex flex-col justify-between cursor-pointer ${activeOp === "rotate180" ? 'bg-indigo-950/50 border-rose-500/50 text-rose-300' : 'bg-slate-950 hover:bg-slate-900 border-rose-950/30 text-slate-450 hover:text-slate-200'}`}
               >
                 <span className="text-[10px] text-rose-500 block uppercase font-bold mb-1">C2_R180</span>
@@ -262,7 +266,8 @@ export default function MathMatrixLab() {
 
               <button
                 id="btn-matrix-reflectX"
-                onClick={() => setActiveOp("reflectX")}
+                onMouseEnter={playHoverTick}
+                onClick={() => { playCyberClick(); setActiveOp("reflectX"); }}
                 className={`p-3 text-left rounded-xl border text-xs font-mono transition-all flex flex-col justify-between cursor-pointer ${activeOp === "reflectX" ? 'bg-indigo-950/50 border-rose-500/50 text-rose-300' : 'bg-slate-950 hover:bg-slate-900 border-rose-950/30 text-slate-450 hover:text-slate-200'}`}
               >
                 <span className="text-[10px] text-rose-500 block uppercase font-bold mb-1">σ_H</span>
@@ -271,7 +276,8 @@ export default function MathMatrixLab() {
 
               <button
                 id="btn-matrix-reflectY"
-                onClick={() => setActiveOp("reflectY")}
+                onMouseEnter={playHoverTick}
+                onClick={() => { playCyberClick(); setActiveOp("reflectY"); }}
                 className={`p-3 text-left rounded-xl border text-xs font-mono transition-all flex flex-col justify-between cursor-pointer ${activeOp === "reflectY" ? 'bg-indigo-950/50 border-rose-500/50 text-rose-300' : 'bg-slate-950 hover:bg-slate-900 border-rose-950/30 text-slate-450 hover:text-slate-200'}`}
               >
                 <span className="text-[10px] text-rose-500 block uppercase font-bold mb-1">σ_V</span>
@@ -280,7 +286,8 @@ export default function MathMatrixLab() {
 
               <button
                 id="btn-matrix-shear"
-                onClick={() => setActiveOp("shearX")}
+                onMouseEnter={playHoverTick}
+                onClick={() => { playCyberClick(); setActiveOp("shearX"); }}
                 className={`p-3 text-left rounded-xl border text-xs font-mono transition-all flex flex-col justify-between cursor-pointer ${activeOp === "shearX" ? 'bg-indigo-950/50 border-rose-500/50 text-rose-300' : 'bg-slate-950 hover:bg-slate-900 border-rose-950/30 text-slate-450 hover:text-slate-200'}`}
               >
                 <span className="text-[10px] text-rose-500 block uppercase font-bold mb-1">M_SHEAR</span>

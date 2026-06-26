@@ -14,6 +14,9 @@ import {
   Database
 } from 'lucide-react';
 import { Project } from '../types';
+import TiltCard from './TiltCard';
+import SEOMetadataManager from './SEOMetadataManager';
+import { playCyberClick, playHoverTick } from '../lib/audio';
 
 interface ProjectCardProps {
   project: Project;
@@ -23,6 +26,38 @@ interface ProjectCardProps {
 export default function ProjectCard({ project }: ProjectCardProps) {
   const [isOpen, setIsOpen] = useState(false);
   const [coords, setCoords] = useState({ x: 0, y: 0 });
+
+  // 🌍 Deep-Linking & Search Crawler Sync Effect
+  React.useEffect(() => {
+    if (typeof window !== 'undefined') {
+      const params = new URLSearchParams(window.location.search);
+      if (params.get('project') === project.id) {
+        setIsOpen(true);
+      }
+    }
+  }, [project.id]);
+
+  React.useEffect(() => {
+    if (typeof window !== 'undefined') {
+      const params = new URLSearchParams(window.location.search);
+      const activeProjectQuery = params.get('project');
+      
+      if (isOpen) {
+        if (activeProjectQuery !== project.id) {
+          params.set('project', project.id);
+          const newUrl = `${window.location.pathname}?${params.toString()}${window.location.hash}`;
+          window.history.pushState({ project: project.id }, '', newUrl);
+        }
+      } else {
+        if (activeProjectQuery === project.id) {
+          params.delete('project');
+          const searchString = params.toString();
+          const newUrl = `${window.location.pathname}${searchString ? `?${searchString}` : ''}${window.location.hash}`;
+          window.history.pushState({ project: null }, '', newUrl);
+        }
+      }
+    }
+  }, [isOpen, project.id]);
 
   const handleMouseMove = (e: React.MouseEvent<HTMLDivElement>) => {
     const rect = e.currentTarget.getBoundingClientRect();
@@ -49,11 +84,13 @@ export default function ProjectCard({ project }: ProjectCardProps) {
   };
 
   return (
-    <div 
-      id={`project-card-${project.id}`}
-      onMouseMove={handleMouseMove}
-      className="group relative flex flex-col justify-between bg-slate-900/60 backdrop-blur-md rounded-xl border border-slate-800/80 overflow-hidden hover:border-slate-700/80 transition-all duration-300"
-    >
+    <TiltCard id={`project-card-tilt-${project.id}`} className="h-full">
+      <div 
+        id={`project-card-${project.id}`}
+        onMouseMove={handleMouseMove}
+        onClick={() => { playCyberClick(); setIsOpen(true); }}
+        className="group relative flex flex-col justify-between bg-slate-900/60 backdrop-blur-md rounded-xl border border-slate-800/80 overflow-hidden hover:border-indigo-500/40 hover:shadow-[0_0_15px_rgba(99,102,241,0.15)] transition-all duration-300 h-full cursor-pointer select-none"
+      >
       {/* Dynamic Hover Spotlight Glow */}
       <div 
         className="absolute inset-0 pointer-events-none opacity-0 group-hover:opacity-100 transition-opacity duration-300 z-10"
@@ -193,6 +230,7 @@ export default function ProjectCard({ project }: ProjectCardProps) {
             exit={{ opacity: 0 }}
             className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-slate-950/90 backdrop-blur-md"
           >
+            <SEOMetadataManager activeProject={project} />
             {/* Modal Container */}
             <motion.div 
               initial={{ scale: 0.95, y: 20 }}
@@ -366,5 +404,6 @@ export default function ProjectCard({ project }: ProjectCardProps) {
         )}
       </AnimatePresence>
     </div>
+    </TiltCard>
   );
 }

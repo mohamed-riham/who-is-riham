@@ -15,7 +15,9 @@ import {
   Shield,
   FileSpreadsheet,
   Menu,
-  X
+  X,
+  Volume2,
+  VolumeX
 } from 'lucide-react';
 import { PERSONAL_INFO, PROJECTS } from './data';
 import ProjectCard from './components/ProjectCard';
@@ -29,17 +31,49 @@ import SearchInsights from './components/SearchInsights';
 import MathMatrixLab from './components/MathMatrixLab';
 import MobilePortfolioApp from './components/MobilePortfolioApp';
 import QuantumSpideyCanvas from './components/QuantumSpideyCanvas';
+import CyberGlobe3D from './components/CyberGlobe3D';
+import SEOMetadataManager from './components/SEOMetadataManager';
+import { setMute, getMuteState, playHoverTick, playCyberClick, playWormholeSwoosh, playSuccessChime } from './lib/audio';
 
 export default function App() {
   const [activeSection, setActiveSection] = useState('journey');
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
+  const [isAudioMuted, setIsAudioMuted] = useState(getMuteState());
+  const [isMobileScreen, setIsMobileScreen] = useState(() => {
+    if (typeof window !== 'undefined') {
+      return window.innerWidth < 1024;
+    }
+    return false;
+  });
+
+  useEffect(() => {
+    const checkScreenSize = () => {
+      setIsMobileScreen(window.innerWidth < 1024);
+    };
+    checkScreenSize();
+    window.addEventListener('resize', checkScreenSize);
+    return () => window.removeEventListener('resize', checkScreenSize);
+  }, []);
+
+  const [heroTab, setHeroTab] = useState<'3d-globe' | 'terminal'>('3d-globe');
   const [projectFilter, setProjectFilter] = useState<'all' | 'iot' | 'data-science' | 'software' | 'full-stack'>('all');
   const [terminalCommand, setTerminalCommand] = useState('');
   const [terminalHistory, setTerminalHistory] = useState<Array<{ type: 'cmd' | 'resp'; text: string }>>([
     { type: 'resp', text: 'Initializing Riham-Core compiler v4.11...' },
     { type: 'resp', text: 'Status: Dual-disciplinary system ready (Software Engineering × Data Science). [Theme Mode: Dark Spider]' },
-    { type: 'resp', text: 'Type "help" to view custom academic and professional operational macros.' }
+    { type: 'resp', text: 'Type "help" to view custom academic and professional operational macros. (Tip: Try unmuting in top-right for cyber sound effects!)' }
   ]);
+
+  const handleToggleMute = () => {
+    const nextMute = !isAudioMuted;
+    setMute(nextMute);
+    setIsAudioMuted(nextMute);
+    if (!nextMute) {
+      setTimeout(() => {
+        playWormholeSwoosh();
+      }, 80);
+    }
+  };
 
   // Premium Mouse Spotlight Dynamics
   const mouseX = useMotionValue(0);
@@ -58,6 +92,16 @@ export default function App() {
       window.removeEventListener('mousemove', handleGlobalMouseMove);
     };
   }, [mouseX, mouseY]);
+
+  const scrollToSection = (id: string) => {
+    const el = document.getElementById(id);
+    if (el) {
+      const yOffset = -80; // offset for the sticky header
+      const y = el.getBoundingClientRect().top + window.scrollY + yOffset;
+      window.scrollTo({ top: y, behavior: 'smooth' });
+      setActiveSection(id);
+    }
+  };
 
   // Dynamic Query Parameter & Hash Routing for Indexability and "Real Extra Pages"
   useEffect(() => {
@@ -87,25 +131,21 @@ export default function App() {
 
       if (targetId) {
         setTimeout(() => {
-          const el = document.getElementById(targetId);
-          if (el) {
-            el.scrollIntoView({ behavior: 'smooth', block: 'start' });
-            setActiveSection(targetId);
-          }
-        }, 300);
+          scrollToSection(targetId);
+        }, 400);
       }
     }
   }, []);
 
   const navLinks = [
-    { id: 'journey', label: 'Career Journey' },
+    { id: 'journey', label: 'Journey' },
     { id: 'projects', label: 'Projects' },
-    { id: 'research', label: 'Fraud Research' },
-    { id: 'skills', label: 'Skills & Badges' },
-    { id: 'search', label: 'Search Insights' },
-    { id: 'case-studies', label: 'Case Studies' },
+    { id: 'research', label: 'Research' },
+    { id: 'skills', label: 'Skills' },
+    { id: 'search', label: 'Insights' },
+    { id: 'case-studies', label: 'Cases' },
     { id: 'math-lab', label: 'Math Lab' },
-    { id: 'contact', label: 'Contact Node' }
+    { id: 'contact', label: 'Contact' }
   ];
 
   // Dynamic Scroll Highlighting
@@ -115,8 +155,9 @@ export default function App() {
       for (const link of navLinks) {
         const el = document.getElementById(link.id);
         if (el) {
-          const top = el.offsetTop;
-          const height = el.offsetHeight;
+          const rect = el.getBoundingClientRect();
+          const top = rect.top + window.scrollY;
+          const height = rect.height;
           if (scrollPos >= top && scrollPos < top + height) {
             setActiveSection(link.id);
             break;
@@ -132,6 +173,7 @@ export default function App() {
     e.preventDefault();
     if (!terminalCommand.trim()) return;
 
+    playCyberClick();
     const cmd = terminalCommand.trim().toLowerCase();
     const newHistory = [...terminalHistory, { type: 'cmd' as const, text: `$ ${terminalCommand}` }];
 
@@ -169,6 +211,7 @@ export default function App() {
 
     setTerminalHistory(newHistory);
     setTerminalCommand('');
+    playSuccessChime();
   };
 
   const filteredProjects = PROJECTS.filter((p) => {
@@ -176,14 +219,27 @@ export default function App() {
     return p.category === projectFilter;
   });
 
+  if (isMobileScreen) {
+    return (
+      <div className="min-h-screen bg-slate-950 text-slate-100 overflow-x-hidden relative font-sans">
+        <SEOMetadataManager activeProject={null} />
+        <QuantumSpideyCanvas />
+        <div className="relative w-full">
+          <MobilePortfolioApp />
+        </div>
+      </div>
+    );
+  }
+
   return (
     <div className="min-h-screen bg-slate-950 text-slate-100 overflow-x-hidden relative font-sans">
+      <SEOMetadataManager activeProject={null} />
       
       {/* 🌌 Space-Time Web Continuum Layer */}
       <QuantumSpideyCanvas />
       
-      {/* ─── DESKTOP PC PORTAL (lg:block hidden) ─── */}
-      <div className="hidden lg:block relative w-full z-10">
+      {/* ─── DESKTOP PC PORTAL ─── */}
+      <div className="relative w-full z-10">
       {/* Smooth Mouse Tracking Spotlight Glow */}
       <motion.div
         style={{
@@ -227,6 +283,12 @@ export default function App() {
                 <a
                   key={link.id}
                   href={`#${link.id}`}
+                  onMouseEnter={playHoverTick}
+                  onClick={(e) => { 
+                    e.preventDefault(); 
+                    playWormholeSwoosh(); 
+                    scrollToSection(link.id); 
+                  }}
                   className="relative px-3 py-1.5 uppercase tracking-wider font-semibold transition-colors duration-200 text-center"
                 >
                   {isActive && (
@@ -245,14 +307,47 @@ export default function App() {
           </div>
 
           {/* Controls Right */}
-          <div className="flex items-center gap-2">
+          <div className="flex items-center gap-3">
+            {/* Interactive Audio Synthesizer Toggle */}
+            <button
+              id="audio-synth-toggle-btn"
+              onClick={handleToggleMute}
+              onMouseEnter={playHoverTick}
+              className={`p-1.5 border rounded flex items-center gap-2 transition-all text-xs font-mono select-none cursor-pointer ${
+                !isAudioMuted 
+                  ? 'bg-rose-950/40 text-rose-400 border-rose-500/50 shadow-[0_0_10px_rgba(244,63,94,0.2)]'
+                  : 'bg-slate-900 hover:bg-slate-850 text-slate-400 border-slate-800'
+              }`}
+              title={!isAudioMuted ? 'Mute Interface Sounds' : 'Unmute Interface Sounds'}
+            >
+              {!isAudioMuted ? (
+                <>
+                  <Volume2 className="w-4 h-4 text-rose-500 animate-bounce" />
+                  <span className="hidden sm:inline font-bold">SOUND: ON</span>
+                  {/* Subtle active equalizer indicators */}
+                  <span className="flex items-end gap-[2px] h-3 pb-0.5">
+                    <span className="w-[1.5px] bg-rose-500 animate-[pulse_0.4s_infinite]" style={{ height: '5px' }} />
+                    <span className="w-[1.5px] bg-rose-500 animate-[pulse_0.6s_infinite]" style={{ height: '9px' }} />
+                    <span className="w-[1.5px] bg-rose-500 animate-[pulse_0.5s_infinite]" style={{ height: '4px' }} />
+                  </span>
+                </>
+              ) : (
+                <>
+                  <VolumeX className="w-4 h-4 text-slate-400" />
+                  <span className="hidden sm:inline">SOUND: OFF</span>
+                </>
+              )}
+            </button>
+
             {/* Social Icons Desktop/Tablet */}
-            <div className="flex items-center gap-2">
+            <div className="hidden sm:flex items-center gap-2">
               <a 
                 id="header-shortcut-github"
                 href={PERSONAL_INFO.github} 
                 target="_blank" 
                 rel="noopener noreferrer" 
+                onMouseEnter={playHoverTick}
+                onClick={playCyberClick}
                 className="p-1.5 bg-slate-900 hover:bg-slate-850 hover:text-white border border-slate-800 rounded transition-all"
                 title="GitHub"
               >
@@ -263,6 +358,8 @@ export default function App() {
                 href={PERSONAL_INFO.linkedin} 
                 target="_blank" 
                 rel="noopener noreferrer" 
+                onMouseEnter={playHoverTick}
+                onClick={playCyberClick}
                 className="p-1.5 bg-slate-900 hover:bg-slate-850 hover:text-white border border-slate-800 rounded transition-all"
                 title="LinkedIn"
               >
@@ -300,7 +397,12 @@ export default function App() {
                     <a
                       key={link.id}
                       href={`#${link.id}`}
-                      onClick={() => setIsMobileMenuOpen(false)}
+                      onClick={(e) => {
+                        e.preventDefault();
+                        setIsMobileMenuOpen(false);
+                        playWormholeSwoosh();
+                        scrollToSection(link.id);
+                      }}
                       className={`flex items-center justify-between p-3 rounded-lg border transition-all ${
                         isActive 
                           ? 'bg-indigo-950/40 border-indigo-600/40 text-indigo-300 font-bold' 
@@ -414,48 +516,101 @@ export default function App() {
             </motion.div>
           </motion.div>
 
-          {/* Right Block: Animated Interactive Terminal Dashboard */}
+          {/* Right Block: Animated Interactive Terminal Dashboard / 3D Globe HUD */}
           <div className="lg:col-span-5 relative z-10 w-full max-w-lg mx-auto">
             {/* Ambient Background Box Glow */}
             <div className="absolute inset-0 bg-indigo-500/5 blur-3xl rounded-full" />
             
-            <div className="relative bg-slate-900 border border-slate-800 rounded-xl overflow-hidden shadow-2xl">
-              {/* Header Tab */}
-              <div className="bg-slate-950 p-3 border-b border-slate-900 flex items-center justify-between">
-                <div className="flex gap-1.5">
-                  <span className="w-3 h-3 rounded-full bg-rose-500/80" />
-                  <span className="w-3 h-3 rounded-full bg-amber-500/80" />
-                  <span className="w-3 h-3 rounded-full bg-emerald-500/80" />
-                </div>
-                <span className="text-[10px] uppercase font-mono text-slate-500 font-bold tracking-widest flex items-center gap-1.5">
-                  <Terminal className="w-3.5 h-3.5 text-indigo-400" />
-                  riham@core_terminal:~
-                </span>
-              </div>
-
-              {/* Terminal Logs */}
-              <div className="p-4 space-y-2 h-56 overflow-y-auto text-xs font-mono pr-1">
-                {terminalHistory.map((item, idx) => (
-                  <div key={idx} className={item.type === 'cmd' ? 'text-indigo-400' : 'text-slate-300 whitespace-pre-line'}>
-                    {item.text}
-                  </div>
-                ))}
-              </div>
-
-              {/* Input Terminal Form */}
-              <form onSubmit={executeCommand} className="border-t border-slate-900 p-3 bg-slate-950/80 flex items-center gap-2">
-                <span className="text-emerald-400 font-mono text-xs select-none">$</span>
-                <input
-                  id="terminal-cli-input"
-                  type="text"
-                  value={terminalCommand}
-                  onChange={(e) => setTerminalCommand(e.target.value)}
-                  placeholder="Type 'help' to dump system indexes..."
-                  className="bg-transparent flex-1 focus:outline-none font-mono text-xs text-slate-200"
-                />
-                <button type="submit" className="hidden">Execute</button>
-              </form>
+            {/* Custom Tab Toggles */}
+            <div className="flex items-center gap-1 mb-3 bg-slate-950/90 p-1 rounded-xl border border-slate-800/80 max-w-[280px] mx-auto lg:mx-0 shadow-lg">
+              <button
+                onClick={() => {
+                  playWormholeSwoosh();
+                  setHeroTab('3d-globe');
+                }}
+                className={`flex-1 py-1.5 px-3 text-[10px] font-mono font-bold rounded-lg transition-all flex items-center justify-center gap-1.5 cursor-pointer ${
+                  heroTab === '3d-globe'
+                    ? 'bg-rose-950/40 text-rose-400 border border-rose-500/25 shadow-[0_0_10px_rgba(244,63,94,0.15)] font-extrabold'
+                    : 'text-slate-450 hover:text-slate-250 border border-transparent'
+                }`}
+              >
+                <span className="w-1.5 h-1.5 rounded-full bg-rose-500 animate-pulse" />
+                3D HOLO-GLOBE
+              </button>
+              <button
+                onClick={() => {
+                  playWormholeSwoosh();
+                  setHeroTab('terminal');
+                }}
+                className={`flex-1 py-1.5 px-3 text-[10px] font-mono font-bold rounded-lg transition-all flex items-center justify-center gap-1.5 cursor-pointer ${
+                  heroTab === 'terminal'
+                    ? 'bg-indigo-950/40 text-indigo-400 border border-indigo-500/25 shadow-[0_0_10px_rgba(225,29,72,0.15)] font-extrabold'
+                    : 'text-slate-450 hover:text-slate-250 border border-transparent'
+                }`}
+              >
+                <span className="w-1.5 h-1.5 rounded-full bg-indigo-500 animate-pulse" />
+                CORE CLI
+              </button>
             </div>
+
+            <AnimatePresence mode="wait">
+              {heroTab === '3d-globe' ? (
+                <motion.div
+                  key="3d-globe"
+                  initial={{ opacity: 0, scale: 0.96, y: 10 }}
+                  animate={{ opacity: 1, scale: 1, y: 0 }}
+                  exit={{ opacity: 0, scale: 0.96, y: -10 }}
+                  transition={{ duration: 0.2 }}
+                >
+                  <CyberGlobe3D />
+                </motion.div>
+              ) : (
+                <motion.div
+                  key="terminal"
+                  initial={{ opacity: 0, scale: 0.96, y: 10 }}
+                  animate={{ opacity: 1, scale: 1, y: 0 }}
+                  exit={{ opacity: 0, scale: 0.96, y: -10 }}
+                  transition={{ duration: 0.2 }}
+                  className="relative bg-slate-900 border border-slate-800 rounded-xl overflow-hidden shadow-2xl"
+                >
+                  {/* Header Tab */}
+                  <div className="bg-slate-950 p-3 border-b border-slate-900 flex items-center justify-between">
+                    <div className="flex gap-1.5">
+                      <span className="w-3 h-3 rounded-full bg-rose-500/80" />
+                      <span className="w-3 h-3 rounded-full bg-amber-500/80" />
+                      <span className="w-3 h-3 rounded-full bg-emerald-500/80" />
+                    </div>
+                    <span className="text-[10px] uppercase font-mono text-slate-500 font-bold tracking-widest flex items-center gap-1.5">
+                      <Terminal className="w-3.5 h-3.5 text-indigo-400" />
+                      riham@core_terminal:~
+                    </span>
+                  </div>
+
+                  {/* Terminal Logs */}
+                  <div className="p-4 space-y-2 h-56 overflow-y-auto text-xs font-mono pr-1">
+                    {terminalHistory.map((item, idx) => (
+                      <div key={idx} className={item.type === 'cmd' ? 'text-indigo-400' : 'text-slate-300 whitespace-pre-line'}>
+                        {item.text}
+                      </div>
+                    ))}
+                  </div>
+
+                  {/* Input Terminal Form */}
+                  <form onSubmit={executeCommand} className="border-t border-slate-900 p-3 bg-slate-950/80 flex items-center gap-2">
+                    <span className="text-emerald-400 font-mono text-xs select-none">$</span>
+                    <input
+                      id="terminal-cli-input"
+                      type="text"
+                      value={terminalCommand}
+                      onChange={(e) => setTerminalCommand(e.target.value)}
+                      placeholder="Type 'help' to dump system indexes..."
+                      className="bg-transparent flex-1 focus:outline-none font-mono text-xs text-slate-200"
+                    />
+                    <button type="submit" className="hidden">Execute</button>
+                  </form>
+                </motion.div>
+              )}
+            </AnimatePresence>
           </div>
 
         </div>
@@ -502,35 +657,40 @@ export default function App() {
             <div className="flex flex-wrap gap-1 p-1 bg-slate-900 rounded-lg border border-slate-800 overflow-x-auto self-center md:self-end">
               <button
                 id="btn-project-filter-all"
-                onClick={() => setProjectFilter('all')}
+                onMouseEnter={playHoverTick}
+                onClick={() => { playCyberClick(); setProjectFilter('all'); }}
                 className={`px-3 py-1 rounded text-xs font-mono font-semibold cursor-pointer transition-all ${projectFilter === 'all' ? 'bg-indigo-600 font-bold text-white' : 'text-slate-400 hover:text-slate-300'}`}
               >
                 All Ware
               </button>
               <button
                 id="btn-project-filter-iot"
-                onClick={() => setProjectFilter('iot')}
+                onMouseEnter={playHoverTick}
+                onClick={() => { playCyberClick(); setProjectFilter('iot'); }}
                 className={`px-3 py-1 rounded text-xs font-mono font-semibold cursor-pointer transition-all ${projectFilter === 'iot' ? 'bg-indigo-600 font-bold text-white' : 'text-slate-400 hover:text-slate-300'}`}
               >
                 IoT & Hardware
               </button>
               <button
                 id="btn-project-filter-data"
-                onClick={() => setProjectFilter('data-science')}
+                onMouseEnter={playHoverTick}
+                onClick={() => { playCyberClick(); setProjectFilter('data-science'); }}
                 className={`px-3 py-1 rounded text-xs font-mono font-semibold cursor-pointer transition-all ${projectFilter === 'data-science' ? 'bg-indigo-600 font-bold text-white' : 'text-slate-400 hover:text-slate-300'}`}
               >
                 AI & ML
               </button>
               <button
                 id="btn-project-filter-software"
-                onClick={() => setProjectFilter('software')}
+                onMouseEnter={playHoverTick}
+                onClick={() => { playCyberClick(); setProjectFilter('software'); }}
                 className={`px-3 py-1 rounded text-xs font-mono font-semibold cursor-pointer transition-all ${projectFilter === 'software' ? 'bg-indigo-600 font-bold text-white' : 'text-slate-400 hover:text-slate-300'}`}
               >
                 SOLID Soft
               </button>
               <button
                 id="btn-project-filter-fullstack"
-                onClick={() => setProjectFilter('full-stack')}
+                onMouseEnter={playHoverTick}
+                onClick={() => { playCyberClick(); setProjectFilter('full-stack'); }}
                 className={`px-3 py-1 rounded text-xs font-mono font-semibold cursor-pointer transition-all ${projectFilter === 'full-stack' ? 'bg-indigo-600 font-bold text-white' : 'text-slate-400 hover:text-slate-300'}`}
               >
                 Full-Stack
@@ -616,11 +776,6 @@ export default function App() {
           <FooterAndContact />
         </div>
       </section>
-      </div>
-
-      {/* ─── MOBILE CLIENT OS PORTAL (block lg:hidden) ─── */}
-      <div className="block lg:hidden relative w-full">
-        <MobilePortfolioApp />
       </div>
 
     </div>

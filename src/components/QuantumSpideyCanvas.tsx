@@ -71,8 +71,37 @@ export default function QuantumSpideyCanvas() {
     const draw = () => {
       ctx.clearRect(0, 0, width, height);
 
+      // Draw beautiful, ambient outer-space nebula clusters (3D space look)
+      const time = Date.now() * 0.0003;
+      
+      // Nebula 1 (Crimson Scarlet)
+      const neb1X = width * 0.25 + Math.sin(time * 0.8) * 120;
+      const neb1Y = height * 0.35 + Math.cos(time * 0.6) * 100;
+      const rad1 = Math.min(width, height) * 0.45 + Math.sin(time * 0.4) * 60;
+      const grad1 = ctx.createRadialGradient(neb1X, neb1Y, 10, neb1X, neb1Y, rad1);
+      grad1.addColorStop(0, 'rgba(239, 68, 68, 0.045)');
+      grad1.addColorStop(0.5, 'rgba(239, 68, 68, 0.015)');
+      grad1.addColorStop(1, 'transparent');
+      ctx.fillStyle = grad1;
+      ctx.beginPath();
+      ctx.arc(neb1X, neb1Y, rad1, 0, Math.PI * 2);
+      ctx.fill();
+
+      // Nebula 2 (Portal Cyan)
+      const neb2X = width * 0.75 + Math.cos(time * 0.9) * 140;
+      const neb2Y = height * 0.65 + Math.sin(time * 0.7) * 120;
+      const rad2 = Math.min(width, height) * 0.5 + Math.cos(time * 0.3) * 75;
+      const grad2 = ctx.createRadialGradient(neb2X, neb2Y, 10, neb2X, neb2Y, rad2);
+      grad2.addColorStop(0, 'rgba(6, 180, 212, 0.04)');
+      grad2.addColorStop(0.5, 'rgba(6, 182, 212, 0.012)');
+      grad2.addColorStop(1, 'transparent');
+      ctx.fillStyle = grad2;
+      ctx.beginPath();
+      ctx.arc(neb2X, neb2Y, rad2, 0, Math.PI * 2);
+      ctx.fill();
+
       // Draw subtle background quantum spacegrid
-      ctx.strokeStyle = 'rgba(239, 68, 68, 0.015)';
+      ctx.strokeStyle = 'rgba(239, 68, 68, 0.012)';
       ctx.lineWidth = 1;
       const gridSize = 45;
       for (let x = 0; x < width; x += gridSize) {

@@ -14,6 +14,7 @@ import {
   Instagram
 } from 'lucide-react';
 import { PERSONAL_INFO } from '../data';
+import { playCyberClick, playSuccessChime } from '../lib/audio';
 
 export default function FooterAndContact() {
   const [formData, setFormData] = useState({ name: '', email: '', subject: '', message: '' });
@@ -24,6 +25,7 @@ export default function FooterAndContact() {
     e.preventDefault();
     if (!formData.name || !formData.email || !formData.message) return;
 
+    playCyberClick();
     setIsSubmitting(true);
     
     // Simulate brief pipeline delay
@@ -40,6 +42,7 @@ export default function FooterAndContact() {
       setSubmittedLogs([newLog, ...submittedLogs]);
       setFormData({ name: '', email: '', subject: '', message: '' });
       setIsSubmitting(false);
+      playSuccessChime();
     }, 1200);
   };
 
