@@ -11,7 +11,7 @@
 
 **A high-performance, responsive portfolio web application designed for M.A. Mohamed Riham — AI Expert, Software Architect, and Data Scientist candidate based in Addalaichenai, Sri Lanka.**
 
-[🌐 Live Active Portal](https://ais-dev-hnmgc4sotzamlwx6epyqqp-897506404942.asia-east1.run.app) • [📡 Active Sandbox Gateway](https://ais-pre-hnmgc4sotzamlwx6epyqqp-897506404942.asia-east1.run.app)
+[🌐 Live Active Portal](https://mohamed-riham.github.io/who-is-riham/) •
 
 </div>
 
