@@ -1,10 +1,10 @@
-import { Project, TimelineItem, SkillGroup, Certification, Article, Experience, ResearchMetric } from './types';
+import { Project, TimelineItem, SkillGroup, Certification, Article, Experience, ResearchMetric, GitHubRepo } from './types';
 
 export const PERSONAL_INFO = {
   name: "M.A. Mohamed Riham",
   title: "AI Developer & Data Science Undergraduate",
-  subTitle: "Transitioning Software Engineering Discipline into Intelligent Data Solutions",
-  biography: "A dual-disciplinary engineer combining a structured Higher National Diploma in Software Engineering with an active BSc (Hons) in Data Science. Specializes in engineering local, privacy-first AI devices, clean database-driven architectures with SOLID design patterns, and high-precision fraud detection models.",
+  subTitle: "Software Engineer & Data Science Undergraduate specializing in Intelligent Data Solutions",
+  biography: "I am a Software Engineer and Data Science Undergraduate based in Addalaichenai, specializing in engineering localized, privacy-first Edge AI hardware assist devices, clean database-driven architectures adhering strictly to robust SOLID design patterns, and high-precision convolutional and machine learning models.",
   email: "mohamedriham93@gmail.com",
   github: "https://github.com/mohamed-riham",
   linkedin: "https://linkedin.com/in/mohamed-riham",
@@ -35,7 +35,8 @@ export const PROJECTS: Project[] = [
     techStack: ["YOLOv8", "Python", "ESP32-CAM", "C++", "OpenCV", "DFPlayer Mini"],
     hardwareSpecs: ["ESP32-CAM Board", "DFPlayer Mini Serial Module", "8 Ohm Miniature Speaker", "FTDI Programmer Board"],
     kaggleUrl: "https://www.kaggle.com/datasets/mohamedriham/sri-lankan-currency-notes-dataset",
-    githubUrl: "https://github.com/mohamed-riham",
+    githubUrl: "https://github.com/mohamed-riham/Sri-Lankan-Currency-Detector-YOLOv8",
+    devToUrl: "https://dev.to/mohamed-riham/building-an-accessible-currency-detector-for-the-sr-lankan-visually-impaired-with-yolov8-3flc",
     customStats: [
       { label: "Kaggle Dataset Usability", value: "8.1" },
       { label: "Annotated LKR Files", value: "2,158" },
@@ -62,6 +63,9 @@ export const PROJECTS: Project[] = [
     ],
     techStack: ["Python", "SpeechRecognition", "Edge-TTS", "FuzzyWuzzy", "Subprocess Loops"],
     githubUrl: "https://github.com/mohamed-riham",
+    youtubeUrl: "https://www.youtube.com/watch?v=IeytAWt0NNw",
+    devToUrl: "https://dev.to/mohamed-riham/i-built-an-offline-jarvis-in-python-no-internet-needed-demo-video-inside-4bhn",
+    linkedinEmbedUrl: "https://www.linkedin.com/embed/feed/update/urn:li:ugcPost:7327798813300051969?compact=1",
     customStats: [
       { label: "Web Reliance", value: "0.0%" },
       { label: "Intent Match Rate", value: "96.4%" },
@@ -87,7 +91,7 @@ export const PROJECTS: Project[] = [
       "Maintained zero analytical runtime leaks during mock tests with highly varied tabular report sets."
     ],
     techStack: ["Flask", "Streamlit", "Pandas", "SOLID Architecture", "Singleton & Observer Patterns"],
-    githubUrl: "https://github.com/mohamed-riham",
+    githubUrl: "https://github.com/mohamed-riham/Data-Science-Dashboard-python",
     customStats: [
       { label: "Architecture", value: "SOLID Core" },
       { label: "Leak Rate", value: "0.0%" },
@@ -113,7 +117,8 @@ export const PROJECTS: Project[] = [
       "Automated verification alerts sent to parent mailboxes with immediate timestamps."
     ],
     techStack: ["PyQt5", "OpenCV", "MySQL", "face_recognition", "Python", "SMTP SMTPClient"],
-    githubUrl: "https://github.com/mohamed-riham",
+    githubUrl: "https://github.com/mohamed-riham/face_recognition_attendance_system",
+    linkedinEmbedUrl: "https://www.linkedin.com/embed/feed/update/urn:li:ugcPost:7279573993232195584?compact=1",
     customStats: [
       { label: "Matching Rate", value: "99.2%" },
       { label: "E-Mail Delivery", value: "<2.4s" },
@@ -140,6 +145,7 @@ export const PROJECTS: Project[] = [
     ],
     techStack: ["C#", "Unity Engine", "Blender", "Finite State Machines", "Graphics Baking"],
     githubUrl: "https://github.com/mohamed-riham",
+    linkedinEmbedUrl: "https://www.linkedin.com/embed/feed/update/urn:li:ugcPost:7351122801895886848?compact=1",
     customStats: [
       { label: "Target Framerate", value: "60 FPS" },
       { label: "Asset Format", value: ".FBX optimized" },
@@ -165,7 +171,7 @@ export const PROJECTS: Project[] = [
       "Coded completely with: PHP (86.8%), CSS (12.8%), and JavaScript (0.4%)."
     ],
     techStack: ["PHP", "MySQL", "JavaScript", "Tailwind CSS", "HTML5"],
-    githubUrl: "https://github.com/mohamed-riham",
+    githubUrl: "https://github.com/mohamed-riham/ABC_HOSPITAL",
     customStats: [
       { label: "PHP Ratio", value: "86.8%" },
       { label: "Security", value: "Parameterized" },
@@ -426,3 +432,227 @@ export const RESEARCH_PRESENTATIONS = [
     desc: "Highlights structural collaboration protocols, translating technical statistics into straightforward commercial statements."
   }
 ];
+
+export const GITHUB_REPOS: GitHubRepo[] = [
+  {
+    name: "who-is-riham",
+    description: "The official responsive and high-performance resume and portfolio website of M.A. Mohamed Riham.",
+    url: "https://github.com/mohamed-riham/who-is-riham",
+    language: "TypeScript",
+    isPrivate: false,
+    stars: 1,
+    updatedAt: "34 minutes ago",
+    tags: ["Portfolio", "SEO", "React", "Framer Motion"]
+  },
+  {
+    name: "mokkapix-vault",
+    description: "Secure digital locker and imaging application containing high-fidelity photo processing modules.",
+    url: "https://github.com/mohamed-riham/mokkapix-vault",
+    language: "TypeScript",
+    isPrivate: false,
+    stars: 1,
+    updatedAt: "3 days ago",
+    tags: ["Vault", "Security", "TypeScript"]
+  },
+  {
+    name: "Senior-TV-Player",
+    description: "Accessible multimedia broadcast and streaming application designed with high-contrast UI controls.",
+    url: "https://github.com/mohamed-riham/Senior-TV-Player",
+    language: "TypeScript",
+    isPrivate: false,
+    stars: 1,
+    updatedAt: "last week",
+    tags: ["Media", "Streaming", "Accessibility"]
+  },
+  {
+    name: "personal-website",
+    description: "Initial clean layout responsive web landing page and curriculum vitae document.",
+    url: "https://github.com/mohamed-riham/personal-website",
+    language: "HTML",
+    isPrivate: false,
+    stars: 1,
+    updatedAt: "2 weeks ago",
+    tags: ["CSS", "Web design", "HTML5"]
+  },
+  {
+    name: "Real-Estate-Tokenization-DApp",
+    description: "Decentralized real estate tokenization platform for fractional ownership of localized properties.",
+    url: "https://github.com/mohamed-riham/Real-Estate-Tokenization-DApp",
+    language: "HTML",
+    isPrivate: false,
+    stars: 1,
+    updatedAt: "Mar 1, 2026",
+    tags: ["DApp", "Blockchain", "Web3", "Ethereum"]
+  },
+  {
+    name: "mohamed-riham",
+    description: "Profile readme repository featuring structured professional skills, tools, and social links.",
+    url: "https://github.com/mohamed-riham/mohamed-riham",
+    language: "Markdown",
+    isPrivate: false,
+    stars: 1,
+    updatedAt: "Nov 6, 2025",
+    tags: ["Profile", "Markdown", "Readme"]
+  },
+  {
+    name: "Smart-Home-Door-Lock-System-IoT-Enabled-Access-Control",
+    description: "Internet-connected security hardware system integrating ESP8266, RFID credentials, and local buzzer alerts.",
+    url: "https://github.com/mohamed-riham/Smart-Home-Door-Lock-System-IoT-Enabled-Access-Control",
+    language: "C++",
+    isPrivate: false,
+    stars: 1,
+    updatedAt: "Oct 31, 2025",
+    tags: ["C++", "IoT", "Arduino", "ESP8266"]
+  },
+  {
+    name: "portfolio",
+    description: "Classic responsive personal portfolio utilizing standard semantic components and transitions.",
+    url: "https://github.com/mohamed-riham/portfolio",
+    language: "HTML",
+    isPrivate: false,
+    stars: 1,
+    updatedAt: "Oct 30, 2025",
+    tags: ["HTML", "Vanilla CSS", "JS"]
+  },
+  {
+    name: "Data-Science-Dashboard-python",
+    description: "Interactive data analysis dashboard application utilizing Pandas, Matplotlib, and Streamlit for dynamic visualization.",
+    url: "https://github.com/mohamed-riham/Data-Science-Dashboard-python",
+    language: "Python",
+    isPrivate: false,
+    stars: 1,
+    updatedAt: "Oct 26, 2025",
+    tags: ["Python", "Streamlit", "Pandas", "Matplotlib"]
+  },
+  {
+    name: "Sri-Lankan-Currency-Detector-YOLOv8",
+    description: "Sri Lankan Rupee (LKR) currency identifier dataset (1,000+ custom annotated pictures) and trained YOLOv8 neural weights.",
+    url: "https://github.com/mohamed-riham/Sri-Lankan-Currency-Detector-YOLOv8",
+    language: "Python",
+    isPrivate: false,
+    stars: 1,
+    updatedAt: "Oct 18, 2025",
+    tags: ["Computer Vision", "YOLOv8", "Deep Learning", "LKR currency"]
+  },
+  {
+    name: "AimBot-Panel",
+    description: "Custom control console UI built with modern coordinate calculations and vector math.",
+    url: "https://github.com/mohamed-riham/AimBot-Panel",
+    language: "C#",
+    isPrivate: false,
+    stars: 2,
+    updatedAt: "Oct 6, 2025",
+    tags: ["C#", "Windows Forms", "DirectX"]
+  },
+  {
+    name: "CRP-Final",
+    description: "Big Data analysis on massive transactions to evaluate Machine Learning algorithms for fraud detection.",
+    url: "https://github.com/mohamed-riham",
+    language: "Data Analysis",
+    isPrivate: true,
+    stars: 1,
+    updatedAt: "Apr 19, 2025",
+    tags: ["Data Science", "Jupyter", "Big Data"]
+  },
+  {
+    name: "Research_Papers",
+    description: "Curated research repository detailing classification metrics, SMOTE imbalance processes, and statistical tests.",
+    url: "https://github.com/mohamed-riham",
+    language: "Research",
+    isPrivate: true,
+    stars: 1,
+    updatedAt: "Feb 18, 2025",
+    tags: ["LaTeX", "Research Paper", "Academic"]
+  },
+  {
+    name: "face_recognition_attendance_system",
+    description: "Campus attendance terminal utilizing face_recognition embeddings, SMTP messaging, and MySQL logs.",
+    url: "https://github.com/mohamed-riham/face_recognition_attendance_system",
+    language: "Python",
+    isPrivate: false,
+    stars: 1,
+    updatedAt: "Jan 23, 2025",
+    tags: ["Python", "dlib", "OpenCV", "MySQL"]
+  },
+  {
+    name: "ABC_HOSPITAL",
+    description: "Full-stack medical booking system assignment completed for HND with secure PHP routing and relational SQL database.",
+    url: "https://github.com/mohamed-riham/ABC_HOSPITAL",
+    language: "PHP",
+    isPrivate: false,
+    stars: 1,
+    updatedAt: "Dec 8, 2024",
+    tags: ["PHP", "MySQL", "HND Assignment"]
+  },
+  {
+    name: "Human-Resource-Management",
+    description: "Employee directories, secure login, and salary sheet management terminal developed in Python.",
+    url: "https://github.com/mohamed-riham/Human-Resource-Management",
+    language: "Python",
+    isPrivate: false,
+    stars: 1,
+    updatedAt: "Mar 20, 2024",
+    tags: ["Python", "Management System", "OOP"]
+  },
+  {
+    name: "pythonProject1",
+    description: "Custom logical scripting patterns, regular expression filters, and data pipeline tests in Python.",
+    url: "https://github.com/mohamed-riham/pythonProject1",
+    language: "Python",
+    isPrivate: false,
+    stars: 1,
+    updatedAt: "Feb 27, 2024",
+    tags: ["Python", "Scripting", "Regex"]
+  },
+  {
+    name: "pythonProject",
+    description: "Secure database communication structures, JSON encoders, and utility scripting loops.",
+    url: "https://github.com/mohamed-riham",
+    language: "Python",
+    isPrivate: true,
+    stars: 1,
+    updatedAt: "Feb 20, 2024",
+    tags: ["Python", "Backend Scripts"]
+  },
+  {
+    name: "Pycharm_LORD",
+    description: "A secure development repository containing environment properties, IDE extensions, and automation scripts.",
+    url: "https://github.com/mohamed-riham",
+    language: "Config",
+    isPrivate: true,
+    stars: 1,
+    updatedAt: "Feb 8, 2024",
+    tags: ["IDE Settings", "Automation"]
+  },
+  {
+    name: "LABSHEET02",
+    description: "University lab assignments analyzing standard sorting algorithms, recursive trees, and algorithmic complexity.",
+    url: "https://github.com/mohamed-riham",
+    language: "Python",
+    isPrivate: true,
+    stars: 1,
+    updatedAt: "Jan 25, 2024",
+    tags: ["Python", "Algorithms", "Lab Sheet"]
+  },
+  {
+    name: "ProgrammingPython",
+    description: "Collection of functional algorithms, array manipulation routines, and logical exercises.",
+    url: "https://github.com/mohamed-riham",
+    language: "Python",
+    isPrivate: true,
+    stars: 1,
+    updatedAt: "Jan 16, 2024",
+    tags: ["Python", "Practice Labs"]
+  },
+  {
+    name: "PythonMasterRHM",
+    description: "Master sandbox demonstrating deep OOP principles, class decorators, magic methods, and multi-threaded queues.",
+    url: "https://github.com/mohamed-riham",
+    language: "Python",
+    isPrivate: true,
+    stars: 1,
+    updatedAt: "Jan 16, 2024",
+    tags: ["Python", "OOP", "Concurrency"]
+  }
+];
+

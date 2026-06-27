@@ -11,7 +11,10 @@ import {
   Layers, 
   Sparkles, 
   ArrowRight,
-  Database
+  Database,
+  Youtube,
+  Video,
+  Linkedin
 } from 'lucide-react';
 import { Project } from '../types';
 import TiltCard from './TiltCard';
@@ -117,6 +120,13 @@ export default function ProjectCard({ project }: ProjectCardProps) {
           <span className={`absolute top-4 left-4 text-[9px] uppercase tracking-wider font-mono font-bold px-2.5 py-1 rounded bg-slate-950/90 backdrop-blur-md border ${categoryColors[project.category] || 'text-slate-400 border-slate-800'}`}>
             {categoryLabels[project.category] || project.category}
           </span>
+
+          {project.linkedinEmbedUrl && (
+            <span className="absolute top-4 right-4 text-[9px] uppercase tracking-wider font-mono font-bold px-2 py-1 rounded bg-blue-950/90 backdrop-blur-md border border-blue-500/30 text-blue-400 flex items-center gap-1 z-20">
+              <Linkedin className="w-3.5 h-3.5 text-blue-400 animate-pulse" />
+              <span>LinkedIn</span>
+            </span>
+          )}
         </div>
       )}
 
@@ -194,6 +204,51 @@ export default function ProjectCard({ project }: ProjectCardProps) {
         </button>
 
         <div className="flex items-center gap-2">
+          {project.linkedinEmbedUrl && (
+            <a 
+              id={`link-linkedin-${project.id}`}
+              href={project.linkedinEmbedUrl.replace("/embed/", "/").split("?")[0]} 
+              target="_blank" 
+              rel="noopener noreferrer"
+              onMouseEnter={playHoverTick}
+              onClick={playCyberClick}
+              className="p-1.5 bg-slate-950 text-slate-400 hover:text-blue-400 border border-slate-900 hover:border-slate-800 rounded transition-all flex items-center gap-1 px-2 font-mono text-[10px]"
+              title="LinkedIn Update"
+            >
+              <Linkedin className="w-3.5 h-3.5 text-blue-500 animate-pulse" />
+              <span>LinkedIn</span>
+            </a>
+          )}
+          {project.youtubeUrl && (
+            <a 
+              id={`link-youtube-${project.id}`}
+              href={project.youtubeUrl} 
+              target="_blank" 
+              rel="noopener noreferrer"
+              onMouseEnter={playHoverTick}
+              onClick={playCyberClick}
+              className="p-1.5 bg-slate-950 text-slate-400 hover:text-rose-500 border border-slate-900 hover:border-slate-800 rounded transition-all flex items-center gap-1 px-2 font-mono text-[10px]"
+              title="Demo Video"
+            >
+              <Youtube className="w-3.5 h-3.5 text-rose-500 animate-pulse" />
+              <span>Demo</span>
+            </a>
+          )}
+          {project.devToUrl && (
+            <a 
+              id={`link-devto-${project.id}`}
+              href={project.devToUrl} 
+              target="_blank" 
+              rel="noopener noreferrer"
+              onMouseEnter={playHoverTick}
+              onClick={playCyberClick}
+              className="p-1.5 bg-slate-950 text-slate-400 hover:text-emerald-400 border border-slate-900 hover:border-slate-800 rounded transition-all flex items-center gap-1 px-2 font-mono text-[10px]"
+              title="Dev.to Article"
+            >
+              <BookOpen className="w-3.5 h-3.5 text-emerald-500" />
+              <span>Article</span>
+            </a>
+          )}
           {project.kaggleUrl && (
             <a 
               id={`link-kaggle-${project.id}`}
@@ -274,6 +329,56 @@ export default function ProjectCard({ project }: ProjectCardProps) {
                     {project.longDescription}
                   </p>
                 </div>
+
+                {/* Embedded Video Demo (If available) */}
+                {project.youtubeUrl && (() => {
+                  const videoId = project.youtubeUrl.includes('v=') 
+                    ? project.youtubeUrl.split('v=')[1]?.split('&')[0] 
+                    : project.youtubeUrl.includes('youtu.be/')
+                    ? project.youtubeUrl.split('youtu.be/')[1]?.split('?')[0]
+                    : null;
+                  
+                  if (!videoId) return null;
+                  return (
+                    <div className="space-y-3">
+                      <h4 className="text-[11px] uppercase tracking-widest font-semibold font-mono text-slate-400 flex items-center gap-2">
+                        <Video className="w-3.5 h-3.5 text-rose-500 animate-pulse" />
+                        Interactive Project Demonstration
+                      </h4>
+                      <div className="relative w-full aspect-video rounded-lg overflow-hidden border border-slate-800 bg-slate-950 shadow-inner">
+                        <iframe
+                          src={`https://www.youtube.com/embed/${videoId}`}
+                          title={`${project.title} Demo Video`}
+                          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                          allowFullScreen
+                          className="absolute inset-0 w-full h-full border-0"
+                        />
+                      </div>
+                    </div>
+                  );
+                })()}
+
+                {/* Embedded LinkedIn Demonstration (If available) */}
+                {project.linkedinEmbedUrl && (
+                  <div className="space-y-3">
+                    <h4 className="text-[11px] uppercase tracking-widest font-semibold font-mono text-slate-400 flex items-center gap-2">
+                      <Linkedin className="w-3.5 h-3.5 text-blue-400 animate-pulse" />
+                      LinkedIn Updates & Demonstration Feed
+                    </h4>
+                    <div className="relative w-full rounded-lg overflow-hidden border border-slate-800 bg-slate-950 p-2 flex justify-center shadow-inner">
+                      <iframe
+                        src={project.linkedinEmbedUrl}
+                        height="400"
+                        width="100%"
+                        style={{ maxWidth: "504px", minHeight: "399px" }}
+                        frameBorder="0"
+                        allowFullScreen
+                        title={`${project.title} LinkedIn Embed`}
+                        className="rounded-md border border-slate-800/80 bg-slate-900/20 w-full"
+                      />
+                    </div>
+                  </div>
+                )}
 
                 {/* Problem vs. Solution Block */}
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
@@ -372,7 +477,49 @@ export default function ProjectCard({ project }: ProjectCardProps) {
               {/* Action Sticky Footer */}
               <div className="p-6 border-t border-slate-800 sticky bottom-0 bg-slate-900 z-10 flex items-center justify-between">
                 <span className="text-[10px] font-mono text-slate-500">M.A.M. Riham Core System</span>
-                <div className="flex gap-2">
+                <div className="flex flex-wrap gap-2">
+                  {project.linkedinEmbedUrl && (
+                    <a 
+                      id={`modal-linkedin-btn-${project.id}`}
+                      href={project.linkedinEmbedUrl.replace("/embed/", "/").split("?")[0]} 
+                      target="_blank" 
+                      rel="noopener noreferrer"
+                      onMouseEnter={playHoverTick}
+                      onClick={playCyberClick}
+                      className="px-4 py-2 bg-blue-600 hover:bg-blue-500 text-white rounded text-xs font-mono font-medium flex items-center gap-1.5 transition-all"
+                    >
+                      <Linkedin className="w-3.5 h-3.5" />
+                      <span>LinkedIn Update</span>
+                    </a>
+                  )}
+                  {project.youtubeUrl && (
+                    <a 
+                      id={`modal-youtube-btn-${project.id}`}
+                      href={project.youtubeUrl} 
+                      target="_blank" 
+                      rel="noopener noreferrer"
+                      onMouseEnter={playHoverTick}
+                      onClick={playCyberClick}
+                      className="px-4 py-2 bg-rose-600 hover:bg-rose-500 text-white rounded text-xs font-mono font-medium flex items-center gap-1.5 transition-all"
+                    >
+                      <Youtube className="w-3.5 h-3.5" />
+                      <span>Watch Demo</span>
+                    </a>
+                  )}
+                  {project.devToUrl && (
+                    <a 
+                      id={`modal-devto-btn-${project.id}`}
+                      href={project.devToUrl} 
+                      target="_blank" 
+                      rel="noopener noreferrer"
+                      onMouseEnter={playHoverTick}
+                      onClick={playCyberClick}
+                      className="px-4 py-2 bg-emerald-600 hover:bg-emerald-500 text-white rounded text-xs font-mono font-medium flex items-center gap-1.5 transition-all"
+                    >
+                      <BookOpen className="w-3.5 h-3.5" />
+                      <span>Read Article</span>
+                    </a>
+                  )}
                   {project.kaggleUrl && (
                     <a 
                       id={`modal-kaggle-btn-${project.id}`}

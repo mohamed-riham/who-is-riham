@@ -45,10 +45,10 @@ export default function SEOMetadataManager({ activeProject }: SEOMetadataManager
 
   useEffect(() => {
     // 1. Core Default Constants from metadata.json
-    const defaultTitle = baseMetadata.name || "M.A. Mohamed Riham | AI Developer & Data Scientist Portfolio";
-    const defaultDesc = baseMetadata.description || "Interactive professional portfolio of M.A. Mohamed Riham, a dual-disciplinary AI Developer & Data Scientist. Discover YOLOv8 Edge AI projects, Credit Card Fraud research, and SOLID software implementations.";
+    const defaultTitle = baseMetadata.name || "M.A. Mohamed Riham | Software Engineer & Data Science Undergraduate Portfolio";
+    const defaultDesc = baseMetadata.description || "Interactive professional portfolio of M.A. Mohamed Riham, a dual-disciplinary Software Engineer & Data Science Undergraduate. Discover YOLOv8 Edge AI projects, Credit Card Fraud research, and SOLID software implementations.";
     const authorName = "M.A. Mohamed Riham";
-    const baseKeywords = "Mohamed Riham, M.A. Mohamed Riham, AI Developer, Data Scientist, Sri Lanka, Addalaichenai, YOLOv8, Edge AI, Credit Card Fraud, SMOTE, XGBoost, PHP, SQL, Unity, SOLID Design, Portfolio Website, Crawler Visibility";
+    const baseKeywords = "Mohamed Riham, M.A. Mohamed Riham, Software Engineer, Data Science Undergraduate, Sri Lanka, Addalaichenai, YOLOv8, Edge AI, Credit Card Fraud, SMOTE, XGBoost, PHP, SQL, Unity, SOLID Design, Portfolio Website, Crawler Visibility";
 
     // 2. Define the exact function to perform dynamic DOM tag updates
     const applySEOMetadata = (project: Project | null) => {
@@ -183,7 +183,7 @@ export default function SEOMetadataManager({ activeProject }: SEOMetadataManager
             "author": {
               "@type": "Person",
               "name": authorName,
-              "jobTitle": "AI Developer & Data Scientist"
+              "jobTitle": "Software Engineer & Data Science Undergraduate"
             },
             "keywords": project.techStack.join(', '),
             "abstract": project.longDescription,
@@ -205,7 +205,7 @@ export default function SEOMetadataManager({ activeProject }: SEOMetadataManager
               "name": authorName,
               "givenName": "Mohamed Riham",
               "familyName": "M.A.",
-              "jobTitle": "AI Developer & Data Science Specialist",
+              "jobTitle": "Software Engineer & Data Science Undergraduate",
               "nationality": "Sri Lankan",
               "address": {
                 "@type": "PostalAddress",

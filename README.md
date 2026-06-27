@@ -1,61 +1,23 @@
 # 🌌 M.A. Mohamed Riham — Dual-Disciplinary Portfolio Portal
 
-<div align="center">
+An ultra-performance, fully-interactive portfolio web engine custom-built for **M.A. Mohamed Riham** — Software Engineer, AI Expert, and Data Scientist based in Addalaichenai, Sri Lanka.
 
-[![Vite](https://img.shields.io/badge/Vite-646CFF?style=for-the-badge&logo=Vite&logoColor=white)](https://vitejs.dev/)
-[![React](https://img.shields.io/badge/React-20232A?style=for-the-badge&logo=React&logoColor=61DAFB)](https://reactjs.org/)
-[![TypeScript](https://img.shields.io/badge/TypeScript-007ACC?style=for-the-badge&logo=TypeScript&logoColor=white)](https://www.typescriptlang.org/)
-[![Tailwind CSS](https://img.shields.io/badge/Tailwind_CSS-38B2AC?style=for-the-badge&logo=tailwind-css&logoColor=white)](https://tailwindcss.com/)
-[![Framer Motion](https://img.shields.io/badge/Framer_Motion-0055FF?style=for-the-badge&logo=framer&logoColor=white)](https://motion.dev/)
-[![SEO Optimized](https://img.shields.io/badge/SEO-Optimized-emerald?style=for-the-badge&logo=google-search-console&logoColor=white)](#)
-
-**A high-performance, responsive portfolio web application designed for M.A. Mohamed Riham — AI Expert, Software Architect, and Data Scientist candidate based in Addalaichenai, Sri Lanka.**
-
-[🌐 Live Active Portal](https://mohamed-riham.github.io/who-is-riham/) •
-
-</div>
+[🌐 Live Active Portal](https://mohamed-riham.github.io/who-is-riham/)
 
 ---
 
-## 📐 SYSTEM ARCHITECTURE OVERVIEW
+## 🛠️ COMPLETED FEATURES & ACHIEVEMENTS
 
-```
-                      ┌──────────────────────────────────────────────┐
-                      │              INDEX.HTML PORTAL               │
-                      └──────────────────────┬───────────────────────┘
-                                             │
-                       ┌─────────────────────▼─────────────────────┐
-                       │               APP CONTAINER               │
-                       └─────────────────────┬─────────────────────┘
-                                             │
-              ┌──────────────────────────────┼──────────────────────────────┐
-              │                              │                              │
-    ┌─────────▼──────────┐         ┌─────────▼──────────┐         ┌─────────▼──────────┐
-    │  DYNAMIC AUDIO OS  │         │ INTERACTIVE CANVAS │         │   SEO CONTROLLER   │
-    │  (Chimes & Clicks) │         │ (Quantum Spidey)   │         │ (MetadataManager)  │
-    └────────────────────┘         └────────────────────┘         └─────────┬──────────┘
-                                                                            │
-                                                     ┌──────────────────────┴──────────────────────┐
-                                                     │                                             │
-                                           ┌─────────▼──────────┐                        ┌─────────▼──────────┐
-                                           │   STATIC DATA-LD   │                        │   DYNAMIC ACTIVE   │
-                                           │  (Global Identity) │                        │   (Project Meta)   │
-                                           └────────────────────┘                        └────────────────────┘
-```
-
----
-
-## 🛠️ COMPREHENSIVE LIST OF COMPLETED ACHIEVEMENTS
-
-This application bridges physical edge-AI hardware systems with enterprise data modeling:
+This application acts as a dual-disciplinary viewport demonstrating both software engineering standards and advanced machine learning modeling:
 
 ### 1. 🌍 Space-Time Web Continuum Layer (`QuantumSpideyCanvas`)
-- **Interactive Physics Engine**: Features an HTML5 canvas rendering interactive, mouse-sensitive particle chains.
-- **Performance Preservation**: Auto-throttles active nodes on mobile viewports to prevent layout lag, while rendering high-density connections on desktop displays.
+- **Interactive Particle-Mesh Physics**: Renders a custom HTML5 canvas with mouse-gravity nodes and interconnected vector constellations.
+- **Dynamic Device Scaling**: Auto-throttles active nodes on mobile devices to preserve rendering loop speed, while displaying high-density connections on desktop.
 
 ### 2. 📱 Responsive Navigation & Layout Sync (`App.tsx`)
 - **Dual-Layout Architecture**: Features a panoramic desktop portal layout with mouse-spotlight effects, paired with an elegant, hand-held mobile applet mimicking touch-gesture physics on smaller screens.
 - **Accurate Offset Navigation**: Employs real-time `getBoundingClientRect` scrolling math that offsets anchor navigation by `80px`, preventing sticky headers from covering active elements.
+- **Programmatic Scroll Interceptor**: Locks active section selection updates while scrolling programmatically via smooth scroll anchors, preventing highlighting flickering or glitches.
 - **Dynamic Hash Synchronizer**: Constantly listens for scroll events to update current header indicators, while supporting instant deep-linking for hashtag redirects.
 
 ### 3. 🔬 Interactive Data Science & ML Sandbox
@@ -63,14 +25,18 @@ This application bridges physical edge-AI hardware systems with enterprise data 
 - **SMOTE Visualization Panel**: Dynamically details SMOTE oversampling processes used to resolve class imbalances.
 - **Interactive Vector Fields**: Renders real-time math matrices demonstrating computational transformations, rotation matrices, and vector translations.
 
-### 4. 🚀 Advanced SEO Metadata & Rich Crawler Indexing
+### 4. 🚀 Advanced SEO Metadata & Brand Authority Indexing
+- **Semantic Header Placement**: Embeds high-priority visual titles directly containing full keyword configurations: `<h1>Mohamed Riham | Software Engineer & Data Scientist in Addalaichenai</h1>`.
+- **Keyword-Enriched Text Injections**: Injects precise bio credentials in fallback tags and on-screen cards: *"I am a Software Engineer and Data Scientist based in Addalaichenai, specializing in..."* to guarantee organic high-relevancy scoring on Google.
 - **Dynamic Head Injector**: Synchronizes search metadata parameters directly with the active project or tab, optimizing keyword density.
 - **Structured Schema.org JSON-LD**: Connects `ProfilePage` and `CreativeWork` schemas into organic Google search carousels and rich search cards.
 - **Google Search Console Mockup**: Features an interactive search console auditing tool verifying DOM attributes, sitemaps, and robots.txt rules live.
 
 ---
 
-## 💻 COMPLETE TECHNOLOGY STACK MATRIX
+## 💻 SYSTEM TECHNOLOGY MATRIX
+
+The application is built with modern, ultra-fast web standards:
 
 | Tech Layer | Framework / Module | Core Implementation Scope | Performance Highlight |
 | :--- | :--- | :--- | :--- |
@@ -84,7 +50,7 @@ This application bridges physical edge-AI hardware systems with enterprise data 
 
 ---
 
-## 🔬 TECHNICAL METADRICS AND BENCHMARKS
+## 🔬 TECHNICAL METRICS AND BENCHMARKS
 
 ```
 ┌────────────────────────────────────────────────────────────────────────┐
@@ -98,33 +64,6 @@ This application bridges physical edge-AI hardware systems with enterprise data 
 │ LKR Currency Dataset Volume          │ 2,158 Curated Images            │
 │ Local Model Response latency         │ < 12ms Edge Execution           │
 └──────────────────────────────────────┴─────────────────────────────────┘
-```
-
----
-
-## 📁 COMPLETED WORKSPACE MAP
-
-The workspace is organized into modular files to maximize maintainability:
-
-```
-├── metadata.json              # Applet identification and permission manifest
-├── package.json               # Modular libraries & packaging controls
-├── vite.config.ts             # Vite server engine (Base: './' for GitHub Host compatibility)
-├── src/
-│   ├── App.tsx                # Base portal container & Viewport Router
-│   ├── main.tsx               # Main DOM renderer entry point
-│   ├── index.css              # Global styles incorporating Tailwind directives
-│   ├── data.ts                # Centralized resume metrics, studies, and project lists
-│   ├── types.ts               # Rigid TypeScript contract interfaces
-│   ├── lib/
-│   │   └── audio.ts           # Spatial audio click & chime synthesizer utilities
-│   └── components/
-│       ├── SEOMetadataManager.tsx # Core Crawler & Schema Ingress Controller
-│       ├── SearchInsights.tsx     # Simulated Search & Real-time Live SEO Auditor
-│       ├── MobilePortfolioApp.tsx # Native mobile wrapper layout
-│       ├── QuantumSpideyCanvas.tsx# Particle-mesh background simulation
-│       ├── CyberGlobe3D.tsx       # 3D interactive location cluster model
-│       └── ProjectCard.tsx        # Dynamic details modal & deep-link wrapper
 ```
 
 ---

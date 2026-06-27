@@ -1,5 +1,5 @@
 import * as React from 'react';
-import { useState, useEffect } from 'react';
+import { useState, useEffect, useRef } from 'react';
 import { motion, AnimatePresence, useMotionValue, useSpring } from 'motion/react';
 import { 
   Terminal, 
@@ -19,7 +19,7 @@ import {
   Volume2,
   VolumeX
 } from 'lucide-react';
-import { PERSONAL_INFO, PROJECTS } from './data';
+import { PERSONAL_INFO, PROJECTS, GITHUB_REPOS } from './data';
 import ProjectCard from './components/ProjectCard';
 import ResearchFeature from './components/ResearchFeature';
 import SkillsGrid from './components/SkillsGrid';
@@ -36,6 +36,7 @@ import SEOMetadataManager from './components/SEOMetadataManager';
 import { setMute, getMuteState, playHoverTick, playCyberClick, playWormholeSwoosh, playSuccessChime } from './lib/audio';
 
 export default function App() {
+  const isProgrammaticScroll = useRef(false);
   const [activeSection, setActiveSection] = useState('journey');
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   const [isAudioMuted, setIsAudioMuted] = useState(getMuteState());
@@ -56,7 +57,7 @@ export default function App() {
   }, []);
 
   const [heroTab, setHeroTab] = useState<'3d-globe' | 'terminal'>('3d-globe');
-  const [projectFilter, setProjectFilter] = useState<'all' | 'iot' | 'data-science' | 'software' | 'full-stack'>('all');
+  const [projectFilter, setProjectFilter] = useState<'all' | 'iot' | 'data-science' | 'software' | 'full-stack' | 'github'>('all');
   const [terminalCommand, setTerminalCommand] = useState('');
   const [terminalHistory, setTerminalHistory] = useState<Array<{ type: 'cmd' | 'resp'; text: string }>>([
     { type: 'resp', text: 'Initializing Riham-Core compiler v4.11...' },
@@ -98,8 +99,14 @@ export default function App() {
     if (el) {
       const yOffset = -80; // offset for the sticky header
       const y = el.getBoundingClientRect().top + window.scrollY + yOffset;
-      window.scrollTo({ top: y, behavior: 'smooth' });
+      isProgrammaticScroll.current = true;
       setActiveSection(id);
+      window.scrollTo({ top: y, behavior: 'smooth' });
+      
+      // Release lock after smooth scroll completes
+      setTimeout(() => {
+        isProgrammaticScroll.current = false;
+      }, 850);
     }
   };
 
@@ -151,6 +158,7 @@ export default function App() {
   // Dynamic Scroll Highlighting
   useEffect(() => {
     const handleScroll = () => {
+      if (isProgrammaticScroll.current) return;
       const scrollPos = window.scrollY + 200;
       for (const link of navLinks) {
         const el = document.getElementById(link.id);
@@ -182,6 +190,7 @@ export default function App() {
         { type: 'resp', text: 'Available commands:' },
         { type: 'resp', text: '  about      Display biography and dual-disciplinary credentials.' },
         { type: 'resp', text: '  skills     View grouped list of primary language indices.' },
+        { type: 'resp', text: '  repos      List all 22 active GitHub repositories.' },
         { type: 'resp', text: '  contact    Print direct social email links.' },
         { type: 'resp', text: '  clear      Purge current log buffer records.' }
       );
@@ -194,6 +203,23 @@ export default function App() {
     } else if (cmd === 'skills' || cmd === 'webs') {
       newHistory.push(
         { type: 'resp', text: 'Primary Matrix: Python (95%), SQL (90%), C# (80%), OpenCV (88%), YOLOv8 (90%), Streamlit (92%)' }
+      );
+    } else if (cmd === 'repos' || cmd === 'github') {
+      newHistory.push(
+        { type: 'resp', text: 'Listing M.A. Mohamed Riham\'s GitHub Repositories (22 Total):' },
+        { type: 'resp', text: '  [Public]  who-is-riham (TypeScript) - Official portfolio site' },
+        { type: 'resp', text: '  [Public]  Sri-Lankan-Currency-Detector-YOLOv8 (Python) - 1,000+ LKR notes and YOLOv8' },
+        { type: 'resp', text: '  [Public]  Data-Science-Dashboard-python (Python) - Interactive pandas data engine' },
+        { type: 'resp', text: '  [Public]  face_recognition_attendance_system (Python) - Facial embedding & dlib tracker' },
+        { type: 'resp', text: '  [Public]  ABC_HOSPITAL (PHP) - Full-stack clinic booking database system' },
+        { type: 'resp', text: '  [Public]  mokkapix-vault (TypeScript) - Secure photos digital vault' },
+        { type: 'resp', text: '  [Public]  Senior-TV-Player (TypeScript) - Accessible broadcast streaming controls' },
+        { type: 'resp', text: '  [Public]  Real-Estate-Tokenization-DApp (HTML) - Blockchain real-estate tokenization' },
+        { type: 'resp', text: '  [Public]  Smart-Home-Door-Lock-System-IoT-Enabled-Access-Control (C++) - RFID, ESP8266' },
+        { type: 'resp', text: '  [Public]  AimBot-Panel (C#) - Vector math & directX console' },
+        { type: 'resp', text: '  [Private] CRP-Final - Big Data Machine Learning transaction evaluation' },
+        { type: 'resp', text: '  [Private] Research_Papers - Latex manuscripts and data analysis assets' },
+        { type: 'resp', text: '  Note: View the interactive "GitHub Repositories" tab below to explore the full index.' }
       );
     } else if (cmd === 'contact' || cmd === 'portal') {
       newHistory.push(
@@ -466,6 +492,7 @@ export default function App() {
               }}
               className="text-4xl sm:text-5xl md:text-6xl font-heading font-extrabold text-slate-100 tracking-tight leading-none"
             >
+              <span className="sr-only">Mohamed Riham | Software Engineer &amp; Data Scientist in Addalaichenai</span>
               M.A. Mohamed <span className="bg-gradient-to-r from-rose-500 via-rose-300 to-cyan-400 bg-clip-text text-transparent">Riham</span>
             </motion.h1>
  
@@ -695,28 +722,102 @@ export default function App() {
               >
                 Full-Stack
               </button>
+              <button
+                id="btn-project-filter-github"
+                onMouseEnter={playHoverTick}
+                onClick={() => { playCyberClick(); setProjectFilter('github'); }}
+                className={`px-3 py-1 rounded text-xs font-mono font-semibold cursor-pointer transition-all ${projectFilter === 'github' ? 'bg-indigo-600 font-bold text-white' : 'text-slate-400 hover:text-slate-300'}`}
+              >
+                GitHub Repos (22)
+              </button>
             </div>
           </div>
 
           {/* Grid Layout Cards */}
           <motion.div layout className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
             <AnimatePresence mode="popLayout">
-              {filteredProjects.map((project) => (
-                <motion.div
-                  key={project.id}
-                  layout
-                  initial={{ opacity: 0, scale: 0.95 }}
-                  animate={{ opacity: 1, scale: 1 }}
-                  exit={{ opacity: 0, scale: 0.93 }}
-                  transition={{ 
-                    duration: 0.35,
-                    layout: { type: "spring", stiffness: 220, damping: 20 }
-                  }}
-                  className="h-full"
-                >
-                  <ProjectCard project={project} />
-                </motion.div>
-              ))}
+              {projectFilter === 'github' ? (
+                GITHUB_REPOS.map((repo) => (
+                  <motion.div
+                    key={repo.name}
+                    layout
+                    initial={{ opacity: 0, scale: 0.95 }}
+                    animate={{ opacity: 1, scale: 1 }}
+                    exit={{ opacity: 0, scale: 0.93 }}
+                    transition={{ 
+                      duration: 0.35,
+                      layout: { type: "spring", stiffness: 220, damping: 20 }
+                    }}
+                    className="bg-slate-900 border border-slate-800 rounded-xl p-5 flex flex-col justify-between hover:border-indigo-500/50 hover:shadow-[0_0_15px_rgba(99,102,241,0.15)] transition-all group relative overflow-hidden h-full text-left"
+                  >
+                    <div>
+                      <div className="flex items-center justify-between mb-3">
+                        <span className="text-[10px] font-mono uppercase tracking-wider text-indigo-400 bg-indigo-950/40 px-2 py-0.5 rounded border border-indigo-900/40">
+                          {repo.language || "Markdown"}
+                        </span>
+                        <span className={`text-[9px] font-mono px-2 py-0.5 rounded border ${repo.isPrivate ? 'text-amber-400 bg-amber-950/30 border-amber-900/30' : 'text-emerald-400 bg-emerald-950/30 border-emerald-900/30'}`}>
+                          {repo.isPrivate ? "Private" : "Public"}
+                        </span>
+                      </div>
+                      
+                      <h3 className="text-base font-heading font-bold text-slate-100 mb-2 group-hover:text-indigo-300 transition-colors flex items-center gap-1.5">
+                        <span className="truncate">{repo.name}</span>
+                      </h3>
+                      <p className="text-slate-400 text-xs leading-relaxed mb-4 line-clamp-3">
+                        {repo.description}
+                      </p>
+                    </div>
+
+                    <div>
+                      {repo.tags && repo.tags.length > 0 && (
+                        <div className="flex flex-wrap gap-1.5 mb-4">
+                          {repo.tags.map((tag) => (
+                            <span key={tag} className="text-[9px] font-mono text-slate-500 bg-slate-950/60 px-1.5 py-0.5 rounded">
+                              #{tag}
+                            </span>
+                          ))}
+                        </div>
+                      )}
+                      
+                      <div className="flex items-center justify-between pt-3 border-t border-slate-800/60 text-[10px] font-mono text-slate-500">
+                        <div className="flex items-center gap-2">
+                          <span className="flex items-center gap-1 text-amber-500/80 font-bold">
+                            ★ {repo.stars || 1}
+                          </span>
+                          <span>{repo.updatedAt}</span>
+                        </div>
+                        <a 
+                          href={repo.url}
+                          target="_blank"
+                          rel="noreferrer"
+                          onMouseEnter={playHoverTick}
+                          onClick={playCyberClick}
+                          className="flex items-center gap-1 text-slate-400 hover:text-indigo-400 transition-colors group/link font-semibold"
+                        >
+                          Code <ExternalLink className="w-3 h-3 group-hover/link:translate-x-0.5 group-hover/link:-translate-y-0.5 transition-transform" />
+                        </a>
+                      </div>
+                    </div>
+                  </motion.div>
+                ))
+              ) : (
+                filteredProjects.map((project) => (
+                  <motion.div
+                    key={project.id}
+                    layout
+                    initial={{ opacity: 0, scale: 0.95 }}
+                    animate={{ opacity: 1, scale: 1 }}
+                    exit={{ opacity: 0, scale: 0.93 }}
+                    transition={{ 
+                      duration: 0.35,
+                      layout: { type: "spring", stiffness: 220, damping: 20 }
+                    }}
+                    className="h-full"
+                  >
+                    <ProjectCard project={project} />
+                  </motion.div>
+                ))
+              )}
             </AnimatePresence>
           </motion.div>
         </div>

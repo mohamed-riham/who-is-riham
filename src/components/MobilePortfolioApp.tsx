@@ -30,7 +30,7 @@ import {
   Instagram,
   RefreshCw
 } from 'lucide-react';
-import { PERSONAL_INFO, PROJECTS } from '../data';
+import { PERSONAL_INFO, PROJECTS, GITHUB_REPOS } from '../data';
 import ProjectCard from './ProjectCard';
 import ResearchFeature from './ResearchFeature';
 import SkillsGrid from './SkillsGrid';
@@ -54,7 +54,7 @@ export default function MobilePortfolioApp() {
   ]);
 
   // Project Category Filter specifically for mobile cards layout
-  const [mobileProjectFilter, setMobileProjectFilter] = useState<'all' | 'iot' | 'data-science' | 'software' | 'full-stack'>('all');
+  const [mobileProjectFilter, setMobileProjectFilter] = useState<'all' | 'iot' | 'data-science' | 'software' | 'full-stack' | 'github'>('all');
 
   useEffect(() => {
     // Dynamic pocket time
@@ -106,6 +106,7 @@ export default function MobilePortfolioApp() {
         { type: 'resp', text: 'Direct macros:' },
         { type: 'resp', text: '  about     View academic and dual credentials summary.' },
         { type: 'resp', text: '  matrix    Fetch the core language competency data.' },
+        { type: 'resp', text: '  repos     List all 22 active GitHub repositories.' },
         { type: 'resp', text: '  contact   Reveal direct e-mail connection channels.' },
         { type: 'resp', text: '  clear     Purge previous terminal log buffer.' }
       );
@@ -118,6 +119,23 @@ export default function MobilePortfolioApp() {
     } else if (cleanCmd === 'matrix') {
       newLogs.push(
         { type: 'resp', text: 'Tech Weights: Python (95%), SQL (90%), C# (80%), OpenCV (88%), YOLOv8 (90%), Git (95%)' }
+      );
+    } else if (cleanCmd === 'repos' || cleanCmd === 'github') {
+      newLogs.push(
+        { type: 'resp', text: 'GitHub Repositories (22 Total):' },
+        { type: 'resp', text: '  - who-is-riham (TypeScript)' },
+        { type: 'resp', text: '  - Sri-Lankan-Currency-Detector-YOLOv8 (Python)' },
+        { type: 'resp', text: '  - Data-Science-Dashboard-python (Python)' },
+        { type: 'resp', text: '  - face_recognition_attendance_system (Python)' },
+        { type: 'resp', text: '  - ABC_HOSPITAL (PHP)' },
+        { type: 'resp', text: '  - mokkapix-vault (TypeScript)' },
+        { type: 'resp', text: '  - Senior-TV-Player (TypeScript)' },
+        { type: 'resp', text: '  - Real-Estate-Tokenization-DApp (HTML)' },
+        { type: 'resp', text: '  - Smart-Home-Door-Lock-System-IoT-Enabled-Access-Control (C++)' },
+        { type: 'resp', text: '  - AimBot-Panel (C#)' },
+        { type: 'resp', text: '  - [Private] CRP-Final (Data Analysis)' },
+        { type: 'resp', text: '  - [Private] Research_Papers (LaTeX)' },
+        { type: 'resp', text: '  Tap on "GitHub Repos" filter tab to view interactive cards.' }
       );
     } else if (cleanCmd === 'contact') {
       newLogs.push(
@@ -204,17 +222,18 @@ export default function MobilePortfolioApp() {
                     </div>
                   </div>
                   <div>
+                    <h1 className="sr-only">Mohamed Riham | Software Engineer &amp; Data Science Undergraduate in Addalaichenai</h1>
                     <h2 className="text-base font-heading font-extrabold text-slate-100">
                       M.A. Mohamed Riham
                     </h2>
                     <p className="text-[10px] font-mono text-cyan-400 font-semibold tracking-wider uppercase leading-none mt-1">
-                      BSc Data Science Candidate
+                      Software Engineer &amp; Data Science Undergraduate
                     </p>
                   </div>
                 </div>
   
                 <p className="text-xs text-slate-350 leading-relaxed mt-4 font-sans border-t border-slate-900 pt-3">
-                  A dual-disciplinary developer from Sri Lanka. Integrates rigorous software design benchmarks with modern deep neural networks.
+                  I am a Software Engineer and Data Science Undergraduate based in Addalaichenai, specializing in engineering localized, privacy-first Edge AI hardware assist devices, clean database-driven architectures adhering strictly to robust SOLID design patterns, and high-precision convolutional and machine learning models.
                 </p>
   
                 <div className="flex flex-wrap items-center gap-x-3 gap-y-1.5 pt-3 text-[10px] text-slate-450 font-sans font-medium">
@@ -322,7 +341,8 @@ export default function MobilePortfolioApp() {
                   { id: 'iot', label: 'IoT Core' },
                   { id: 'data-science', label: 'AI/ML' },
                   { id: 'software', label: 'SOLID Soft' },
-                  { id: 'full-stack', label: 'Full-Stack' }
+                  { id: 'full-stack', label: 'Full-Stack' },
+                  { id: 'github', label: 'GitHub Repos (22)' }
                 ].map((pill) => (
                   <button
                     key={pill.id}
@@ -340,11 +360,62 @@ export default function MobilePortfolioApp() {
 
               {/* Touch optimized vertical list of projects cards */}
               <div className="space-y-4">
-                {filteredMobileProjects.map((p) => (
-                  <div key={p.id} className="bg-slate-900/40 p-1.5 rounded-xl border border-slate-850/80">
-                    <ProjectCard project={p} />
-                  </div>
-                ))}
+                {mobileProjectFilter === 'github' ? (
+                  GITHUB_REPOS.map((repo) => (
+                    <div key={repo.name} className="bg-slate-900/80 border border-slate-850 rounded-xl p-4 text-left flex flex-col justify-between">
+                      <div>
+                        <div className="flex items-center justify-between mb-2">
+                          <span className="text-[9px] font-mono uppercase tracking-wider text-indigo-400 bg-indigo-950/40 px-1.5 py-0.5 rounded border border-indigo-900/40">
+                            {repo.language || "Markdown"}
+                          </span>
+                          <span className={`text-[8px] font-mono px-1.5 py-0.5 rounded border ${repo.isPrivate ? 'text-amber-400 bg-amber-950/30 border-amber-900/30' : 'text-emerald-400 bg-emerald-950/30 border-emerald-900/30'}`}>
+                            {repo.isPrivate ? "Private" : "Public"}
+                          </span>
+                        </div>
+                        
+                        <h3 className="text-sm font-heading font-extrabold text-slate-100 mb-1.5">
+                          {repo.name}
+                        </h3>
+                        <p className="text-slate-400 text-[11px] leading-relaxed mb-3">
+                          {repo.description}
+                        </p>
+                      </div>
+
+                      <div>
+                        {repo.tags && repo.tags.length > 0 && (
+                          <div className="flex flex-wrap gap-1 mb-3">
+                            {repo.tags.map((tag) => (
+                              <span key={tag} className="text-[8px] font-mono text-slate-500 bg-slate-950/40 px-1.5 py-0.5 rounded">
+                                #{tag}
+                              </span>
+                            ))}
+                          </div>
+                        )}
+                        
+                        <div className="flex items-center justify-between pt-2.5 border-t border-slate-850 text-[9px] font-mono text-slate-500">
+                          <div className="flex items-center gap-1.5">
+                            <span className="text-amber-500 font-bold">★ {repo.stars || 1}</span>
+                            <span>{repo.updatedAt}</span>
+                          </div>
+                          <a 
+                            href={repo.url}
+                            target="_blank"
+                            rel="noreferrer"
+                            className="flex items-center gap-0.5 text-slate-400 hover:text-indigo-400 font-semibold"
+                          >
+                            Code <ExternalLink className="w-2.5 h-2.5" />
+                          </a>
+                        </div>
+                      </div>
+                    </div>
+                  ))
+                ) : (
+                  filteredMobileProjects.map((p) => (
+                    <div key={p.id} className="bg-slate-900/40 p-1.5 rounded-xl border border-slate-850/80">
+                      <ProjectCard project={p} />
+                    </div>
+                  ))
+                )}
               </div>
             </motion.div>
           )}

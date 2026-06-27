@@ -15,6 +15,9 @@ export interface Project {
   githubUrl?: string;
   kaggleUrl?: string;
   demoUrl?: string;
+  youtubeUrl?: string;
+  devToUrl?: string;
+  linkedinEmbedUrl?: string;
   customStats?: { label: string; value: string }[];
   hardwareSpecs?: string[];
   image?: string;
@@ -81,3 +84,15 @@ export interface Experience {
   details: string[];
   type: string;
 }
+
+export interface GitHubRepo {
+  name: string;
+  description: string;
+  url: string;
+  language?: string;
+  isPrivate?: boolean;
+  stars?: number;
+  updatedAt?: string;
+  tags?: string[];
+}
+
