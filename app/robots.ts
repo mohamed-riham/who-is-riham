@@ -8,6 +8,6 @@ export default function robots(): MetadataRoute.Robots {
       userAgent: "*",
       allow: "/",
     },
-    sitemap: "https://mohamed-riham.github.io/sitemap.xml",
+    sitemap: "https://mohamed-riham.github.io/who-is-riham/sitemap.xml",
   };
 }

@@ -43,7 +43,7 @@ export default function AboutSection() {
                 </div>
                 <div className="flex justify-between text-[#A4ADBB]">
                   <span className="text-[#69778A]">Prior Diploma:</span>
-                  <span className="text-[#63DCC6] font-medium text-right">BTEC HND Merit (10 Dist.)</span>
+                  <span className="text-[#63DCC6] font-medium text-right">BTEC HND Merit (11 Dist.)</span>
                 </div>
                 <div className="flex justify-between text-[#A4ADBB]">
                   <span className="text-[#69778A]">Location:</span>
@@ -69,11 +69,11 @@ export default function AboutSection() {
             </h2>
 
             <p className="text-base text-[#A4ADBB] leading-relaxed">
-              I am a final-year Data Science undergraduate at ICBT Campus, studying for a BSc (Hons) in Data Science awarded by Cardiff Metropolitan University, UK. Before this, I completed a Pearson BTEC Higher National Diploma in Software Engineering with Merit, earning 10 Distinctions across 15 technical units.
+              I am a final-year Data Science undergraduate at ICBT Campus, studying for a BSc (Hons) in Data Science awarded by Cardiff Metropolitan University, UK. Before this, I completed a Pearson BTEC Higher National Diploma in Software Engineering with Merit, earning 11 Distinctions across 15 technical units.
             </p>
 
             <p className="text-base text-[#A4ADBB] leading-relaxed">
-              My core engineering philosophy is grounded in building working, verifiable systems. Rather than relying on simulated datasets or abstract theory, I engineer practical solutions—ranging from a 99.2% mAP YOLOv8 currency detector for the visually impaired to 100% offline desktop automation and empirical big data fraud detection research.
+              My core engineering philosophy is grounded in building working, verifiable systems. Rather than relying on simulated datasets or abstract theory, I engineer practical solutions—ranging from a 99.2% mAP@50 YOLOv8 currency detector for the visually impaired to local-first desktop automation with neural voice synthesis and empirical big data fraud detection research.
             </p>
 
             {/* Quick Context Highlights */}

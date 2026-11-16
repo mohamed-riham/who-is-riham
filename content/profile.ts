@@ -38,7 +38,7 @@ export const profile: Profile = {
   socials: {
     github: "https://github.com/mohamed-riham",
     linkedin: "https://www.linkedin.com/in/mohamedriham",
-    dev: "https://dev.to/mohamedriham",
+    dev: "https://dev.to/mohamed-riham",
     medium: "https://medium.com/@mohamed-riham",
     instagram: "https://instagram.com/_mohamed_riham",
   },
@@ -54,14 +54,14 @@ export const profile: Profile = {
       sublabel: "Comparative fraud detection research",
     },
     {
-      value: "10",
+      value: "11",
       label: "HND Distinctions",
       sublabel: "Pearson BTEC Software Engineering",
     },
     {
-      value: "100%",
-      label: "Offline Architecture",
-      sublabel: "Zero-cloud private voice automation",
+      value: "1,000+",
+      label: "Annotated Images",
+      sublabel: "Custom Sri Lankan banknote dataset",
     },
   ],
 };

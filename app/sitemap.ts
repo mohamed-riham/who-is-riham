@@ -4,10 +4,10 @@ import { projects } from "@/content/projects";
 export const dynamic = "force-static";
 
 export default function sitemap(): MetadataRoute.Sitemap {
-  const baseUrl = "https://mohamed-riham.github.io";
+  const baseUrl = "https://mohamed-riham.github.io/who-is-riham";
 
   const projectRoutes = projects.map((p) => ({
-    url: `${baseUrl}/projects/${p.slug}`,
+    url: `${baseUrl}/projects/${p.slug}/`,
     lastModified: new Date(),
     changeFrequency: "monthly" as const,
     priority: p.featured ? 0.9 : 0.7,
@@ -15,7 +15,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
 
   return [
     {
-      url: baseUrl,
+      url: `${baseUrl}/`,
       lastModified: new Date(),
       changeFrequency: "weekly" as const,
       priority: 1.0,

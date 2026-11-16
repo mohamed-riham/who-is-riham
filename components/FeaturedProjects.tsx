@@ -3,6 +3,7 @@ import Link from "next/link";
 import { ArrowUpRight, Play, ExternalLink, Cpu, ShieldCheck, Sparkles, Layers } from "lucide-react";
 import { GithubIcon } from "@/components/Icons";
 import { projects } from "@/content/projects";
+import { getAssetPath } from "@/lib/utils";
 
 export default function FeaturedProjects() {
   const featured = projects.filter((p) => p.featured);
@@ -117,7 +118,7 @@ export default function FeaturedProjects() {
               <div className="w-full lg:w-[480px] h-[280px] sm:h-[340px] relative rounded-2xl overflow-hidden border border-white/10 bg-[#080D18] shadow-2xl">
                 {featured[0].image && (
                   <Image
-                    src={featured[0].image}
+                    src={getAssetPath(featured[0].image)}
                     alt="YOLOv8 Sri Lankan Currency Detection bounding box output"
                     fill
                     className="object-cover group-hover:scale-105 transition-transform duration-500"

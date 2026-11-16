@@ -35,7 +35,7 @@ export const educationList: EducationItem[] = [
     period: "Dec 2023 – Mar 2025",
     location: "Kalmunai, Sri Lanka",
     status: "Completed",
-    grade: "Merit (10 Distinctions, 5 Merits across 15 Units)",
+    grade: "Merit (11 Distinctions, 4 Merits across 15 Units)",
     description:
       "Comprehensive British higher education computing program covering rigorous software architecture, object-oriented systems, database normalization, algorithms, and security.",
     modules: [

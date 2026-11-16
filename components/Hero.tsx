@@ -1,6 +1,7 @@
 import { Download, ArrowRight, BookOpen, Terminal, Sparkles, CheckCircle2 } from "lucide-react";
 import { GithubIcon, LinkedinIcon } from "@/components/Icons";
 import { profile } from "@/content/profile";
+import { getAssetPath } from "@/lib/utils";
 
 export default function Hero() {
   return (
@@ -43,7 +44,7 @@ export default function Hero() {
             </a>
 
             <a
-              href="/cv.pdf"
+              href={getAssetPath("/cv.pdf")}
               download="Mohamed_Riham_CV.pdf"
               className="inline-flex items-center gap-2 text-sm font-medium text-[#F2F0E9] bg-[#0D1422] hover:bg-[#131E30] border border-white/10 px-5 py-3 rounded-xl transition-all duration-200 hover:border-white/20 active:scale-98"
             >

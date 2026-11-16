@@ -69,7 +69,11 @@ export default function WritingSection() {
                 </div>
 
                 <span className="inline-flex items-center gap-1.5 text-xs font-semibold text-[#63DCC6] group-hover:translate-x-1 transition-transform">
-                  Read Article
+                  {article.platform.toLowerCase().includes("presentation") ||
+                  article.platform.toLowerCase().includes("deck") ||
+                  article.platform.toLowerCase().includes("slideshare")
+                    ? "View Presentation"
+                    : "Read Article"}
                   <ExternalLink className="w-3.5 h-3.5" />
                 </span>
               </div>

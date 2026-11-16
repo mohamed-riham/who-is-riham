@@ -17,17 +17,23 @@ export default function Footer() {
         </div>
 
         <div className="flex flex-wrap items-center gap-6 text-xs font-medium">
-          <Link href="#projects" className="hover:text-[#63DCC6] transition-colors">
+          <Link href="/#projects" className="hover:text-[#63DCC6] transition-colors">
             Projects
           </Link>
-          <Link href="#skills" className="hover:text-[#63DCC6] transition-colors">
+          <Link href="/#skills" className="hover:text-[#63DCC6] transition-colors">
             Skills
           </Link>
-          <Link href="#experience" className="hover:text-[#63DCC6] transition-colors">
+          <Link href="/#experience" className="hover:text-[#63DCC6] transition-colors">
             Experience
           </Link>
-          <Link href="#education" className="hover:text-[#63DCC6] transition-colors">
+          <Link href="/#education" className="hover:text-[#63DCC6] transition-colors">
             Education
+          </Link>
+          <Link href="/#writing" className="hover:text-[#63DCC6] transition-colors">
+            Writing
+          </Link>
+          <Link href="/#contact" className="hover:text-[#63DCC6] transition-colors">
+            Contact
           </Link>
           <a
             href={profile.socials.github}

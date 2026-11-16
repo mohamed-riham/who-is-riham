@@ -4,6 +4,7 @@ import { useState } from "react";
 import { Mail, Copy, Check, Download, BookOpen, Send, MapPin, Sparkles } from "lucide-react";
 import { GithubIcon, LinkedinIcon } from "@/components/Icons";
 import { profile } from "@/content/profile";
+import { getAssetPath } from "@/lib/utils";
 
 export default function ContactSection() {
   const [copied, setCopied] = useState(false);
@@ -75,7 +76,7 @@ export default function ContactSection() {
         {/* Secondary Actions */}
         <div className="flex flex-wrap items-center justify-center gap-3.5 pt-2">
           <a
-            href="/cv.pdf"
+            href={getAssetPath("/cv.pdf")}
             download="Mohamed_Riham_CV.pdf"
             className="inline-flex items-center gap-2 text-xs font-medium text-[#F2F0E9] bg-[#0D1422] hover:bg-[#131E30] border border-white/10 px-4.5 py-2.5 rounded-2xl transition-colors shadow-sm"
           >

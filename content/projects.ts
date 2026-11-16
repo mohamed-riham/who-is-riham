@@ -62,14 +62,14 @@ export const projects: Project[] = [
     links: {
       github: "https://github.com/mohamed-riham/Sri-Lankan-Currency-Detector-YOLOv8",
       video: "https://youtu.be/IeytAWt0NNw",
-      article: "https://dev.to/mohamedriham/building-an-accessible-currency-detector-for-the-sri-lankan-visually-impaired-with-yolov8-esp32-cam-audio-feedback-3b5f",
+      article: "https://dev.to/mohamed-riham/building-an-accessible-currency-detector-for-the-sri-lankan-visually-impaired-with-yolov8-esp32-cam-audio-feedback-3b5f",
     },
     image: "/images/projects/sri-lankan-currency-detector/val_batch0_pred.jpg",
     diagram: "/images/projects/sri-lankan-currency-detector/confusion_matrix.png",
     architectureDetails:
       "Input Frame (Camera / Webcam) → Image Preprocessing & Resizing (640x640) → YOLOv8n Backbone & C2f Feature Extractor → Decoupled Detection Head → NMS Bounding Box Filter → Confidence Scoring (Threshold > 0.70) → Class Resolution (20/50/100/500/1000/5000 LKR) → Audio Synthesis Feedback Buffer.",
     limitations:
-      "Severely damaged, torn, or partially obscured banknotes under extreme darkness require secondary tactile inspection or supplemental LED illumination.",
+      "PC/webcam inference pipeline is fully functional and benchmarked (99.20% mAP@50); ESP32-CAM + DFPlayer Mini edge hardware integration represents the low-cost embedded prototype roadmap. Severely damaged or obscured banknotes under extreme low-light require supplemental illumination.",
     year: 2025,
   },
   {
@@ -80,49 +80,48 @@ export const projects: Project[] = [
     category: "Machine Learning",
     status: "Research & Evaluation",
     summary:
-      "An empirical data science investigation benchmarking ensemble tree models against extreme positive-class scarcity (< 1% fraud instances) across 1M+ transactions, evaluating SMOTE resampling against cost-sensitive boosting.",
+      "An empirical data science research study benchmarking ensemble tree classifiers against extreme positive-class scarcity (99.48% legitimate vs 0.52% fraudulent transactions) across 1,000,000+ financial records. Proves XGBoost's statistically significant superiority (p = 0.0003) under SMOTE resampling.",
     problem:
-      "Financial institutions suffer millions in credit card fraud daily. However, standard classifiers collapse on fraud datasets because fraudulent transactions represent less than 0.5% of data, resulting in deceitfully high overall accuracy but disastrous fraud catch rates.",
+      "Financial institutions suffer billions in unauthorized card fraud annually. Standard classifiers fail on transaction datasets because fraud accounts for only ~0.52% of observations, yielding deceitfully high raw accuracy (99.5%) while missing actual fraudulent activity.",
     solution:
-      "Constructed a rigorous machine learning pipeline testing data cleaning, PCA dimensional projection, and Synthetic Minority Over-sampling (SMOTE). Systematically compared Random Forest against Extreme Gradient Boosting (XGBoost), analyzing PR curves and AUC-ROC.",
+      "Constructed a rigorous machine learning pipeline testing data cleaning, PCA projection, and Synthetic Minority Over-sampling (SMOTE) strictly on training splits. Systematically benchmarked Random Forest against XGBoost across Precision-Recall, F1-scores, and ROC curves.",
     contribution:
-      "Authored the formal research analysis, authored Python preprocessing scripts, optimized hyperparameter grids, and published slide deck documentation.",
+      "Sole researcher. Authored the comprehensive comparative analysis, designed feature pipelines, evaluated class imbalance techniques, performed statistical significance hypothesis testing (p = 0.0003), and presented the findings.",
     approach: [
-      "Evaluated baseline Random Forest and XGBoost classifiers without sampling on 1M+ transaction records.",
-      "Implemented SMOTE (Synthetic Minority Over-sampling Technique) to synthetically balance minority fraud cases in training folds.",
-      "Evaluated Precision-Recall tradeoff, F1-scores, and confusion matrices rather than misleading raw accuracy.",
-      "Demonstrated that XGBoost delivered superior predictive power and tighter latency bounds on skewed financial data distributions.",
+      "Evaluated baseline Random Forest and XGBoost classifiers on 1,000,000+ financial transaction records with 99.48% vs 0.52% class imbalance.",
+      "Applied SMOTE (Synthetic Minority Over-sampling Technique) exclusively to training folds to prevent data leakage into validation splits.",
+      "Prioritized Precision-Recall curves, AUPRC, and F1-scores over misleading overall accuracy.",
+      "Demonstrated that XGBoost delivered statistically significant superior predictive accuracy (p = 0.0003) with tighter inference latency bounds.",
     ],
     results: [
       { label: "Dataset Size", value: "1,000,000+ Records" },
-      { label: "Fraud Ratio", value: "< 1.0% Imbalance" },
-      { label: "Top Classifier", value: "XGBoost" },
-      { label: "Sampling", value: "SMOTE Tuned" },
+      { label: "Class Split", value: "99.48% vs 0.52%" },
+      { label: "Top Model", value: "XGBoost (p=0.0003)" },
+      { label: "Sampling", value: "SMOTE (Train Split)" },
     ],
     techStack: ["Python", "XGBoost", "Scikit-Learn", "Pandas", "NumPy", "SMOTE", "Matplotlib", "Seaborn"],
     links: {
-      article: "https://dev.to/mohamedriham/from-student-to-engineer-my-journey-into-applied-ai-voice-assistants-and-beyond-49e0",
+      article: "https://www.slideshare.net/slideshow/a-comparative-study-of-random-forest-and-xgboost-for-detecting-credit-card-fraud-transactions-using-big-data-mohamed-riham-crp-final-presentation-pptx/283983057",
     },
-    image: "/images/projects/data-science-dashboard/dashboard_preview.png",
     architectureDetails:
-      "Raw Transactions (1M+ Records) → Feature Scaling & Outlier Clipping → SMOTE Resampling (Training Fold Only) → Hyperparameter Grid Tuning → Model Comparison (Random Forest vs XGBoost) → Cross-Validation Evaluation (AUC-ROC, F1, Precision-Recall Curve).",
+      "Raw Transactions (1M+ Records) → Feature Scaling & Outlier Filtering → SMOTE Resampling (Training Fold Only) → Hyperparameter Grid Optimization → Model Comparison (Random Forest vs XGBoost) → Statistical Significance Validation (p = 0.0003, AUC-ROC, Precision-Recall Curves).",
     limitations:
-      "Synthetic over-sampling can introduce boundary noise in feature space; production deployment requires dynamic sliding-window streaming validation.",
+      "Synthetic over-sampling can introduce boundary noise in high-dimensional feature spaces; production enterprise deployment requires adaptive sliding-window streaming validation.",
     year: 2025,
   },
   {
     slug: "edith-voice-assistant",
-    title: "E.D.I.T.H. Offline Intelligent Voice Assistant",
-    tagline: "100% cloud-free, privacy-preserving desktop automation assistant built from scratch in Python.",
+    title: "E.D.I.T.H. Intelligent Voice Assistant",
+    tagline: "Local-first, privacy-preserving desktop automation assistant built in Python with neural audio vocalization.",
     featured: true,
     category: "Intelligent Automation",
     status: "Completed",
     summary:
-      "A fully local voice assistant ('Enhanced Digital Interface for Task Handling') that operates entirely offline without sending voice data to commercial APIs. Executes desktop commands, application controls, media playback, webcam selfies, and fuzzy matching intent parsing.",
+      "A local-first voice assistant ('Enhanced Digital Interface for Task Handling') designed for private desktop execution without transmitting audio telemetry to commercial cloud APIs. Executes system controls, app launches, media playback, webcam captures, and fuzzy intent parsing with low-latency neural speech synthesis.",
     problem:
       "Commercial voice assistants (Alexa, Siri, Google Assistant) depend entirely on cloud connectivity, introduce network latency, and harvest personal user audio transcripts for external storage.",
     solution:
-      "Engineered an offline voice processing pipeline utilizing local speech recognition, fuzzy string matching, edge-tts local audio synthesis, OpenCV camera triggers, and PyAutoGUI system administration.",
+      "Engineered an efficient local voice processing pipeline utilizing local speech recognition, fuzzy string matching, edge-tts neural audio synthesis, OpenCV camera triggers, and PyAutoGUI system administration.",
     contribution:
       "Architected the full Python system: custom wake-word listener, command router, fuzzy parser for relaxed natural language tolerance, and desktop automation hooks.",
     approach: [
@@ -132,20 +131,19 @@ export const projects: Project[] = [
       "Integrated `pyautogui`, `cv2`, and system APIs for multi-app launch, volume control, screenshots, and webcam capture.",
     ],
     results: [
-      { label: "Cloud Dependency", value: "0% (Fully Offline)" },
-      { label: "Latency", value: "Sub-Second Audio" },
-      { label: "Parser", value: "Fuzzy Intent Router" },
-      { label: "Privacy", value: "Local Storage Only" },
+      { label: "Architecture", value: "Local-First / Hybrid" },
+      { label: "Response", value: "Neural Audio Synthesis" },
+      { label: "Parser", value: "Fuzzy Levenshtein Router" },
+      { label: "Privacy", value: "Zero Audio Telemetry" },
     ],
     techStack: ["Python", "speech_recognition", "edge-tts", "OpenCV", "pyautogui", "fuzzywuzzy", "pydub"],
     links: {
-      github: "https://github.com/mohamed-riham",
-      article: "https://dev.to/mohamedriham/i-built-an-offline-jarvis-in-python-no-internet-needed-29bc",
+      article: "https://dev.to/mohamed-riham/i-built-an-offline-jarvis-in-python-no-internet-needed-29bc",
     },
     architectureDetails:
       "Microphone Audio Stream → Speech Recognition Engine → Levenshtein Fuzzy Intent Matcher → Action Dispatcher (System Control / Webcam / Media / App Launcher) → Vocal Response Buffer via edge-tts & pydub.",
     limitations:
-      "Offline speech models require clear acoustic environments with minimal background reverberation compared to cloud beamforming arrays.",
+      "Source codebase is maintained as a private/academic repository. Relies on edge-tts neural voice generation; microphone speech recognition operates best in low-noise acoustic environments.",
     year: 2024,
   },
   {
@@ -327,6 +325,41 @@ export const projects: Project[] = [
     },
     limitations:
       "Requires continuous 5V DC power and active Wi-Fi connection for mobile remote control; offline mode operates purely on local RFID.",
+    year: 2025,
+  },
+  {
+    slug: "sri-lankan-rainfall-forecasting",
+    title: "Sri Lankan Rainfall Forecasting & Meteorological Time-Series Analysis",
+    tagline: "Comparative time-series modeling evaluating classical statistical vs deep recurrent architectures on Department of Meteorology weather data.",
+    featured: false,
+    category: "Machine Learning",
+    status: "Research & Evaluation",
+    summary:
+      "An active academic research study analyzing multi-decadal historical climate and rainfall records across agro-ecological zones in Sri Lanka. Benchmarks classical econometric time-series models (ARIMA, SARIMAX) against modern deep learning sequence models (LSTM, GRU) for monsoon precipitation forecasting and extreme weather anomaly detection.",
+    problem:
+      "Monsoon agriculture and hydroelectric power generation in Sri Lanka are acutely vulnerable to climate variability, flash flooding, and severe droughts. Traditional seasonal estimates lack fine-grained temporal resolution and struggle to capture non-linear climatic shifts.",
+    solution:
+      "Engineered an end-to-end meteorological data pipeline to ingest, clean, decompose, and stationarize multi-station weather data. Benchmarked seasonal auto-regressive models (SARIMAX) with exogenous variables against stacked Long Short-Term Memory (LSTM) and Gated Recurrent Unit (GRU) neural networks.",
+    contribution:
+      "Sole researcher. Implemented seasonal stationarity testing (ADF, KPSS), seasonal differencing, sequence windowing datasets for PyTorch/TensorFlow, and comparative loss evaluation (RMSE, MAE).",
+    approach: [
+      "Extracted multi-station meteorological time series, handling sensor missingness via spline interpolation.",
+      "Applied Augmented Dickey-Fuller (ADF) tests to assess stationarity and determined optimal seasonal differencing orders (p, d, q) x (P, D, Q)s.",
+      "Engineered sliding temporal windows (t-30 ... t) to feed sequential Recurrent Neural Networks (LSTM/GRU).",
+      "Benchmarked forecasting error across monsoonal regimes (Yala and Maha seasons) using RMSE, MAE, and directional accuracy.",
+    ],
+    results: [
+      { label: "Temporal Span", value: "Multi-Decadal" },
+      { label: "Target Zones", value: "Agro-Ecological" },
+      { label: "Deep Sequence", value: "LSTM & GRU" },
+      { label: "Statistical", value: "SARIMAX Benchmarked" },
+    ],
+    techStack: ["Python", "PyTorch", "Statsmodels", "Pandas", "NumPy", "Scikit-Learn", "Matplotlib"],
+    links: {},
+    architectureDetails:
+      "Weather Station Ingestion → Missingness Imputation & Feature Scaling → ADF Stationarity Testing & STL Decomposition → Sequence Windowing (t-30) → Comparative Modeling (SARIMAX vs LSTM vs GRU) → Evaluation Metrics (RMSE, MAE, R²).",
+    limitations:
+      "Extreme microclimate variance across localized mountain ranges requires dense high-altitude sensor station feeds for hyper-local storm prediction.",
     year: 2025,
   },
 ];

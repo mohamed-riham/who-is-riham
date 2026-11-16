@@ -5,6 +5,7 @@ import type { Metadata } from "next";
 import { ArrowLeft, ArrowRight, Play, ExternalLink, Cpu, CheckCircle2, AlertTriangle, Layers, BookOpen } from "lucide-react";
 import { GithubIcon } from "@/components/Icons";
 import { projects } from "@/content/projects";
+import { getAssetPath } from "@/lib/utils";
 
 interface Props {
   params: Promise<{ slug: string }>;
@@ -115,7 +116,7 @@ export default async function ProjectCaseStudy({ params }: Props) {
         {project.image && (
           <div className="relative w-full h-[320px] sm:h-[460px] rounded-3xl overflow-hidden border border-white/10 mb-12 bg-[#0D1422] shadow-2xl">
             <Image
-              src={project.image}
+              src={getAssetPath(project.image)}
               alt={project.title}
               fill
               className="object-cover"
@@ -183,7 +184,7 @@ export default async function ProjectCaseStudy({ params }: Props) {
               {project.diagram && (
                 <div className="relative w-full h-[280px] sm:h-[400px] rounded-2xl overflow-hidden border border-white/10 mt-5 bg-[#080D18] shadow-lg">
                   <Image
-                    src={project.diagram}
+                    src={getAssetPath(project.diagram)}
                     alt={`${project.title} technical architecture diagram`}
                     fill
                     className="object-contain p-4"

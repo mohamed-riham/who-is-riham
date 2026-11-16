@@ -17,6 +17,7 @@ import {
 } from "lucide-react";
 import { projects } from "@/content/projects";
 import { profile } from "@/content/profile";
+import { getAssetPath } from "@/lib/utils";
 
 export default function CommandPalette() {
   const [open, setOpen] = useState(false);
@@ -59,7 +60,7 @@ export default function CommandPalette() {
     {
       label: "Download CV (PDF)",
       action: () => {
-        window.open("/cv.pdf", "_blank");
+        window.open(getAssetPath("/cv.pdf"), "_blank");
         setOpen(false);
       },
       category: "Quick Actions",

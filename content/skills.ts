@@ -33,7 +33,7 @@ export const skillCategories: SkillCategory[] = [
       { name: "Deep Learning & CNNs", provenIn: "Cardiff Met Data Science Programme" },
       { name: "Class Imbalance & SMOTE", provenIn: "Credit Card Fraud Big Data Research" },
       { name: "Natural Language Processing", provenIn: "EDITH Voice Assistant" },
-      { name: "Speech Recognition & edge-tts", provenIn: "EDITH 100% Offline Assistant" },
+      { name: "Speech Recognition & edge-tts", provenIn: "EDITH Voice Assistant" },
       { name: "Model Evaluation & Hyperparameter Tuning", provenIn: "Scikit-Learn, PyTorch" },
       { name: "Generative AI Foundations", provenIn: "Udacity & AWS Certified Course" },
     ],

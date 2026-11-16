@@ -27,9 +27,10 @@ const ibmPlexMono = IBM_Plex_Mono({
 });
 
 export const metadata: Metadata = {
+  metadataBase: new URL("https://mohamed-riham.github.io/who-is-riham"),
   title: "Mohamed Riham | Data Science Undergraduate",
   description:
-    "Portfolio of Mohamed Riham, Data Science Undergraduate at Cardiff Metropolitan University / ICBT Campus. Practical AI, Computer Vision (YOLOv8 99.2% mAP50), Offline Voice Automation, and Big Data Research.",
+    "Portfolio of Mohamed Riham, Data Science Undergraduate at Cardiff Metropolitan University / ICBT Campus. Practical AI, Computer Vision (YOLOv8 99.2% mAP@50), Local Voice Automation, and Big Data Research.",
   keywords: [
     "Mohamed Riham",
     "Data Science",
@@ -48,7 +49,7 @@ export const metadata: Metadata = {
     title: "Mohamed Riham | Data Science Undergraduate",
     description:
       "I build practical AI, machine learning, computer vision, and intelligent systems that solve real-world problems.",
-    url: "https://mohamed-riham.github.io",
+    url: "https://mohamed-riham.github.io/who-is-riham/",
     siteName: "Mohamed Riham Portfolio",
     locale: "en_US",
     type: "website",
@@ -57,7 +58,7 @@ export const metadata: Metadata = {
     card: "summary_large_image",
     title: "Mohamed Riham | Data Science Undergraduate",
     description:
-      "Data Science undergraduate at Cardiff Met / ICBT. Creator of Sri Lankan Currency Detector (YOLOv8n 99.2% mAP) & EDITH offline assistant.",
+      "Data Science undergraduate at Cardiff Met / ICBT. Creator of Sri Lankan Currency Detector (YOLOv8n 99.2% mAP@50) & EDITH voice automation system.",
   },
   icons: {
     icon: "/favicon.ico",
@@ -77,7 +78,7 @@ export default function RootLayout({
     jobTitle: "Data Science Undergraduate",
     description:
       "I build practical AI, machine learning, computer vision, and intelligent systems that solve real-world problems.",
-    url: "https://mohamed-riham.github.io",
+    url: "https://mohamed-riham.github.io/who-is-riham/",
     email: "mohamedriham93@gmail.com",
     alumniOf: [
       {
@@ -92,7 +93,7 @@ export default function RootLayout({
     sameAs: [
       "https://github.com/mohamed-riham",
       "https://www.linkedin.com/in/mohamedriham",
-      "https://dev.to/mohamedriham",
+      "https://dev.to/mohamed-riham",
       "https://medium.com/@mohamed-riham",
     ],
     knowsAbout: [

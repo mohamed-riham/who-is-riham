@@ -3,6 +3,7 @@
 import { useState, useEffect } from "react";
 import Link from "next/link";
 import { Download, Menu, X, Search, Sparkles } from "lucide-react";
+import { getAssetPath } from "@/lib/utils";
 
 export default function Navbar() {
   const [scrolled, setScrolled] = useState(false);
@@ -83,19 +84,19 @@ export default function Navbar() {
           </button>
 
           <a
-            href="/cv.pdf"
+            href={getAssetPath("/cv.pdf")}
             download="Mohamed_Riham_CV.pdf"
             className="flex items-center gap-1.5 text-xs font-medium text-[#F2F0E9] bg-[#0D1422] hover:bg-[#131E30] border border-white/10 px-3 py-1.5 rounded-lg transition-colors"
           >
             <Download className="w-3.5 h-3.5 text-[#63DCC6]" />
             CV
           </a>
-          <a
-            href="#contact"
+          <Link
+            href="/#contact"
             className="flex items-center gap-1 text-xs font-semibold text-[#080D18] bg-[#63DCC6] hover:bg-[#78e3ce] px-3.5 py-1.5 rounded-lg transition-all shadow-sm shadow-[#63DCC6]/20 hover:shadow-[#63DCC6]/30 active:scale-95"
           >
             Get in touch
-          </a>
+          </Link>
         </div>
 
         {/* Mobile / Tablet Menu Button */}
@@ -132,20 +133,20 @@ export default function Navbar() {
           ))}
           <div className="flex gap-2 pt-2">
             <a
-              href="/cv.pdf"
+              href={getAssetPath("/cv.pdf")}
               download="Mohamed_Riham_CV.pdf"
               className="flex-1 flex items-center justify-center gap-2 text-xs font-medium text-[#F2F0E9] bg-[#0D1422] border border-white/10 py-2.5 rounded-lg"
             >
               <Download className="w-3.5 h-3.5 text-[#63DCC6]" />
               Download CV
             </a>
-            <a
-              href="#contact"
+            <Link
+              href="/#contact"
               onClick={() => setMobileOpen(false)}
               className="flex-1 flex items-center justify-center text-xs font-semibold text-[#080D18] bg-[#63DCC6] py-2.5 rounded-lg"
             >
               Contact
-            </a>
+            </Link>
           </div>
         </div>
       )}
