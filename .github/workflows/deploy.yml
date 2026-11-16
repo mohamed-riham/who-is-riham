@@ -27,10 +27,12 @@ jobs:
           node-version: 20
 
       - name: Install Dependencies
-        run: npm install --legacy-peer-deps
+        run: |
+          rm -f package-lock.json
+          npm install
 
       - name: Build with Next.js Static Export
-        run: npm run build
+        run: npx next build --webpack
         env:
           GITHUB_PAGES: "true"
 
