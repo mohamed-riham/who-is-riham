@@ -47,29 +47,29 @@ export default async function ProjectCaseStudy({ params }: Props) {
         {/* Back Link */}
         <Link
           href="/#projects"
-          className="inline-flex items-center gap-1.5 text-xs font-mono text-[#8B9BB0] hover:text-[#00F2FE] mb-8 transition-colors"
+          className="inline-flex items-center gap-2 text-xs font-mono text-[#A4ADBB] hover:text-[#63DCC6] mb-8 transition-colors group"
         >
-          <ArrowLeft className="w-3.5 h-3.5" />
-          Back to all projects
+          <ArrowLeft className="w-3.5 h-3.5 group-hover:-translate-x-1 transition-transform" />
+          <span>Back to all projects</span>
         </Link>
 
         {/* Case Study Header */}
         <div className="space-y-4 mb-10 pb-8 border-b border-white/[0.08]">
           <div className="flex flex-wrap items-center gap-2 text-xs font-mono">
-            <span className="px-2.5 py-0.5 rounded-full bg-[#00F2FE]/10 text-[#00F2FE] border border-[#00F2FE]/20">
+            <span className="px-3 py-1 rounded-full bg-[#183F43] text-[#63DCC6] border border-[#63DCC6]/20">
               {project.category}
             </span>
-            <span className="px-2.5 py-0.5 rounded-full bg-white/5 text-[#8B9BB0] border border-white/10">
+            <span className="px-3 py-1 rounded-full bg-white/[0.04] text-[#A4ADBB] border border-white/[0.08]">
               {project.status}
             </span>
-            <span className="text-[#5C6B7E]">{project.year}</span>
+            <span className="text-[#69778A]">{project.year}</span>
           </div>
 
-          <h1 className="text-3xl sm:text-5xl font-extrabold text-white tracking-tight leading-tight">
+          <h1 className="text-3xl sm:text-5xl font-bold text-[#F2F0E9] tracking-tight leading-tight">
             {project.title}
           </h1>
 
-          <p className="text-base sm:text-lg text-[#00F2FE] font-medium leading-relaxed">
+          <p className="text-base sm:text-lg text-[#63DCC6] font-medium leading-relaxed">
             {project.tagline}
           </p>
 
@@ -80,9 +80,9 @@ export default async function ProjectCaseStudy({ params }: Props) {
                 href={project.links.github}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="inline-flex items-center gap-1.5 text-xs font-semibold text-white bg-[#0C111A] hover:bg-[#131A26] border border-white/10 px-4 py-2 rounded-lg transition-colors"
+                className="inline-flex items-center gap-2 text-xs font-semibold text-[#F2F0E9] bg-[#0D1422] hover:bg-[#131E30] border border-white/10 px-4 py-2.5 rounded-xl transition-colors shadow-sm"
               >
-                <GithubIcon className="w-4 h-4 text-[#00F2FE]" />
+                <GithubIcon className="w-4 h-4 text-[#63DCC6]" />
                 View Source on GitHub
               </a>
             )}
@@ -91,7 +91,7 @@ export default async function ProjectCaseStudy({ params }: Props) {
                 href={project.links.video}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="inline-flex items-center gap-1.5 text-xs font-semibold text-[#070A0F] bg-[#F5A623] hover:bg-[#FFB733] px-4 py-2 rounded-lg transition-colors"
+                className="inline-flex items-center gap-2 text-xs font-semibold text-[#080D18] bg-[#D9A441] hover:bg-[#ebaf4c] px-4 py-2.5 rounded-xl transition-all shadow-sm shadow-[#D9A441]/20"
               >
                 <Play className="w-4 h-4 fill-current" />
                 Watch YouTube Demo
@@ -102,9 +102,9 @@ export default async function ProjectCaseStudy({ params }: Props) {
                 href={project.links.article}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="inline-flex items-center gap-1.5 text-xs font-medium text-white bg-white/5 hover:bg-white/10 border border-white/10 px-4 py-2 rounded-lg transition-colors"
+                className="inline-flex items-center gap-2 text-xs font-medium text-[#F2F0E9] bg-[#0D1422] hover:bg-[#131E30] border border-white/10 px-4 py-2.5 rounded-xl transition-colors shadow-sm"
               >
-                <BookOpen className="w-4 h-4" />
+                <BookOpen className="w-4 h-4 text-[#63DCC6]" />
                 Read Article
               </a>
             )}
@@ -113,7 +113,7 @@ export default async function ProjectCaseStudy({ params }: Props) {
 
         {/* Primary Cover Image (if available) */}
         {project.image && (
-          <div className="relative w-full h-[320px] sm:h-[460px] rounded-2xl overflow-hidden border border-white/10 mb-12 bg-[#0C111A]">
+          <div className="relative w-full h-[320px] sm:h-[460px] rounded-3xl overflow-hidden border border-white/10 mb-12 bg-[#0D1422] shadow-2xl">
             <Image
               src={project.image}
               alt={project.title}
@@ -125,17 +125,17 @@ export default async function ProjectCaseStudy({ params }: Props) {
         )}
 
         {/* Key Verified Metrics Table */}
-        <div className="mb-12 p-6 rounded-2xl bg-[#0C111A] border border-white/10">
-          <div className="text-xs font-mono text-[#00F2FE] uppercase tracking-wider mb-4 flex items-center gap-1.5">
+        <div className="mb-12 p-6 sm:p-8 rounded-3xl bg-[#0D1422] border border-white/10 shadow-lg">
+          <div className="text-xs font-mono text-[#63DCC6] uppercase tracking-wider mb-5 flex items-center gap-2">
             <CheckCircle2 className="w-4 h-4" />
-            Verified Empirical Results & Performance
+            <span>Verified Empirical Results & Performance</span>
           </div>
 
           <div className="grid grid-cols-2 sm:grid-cols-4 gap-4">
             {project.results.map((r, i) => (
-              <div key={i} className="p-3 rounded-xl bg-[#070A0F] border border-white/5">
-                <div className="text-[11px] font-mono text-[#5C6B7E]">{r.label}</div>
-                <div className="text-base sm:text-lg font-bold font-mono text-white mt-0.5">
+              <div key={i} className="p-3.5 rounded-2xl bg-[#080D18] border border-white/5">
+                <div className="text-[11px] font-mono text-[#69778A]">{r.label}</div>
+                <div className="text-base sm:text-lg font-bold font-mono text-[#F2F0E9] mt-1">
                   {r.value}
                 </div>
               </div>
@@ -144,25 +144,25 @@ export default async function ProjectCaseStudy({ params }: Props) {
         </div>
 
         {/* Deep Dive Body Sections */}
-        <div className="space-y-10 text-sm sm:text-base leading-relaxed text-[#8B9BB0]">
+        <div className="space-y-12 text-sm sm:text-base leading-relaxed text-[#A4ADBB]">
           {/* Problem */}
           <section className="space-y-3">
-            <h2 className="text-xl font-bold text-white tracking-tight">
+            <h2 className="text-2xl font-bold text-[#F2F0E9] tracking-tight">
               1. The Problem
             </h2>
             <p>{project.problem}</p>
           </section>
 
           {/* Solution & Approach */}
-          <section className="space-y-3">
-            <h2 className="text-xl font-bold text-white tracking-tight">
+          <section className="space-y-4">
+            <h2 className="text-2xl font-bold text-[#F2F0E9] tracking-tight">
               2. Solution & Technical Approach
             </h2>
             <p>{project.solution}</p>
-            <ul className="space-y-2.5 pt-2">
+            <ul className="space-y-3 pt-2">
               {project.approach.map((step, i) => (
-                <li key={i} className="flex items-start gap-2.5 text-xs sm:text-sm text-[#F0F4F8]">
-                  <span className="w-1.5 h-1.5 rounded-full bg-[#00F2FE] mt-2 shrink-0" />
+                <li key={i} className="flex items-start gap-3 text-sm text-[#F2F0E9]">
+                  <span className="w-2 h-2 rounded-full bg-[#63DCC6] mt-2 shrink-0" />
                   <span>{step}</span>
                 </li>
               ))}
@@ -171,17 +171,17 @@ export default async function ProjectCaseStudy({ params }: Props) {
 
           {/* Architecture Details */}
           {project.architectureDetails && (
-            <section className="space-y-3">
-              <h2 className="text-xl font-bold text-white tracking-tight flex items-center gap-2">
-                <Layers className="w-5 h-5 text-[#00F2FE]" />
+            <section className="space-y-4">
+              <h2 className="text-2xl font-bold text-[#F2F0E9] tracking-tight flex items-center gap-2">
+                <Layers className="w-5 h-5 text-[#63DCC6]" />
                 3. System Architecture
               </h2>
-              <div className="p-4 rounded-xl bg-[#070A0F] border border-white/10 font-mono text-xs text-[#00F2FE] leading-relaxed">
+              <div className="p-5 rounded-2xl bg-[#080D18] border border-white/10 font-mono text-xs text-[#63DCC6] leading-relaxed shadow-inner">
                 {project.architectureDetails}
               </div>
 
               {project.diagram && (
-                <div className="relative w-full h-[280px] sm:h-[380px] rounded-xl overflow-hidden border border-white/10 mt-4 bg-[#070A0F]">
+                <div className="relative w-full h-[280px] sm:h-[400px] rounded-2xl overflow-hidden border border-white/10 mt-5 bg-[#080D18] shadow-lg">
                   <Image
                     src={project.diagram}
                     alt={`${project.title} technical architecture diagram`}
@@ -195,7 +195,7 @@ export default async function ProjectCaseStudy({ params }: Props) {
 
           {/* Contribution */}
           <section className="space-y-3">
-            <h2 className="text-xl font-bold text-white tracking-tight">
+            <h2 className="text-2xl font-bold text-[#F2F0E9] tracking-tight">
               4. Personal Engineering Contribution
             </h2>
             <p>{project.contribution}</p>
@@ -203,27 +203,27 @@ export default async function ProjectCaseStudy({ params }: Props) {
 
           {/* Limitations & Future Work */}
           {project.limitations && (
-            <section className="space-y-3 p-5 rounded-xl bg-[#0C111A] border border-white/5">
-              <h3 className="text-base font-bold text-white tracking-tight flex items-center gap-2">
-                <AlertTriangle className="w-4 h-4 text-[#F5A623]" />
-                Honest Limitations & Edge Cases
+            <section className="space-y-3 p-6 rounded-2xl bg-[#0D1422] border border-[#D9A441]/20">
+              <h3 className="text-base font-bold text-[#F2F0E9] tracking-tight flex items-center gap-2">
+                <AlertTriangle className="w-4 h-4 text-[#D9A441]" />
+                <span>Honest Limitations & Edge Cases</span>
               </h3>
-              <p className="text-xs sm:text-sm text-[#8B9BB0]">
+              <p className="text-xs sm:text-sm text-[#A4ADBB] leading-relaxed">
                 {project.limitations}
               </p>
             </section>
           )}
 
           {/* Tech Stack Chips */}
-          <section className="space-y-3 pt-4 border-t border-white/[0.08]">
-            <h3 className="text-xs font-mono text-[#5C6B7E] uppercase tracking-wider">
+          <section className="space-y-3 pt-6 border-t border-white/[0.08]">
+            <h3 className="text-xs font-mono text-[#69778A] uppercase tracking-wider">
               Technologies & Libraries Used:
             </h3>
             <div className="flex flex-wrap gap-2">
               {project.techStack.map((tech) => (
                 <span
                   key={tech}
-                  className="px-3 py-1 text-xs font-mono rounded-lg bg-[#0C111A] text-white border border-white/10"
+                  className="px-3 py-1 text-xs font-mono rounded-xl bg-[#0D1422] text-[#F2F0E9] border border-white/10"
                 >
                   {tech}
                 </span>
@@ -237,13 +237,13 @@ export default async function ProjectCaseStudy({ params }: Props) {
           {prevProject ? (
             <Link
               href={`/projects/${prevProject.slug}`}
-              className="p-4 rounded-xl bg-[#0C111A] border border-white/10 hover:border-[#00F2FE]/40 transition-colors flex flex-col items-start group"
+              className="p-5 rounded-2xl bg-[#0D1422] border border-white/10 hover:border-[#63DCC6]/40 transition-colors flex flex-col items-start group shadow-sm"
             >
-              <span className="text-[11px] font-mono text-[#5C6B7E] flex items-center gap-1 mb-1">
-                <ArrowLeft className="w-3 h-3 group-hover:-translate-x-1 transition-transform" />
+              <span className="text-xs font-mono text-[#69778A] flex items-center gap-1.5 mb-1.5">
+                <ArrowLeft className="w-3.5 h-3.5 group-hover:-translate-x-1 transition-transform" />
                 Previous Project
               </span>
-              <span className="text-sm font-bold text-white group-hover:text-[#00F2FE] transition-colors line-clamp-1">
+              <span className="text-sm font-bold text-[#F2F0E9] group-hover:text-[#63DCC6] transition-colors line-clamp-1">
                 {prevProject.title}
               </span>
             </Link>
@@ -252,13 +252,13 @@ export default async function ProjectCaseStudy({ params }: Props) {
           {nextProject ? (
             <Link
               href={`/projects/${nextProject.slug}`}
-              className="p-4 rounded-xl bg-[#0C111A] border border-white/10 hover:border-[#00F2FE]/40 transition-colors flex flex-col items-end group"
+              className="p-5 rounded-2xl bg-[#0D1422] border border-white/10 hover:border-[#63DCC6]/40 transition-colors flex flex-col items-end group shadow-sm"
             >
-              <span className="text-[11px] font-mono text-[#5C6B7E] flex items-center gap-1 mb-1">
+              <span className="text-xs font-mono text-[#69778A] flex items-center gap-1.5 mb-1.5">
                 Next Project
-                <ArrowRight className="w-3 h-3 group-hover:translate-x-1 transition-transform" />
+                <ArrowRight className="w-3.5 h-3.5 group-hover:translate-x-1 transition-transform" />
               </span>
-              <span className="text-sm font-bold text-white group-hover:text-[#00F2FE] transition-colors line-clamp-1">
+              <span className="text-sm font-bold text-[#F2F0E9] group-hover:text-[#63DCC6] transition-colors line-clamp-1">
                 {nextProject.title}
               </span>
             </Link>

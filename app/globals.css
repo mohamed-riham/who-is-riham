@@ -1,30 +1,46 @@
 @import "tailwindcss";
 
 :root {
-  --bg: #070a0f;
-  --surface: #0c111a;
-  --surface-2: #131a26;
-  --surface-3: #192333;
-  --border: rgba(255, 255, 255, 0.08);
-  --border-strong: rgba(255, 255, 255, 0.16);
-  --border-cyan: rgba(0, 242, 254, 0.35);
-  --cyan: #00f2fe;
-  --cyan-dim: #00c4cf;
-  --amber: #f5a623;
-  --text: #f0f4f8;
-  --text-muted: #8b9bb0;
-  --text-dim: #5c6b7e;
+  --bg-primary: #080d18;
+  --bg-secondary: #0d1422;
+  --bg-elevated: #131e30;
+
+  --text-primary: #f2f0e9;
+  --text-secondary: #a4adbb;
+  --text-muted: #69778a;
+
+  --accent-teal: #63dcc6;
+  --accent-teal-deep: #183f43;
+  --accent-teal-glow: rgba(99, 220, 198, 0.12);
+
+  --accent-gold: #d9a441;
+  --accent-gold-deep: rgba(217, 164, 65, 0.15);
+
+  --border-subtle: rgba(255, 255, 255, 0.08);
+  --border-medium: rgba(255, 255, 255, 0.14);
+  --border-teal: rgba(99, 220, 198, 0.28);
 }
 
 @theme inline {
-  --color-bg: var(--bg);
-  --color-surface: var(--surface);
-  --color-surface-2: var(--surface-2);
-  --color-surface-3: var(--surface-3);
-  --color-cyan: var(--cyan);
-  --color-amber: var(--amber);
-  --color-text: var(--text);
+  --font-sans: var(--font-manrope), -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+  --font-serif: var(--font-instrument-serif), Georgia, Cambria, "Times New Roman", serif;
+  --font-mono: var(--font-ibm-plex-mono), ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
+
+  --color-noir-primary: var(--bg-primary);
+  --color-noir-secondary: var(--bg-secondary);
+  --color-noir-elevated: var(--bg-elevated);
+
+  --color-text-primary: var(--text-primary);
+  --color-text-secondary: var(--text-secondary);
   --color-text-muted: var(--text-muted);
+
+  --color-teal-accent: var(--accent-teal);
+  --color-teal-deep: var(--accent-teal-deep);
+  --color-gold-accent: var(--accent-gold);
+
+  --color-border-subtle: var(--border-subtle);
+  --color-border-medium: var(--border-medium);
+  --color-border-teal: var(--border-teal);
 }
 
 html {
@@ -33,33 +49,46 @@ html {
 }
 
 body {
-  background-color: var(--bg);
-  color: var(--text);
-  font-family: var(--font-geist-sans), -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+  background-color: var(--bg-primary);
+  color: var(--text-primary);
+  font-family: var(--font-manrope), -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
   overflow-x: hidden;
-  selection-background-color: rgba(0, 242, 254, 0.25);
+  selection-background-color: rgba(99, 220, 198, 0.25);
   selection-color: #ffffff;
 }
 
-/* Subtle Technical Grid Background */
-.tech-grid {
+/* Subtle Technical Noir Grid */
+.noir-grid {
   background-image: 
-    linear-gradient(to right, rgba(255, 255, 255, 0.03) 1px, transparent 1px),
-    linear-gradient(to bottom, rgba(255, 255, 255, 0.03) 1px, transparent 1px);
-  background-size: 40px 40px;
+    linear-gradient(to right, rgba(255, 255, 255, 0.02) 1px, transparent 1px),
+    linear-gradient(to bottom, rgba(255, 255, 255, 0.02) 1px, transparent 1px);
+  background-size: 56px 56px;
 }
 
-.radial-glow {
-  background: radial-gradient(circle at 50% 0%, rgba(0, 242, 254, 0.12) 0%, transparent 70%);
+/* Atmospheric Ambient Lighting */
+.ambient-glow-top {
+  background: radial-gradient(ellipse 80% 50% at 50% -10%, rgba(99, 220, 198, 0.08) 0%, transparent 70%);
 }
 
-.card-gradient {
-  background: linear-gradient(180deg, rgba(16, 23, 34, 0.85) 0%, rgba(12, 17, 26, 0.95) 100%);
-  border: 1px solid var(--border);
+.ambient-glow-bottom {
+  background: radial-gradient(ellipse 60% 40% at 50% 100%, rgba(24, 63, 67, 0.25) 0%, transparent 70%);
 }
 
-.card-gradient:hover {
-  border-color: var(--border-cyan);
+/* Noir Card Treatment */
+.noir-card {
+  background: linear-gradient(180deg, rgba(13, 20, 34, 0.85) 0%, rgba(8, 13, 24, 0.95) 100%);
+  border: 1px solid var(--border-subtle);
+  transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.noir-card:hover {
+  border-color: var(--border-medium);
+  transform: translateY(-2px);
+}
+
+.noir-card-highlight:hover {
+  border-color: var(--border-teal);
+  box-shadow: 0 10px 30px -10px rgba(99, 220, 198, 0.08);
 }
 
 /* Custom Scrollbar */
@@ -67,12 +96,12 @@ body {
   width: 8px;
 }
 ::-webkit-scrollbar-track {
-  background: #070a0f;
+  background: #080d18;
 }
 ::-webkit-scrollbar-thumb {
-  background: #192333;
+  background: #131e30;
   border-radius: 4px;
 }
 ::-webkit-scrollbar-thumb:hover {
-  background: #2a3a52;
+  background: #183f43;
 }

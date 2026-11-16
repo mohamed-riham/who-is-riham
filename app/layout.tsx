@@ -1,18 +1,29 @@
 import type { Metadata } from "next";
-import { Geist, Geist_Mono } from "next/font/google";
+import { Manrope, Instrument_Serif, IBM_Plex_Mono } from "next/font/google";
 import "./globals.css";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import CommandPalette from "@/components/CommandPalette";
 
-const geistSans = Geist({
-  variable: "--font-geist-sans",
+const manrope = Manrope({
+  variable: "--font-manrope",
   subsets: ["latin"],
+  display: "swap",
 });
 
-const geistMono = Geist_Mono({
-  variable: "--font-geist-mono",
+const instrumentSerif = Instrument_Serif({
+  variable: "--font-instrument-serif",
+  weight: "400",
   subsets: ["latin"],
+  display: "swap",
+  style: ["normal", "italic"],
+});
+
+const ibmPlexMono = IBM_Plex_Mono({
+  variable: "--font-ibm-plex-mono",
+  weight: ["400", "500", "600"],
+  subsets: ["latin"],
+  display: "swap",
 });
 
 export const metadata: Metadata = {
@@ -96,14 +107,17 @@ export default function RootLayout({
   };
 
   return (
-    <html lang="en" className={`${geistSans.variable} ${geistMono.variable} dark scroll-smooth`}>
+    <html
+      lang="en"
+      className={`${manrope.variable} ${instrumentSerif.variable} ${ibmPlexMono.variable} dark scroll-smooth`}
+    >
       <head>
         <script
           type="application/ld+json"
           dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
         />
       </head>
-      <body className="min-h-screen flex flex-col bg-[#070A0F] text-[#F0F4F8] antialiased selection:bg-[#00F2FE]/20 selection:text-white">
+      <body className="min-h-screen flex flex-col bg-[#080D18] text-[#F2F0E9] font-sans antialiased selection:bg-[#63DCC6]/20 selection:text-white">
         <Navbar />
         <main className="flex-grow">{children}</main>
         <Footer />

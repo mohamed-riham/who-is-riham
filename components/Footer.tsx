@@ -4,36 +4,36 @@ import { profile } from "@/content/profile";
 
 export default function Footer() {
   return (
-    <footer className="border-t border-white/[0.08] bg-[#05070B] py-12 text-xs text-[#8B9BB0]">
+    <footer className="border-t border-white/[0.08] bg-[#050810] py-14 text-xs text-[#A4ADBB]">
       <div className="max-w-6xl mx-auto px-4 sm:px-6 flex flex-col md:flex-row items-center justify-between gap-6">
         <div>
-          <div className="font-semibold text-white text-sm">Mohamed Riham</div>
-          <div className="text-[11px] font-mono text-[#5C6B7E] mt-0.5">
+          <div className="font-bold text-[#F2F0E9] text-sm tracking-tight">Mohamed Riham</div>
+          <div className="text-xs font-mono text-[#69778A] mt-1">
             BSc (Hons) Data Science • Cardiff Metropolitan University / ICBT Campus
           </div>
-          <div className="text-[11px] text-[#5C6B7E] mt-1">
-            Built with Next.js App Router, TypeScript, and Tailwind CSS.
+          <div className="text-xs text-[#69778A] mt-1">
+            Carefully crafted with Next.js App Router, TypeScript, and Tailwind CSS.
           </div>
         </div>
 
-        <div className="flex items-center gap-6 text-xs">
-          <Link href="#projects" className="hover:text-white transition-colors">
+        <div className="flex flex-wrap items-center gap-6 text-xs font-medium">
+          <Link href="#projects" className="hover:text-[#63DCC6] transition-colors">
             Projects
           </Link>
-          <Link href="#skills" className="hover:text-white transition-colors">
+          <Link href="#skills" className="hover:text-[#63DCC6] transition-colors">
             Skills
           </Link>
-          <Link href="#experience" className="hover:text-white transition-colors">
+          <Link href="#experience" className="hover:text-[#63DCC6] transition-colors">
             Experience
           </Link>
-          <Link href="#education" className="hover:text-white transition-colors">
+          <Link href="#education" className="hover:text-[#63DCC6] transition-colors">
             Education
           </Link>
           <a
             href={profile.socials.github}
             target="_blank"
             rel="noopener noreferrer"
-            className="hover:text-white transition-colors"
+            className="hover:text-[#63DCC6] transition-colors"
           >
             GitHub
           </a>
@@ -41,7 +41,7 @@ export default function Footer() {
             href={profile.socials.linkedin}
             target="_blank"
             rel="noopener noreferrer"
-            className="hover:text-white transition-colors"
+            className="hover:text-[#63DCC6] transition-colors"
           >
             LinkedIn
           </a>

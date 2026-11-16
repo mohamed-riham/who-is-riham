@@ -24,29 +24,32 @@ export default function AllProjects() {
       : projects.filter((p) => p.category === selectedCategory);
 
   return (
-    <section className="py-16 md:py-24 border-t border-white/[0.08] bg-[#070A0F]/60">
+    <section className="py-16 md:py-24 border-t border-white/[0.08] bg-[#080D18]">
       <div className="max-w-6xl mx-auto px-4 sm:px-6">
-        <div className="flex flex-col md:flex-row md:items-end justify-between mb-8 gap-4">
+        <div className="flex flex-col md:flex-row md:items-end justify-between mb-10 gap-6">
           <div>
-            <div className="inline-flex items-center gap-1.5 text-xs font-mono text-[#00F2FE] uppercase tracking-wider mb-2">
+            <div className="inline-flex items-center gap-2 text-xs font-mono text-[#63DCC6] uppercase tracking-wider mb-2.5">
               <FolderGit2 className="w-3.5 h-3.5" />
-              Full Technical Archive
+              <span>Technical Project Archive</span>
             </div>
-            <h2 className="text-2xl sm:text-3xl font-extrabold text-white tracking-tight">
-              All Verified Projects
+            <h2 className="text-2xl sm:text-4xl font-bold text-[#F2F0E9] tracking-tight">
+              All Verified{" "}
+              <span className="font-serif italic font-normal text-[#63DCC6]">
+                Systems
+              </span>
             </h2>
           </div>
 
           {/* Category Filter Tabs */}
-          <div className="flex flex-wrap gap-1.5 p-1 rounded-xl bg-[#0C111A] border border-white/10">
+          <div className="flex flex-wrap gap-1.5 p-1.5 rounded-2xl bg-[#0D1422] border border-white/10 shadow-inner">
             {categories.map((cat) => (
               <button
                 key={cat}
                 onClick={() => setSelectedCategory(cat)}
-                className={`text-xs font-medium px-3 py-1.5 rounded-lg transition-all ${
+                className={`text-xs font-medium px-3.5 py-1.5 rounded-xl transition-all ${
                   selectedCategory === cat
-                    ? "bg-[#00F2FE] text-[#070A0F] font-semibold shadow-sm"
-                    : "text-[#8B9BB0] hover:text-white hover:bg-white/5"
+                    ? "bg-[#63DCC6] text-[#080D18] font-semibold shadow-sm"
+                    : "text-[#A4ADBB] hover:text-[#F2F0E9] hover:bg-white/[0.04]"
                 }`}
               >
                 {cat}
@@ -56,50 +59,50 @@ export default function AllProjects() {
         </div>
 
         {/* Project Grid */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
           {filtered.map((project) => (
             <div
               key={project.slug}
-              className="p-5 rounded-xl bg-[#0C111A] border border-white/[0.08] hover:border-[#00F2FE]/40 transition-all duration-300 flex flex-col justify-between group"
+              className="p-6 rounded-2xl bg-[#0D1422] border border-white/[0.08] hover:border-[#63DCC6]/40 transition-all duration-300 flex flex-col justify-between group shadow-sm hover:translate-y-[-2px]"
             >
-              <div className="space-y-3">
-                <div className="flex items-center justify-between text-[11px] font-mono">
-                  <span className="text-[#00F2FE]">{project.category}</span>
-                  <span className="text-[#5C6B7E]">{project.year}</span>
+              <div className="space-y-3.5">
+                <div className="flex items-center justify-between text-xs font-mono">
+                  <span className="text-[#63DCC6] font-medium">{project.category}</span>
+                  <span className="text-[#69778A]">{project.year}</span>
                 </div>
 
-                <h3 className="text-lg font-bold text-white group-hover:text-[#00F2FE] transition-colors leading-snug">
+                <h3 className="text-lg font-bold text-[#F2F0E9] group-hover:text-[#63DCC6] transition-colors leading-snug">
                   <Link href={`/projects/${project.slug}`}>{project.title}</Link>
                 </h3>
 
-                <p className="text-xs text-[#8B9BB0] leading-relaxed line-clamp-3">
+                <p className="text-xs sm:text-sm text-[#A4ADBB] leading-relaxed line-clamp-3">
                   {project.tagline}
                 </p>
 
-                <div className="flex flex-wrap gap-1 pt-1">
+                <div className="flex flex-wrap gap-1.5 pt-1">
                   {project.techStack.slice(0, 3).map((t) => (
                     <span
                       key={t}
-                      className="px-2 py-0.5 text-[10px] font-mono rounded bg-white/[0.03] text-[#8B9BB0] border border-white/[0.05]"
+                      className="px-2.5 py-0.5 text-[10px] font-mono rounded-lg bg-white/[0.03] text-[#A4ADBB] border border-white/[0.06]"
                     >
                       {t}
                     </span>
                   ))}
                   {project.techStack.length > 3 && (
-                    <span className="px-1.5 py-0.5 text-[10px] font-mono text-[#5C6B7E]">
+                    <span className="px-2 py-0.5 text-[10px] font-mono text-[#69778A]">
                       +{project.techStack.length - 3}
                     </span>
                   )}
                 </div>
               </div>
 
-              <div className="flex items-center justify-between pt-4 mt-4 border-t border-white/[0.05] text-xs">
+              <div className="flex items-center justify-between pt-5 mt-4 border-t border-white/[0.06] text-xs">
                 <Link
                   href={`/projects/${project.slug}`}
-                  className="inline-flex items-center gap-1 font-medium text-[#00F2FE] hover:underline"
+                  className="inline-flex items-center gap-1 font-semibold text-[#63DCC6] hover:underline"
                 >
                   Deep dive
-                  <ArrowUpRight className="w-3 h-3" />
+                  <ArrowUpRight className="w-3.5 h-3.5" />
                 </Link>
 
                 {project.links.github && (
@@ -107,7 +110,7 @@ export default function AllProjects() {
                     href={project.links.github}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="inline-flex items-center gap-1 text-[#8B9BB0] hover:text-white"
+                    className="inline-flex items-center gap-1.5 text-[#A4ADBB] hover:text-[#F2F0E9] transition-colors"
                   >
                     <GithubIcon className="w-3.5 h-3.5" />
                     Source

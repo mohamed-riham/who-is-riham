@@ -5,53 +5,56 @@ export default function CertificationsSection() {
   return (
     <section className="py-16 md:py-24 border-t border-white/[0.08]">
       <div className="max-w-6xl mx-auto px-4 sm:px-6">
-        <div className="max-w-2xl mb-10">
-          <div className="inline-flex items-center gap-1.5 text-xs font-mono text-[#00F2FE] uppercase tracking-wider mb-2">
+        <div className="max-w-2xl mb-12">
+          <div className="inline-flex items-center gap-2 text-xs font-mono text-[#63DCC6] uppercase tracking-wider mb-2.5">
             <ShieldCheck className="w-3.5 h-3.5" />
-            Verified Credentials
+            <span>Verified Credentials</span>
           </div>
-          <h2 className="text-2xl sm:text-3xl font-extrabold text-white tracking-tight">
-            Certifications & Honors
+          <h2 className="text-3xl sm:text-4xl font-bold text-[#F2F0E9] tracking-tight">
+            Certifications &{" "}
+            <span className="font-serif italic font-normal text-[#63DCC6]">
+              Honors
+            </span>
           </h2>
         </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
           {certifications.map((cert, idx) => (
             <div
               key={idx}
-              className="p-5 rounded-xl bg-[#0C111A] border border-white/[0.08] hover:border-[#00F2FE]/40 transition-all flex flex-col justify-between"
+              className="p-6 rounded-2xl bg-[#0D1422] border border-white/[0.08] hover:border-[#63DCC6]/40 transition-all flex flex-col justify-between shadow-sm"
             >
               <div>
-                <div className="flex items-center justify-between text-xs font-mono text-[#5C6B7E] mb-2">
-                  <span>{cert.issuer}</span>
+                <div className="flex items-center justify-between text-xs font-mono text-[#69778A] mb-2.5">
+                  <span className="text-[#A4ADBB]">{cert.issuer}</span>
                   <span>{cert.date}</span>
                 </div>
 
-                <h3 className="text-base font-bold text-white tracking-tight">
+                <h3 className="text-base font-bold text-[#F2F0E9] tracking-tight">
                   {cert.title}
                 </h3>
 
-                <p className="text-xs text-[#8B9BB0] mt-2 leading-relaxed font-normal">
+                <p className="text-xs sm:text-sm text-[#A4ADBB] mt-2.5 leading-relaxed font-normal">
                   {cert.description}
                 </p>
 
                 {cert.credentialId && (
-                  <div className="mt-3 text-[11px] font-mono text-[#5C6B7E] break-all">
-                    Credential ID: {cert.credentialId}
+                  <div className="mt-3.5 text-xs font-mono text-[#69778A] break-all">
+                    ID: <span className="text-[#A4ADBB]">{cert.credentialId}</span>
                   </div>
                 )}
               </div>
 
               {cert.credentialUrl && (
-                <div className="pt-3 mt-3 border-t border-white/[0.05]">
+                <div className="pt-4 mt-4 border-t border-white/[0.06]">
                   <a
                     href={cert.credentialUrl}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="inline-flex items-center gap-1 text-xs font-medium text-[#00F2FE] hover:underline"
+                    className="inline-flex items-center gap-1.5 text-xs font-semibold text-[#63DCC6] hover:underline"
                   >
                     Verify Credential
-                    <ExternalLink className="w-3 h-3" />
+                    <ExternalLink className="w-3.5 h-3.5" />
                   </a>
                 </div>
               )}
