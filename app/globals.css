@@ -1,30 +1,69 @@
 @import "tailwindcss";
 
 :root {
-  --bg-primary: #080d18;
-  --bg-secondary: #0d1422;
-  --bg-elevated: #131e30;
+  /* ==========================================================================
+     WARM INDUSTRIAL EDITORIAL PALETTE (Strict Specification)
+     ========================================================================== */
+  --bg-obsidian: #040202;          /* Primary base background */
+  --surface-dark-brown: #5C2712;   /* Deep warm surfaces */
+  --accent-burnt-orange: #C43E17;  /* Primary active/button accent */
+  --surface-bronze: #6B503C;       /* Secondary surfaces & framing */
+  --text-ivory: #F9F9F6;           /* Primary typography */
+  --accent-amber-gold: #DEA355;    /* Highlights, honors & distinctions */
+  --text-sand: #D3C29F;            /* Secondary typography & metadata */
+  --accent-steel-blue: #678292;    /* Restrained technical/data accent */
 
-  --text-primary: #f2f0e9;
-  --text-secondary: #a4adbb;
-  --text-muted: #69778a;
+  /* Derived Surface Tones for Editorial Depth */
+  --surface-warm-card: #0D0907;
+  --surface-warm-elevated: #160E0A;
+  --surface-warm-border: #231610;
 
-  --accent-teal: #63dcc6;
-  --accent-teal-deep: #183f43;
-  --accent-teal-glow: rgba(99, 220, 198, 0.12);
+  --text-muted: #8E7F70;
+  --text-dim: #5C5248;
 
-  --accent-gold: #d9a441;
-  --accent-gold-deep: rgba(217, 164, 65, 0.15);
+  /* Accent states & glows */
+  --accent-burnt-orange-hover: #DB4A1E;
+  --accent-burnt-orange-glow: rgba(196, 62, 23, 0.16);
+  --accent-amber-glow: rgba(222, 163, 85, 0.18);
+  --accent-dark-brown-glow: rgba(92, 39, 18, 0.25);
 
-  --border-subtle: rgba(255, 255, 255, 0.08);
-  --border-medium: rgba(255, 255, 255, 0.14);
-  --border-teal: rgba(99, 220, 198, 0.28);
+  --border-subtle: rgba(211, 194, 159, 0.10);
+  --border-medium: rgba(211, 194, 159, 0.20);
+  --border-strong: rgba(211, 194, 159, 0.32);
+  --border-orange: rgba(196, 62, 23, 0.45);
+  --border-amber: rgba(222, 163, 85, 0.38);
+
+  /* Semantic Theme Aliases */
+  --bg-primary: var(--bg-obsidian);
+  --bg-secondary: var(--surface-warm-card);
+  --bg-elevated: var(--surface-warm-elevated);
+
+  --text-primary: var(--text-ivory);
+  --text-secondary: var(--text-sand);
+
+  --accent-teal: var(--accent-burnt-orange);
+  --accent-teal-deep: var(--surface-dark-brown);
+  --accent-teal-glow: var(--accent-burnt-orange-glow);
+
+  --accent-gold: var(--accent-amber-gold);
+  --accent-gold-deep: rgba(222, 163, 85, 0.14);
+
+  --border-teal: var(--border-orange);
 }
 
 @theme inline {
   --font-sans: var(--font-manrope), -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
   --font-serif: var(--font-instrument-serif), Georgia, Cambria, "Times New Roman", serif;
   --font-mono: var(--font-ibm-plex-mono), ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
+
+  --color-obsidian: #040202;
+  --color-dark-brown: #5C2712;
+  --color-burnt-orange: #C43E17;
+  --color-bronze: #6B503C;
+  --color-ivory: #F9F9F6;
+  --color-amber-gold: #DEA355;
+  --color-sand: #D3C29F;
+  --color-steel-blue: #678292;
 
   --color-noir-primary: var(--bg-primary);
   --color-noir-secondary: var(--bg-secondary);
@@ -34,13 +73,13 @@
   --color-text-secondary: var(--text-secondary);
   --color-text-muted: var(--text-muted);
 
-  --color-teal-accent: var(--accent-teal);
-  --color-teal-deep: var(--accent-teal-deep);
-  --color-gold-accent: var(--accent-gold);
+  --color-teal-accent: var(--accent-burnt-orange);
+  --color-teal-deep: var(--surface-dark-brown);
+  --color-gold-accent: var(--accent-amber-gold);
 
   --color-border-subtle: var(--border-subtle);
   --color-border-medium: var(--border-medium);
-  --color-border-teal: var(--border-teal);
+  --color-border-teal: var(--border-orange);
 }
 
 html {
@@ -49,34 +88,38 @@ html {
 }
 
 body {
-  background-color: var(--bg-primary);
-  color: var(--text-primary);
+  background-color: var(--bg-obsidian);
+  color: var(--text-ivory);
   font-family: var(--font-manrope), -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
   overflow-x: hidden;
-  selection-background-color: rgba(99, 220, 198, 0.25);
-  selection-color: #ffffff;
+  selection-background-color: rgba(196, 62, 23, 0.35);
+  selection-color: #F9F9F6;
 }
 
-/* Subtle Technical Noir Grid */
+/* Subtle Technical Warm Noir Grid */
 .noir-grid {
   background-image: 
-    linear-gradient(to right, rgba(255, 255, 255, 0.02) 1px, transparent 1px),
-    linear-gradient(to bottom, rgba(255, 255, 255, 0.02) 1px, transparent 1px);
+    linear-gradient(to right, rgba(211, 194, 159, 0.025) 1px, transparent 1px),
+    linear-gradient(to bottom, rgba(211, 194, 159, 0.025) 1px, transparent 1px);
   background-size: 56px 56px;
 }
 
-/* Atmospheric Ambient Lighting */
+/* Warm Industrial Ambient Lighting */
 .ambient-glow-top {
-  background: radial-gradient(ellipse 80% 50% at 50% -10%, rgba(99, 220, 198, 0.08) 0%, transparent 70%);
+  background: radial-gradient(ellipse 80% 50% at 50% -10%, rgba(196, 62, 23, 0.09) 0%, rgba(92, 39, 18, 0.06) 45%, transparent 75%);
 }
 
 .ambient-glow-bottom {
-  background: radial-gradient(ellipse 60% 40% at 50% 100%, rgba(24, 63, 67, 0.25) 0%, transparent 70%);
+  background: radial-gradient(ellipse 60% 40% at 50% 100%, rgba(92, 39, 18, 0.28) 0%, rgba(196, 62, 23, 0.06) 50%, transparent 75%);
 }
 
-/* Noir Card Treatment */
+.ambient-glow-warm {
+  background: radial-gradient(circle 500px at 50% 50%, rgba(92, 39, 18, 0.18), transparent 70%);
+}
+
+/* Noir Warm Industrial Card Treatment */
 .noir-card {
-  background: linear-gradient(180deg, rgba(13, 20, 34, 0.85) 0%, rgba(8, 13, 24, 0.95) 100%);
+  background: linear-gradient(180deg, rgba(22, 14, 10, 0.90) 0%, rgba(13, 9, 7, 0.98) 100%);
   border: 1px solid var(--border-subtle);
   transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1);
 }
@@ -87,8 +130,8 @@ body {
 }
 
 .noir-card-highlight:hover {
-  border-color: var(--border-teal);
-  box-shadow: 0 10px 30px -10px rgba(99, 220, 198, 0.08);
+  border-color: var(--border-orange);
+  box-shadow: 0 10px 30px -10px rgba(196, 62, 23, 0.12);
 }
 
 /* Custom Scrollbar */
@@ -96,12 +139,12 @@ body {
   width: 8px;
 }
 ::-webkit-scrollbar-track {
-  background: #080d18;
+  background: #040202;
 }
 ::-webkit-scrollbar-thumb {
-  background: #131e30;
+  background: #231610;
   border-radius: 4px;
 }
 ::-webkit-scrollbar-thumb:hover {
-  background: #183f43;
+  background: #6B503C;
 }

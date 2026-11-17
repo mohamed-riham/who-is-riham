@@ -1,85 +1,82 @@
-import { BookOpen, ExternalLink, Calendar, Clock } from "lucide-react";
+"use client";
+
+import { ArrowUpRight, Calendar, Clock, BookOpen } from "lucide-react";
 import { writingArticles } from "@/content/writing";
 
 export default function WritingSection() {
   return (
-    <section id="writing" className="py-20 md:py-28 border-t border-white/[0.08] relative">
-      <div className="max-w-6xl mx-auto px-4 sm:px-6">
-        <div className="max-w-2xl mb-14">
-          <div className="inline-flex items-center gap-2 text-xs font-mono text-[#63DCC6] uppercase tracking-wider mb-2.5">
-            <BookOpen className="w-3.5 h-3.5" />
-            <span>Knowledge Sharing</span>
+    <section id="writing" className="py-24 lg:py-32 border-b border-[#6B503C]/20 bg-[#040202]">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+
+        {/* Section Header */}
+        <div className="flex flex-col md:flex-row md:items-end justify-between gap-6 pb-12 border-b border-[#6B503C]/20">
+          <div className="space-y-2">
+            <div className="font-mono text-xs uppercase tracking-widest text-[#C43E17]">
+              09 // Publication Index
+            </div>
+            <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold tracking-tight text-[#F9F9F6] font-sans">
+              Research notes & technical writing.
+            </h2>
           </div>
-          <h2 className="text-3xl sm:text-5xl font-bold text-[#F2F0E9] tracking-tight">
-            Research &{" "}
-            <span className="font-serif italic font-normal text-[#63DCC6]">
-              Technical Writing
-            </span>
-          </h2>
-          <p className="text-sm text-[#A4ADBB] mt-3 leading-relaxed">
-            Detailed engineering breakdowns, computer vision case studies, and empirical machine learning analyses published on DEV Community and technical platforms.
+          <p className="max-w-md text-sm text-[#D3C29F] leading-relaxed font-light">
+            Engineering breakdowns, computer vision architectures, and applied machine learning analyses published on DEV and Medium.
           </p>
         </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+        {/* Numbered Editorial Publication List */}
+        <div className="divide-y divide-[#6B503C]/20">
           {writingArticles.map((article, idx) => (
             <a
               key={idx}
               href={article.link}
               target="_blank"
               rel="noopener noreferrer"
-              className="p-7 rounded-3xl bg-[#0D1422] border border-white/[0.08] hover:border-[#63DCC6]/40 transition-all flex flex-col justify-between group shadow-lg"
+              className="py-8 flex flex-col lg:flex-row lg:items-center justify-between gap-6 group hover:bg-[#0D0704] transition-colors px-4 -mx-4"
             >
-              <div>
-                <div className="flex items-center justify-between text-xs font-mono text-[#69778A] mb-3">
-                  <span className="px-2.5 py-0.5 rounded-full bg-[#183F43] text-[#63DCC6] border border-[#63DCC6]/20 font-medium">
-                    {article.platform}
-                  </span>
-                  <div className="flex items-center gap-3">
-                    <span className="flex items-center gap-1">
-                      <Calendar className="w-3.5 h-3.5" />
-                      {article.date}
-                    </span>
-                    <span className="flex items-center gap-1">
-                      <Clock className="w-3.5 h-3.5" />
-                      {article.readTime}
-                    </span>
+              <div className="flex items-start gap-6 lg:w-2/3">
+                <span className="font-mono text-xs text-[#8E7F70] group-hover:text-[#C43E17] transition-colors pt-1">
+                  /{String(idx + 1).padStart(2, "0")}
+                </span>
+
+                <div className="space-y-2">
+                  <div className="flex items-center gap-3 font-mono text-xs text-[#8E7F70]">
+                    <span className="text-[#DEA355]">{article.platform}</span>
+                    <span>·</span>
+                    <span>{article.date}</span>
+                    <span>·</span>
+                    <span>{article.readTime}</span>
                   </div>
+
+                  <h3 className="text-xl sm:text-2xl font-bold text-[#F9F9F6] font-sans group-hover:text-[#DEA355] transition-colors leading-snug">
+                    {article.title}
+                  </h3>
+
+                  <p className="text-xs sm:text-sm text-[#D3C29F] font-light leading-relaxed max-w-2xl">
+                    {article.summary}
+                  </p>
                 </div>
-
-                <h3 className="text-xl font-bold text-[#F2F0E9] group-hover:text-[#63DCC6] transition-colors leading-snug">
-                  {article.title}
-                </h3>
-
-                <p className="text-sm text-[#A4ADBB] mt-3.5 leading-relaxed font-normal">
-                  {article.summary}
-                </p>
               </div>
 
-              <div className="flex items-center justify-between pt-5 mt-5 border-t border-white/[0.06]">
+              <div className="flex items-center justify-between lg:justify-end gap-4 lg:w-1/3">
                 <div className="flex flex-wrap gap-1.5">
-                  {article.tags.map((t) => (
+                  {article.tags.map((tag) => (
                     <span
-                      key={t}
-                      className="px-2.5 py-0.5 text-[11px] font-mono rounded-lg bg-white/[0.03] text-[#A4ADBB] border border-white/[0.06]"
+                      key={tag}
+                      className="px-2 py-0.5 text-[10px] font-mono text-[#8E7F70] bg-[#140A06] border border-[#6B503C]/20"
                     >
-                      {t}
+                      {tag}
                     </span>
                   ))}
                 </div>
 
-                <span className="inline-flex items-center gap-1.5 text-xs font-semibold text-[#63DCC6] group-hover:translate-x-1 transition-transform">
-                  {article.platform.toLowerCase().includes("presentation") ||
-                  article.platform.toLowerCase().includes("deck") ||
-                  article.platform.toLowerCase().includes("slideshare")
-                    ? "View Presentation"
-                    : "Read Article"}
-                  <ExternalLink className="w-3.5 h-3.5" />
-                </span>
+                <div className="p-2 bg-[#120704] text-[#D3C29F] group-hover:text-[#F9F9F6] group-hover:bg-[#C43E17] group-hover:text-[#040202] transition-colors">
+                  <ArrowUpRight className="w-4 h-4" />
+                </div>
               </div>
             </a>
           ))}
         </div>
+
       </div>
     </section>
   );

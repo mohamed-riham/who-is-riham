@@ -1,105 +1,153 @@
-import { User, Terminal, BookOpen, Sparkles, Globe, Brain, ShieldCheck, GraduationCap } from "lucide-react";
+"use client";
+
+import Image from "next/image";
+import { User, Terminal, Compass, Layers, ShieldCheck } from "lucide-react";
 import { profile } from "@/content/profile";
+import { getAssetPath } from "@/lib/utils";
+import { InstagramIcon } from "@/components/Icons";
 
 export default function AboutSection() {
   return (
-    <section id="about" className="py-20 md:py-28 border-t border-white/[0.08] relative">
-      <div className="max-w-6xl mx-auto px-4 sm:px-6">
-        <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
-          {/* Technical Identity Dossier Card */}
-          <div className="lg:col-span-5 flex justify-center">
-            <div className="relative w-full max-w-sm rounded-3xl bg-[#0D1422] border border-white/10 p-6 flex flex-col justify-between shadow-2xl shadow-black/80 group">
-              {/* Card Header */}
-              <div className="flex justify-between items-center text-xs font-mono text-[#69778A] pb-4 border-b border-white/[0.06]">
-                <span className="tracking-wider">TECHNICAL DOSSIER</span>
-                <span className="inline-flex items-center gap-1.5 text-[#63DCC6]">
-                  <span className="w-2 h-2 rounded-full bg-[#63DCC6]" />
-                  VERIFIED
-                </span>
-              </div>
+    <section id="about" className="py-24 lg:py-32 border-b border-[#6B503C]/20 bg-[#040202]">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
 
-              {/* Central Geometric Tech Mark */}
-              <div className="flex flex-col items-center justify-center py-7">
-                <div className="w-24 h-24 rounded-2xl bg-[#131E30] border border-[#63DCC6]/30 flex items-center justify-center text-3xl font-mono font-bold text-[#F2F0E9] tracking-tighter group-hover:scale-105 transition-transform shadow-inner">
-                  MR
-                </div>
-                <div className="text-sm font-semibold text-[#F2F0E9] mt-3">
-                  Mohamed Riham
-                </div>
-                <div className="text-xs font-mono text-[#63DCC6] mt-0.5">
-                  Data Science Undergraduate
-                </div>
-              </div>
-
-              {/* Dossier Quick Specs */}
-              <div className="space-y-2.5 pt-4 border-t border-white/[0.06] text-xs font-mono">
-                <div className="flex justify-between text-[#A4ADBB]">
-                  <span className="text-[#69778A]">Awarding University:</span>
-                  <span className="text-[#F2F0E9] font-medium text-right">Cardiff Metropolitan, UK</span>
-                </div>
-                <div className="flex justify-between text-[#A4ADBB]">
-                  <span className="text-[#69778A]">Study Centre:</span>
-                  <span className="text-[#F2F0E9] font-medium text-right">ICBT Campus, Sri Lanka</span>
-                </div>
-                <div className="flex justify-between text-[#A4ADBB]">
-                  <span className="text-[#69778A]">Prior Diploma:</span>
-                  <span className="text-[#63DCC6] font-medium text-right">BTEC HND Merit (11 Dist.)</span>
-                </div>
-                <div className="flex justify-between text-[#A4ADBB]">
-                  <span className="text-[#69778A]">Location:</span>
-                  <span className="text-[#F2F0E9] font-medium text-right">Addalaichenai / Colombo</span>
-                </div>
-              </div>
+        {/* Section Header */}
+        <div className="flex flex-col md:flex-row md:items-end justify-between gap-6 pb-12 border-b border-[#6B503C]/20">
+          <div className="space-y-2">
+            <div className="font-mono text-xs uppercase tracking-widest text-[#C43E17]">
+              04 // Personal Dossier
             </div>
-          </div>
-
-          {/* About Narrative */}
-          <div className="lg:col-span-7 space-y-6">
-            <div className="inline-flex items-center gap-2 text-xs font-mono text-[#63DCC6] uppercase tracking-wider">
-              <User className="w-3.5 h-3.5" />
-              <span>Identity & Philosophy</span>
-            </div>
-
-            <h2 className="text-3xl sm:text-4xl font-bold text-[#F2F0E9] tracking-tight leading-tight">
-              Bridging statistical data science with{" "}
-              <span className="font-serif italic font-normal text-[#63DCC6]">
-                hands-on systems engineering
-              </span>
-              .
+            <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold tracking-tight text-[#F9F9F6] font-sans">
+              Identity, curriculum & engineering philosophy.
             </h2>
-
-            <p className="text-base text-[#A4ADBB] leading-relaxed">
-              I am a final-year Data Science undergraduate at ICBT Campus, studying for a BSc (Hons) in Data Science awarded by Cardiff Metropolitan University, UK. Before this, I completed a Pearson BTEC Higher National Diploma in Software Engineering with Merit, earning 11 Distinctions across 15 technical units.
-            </p>
-
-            <p className="text-base text-[#A4ADBB] leading-relaxed">
-              My core engineering philosophy is grounded in building working, verifiable systems. Rather than relying on simulated datasets or abstract theory, I engineer practical solutions—ranging from a 99.2% mAP@50 YOLOv8 currency detector for the visually impaired to local-first desktop automation with neural voice synthesis and empirical big data fraud detection research.
-            </p>
-
-            {/* Quick Context Highlights */}
-            <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 pt-2">
-              <div className="p-4 rounded-2xl bg-[#0D1422] border border-white/[0.07] hover:border-white/15 transition-colors">
-                <div className="text-xs font-semibold text-[#F2F0E9] flex items-center gap-2 mb-1.5">
-                  <Globe className="w-4 h-4 text-[#63DCC6]" />
-                  Languages & Communication
-                </div>
-                <div className="text-xs text-[#A4ADBB] leading-normal">
-                  English (Pearson Assured Certified) and Tamil (Native). Comfortable with technical documentation and cross-functional collaboration.
-                </div>
-              </div>
-
-              <div className="p-4 rounded-2xl bg-[#0D1422] border border-white/[0.07] hover:border-white/15 transition-colors">
-                <div className="text-xs font-semibold text-[#F2F0E9] flex items-center gap-2 mb-1.5">
-                  <Brain className="w-4 h-4 text-[#D9A441]" />
-                  Active Technical Focus
-                </div>
-                <div className="text-xs text-[#A4ADBB] leading-normal">
-                  Edge computer vision, extreme class imbalance mitigation, privacy-preserving local AI, and reliable web data pipelines.
-                </div>
-              </div>
-            </div>
+          </div>
+          <div className="font-mono text-xs text-[#8E7F70]">
+            LOCATION: ADDALAICHENAI / COLOMBO, SRI LANKA
           </div>
         </div>
+
+        {/* Editorial Split Spread */}
+        <div className="pt-12 grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16 items-start">
+
+          {/* Left Column: Authentic Lifestyle Photography & Ledger (5 cols) */}
+          <div className="lg:col-span-5 space-y-6">
+            <div className="border border-[#6B503C]/35 bg-[#0D0704] p-2 shadow-2xl relative group">
+              {/* Corner crosshairs */}
+              <span className="absolute -top-1.5 -left-1.5 font-mono text-[10px] text-[#C43E17] select-none">+</span>
+              <span className="absolute -top-1.5 -right-1.5 font-mono text-[10px] text-[#C43E17] select-none">+</span>
+              <span className="absolute -bottom-1.5 -left-1.5 font-mono text-[10px] text-[#C43E17] select-none">+</span>
+              <span className="absolute -bottom-1.5 -right-1.5 font-mono text-[10px] text-[#C43E17] select-none">+</span>
+
+              <div className="relative aspect-[4/5] w-full overflow-hidden bg-[#040202]">
+                <Image
+                  src={getAssetPath("/images/profile/mohamed-riham-colombo-portrait.webp")}
+                  alt="Mohamed Riham authentic portrait in Colombo, Data Science Undergraduate"
+                  fill
+                  priority
+                  className="object-cover object-top group-hover:scale-102 transition-transform duration-700"
+                  sizes="(max-width: 1024px) 100vw, 440px"
+                />
+                <div className="absolute inset-0 bg-gradient-to-t from-[#040202] via-transparent to-transparent opacity-60 pointer-events-none" />
+
+                <div className="absolute bottom-3 left-3 right-3 flex items-center justify-between text-[11px] font-mono text-[#F9F9F6]">
+                  <span className="bg-[#040202]/90 border border-[#6B503C]/30 px-2.5 py-1">
+                    Colombo, Sri Lanka
+                  </span>
+                  <a
+                    href="https://www.instagram.com/_mohamed_riham/"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="bg-[#040202]/90 border border-[#6B503C]/30 px-2.5 py-1 text-[#DEA355] hover:text-[#F9F9F6] flex items-center gap-1.5 transition-colors"
+                  >
+                    <span>@_mohamed_riham</span>
+                    <InstagramIcon className="w-3 h-3" />
+                  </a>
+                </div>
+              </div>
+
+              {/* Technical Ledger */}
+              <div className="p-4 bg-[#140A06] border-t border-[#6B503C]/20 space-y-2 text-xs font-mono">
+                <div className="flex justify-between">
+                  <span className="text-[#8E7F70]">Awarding Body:</span>
+                  <span className="text-[#F9F9F6]">Cardiff Metropolitan University, UK</span>
+                </div>
+                <div className="flex justify-between">
+                  <span className="text-[#8E7F70]">Study Centre:</span>
+                  <span className="text-[#F9F9F6]">ICBT Campus, Sri Lanka</span>
+                </div>
+                <div className="flex justify-between">
+                  <span className="text-[#8E7F70]">Prior Diploma:</span>
+                  <span className="text-[#DEA355]">Pearson BTEC HND (11 Distinctions)</span>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          {/* Right Column: Editorial Narrative, Studio Inset & Principles (7 cols) */}
+          <div className="lg:col-span-7 space-y-8">
+            <div className="space-y-4">
+              <h3 className="text-2xl sm:text-3xl lg:text-4xl font-bold text-[#F9F9F6] font-sans leading-tight">
+                Bridging statistical data science with hands-on systems engineering.
+              </h3>
+
+              <p className="text-base text-[#D3C29F] font-light leading-relaxed">
+                I am a final-year Data Science undergraduate at ICBT Campus, studying for a BSc (Hons) in Data Science awarded by Cardiff Metropolitan University, UK. Before this, I completed a Pearson BTEC Higher National Diploma in Software Engineering with Merit, earning 11 Distinctions across 15 technical computing units.
+              </p>
+
+              <p className="text-base text-[#D3C29F] font-light leading-relaxed">
+                My engineering ethos is rooted in building working, verifiable systems. Rather than relying on simulated datasets or synthetic hype, I tackle genuine technical constraints—training a 99.20% mAP@50 YOLOv8 currency detector for the visually impaired, benchmark-testing fraud detection models across 284,807 real transactions (492 frauds, 0.172% ratio), and engineering local-first desktop automation with neural voice synthesis.
+              </p>
+            </div>
+
+            {/* Core Pillars / Principles */}
+            <div className="pt-6 border-t border-[#6B503C]/20 grid grid-cols-1 sm:grid-cols-2 gap-6">
+              <div className="p-5 bg-[#0D0704] border border-[#6B503C]/25 space-y-2">
+                <div className="flex items-center gap-2 text-xs font-mono text-[#C43E17] uppercase">
+                  <ShieldCheck className="w-4 h-4" />
+                  <span>Empirical Verification</span>
+                </div>
+                <p className="text-xs text-[#D3C29F] font-light leading-relaxed">
+                  Every metric published is measured directly against confusion matrices, PR curves, and test sets. No arbitrary proficiency bars.
+                </p>
+              </div>
+
+              <div className="p-5 bg-[#0D0704] border border-[#6B503C]/25 space-y-2">
+                <div className="flex items-center gap-2 text-xs font-mono text-[#DEA355] uppercase">
+                  <Layers className="w-4 h-4" />
+                  <span>Physical Hardware Constraints</span>
+                </div>
+                <p className="text-xs text-[#D3C29F] font-light leading-relaxed">
+                  Designing lightweight models (YOLOv8n) and local-first software that run reliably on accessible edge hardware with minimal latency.
+                </p>
+              </div>
+            </div>
+
+            {/* Secondary Creative Studio Photograph (Balanced Placement) */}
+            <div className="border border-[#6B503C]/35 bg-[#0D0704] p-2 relative group shadow-xl">
+              <div className="relative aspect-[16/7] w-full overflow-hidden bg-[#040202]">
+                <Image
+                  src={getAssetPath("/images/workspace/mohamed-riham-craft-studio.webp")}
+                  alt="Mohamed Riham at creative maker and hardware craft studio"
+                  fill
+                  className="object-cover group-hover:scale-102 transition-transform duration-700"
+                  sizes="(max-width: 1024px) 100vw, 700px"
+                />
+                <div className="absolute inset-0 bg-gradient-to-t from-[#040202] via-transparent to-transparent opacity-60 pointer-events-none" />
+                <div className="absolute bottom-2 left-2 bg-[#040202]/90 border border-[#6B503C]/30 px-2 py-0.5 text-[10px] font-mono text-[#D3C29F]">
+                  Maker Mindset // Hardware Craft & Design Precision
+                </div>
+              </div>
+            </div>
+
+            {/* Language & Research Focus Strip */}
+            <div className="p-4 bg-[#120704] border border-[#6B503C]/20 flex flex-wrap items-center justify-between gap-4 text-xs font-mono text-[#8E7F70]">
+              <span>COMMUNICATION: ENGLISH (PROFICIENT), TAMIL (NATIVE)</span>
+              <span className="text-[#F9F9F6]">OPEN FOR RESEARCH & APPLIED AI ROLES</span>
+            </div>
+          </div>
+
+        </div>
+
       </div>
     </section>
   );

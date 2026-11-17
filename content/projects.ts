@@ -8,8 +8,8 @@ export interface Project {
   title: string;
   tagline: string;
   featured: boolean;
-  category: "Computer Vision" | "Machine Learning" | "Intelligent Automation" | "Tools & Web" | "Blockchain & IoT";
-  status: "Completed" | "Research & Evaluation" | "Prototype";
+  category: "Computer Vision" | "Machine Learning" | "Intelligent Automation" | "Tools & Web" | "Blockchain & IoT" | "Interactive 3D";
+  status: "Completed" | "Research & Evaluation" | "Prototype" | "Discontinued Prototype";
   summary: string;
   problem: string;
   solution: string;
@@ -22,6 +22,7 @@ export interface Project {
     demo?: string;
     video?: string;
     article?: string;
+    paper?: string;
   };
   image?: string;
   diagram?: string;
@@ -75,36 +76,37 @@ export const projects: Project[] = [
   {
     slug: "credit-card-fraud-detection",
     title: "Credit Card Fraud Detection: Random Forest vs XGBoost",
-    tagline: "Comparative big data machine learning research analyzing extreme class imbalance on 1,000,000+ financial transactions.",
+    tagline: "Comparative big data machine learning research analyzing extreme class imbalance on 284,807 financial transactions.",
     featured: true,
     category: "Machine Learning",
     status: "Research & Evaluation",
     summary:
-      "An empirical data science research study benchmarking ensemble tree classifiers against extreme positive-class scarcity (99.48% legitimate vs 0.52% fraudulent transactions) across 1,000,000+ financial records. Proves XGBoost's statistically significant superiority (p = 0.0003) under SMOTE resampling.",
+      "An empirical data science research study benchmarking ensemble tree classifiers against extreme positive-class scarcity (284,315 legitimate vs 492 fraudulent transactions, 0.172% ratio) across 284,807 financial records. Proves XGBoost's statistically significant superiority (p = 0.0003) over Random Forest under SMOTE resampling on training splits.",
     problem:
-      "Financial institutions suffer billions in unauthorized card fraud annually. Standard classifiers fail on transaction datasets because fraud accounts for only ~0.52% of observations, yielding deceitfully high raw accuracy (99.5%) while missing actual fraudulent activity.",
+      "Financial institutions suffer billions in unauthorized card fraud annually. Standard classifiers fail on transaction datasets because fraud accounts for only 0.172% of observations (492 out of 284,807 transactions), yielding deceitfully high raw accuracy (99.8%) while failing to detect actual fraudulent activity.",
     solution:
-      "Constructed a rigorous machine learning pipeline testing data cleaning, PCA projection, and Synthetic Minority Over-sampling (SMOTE) strictly on training splits. Systematically benchmarked Random Forest against XGBoost across Precision-Recall, F1-scores, and ROC curves.",
+      "Constructed a rigorous machine learning pipeline testing data cleaning, PCA projection, and Synthetic Minority Over-sampling (SMOTE) strictly on training splits. Systematically benchmarked Random Forest against XGBoost across Precision-Recall, F1-scores, and ROC curves, establishing XGBoost as the superior model.",
     contribution:
       "Sole researcher. Authored the comprehensive comparative analysis, designed feature pipelines, evaluated class imbalance techniques, performed statistical significance hypothesis testing (p = 0.0003), and presented the findings.",
     approach: [
-      "Evaluated baseline Random Forest and XGBoost classifiers on 1,000,000+ financial transaction records with 99.48% vs 0.52% class imbalance.",
+      "Evaluated baseline Random Forest and XGBoost classifiers on 284,807 financial transaction records with extreme class imbalance (99.828% legitimate vs 0.172% fraudulent).",
       "Applied SMOTE (Synthetic Minority Over-sampling Technique) exclusively to training folds to prevent data leakage into validation splits.",
-      "Prioritized Precision-Recall curves, AUPRC, and F1-scores over misleading overall accuracy.",
-      "Demonstrated that XGBoost delivered statistically significant superior predictive accuracy (p = 0.0003) with tighter inference latency bounds.",
+      "Prioritized Precision-Recall curves, AUPRC, and F1-scores over misleading raw accuracy metrics.",
+      "Demonstrated that XGBoost delivered statistically significant superior predictive accuracy (p = 0.0003) over Random Forest.",
     ],
     results: [
-      { label: "Dataset Size", value: "1,000,000+ Records" },
-      { label: "Class Split", value: "99.48% vs 0.52%" },
+      { label: "Dataset Size", value: "284,807 Transactions" },
+      { label: "Class Imbalance", value: "492 Frauds (0.172%)" },
       { label: "Top Model", value: "XGBoost (p=0.0003)" },
       { label: "Sampling", value: "SMOTE (Train Split)" },
     ],
     techStack: ["Python", "XGBoost", "Scikit-Learn", "Pandas", "NumPy", "SMOTE", "Matplotlib", "Seaborn"],
     links: {
+      paper: "https://www.academia.edu/129361586/A_Comparative_Study_of_Random_Forest_and_XGBoost_for_Detecting_Credit_Card_Fraud_Transactions_using_Big_Data",
       article: "https://www.slideshare.net/slideshow/a-comparative-study-of-random-forest-and-xgboost-for-detecting-credit-card-fraud-transactions-using-big-data-mohamed-riham-crp-final-presentation-pptx/283983057",
     },
     architectureDetails:
-      "Raw Transactions (1M+ Records) → Feature Scaling & Outlier Filtering → SMOTE Resampling (Training Fold Only) → Hyperparameter Grid Optimization → Model Comparison (Random Forest vs XGBoost) → Statistical Significance Validation (p = 0.0003, AUC-ROC, Precision-Recall Curves).",
+      "Raw Transactions (284,807 Records) → Feature Scaling & Outlier Filtering → SMOTE Resampling (Training Fold Only) → Hyperparameter Grid Optimization → Model Comparison (Random Forest vs XGBoost) → Statistical Significance Validation (p = 0.0003, Precision-Recall Curves).",
     limitations:
       "Synthetic over-sampling can introduce boundary noise in high-dimensional feature spaces; production enterprise deployment requires adaptive sliding-window streaming validation.",
     year: 2025,
@@ -222,34 +224,40 @@ export const projects: Project[] = [
   {
     slug: "face-recognition-attendance-system",
     title: "Real-Time Face Recognition Attendance System",
-    tagline: "Automated biometric classroom attendance tracking cutting manual logging effort by ~80% with MySQL auditing.",
+    tagline: "Automated biometric classroom attendance tracking cutting manual logging effort by ~80% with MySQL auditing & published research paper.",
     featured: false,
     category: "Computer Vision",
     status: "Completed",
     summary:
-      "A desktop computer vision application built with Python, OpenCV, and facial recognition libraries that automatically identifies students, writes structured timestamped logs to MySQL, and emails alerts via SMTP.",
+      "An academic computer vision research project and desktop application built with Python, OpenCV, and facial recognition libraries that automatically identifies students, writes structured timestamped logs to MySQL, and emails alerts via SMTP. Published as an empirical research paper on Academia.edu.",
     problem:
       "Traditional manual roll-call attendance in university campuses consumes 10-15 minutes of lecture time, is susceptible to proxy signing, and lacks real-time administrative reporting.",
     solution:
-      "Engineered a real-time facial recognition framework with camera feed capture, face encoding storage, automated MySQL attendance timestamps, and unknown face identification.",
+      "Engineered a real-time facial recognition framework with camera feed capture, face encoding storage, automated MySQL attendance timestamps, unknown face identification, and published academic evaluation.",
     contribution:
-      "Implemented facial encoding routines, MySQL relational database schema, PyQt/PySide graphical user interface, and SMTP notification dispatch.",
+      "Sole author and developer. Formulated the research methodology, authored the academic research paper, implemented facial encoding routines, MySQL relational database schema, PyQt/PySide graphical user interface, and SMTP notification dispatch.",
     approach: [
       "Constructed student face capture module encoding 128-dimensional facial landmarks.",
       "Built real-time video evaluation loop comparing incoming camera frames against encoded database entries.",
       "Automated MySQL database logging with distinct daily timestamps and proxy prevention.",
+      "Published full research paper 'Automated Student Attendance System Using Face Recognition' detailing system architecture and empirical performance on Academia.edu.",
       "Configured Python `smtplib` to trigger immediate notification emails to designated administrative or guardian addresses.",
     ],
     results: [
       { label: "Time Saved", value: "~80% Effort Cut" },
+      { label: "Research", value: "Published Paper" },
       { label: "Database", value: "MySQL Relational" },
-      { label: "Alerts", value: "Automated SMTP" },
-      { label: "Identification", value: "Real-Time Camera" },
+      { label: "Platform", value: "Academia.edu" },
     ],
     techStack: ["Python", "OpenCV", "face_recognition", "MySQL", "PyQt/PySide", "smtplib"],
     links: {
       github: "https://github.com/mohamed-riham/face_recognition_attendance_system",
+      video: "https://youtu.be/s1kjEoHqRIo",
+      paper: "https://www.academia.edu/129361519/Automated_Student_Attendance_System_Using_Face_Recognition",
+      article: "https://www.academia.edu/129361519/Automated_Student_Attendance_System_Using_Face_Recognition",
     },
+    architectureDetails:
+      "Video Feed Ingestion → 128D Face Landmark Encoding → Distance Metric Matcher vs Encoded MySQL Database → Attendance Ledger Timestamp Generation → Automated SMTP Parent/Admin Alert Dispatch → Research Paper Published on Academia.edu.",
     limitations:
       "Accuracy degrades under extreme occlusion (face masks) or poor illumination below 10 lux.",
     year: 2024,
@@ -322,7 +330,11 @@ export const projects: Project[] = [
     techStack: ["C++", "ESP8266", "ESP32", "RFID (RC522)", "Blynk IoT", "Servo Motor", "I2C LCD"],
     links: {
       github: "https://github.com/mohamed-riham/Smart-Home-Door-Lock-System-IoT-Enabled-Access-Control",
+      video: "https://youtu.be/S1Fof4P0N-s",
     },
+    image: "/images/projects/door-lock/smart-lock-dashboard.webp",
+    architectureDetails:
+      "MFRC522 RFID Sensor (SPI) / Blynk Cloud IoT App (TCP/IP) → ESP8266/ESP32 Microcontroller Core → Servo Deadbolt Actuation & I2C LCD Display Status → Real-time Cloud Telemetry & Alert Dispatch.",
     limitations:
       "Requires continuous 5V DC power and active Wi-Fi connection for mobile remote control; offline mode operates purely on local RFID.",
     year: 2025,
@@ -360,6 +372,85 @@ export const projects: Project[] = [
       "Weather Station Ingestion → Missingness Imputation & Feature Scaling → ADF Stationarity Testing & STL Decomposition → Sequence Windowing (t-30) → Comparative Modeling (SARIMAX vs LSTM vs GRU) → Evaluation Metrics (RMSE, MAE, R²).",
     limitations:
       "Extreme microclimate variance across localized mountain ranges requires dense high-altitude sensor station feeds for hyper-local storm prediction.",
+    year: 2025,
+  },
+  {
+    slug: "cis6027-ecommerce-bi-analytics",
+    title: "E-Commerce Business Intelligence & Analytics (CIS6027)",
+    tagline: "Enterprise dimensional modeling and interactive business intelligence dashboard utilizing the Olist Brazilian E-Commerce dataset.",
+    featured: false,
+    category: "Machine Learning",
+    status: "Completed",
+    summary:
+      "An academic Business Intelligence and Analytics research project developed for module CIS6027 at Cardiff Metropolitan University. Engineered an end-to-end analytical pipeline on the 100,000+ record Olist Brazilian E-Commerce dataset, implementing star-schema dimensional modeling, RFM customer segmentation, logistics latency analysis, and interactive executive Power BI dashboards with custom DAX measures.",
+    problem:
+      "Large-scale distributed e-commerce operations generate fragmented relational databases covering order lifecycles, payment installments, customer satisfaction reviews, and regional logistics. Extracting operational insights, delivery bottleneck alerts, and customer retention metrics requires structured dimensional modeling and clean KPI synthesis.",
+    solution:
+      "Constructed a normalized star-schema data model connecting order facts with customer, seller, product, and geolocation dimensions. Engineered data transformation workflows, formulated advanced DAX measures for revenue growth and logistics delays, and designed an interactive executive Power BI dashboard.",
+    contribution:
+      "Sole analyst. Formulated the dimensional warehouse schema, authored data transformation pipelines, engineered complex DAX calculation measures, and produced comprehensive academic documentation and dashboard artifacts (`Assignment.pbix`).",
+    approach: [
+      "Extracted, normalized, and preprocessed multi-table relational records from the 100,000+ transaction Olist dataset.",
+      "Designed an optimized dimensional star schema linking centralized sales facts with customer, product, and logistics dimensions.",
+      "Formulated advanced DAX measures calculating Year-over-Year revenue expansion, delivery latency deviations, and repeat purchase frequencies.",
+      "Synthesized interactive Power BI reports with geospatial choropleth maps, category drill-downs, and executive KPI cards.",
+    ],
+    results: [
+      { label: "Orders Analyzed", value: "100,000+ Records" },
+      { label: "Data Model", value: "Star Schema" },
+      { label: "Dashboard", value: "Executive Power BI" },
+      { label: "Analytics", value: "RFM Segmentation" },
+    ],
+    techStack: ["Power BI", "DAX", "Python", "Data Modeling", "ETL", "Pandas", "SQL"],
+    links: {
+      github: "https://github.com/mohamed-riham/CIS6027-Ecommerce-Business-Intelligence-Analytics",
+    },
+    architectureDetails:
+      "Relational CSV Datasets (100k+ Orders) → Data Cleaning & Transformation Pipeline → Dimensional Modeling (Fact Orders + Dimensions: Customers, Products, Geolocation, Payments) → Advanced DAX Calculation Layer → Interactive Executive Power BI Dashboard (.pbix) → Strategic Recommendations.",
+    limitations:
+      "Dashboard operates on historical multi-year transaction snapshots; production real-time enterprise monitoring requires automated DirectQuery cloud pipeline refreshes.",
+    year: 2025,
+  },
+  {
+    slug: "azirah-horror-game",
+    title: "Azirah: Don't Let Her See You (3D Psychological Horror)",
+    tagline: "First-person 3D psychological horror prototype built in Unity 6 and C# — an exploratory post-mortem in spatial design and scoping.",
+    featured: false,
+    category: "Interactive 3D",
+    status: "Discontinued Prototype",
+    summary:
+      "A first-person 3D psychological horror prototype developed in Unity 6 (URP) and C#, exploring atmospheric environmental design, dynamic volumetric lighting, event-driven scripting, and spatial 3D audio cues. Stepped back as an intentional architectural post-mortem on project scoping, asset pipelines, and narrative pacing.",
+    problem:
+      "Building an atmospheric 3D psychological horror title requires balancing complex interconnected systems—high-fidelity terrain generation, volumetric lighting, lightmap baking, spatial audio cues, dynamic AI stealth mechanics, and narrative pacing—which easily leads to scope explosion for solo indie developers.",
+    solution:
+      "Developed working gameplay prototypes in Unity 6 with Universal Render Pipeline (URP), C# event systems for puzzle interactions, custom 3D environmental assets via Blender, and 3D spatial soundscapes. Documented architectural lessons and published a transparent developer post-mortem on DEV Community.",
+    contribution:
+      "Solo game developer. Implemented player movement mechanics, flashlight/visibility systems, terrain colliders, cabin and forest environmental layout, ambient audio engineering, and authored the published post-mortem engineering retrospective.",
+    approach: [
+      "Constructed modular 3D terrain and forest scenes in Unity 6 utilizing Universal Render Pipeline (URP) and custom prefab hierarchies.",
+      "Engineered C# event-driven scripts for player interaction, camera controller raycasts, and trigger-zone puzzle states.",
+      "Configured realtime soft shadows, volumetric fog volumes, and directional light baking to cultivate claustrophobic psychological tension.",
+      "Integrated 3D spatial audio engineering with custom distance falloff curves for auditory dread cues.",
+      "Conducted an engineering post-mortem analyzing scope management, player psychology, and technical debt, published on DEV Community.",
+    ],
+    results: [
+      { label: "Engine", value: "Unity 6 (URP)" },
+      { label: "Language", value: "C# Scripting" },
+      { label: "Status", value: "Discontinued Prototype" },
+      { label: "Retrospective", value: "DEV Article Published" },
+    ],
+    techStack: ["Unity 6", "C#", "Blender", "URP", "Spatial Audio", "Lightmapping", "Game Physics"],
+    links: {
+      github: "https://github.com/mohamed-riham",
+      video: "/videos/azirah-gameplay-demo.mp4",
+      article: "https://dev.to/mohamed-riham/working-on-azirah-dont-let-her-see-you-lessons-from-my-game-development-journey-5aae",
+    },
+    image: "/images/projects/azirah-horror-game/azirah-gameplay-preview.webp",
+    diagram: "/images/projects/azirah-horror-game/azirah-unity-editor.webp",
+    architectureDetails:
+      "Player Input & Rigidbody Controller (C#) → Interaction Raycast Layer → Event-Driven Trigger Managers (Door/Cabin Puzzles) → URP Lighting Pipeline (Volumetric Fog, Soft Shadows, Directional Emission) → 3D Audio Source Listener (Spatial Falloff Curves) → Developer Retrospective & Post-Mortem Analysis.",
+    limitations:
+      "Development stepped back prior to full narrative completion due to solo scope constraints. Prototype serves as an educational milestone in 3D physics, shader optimization, and game architecture.",
     year: 2025,
   },
 ];

@@ -15,6 +15,8 @@ export interface Profile {
     dev: string;
     medium: string;
     instagram: string;
+    huggingface: string;
+    academia?: string;
   };
   stats: {
     value: string;
@@ -33,14 +35,16 @@ export const profile: Profile = {
   location: "Addalaichenai & Dehiwala, Colombo, Sri Lanka",
   email: "mohamedriham93@gmail.com",
   secondaryEmail: "mohamedrihamofficial@gmail.com",
-  cvPath: "/cv.pdf",
+  cvPath: "/Mohamed_Riham_CV.pdf",
   languages: ["English", "Tamil"],
   socials: {
     github: "https://github.com/mohamed-riham",
     linkedin: "https://www.linkedin.com/in/mohamedriham",
     dev: "https://dev.to/mohamed-riham",
     medium: "https://medium.com/@mohamed-riham",
-    instagram: "https://instagram.com/_mohamed_riham",
+    instagram: "https://www.instagram.com/_mohamed_riham/",
+    huggingface: "https://huggingface.co/mohamedriham",
+    academia: "https://cleverchecklist.academia.edu/mohamedriham",
   },
   stats: [
     {
@@ -49,9 +53,9 @@ export const profile: Profile = {
       sublabel: "Verified YOLOv8n currency detector",
     },
     {
-      value: "1M+",
+      value: "284,807",
       label: "Transactions Analyzed",
-      sublabel: "Comparative fraud detection research",
+      sublabel: "Comparative fraud research (492 frauds, 0.172%)",
     },
     {
       value: "11",

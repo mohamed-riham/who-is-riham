@@ -1,56 +1,71 @@
+"use client";
+
 import Link from "next/link";
 import { ArrowUp } from "lucide-react";
-import { profile } from "@/content/profile";
 
 export default function Footer() {
+  const scrollToTop = () => {
+    window.scrollTo({ top: 0, behavior: "smooth" });
+  };
+
   return (
-    <footer className="border-t border-white/[0.08] bg-[#050810] py-14 text-xs text-[#A4ADBB]">
-      <div className="max-w-6xl mx-auto px-4 sm:px-6 flex flex-col md:flex-row items-center justify-between gap-6">
-        <div>
-          <div className="font-bold text-[#F2F0E9] text-sm tracking-tight">Mohamed Riham</div>
-          <div className="text-xs font-mono text-[#69778A] mt-1">
-            BSc (Hons) Data Science • Cardiff Metropolitan University / ICBT Campus
+    <footer className="border-t border-[#6B503C]/20 bg-[#040202] py-16 text-xs text-[#D3C29F]">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-12">
+        <div className="flex flex-col lg:flex-row items-start lg:items-center justify-between gap-8 pb-12 border-b border-[#6B503C]/20">
+          <div className="space-y-1.5 font-mono">
+            <div className="text-base font-bold text-[#F9F9F6] font-sans">
+              Mohamed Riham
+            </div>
+            <div className="text-xs text-[#8E7F70]">
+              BSc (Hons) Data Science // Cardiff Metropolitan University, UK (via ICBT Campus)
+            </div>
+            <div className="text-[11px] text-[#DEA355]">
+              Former Pearson BTEC HND Software Engineering // 11 Distinctions
+            </div>
           </div>
-          <div className="text-xs text-[#69778A] mt-1">
-            Carefully crafted with Next.js App Router, TypeScript, and Tailwind CSS.
+
+          <div className="flex flex-wrap items-center gap-6 font-mono text-xs">
+            <Link href="/#showcase" className="text-[#D3C29F] hover:text-[#F9F9F6] transition-colors">
+              Showcase
+            </Link>
+            <Link href="/#dossier" className="text-[#D3C29F] hover:text-[#F9F9F6] transition-colors">
+              Dossier
+            </Link>
+            <Link href="/#systems" className="text-[#D3C29F] hover:text-[#F9F9F6] transition-colors">
+              Systems
+            </Link>
+            <Link href="/#capabilities" className="text-[#D3C29F] hover:text-[#F9F9F6] transition-colors">
+              Capabilities
+            </Link>
+            <Link href="/#experience" className="text-[#D3C29F] hover:text-[#F9F9F6] transition-colors">
+              Experience
+            </Link>
+            <Link href="/#writing" className="text-[#D3C29F] hover:text-[#F9F9F6] transition-colors">
+              Writing
+            </Link>
+            <Link href="/#contact" className="text-[#DEA355] hover:text-[#F9F9F6] transition-colors">
+              Contact
+            </Link>
           </div>
         </div>
 
-        <div className="flex flex-wrap items-center gap-6 text-xs font-medium">
-          <Link href="/#projects" className="hover:text-[#63DCC6] transition-colors">
-            Projects
-          </Link>
-          <Link href="/#skills" className="hover:text-[#63DCC6] transition-colors">
-            Skills
-          </Link>
-          <Link href="/#experience" className="hover:text-[#63DCC6] transition-colors">
-            Experience
-          </Link>
-          <Link href="/#education" className="hover:text-[#63DCC6] transition-colors">
-            Education
-          </Link>
-          <Link href="/#writing" className="hover:text-[#63DCC6] transition-colors">
-            Writing
-          </Link>
-          <Link href="/#contact" className="hover:text-[#63DCC6] transition-colors">
-            Contact
-          </Link>
-          <a
-            href={profile.socials.github}
-            target="_blank"
-            rel="noopener noreferrer"
-            className="hover:text-[#63DCC6] transition-colors"
-          >
-            GitHub
-          </a>
-          <a
-            href={profile.socials.linkedin}
-            target="_blank"
-            rel="noopener noreferrer"
-            className="hover:text-[#63DCC6] transition-colors"
-          >
-            LinkedIn
-          </a>
+        {/* Colophon & Metadata Strip */}
+        <div className="flex flex-col md:flex-row items-center justify-between gap-4 font-mono text-[11px] text-[#8E7F70]">
+          <div>
+            ADDALAICHENAI / COLOMBO, SRI LANKA // GMT+5:30
+          </div>
+
+          <div className="flex items-center gap-4">
+            <span>STATIC EXPORT // GITHUB PAGES</span>
+            <span>·</span>
+            <button
+              onClick={scrollToTop}
+              className="inline-flex items-center gap-1 text-[#DEA355] hover:text-[#F9F9F6] transition-colors"
+            >
+              <span>TOP</span>
+              <ArrowUp className="w-3 h-3" />
+            </button>
+          </div>
         </div>
       </div>
     </footer>

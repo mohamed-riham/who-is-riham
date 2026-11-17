@@ -51,13 +51,33 @@ export const writingArticles: WritingItem[] = [
   },
   {
     title: "A Comparative Study of Random Forest and XGBoost for Detecting Credit Card Fraud Transactions using Big Data",
+    platform: "Academia.edu Research Paper",
+    date: "2025",
+    readTime: "Research Paper",
+    summary:
+      "Peer-reviewed academic research paper benchmarking Random Forest vs XGBoost on 284,807 transaction records under 99.828% vs 0.172% extreme class imbalance with SMOTE resampling (p = 0.0003).",
+    link: "https://www.academia.edu/129361586/A_Comparative_Study_of_Random_Forest_and_XGBoost_for_Detecting_Credit_Card_Fraud_Transactions_using_Big_Data",
+    tags: ["Big Data", "Fraud Detection", "XGBoost", "Random Forest", "Research Paper"],
+  },
+  {
+    title: "Automated Student Attendance System Using Face Recognition",
+    platform: "Academia.edu Research Paper",
+    date: "2024",
+    readTime: "Research Paper",
+    summary:
+      "Academic research paper detailing the design, real-time 128D facial feature landmark extraction, and automated MySQL attendance logging pipeline utilizing computer vision to eliminate proxy attendance and administrative overhead.",
+    link: "https://www.academia.edu/129361519/Automated_Student_Attendance_System_Using_Face_Recognition",
+    tags: ["Computer Vision", "Machine Learning", "Biometrics", "Research Paper"],
+  },
+  {
+    title: "Credit Card Fraud Big Data Study: CRP Research Presentation Deck",
     platform: "SlideShare Research Deck",
     date: "2025",
     readTime: "Academic Presentation",
     summary:
-      "Empirical big data research benchmarking Random Forest vs XGBoost on 1,000,000+ transaction records under 99.48% vs 0.52% extreme class imbalance with SMOTE resampling (p = 0.0003).",
+      "Official Computing Research Project (CRP) slide presentation deck delivered for Unit 16, detailing empirical metrics, ROC/PR curves, and hypothesis testing results.",
     link: "https://www.slideshare.net/slideshow/a-comparative-study-of-random-forest-and-xgboost-for-detecting-credit-card-fraud-transactions-using-big-data-mohamed-riham-crp-final-presentation-pptx/283983057",
-    tags: ["Big Data", "Fraud Detection", "XGBoost", "Random Forest"],
+    tags: ["Big Data", "Presentation", "XGBoost", "Academic"],
   },
   {
     title: "IT Security for Revuelto Financial Services: Security Architecture & Threat Analysis",
@@ -68,5 +88,15 @@ export const writingArticles: WritingItem[] = [
       "Enterprise security architecture and threat modeling for Revuelto Financial Services, evaluating threat vectors, access controls, network segmentation, and defense-in-depth mitigations.",
     link: "https://www.slideshare.net/slideshow/it-security-for-revuelto-financial-services-security-presentation-mohamed-riham-pptx/283982894",
     tags: ["Cybersecurity", "Enterprise Security", "Threat Modeling", "Risk Analysis"],
+  },
+  {
+    title: "Working on Azirah: Don't Let Her See You — Lessons from My Game Development Journey",
+    platform: "DEV Community",
+    date: "2025",
+    readTime: "6 min read",
+    summary:
+      "A candid post-mortem and engineering retrospective on developing a 3D psychological horror game in Unity and C#, exploring scoping realities, spatial environmental design, and knowing when to pivot.",
+    link: "https://dev.to/mohamed-riham/working-on-azirah-dont-let-her-see-you-lessons-from-my-game-development-journey-5aae",
+    tags: ["Game Development", "Unity", "C#", "Post-Mortem", "Retrospective"],
   },
 ];

@@ -120,5 +120,5 @@ npm start
 
 ## 🔒 Content & Privacy Notice
 
-* All metrics (e.g. 99.2% mAP50 on YOLOv8n, 1M+ transactions analyzed) are verified from actual repository files and publications.
+* All metrics (e.g. 99.2% mAP50 on YOLOv8n, 284,807 transactions analyzed with 0.172% fraud ratio) are verified from actual repository files and publications.
 * Residential street addresses and personal phone numbers have been intentionally excluded from the public build to respect privacy.

@@ -1,0 +1,22 @@
+{
+  "name": "Mohamed Riham | Data Science Undergraduate",
+  "short_name": "Mohamed Riham",
+  "description": "Portfolio of Mohamed Riham — Practical AI, Computer Vision, Local Voice Automation, and Big Data Research.",
+  "start_url": "/who-is-riham/",
+  "scope": "/who-is-riham/",
+  "display": "standalone",
+  "background_color": "#040202",
+  "theme_color": "#C43E17",
+  "icons": [
+    {
+      "src": "/who-is-riham/icon-192.png",
+      "sizes": "192x192",
+      "type": "image/png"
+    },
+    {
+      "src": "/who-is-riham/icon-512.png",
+      "sizes": "512x512",
+      "type": "image/png"
+    }
+  ]
+}

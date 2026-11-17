@@ -1,26 +1,30 @@
 import Hero from "@/components/Hero";
-import AboutSection from "@/components/AboutSection";
+import BentoGrid from "@/components/BentoGrid";
 import FeaturedProjects from "@/components/FeaturedProjects";
 import AllProjects from "@/components/AllProjects";
+import AboutSection from "@/components/AboutSection";
 import SkillsMatrix from "@/components/SkillsMatrix";
 import ExperienceSection from "@/components/ExperienceSection";
 import EducationSection from "@/components/EducationSection";
-import CertificationsSection from "@/components/CertificationsSection";
+import GitHubSection from "@/components/GitHubSection";
 import WritingSection from "@/components/WritingSection";
+import CertificationsSection from "@/components/CertificationsSection";
 import ContactSection from "@/components/ContactSection";
 
 export default function Home() {
   return (
-    <div className="flex flex-col">
+    <div className="flex flex-col bg-[#040202]">
       <Hero />
-      <AboutSection />
+      <BentoGrid />
       <FeaturedProjects />
       <AllProjects />
+      <AboutSection />
       <SkillsMatrix />
       <ExperienceSection />
       <EducationSection />
-      <CertificationsSection />
+      <GitHubSection />
       <WritingSection />
+      <CertificationsSection />
       <ContactSection />
     </div>
   );

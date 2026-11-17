@@ -1,284 +1,259 @@
+"use client";
+
 import Image from "next/image";
 import Link from "next/link";
-import { ArrowUpRight, Play, ExternalLink, Cpu, ShieldCheck, Sparkles, Layers } from "lucide-react";
+import { ArrowUpRight, Play, ExternalLink, Cpu, BarChart2, Radio, BookOpen } from "lucide-react";
 import { GithubIcon } from "@/components/Icons";
 import { projects } from "@/content/projects";
 import { getAssetPath } from "@/lib/utils";
 
 export default function FeaturedProjects() {
-  const featured = projects.filter((p) => p.featured);
+  const currencyDetector = projects.find((p) => p.slug === "sri-lankan-currency-detector");
+  const fraudDetection = projects.find((p) => p.slug === "credit-card-fraud-detection");
+  const edith = projects.find((p) => p.slug === "edith-voice-assistant");
 
   return (
-    <section id="projects" className="py-20 md:py-28 relative border-t border-white/[0.08]">
-      <div className="max-w-6xl mx-auto px-4 sm:px-6">
-        {/* Section Header */}
-        <div className="flex flex-col md:flex-row md:items-end justify-between mb-14 gap-6">
-          <div>
-            <div className="inline-flex items-center gap-2 text-xs font-mono text-[#63DCC6] uppercase tracking-wider mb-3">
-              <Cpu className="w-3.5 h-3.5" />
-              <span>Verified Engineering Work</span>
+    <section id="showcase" className="py-24 lg:py-32 border-b border-[#6B503C]/20 bg-[#040202]">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-24">
+
+        {/* Section Masthead */}
+        <div className="flex flex-col md:flex-row md:items-end justify-between gap-6 pb-12 border-b border-[#6B503C]/20">
+          <div className="space-y-2">
+            <div className="font-mono text-xs uppercase tracking-widest text-[#C43E17]">
+              02 // Systems Showcase
             </div>
-            <h2 className="text-3xl sm:text-5xl font-bold text-[#F2F0E9] tracking-tight">
-              Featured Projects &{" "}
-              <span className="font-serif italic font-normal text-[#63DCC6]">
-                Applied Research
-              </span>
+            <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold tracking-tight text-[#F9F9F6] font-sans">
+              Selected systems & applied research.
             </h2>
           </div>
-          <p className="text-sm text-[#A4ADBB] max-w-md font-normal leading-relaxed">
-            Applied computer vision models, local automation engines, and distributed systems backed by empirical datasets and verifiable code.
+          <p className="max-w-md text-sm text-[#D3C29F] leading-relaxed font-light">
+            Engineered systems with verifiable evaluation metrics, open repositories, and production-tested architectures.
           </p>
         </div>
 
-        {/* Bento Grid Layout */}
-        <div className="grid grid-cols-1 md:grid-cols-12 gap-6">
-          {/* Top 1 Hero Project: Sri Lankan Currency Detector (Span 12) */}
-          {featured[0] && (
-            <div className="md:col-span-12 rounded-3xl bg-[#0D1422] border border-white/[0.08] hover:border-[#63DCC6]/40 transition-all duration-300 p-6 sm:p-9 flex flex-col lg:flex-row gap-8 items-center group shadow-xl">
-              <div className="flex-1 space-y-4">
-                <div className="flex flex-wrap items-center gap-2.5">
-                  <span className="px-3 py-1 rounded-full text-xs font-mono bg-[#183F43] text-[#63DCC6] border border-[#63DCC6]/20">
-                    {featured[0].category}
-                  </span>
-                  <span className="px-3 py-1 rounded-full text-xs font-mono bg-white/[0.04] text-[#A4ADBB] border border-white/[0.08]">
-                    {featured[0].status}
-                  </span>
-                  <span className="px-3 py-1 rounded-full text-xs font-mono bg-[#D9A441]/10 text-[#D9A441] border border-[#D9A441]/20 font-medium">
+        {/* =========================================================================
+            FEATURED PROJECT 01: SRI LANKAN CURRENCY DETECTOR (LEAD SHOWCASE)
+            ========================================================================= */}
+        {currencyDetector && (
+          <div className="border border-[#6B503C]/30 bg-[#0A0503] grid grid-cols-1 lg:grid-cols-12 overflow-hidden group">
+            {/* Left Column: Technical Narrative & Scorecard (6 cols) */}
+            <div className="lg:col-span-6 p-8 lg:p-12 flex flex-col justify-between border-b lg:border-b-0 lg:border-r border-[#6B503C]/25 space-y-8">
+              <div className="space-y-5">
+                <div className="flex items-center justify-between font-mono text-xs">
+                  <span className="text-[#C43E17] tracking-wider uppercase">System 01 // Computer Vision</span>
+                  <span className="text-[#DEA355] border border-[#DEA355]/30 px-2.5 py-0.5 bg-[#DEA355]/10">
                     99.20% mAP@50
                   </span>
                 </div>
 
-                <h3 className="text-2xl sm:text-3xl font-bold text-[#F2F0E9] tracking-tight group-hover:text-[#63DCC6] transition-colors">
-                  <Link href={`/projects/${featured[0].slug}`}>
-                    {featured[0].title}
+                <h3 className="text-2xl sm:text-3xl lg:text-4xl font-bold text-[#F9F9F6] font-sans leading-tight">
+                  <Link href={`/projects/${currencyDetector.slug}`} className="hover:text-[#DEA355] transition-colors">
+                    {currencyDetector.title}
                   </Link>
                 </h3>
 
-                <p className="text-sm text-[#A4ADBB] leading-relaxed">
-                  {featured[0].problem} {featured[0].solution}
+                <p className="text-sm text-[#D3C29F] leading-relaxed font-light">
+                  {currencyDetector.summary}
                 </p>
 
-                {/* Metrics Badges */}
-                <div className="grid grid-cols-2 sm:grid-cols-4 gap-2.5 pt-2">
-                  {featured[0].results.map((r, i) => (
-                    <div key={i} className="bg-[#080D18] p-3 rounded-xl border border-white/[0.06]">
-                      <div className="text-[10px] font-mono text-[#69778A]">{r.label}</div>
-                      <div className="text-sm font-bold font-mono text-[#F2F0E9] mt-0.5">{r.value}</div>
-                    </div>
-                  ))}
+                {/* Scorecard Strip */}
+                <div className="grid grid-cols-3 gap-3 pt-4 border-t border-[#6B503C]/20 font-mono">
+                  <div className="p-3 bg-[#120704] border border-[#6B503C]/20">
+                    <div className="text-[10px] text-[#8E7F70] uppercase">mAP@50</div>
+                    <div className="text-lg font-bold text-[#F9F9F6] mt-0.5">99.20%</div>
+                  </div>
+                  <div className="p-3 bg-[#120704] border border-[#6B503C]/20">
+                    <div className="text-[10px] text-[#8E7F70] uppercase">Precision</div>
+                    <div className="text-lg font-bold text-[#F9F9F6] mt-0.5">99.25%</div>
+                  </div>
+                  <div className="p-3 bg-[#120704] border border-[#6B503C]/20">
+                    <div className="text-[10px] text-[#8E7F70] uppercase">Recall</div>
+                    <div className="text-lg font-bold text-[#F9F9F6] mt-0.5">99.18%</div>
+                  </div>
                 </div>
 
-                {/* Tech tags */}
-                <div className="flex flex-wrap gap-1.5 pt-2">
-                  {featured[0].techStack.map((tech) => (
+                {/* Tech Chips */}
+                <div className="flex flex-wrap gap-2 pt-2">
+                  {currencyDetector.techStack.map((t) => (
                     <span
-                      key={tech}
-                      className="px-2.5 py-1 text-[11px] font-mono rounded-lg bg-white/[0.03] text-[#A4ADBB] border border-white/[0.06]"
+                      key={t}
+                      className="px-2.5 py-1 text-[11px] font-mono text-[#D3C29F] bg-[#160C07] border border-[#6B503C]/25"
                     >
-                      {tech}
+                      {t}
                     </span>
                   ))}
                 </div>
+              </div>
 
-                {/* Actions */}
-                <div className="flex flex-wrap items-center gap-3 pt-3">
-                  <Link
-                    href={`/projects/${featured[0].slug}`}
-                    className="inline-flex items-center gap-1.5 text-xs font-semibold text-[#080D18] bg-[#63DCC6] hover:bg-[#78e3ce] px-4 py-2.5 rounded-xl transition-all shadow-sm shadow-[#63DCC6]/20 active:scale-95"
+              {/* Action Cluster */}
+              <div className="pt-6 border-t border-[#6B503C]/20 flex flex-wrap items-center gap-4">
+                <Link
+                  href={`/projects/${currencyDetector.slug}`}
+                  className="inline-flex items-center gap-2 px-5 py-2.5 bg-[#C43E17] hover:bg-[#DB4A1E] text-[#040202] font-mono text-xs font-bold uppercase tracking-wider transition-colors"
+                >
+                  <span>Read Case Study</span>
+                  <ArrowUpRight className="w-3.5 h-3.5" />
+                </Link>
+
+                {currencyDetector.links.github && (
+                  <a
+                    href={currencyDetector.links.github}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="inline-flex items-center gap-2 px-4 py-2.5 bg-[#120704] hover:bg-[#1C0E07] border border-[#6B503C]/35 text-[#F9F9F6] font-mono text-xs transition-colors"
                   >
-                    View Case Study
-                    <ArrowUpRight className="w-3.5 h-3.5" />
+                    <GithubIcon className="w-3.5 h-3.5 text-[#D3C29F]" />
+                    <span>Repository</span>
+                  </a>
+                )}
+
+                {(currencyDetector.links.video || currencyDetector.links.demo) && (
+                  <a
+                    href={currencyDetector.links.video || currencyDetector.links.demo}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="inline-flex items-center gap-1.5 text-xs font-mono text-[#DEA355] hover:underline"
+                  >
+                    <Play className="w-3.5 h-3.5" />
+                    <span>Watch Demo</span>
+                  </a>
+                )}
+              </div>
+            </div>
+
+            {/* Right Column: High-Resolution Real Prediction Visual (6 cols) */}
+            <div className="lg:col-span-6 bg-[#040202] p-6 lg:p-8 flex flex-col justify-center items-center relative overflow-hidden">
+              <div className="relative aspect-[4/3] w-full border border-[#6B503C]/35 overflow-hidden bg-[#0A0503]">
+                <Image
+                  src={getAssetPath("/images/projects/sri-lankan-currency-detector/val_batch0_pred.jpg")}
+                  alt="Sri Lankan Currency Detector model predictions on test batch"
+                  fill
+                  className="object-cover group-hover:scale-102 transition-transform duration-700"
+                  sizes="(max-width: 1024px) 100vw, 600px"
+                />
+                <div className="absolute top-3 left-3 bg-[#040202]/90 border border-[#6B503C]/40 px-3 py-1 font-mono text-[10px] text-[#F9F9F6]">
+                  EVALUATION // BATCH 0 PREDICTIONS
+                </div>
+              </div>
+
+              <div className="w-full mt-3 flex items-center justify-between text-[11px] font-mono text-[#8E7F70]">
+                <span>1,000+ Custom Annotated Banknotes</span>
+                <span className="text-[#DEA355]">Edge-deployable model</span>
+              </div>
+            </div>
+          </div>
+        )}
+
+        {/* =========================================================================
+            FEATURED PROJECT 02: CREDIT CARD FRAUD DETECTION (ALTERNATING SPREAD)
+            ========================================================================= */}
+        {fraudDetection && (
+          <div className="border border-[#6B503C]/30 bg-[#0A0503] grid grid-cols-1 lg:grid-cols-12 overflow-hidden group">
+            {/* Left Column: Visual / Confusion Matrix (6 cols) */}
+            <div className="lg:col-span-6 order-2 lg:order-1 bg-[#040202] p-6 lg:p-8 flex flex-col justify-center items-center border-t lg:border-t-0 lg:border-r border-[#6B503C]/25">
+              <div className="relative aspect-[4/3] w-full border border-[#6B503C]/35 overflow-hidden bg-[#0A0503] p-4 flex flex-col justify-between">
+                {/* Metric Summary Card in place of image */}
+                <div className="p-4 bg-[#120704] border border-[#6B503C]/25 space-y-2">
+                  <div className="font-mono text-xs text-[#DEA355]">Dataset Benchmark Ledger</div>
+                  <div className="text-sm text-[#F9F9F6] font-mono">284,807 European Cardholder Transactions</div>
+                  <div className="text-[11px] text-[#8E7F70] font-mono">Highly Imbalanced: 492 Frauds (0.172%)</div>
+                </div>
+
+                <div className="grid grid-cols-2 gap-3 font-mono text-xs">
+                  <div className="p-3 bg-[#120704] border border-[#6B503C]/20">
+                    <span className="text-[#8E7F70] block text-[10px]">SIGNIFICANCE</span>
+                    <span className="text-xl font-bold text-[#F9F9F6]">p = 0.0003</span>
+                  </div>
+                  <div className="p-3 bg-[#120704] border border-[#6B503C]/20">
+                    <span className="text-[#8E7F70] block text-[10px]">TOP MODEL</span>
+                    <span className="text-xl font-bold text-[#DEA355]">XGBoost</span>
+                  </div>
+                </div>
+
+                <div className="p-3 bg-[#120704] border border-[#6B503C]/20 text-[11px] font-mono text-[#8E7F70] flex justify-between">
+                  <span>SMOTE Resampling (Train Split)</span>
+                  <span className="text-[#C43E17]">vs Random Forest</span>
+                </div>
+              </div>
+
+              <div className="w-full mt-3 flex items-center justify-between text-[11px] font-mono text-[#8E7F70]">
+                <span>Empirical Big Data Research</span>
+                <span className="text-[#DEA355]">Comparative Model Analysis</span>
+              </div>
+            </div>
+
+            {/* Right Column: Technical Narrative (6 cols) */}
+            <div className="lg:col-span-6 order-1 lg:order-2 p-8 lg:p-12 flex flex-col justify-between space-y-8">
+              <div className="space-y-5">
+                <div className="flex items-center justify-between font-mono text-xs">
+                  <span className="text-[#C43E17] tracking-wider uppercase">System 02 // Machine Learning</span>
+                  <span className="text-[#DEA355] border border-[#DEA355]/30 px-2.5 py-0.5 bg-[#DEA355]/10">
+                    XGBoost vs Random Forest
+                  </span>
+                </div>
+
+                <h3 className="text-2xl sm:text-3xl lg:text-4xl font-bold text-[#F9F9F6] font-sans leading-tight">
+                  <Link href={`/projects/${fraudDetection.slug}`} className="hover:text-[#DEA355] transition-colors">
+                    {fraudDetection.title}
                   </Link>
-                  {featured[0].links.github && (
-                    <a
-                      href={featured[0].links.github}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="inline-flex items-center gap-1.5 text-xs font-medium text-[#F2F0E9] bg-white/[0.04] hover:bg-white/[0.08] px-3.5 py-2.5 rounded-xl border border-white/10 transition-colors"
-                    >
-                      <GithubIcon className="w-3.5 h-3.5" />
-                      GitHub Repo
-                    </a>
-                  )}
-                  {featured[0].links.video && (
-                    <a
-                      href={featured[0].links.video}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="inline-flex items-center gap-1.5 text-xs font-medium text-[#D9A441] bg-[#D9A441]/10 hover:bg-[#D9A441]/20 px-3.5 py-2.5 rounded-xl border border-[#D9A441]/20 transition-colors"
-                    >
-                      <Play className="w-3.5 h-3.5 fill-current" />
-                      Live Demo
-                    </a>
-                  )}
-                </div>
-              </div>
-
-              {/* Visual preview */}
-              <div className="w-full lg:w-[480px] h-[280px] sm:h-[340px] relative rounded-2xl overflow-hidden border border-white/10 bg-[#080D18] shadow-2xl">
-                {featured[0].image && (
-                  <Image
-                    src={getAssetPath(featured[0].image)}
-                    alt="YOLOv8 Sri Lankan Currency Detection bounding box output"
-                    fill
-                    className="object-cover group-hover:scale-105 transition-transform duration-500"
-                  />
-                )}
-                <div className="absolute inset-0 bg-gradient-to-t from-[#080D18] via-transparent to-transparent opacity-60" />
-                <div className="absolute bottom-3 left-3 bg-[#080D18]/90 backdrop-blur-md px-3 py-1.5 rounded-lg border border-white/10 text-xs font-mono text-[#63DCC6]">
-                  1,000+ Custom Annotated Dataset
-                </div>
-              </div>
-            </div>
-          )}
-
-          {/* Cards 2 & 3: Fraud Detection Study (Span 6) & EDITH Voice Assistant (Span 6) */}
-          {featured.slice(1, 3).map((project) => (
-            <div
-              key={project.slug}
-              className="md:col-span-6 rounded-3xl bg-[#0D1422] border border-white/[0.08] hover:border-[#63DCC6]/30 transition-all duration-300 p-6 sm:p-8 flex flex-col justify-between group shadow-lg"
-            >
-              <div className="space-y-4">
-                <div className="flex items-center justify-between">
-                  <span className="px-3 py-1 rounded-full text-xs font-mono bg-[#183F43] text-[#63DCC6] border border-[#63DCC6]/20">
-                    {project.category}
-                  </span>
-                  <span className="text-xs font-mono text-[#69778A]">{project.year}</span>
-                </div>
-
-                <h3 className="text-xl sm:text-2xl font-bold text-[#F2F0E9] tracking-tight group-hover:text-[#63DCC6] transition-colors">
-                  <Link href={`/projects/${project.slug}`}>{project.title}</Link>
                 </h3>
 
-                <p className="text-sm text-[#A4ADBB] leading-relaxed line-clamp-3">
-                  {project.problem}
+                <p className="text-sm text-[#D3C29F] leading-relaxed font-light">
+                  {fraudDetection.summary}
                 </p>
 
-                {/* Metrics */}
-                <div className="grid grid-cols-2 gap-2.5 pt-1">
-                  {project.results.slice(0, 2).map((r, i) => (
-                    <div key={i} className="bg-[#080D18] p-3 rounded-xl border border-white/[0.06]">
-                      <div className="text-[10px] font-mono text-[#69778A]">{r.label}</div>
-                      <div className="text-xs font-bold font-mono text-[#F2F0E9] mt-0.5">{r.value}</div>
-                    </div>
-                  ))}
-                </div>
-
-                {/* Tech tags */}
-                <div className="flex flex-wrap gap-1.5 pt-1">
-                  {project.techStack.slice(0, 4).map((tech) => (
+                {/* Tech Chips */}
+                <div className="flex flex-wrap gap-2 pt-2">
+                  {fraudDetection.techStack.map((t) => (
                     <span
-                      key={tech}
-                      className="px-2.5 py-1 text-[11px] font-mono rounded-lg bg-white/[0.03] text-[#A4ADBB] border border-white/[0.06]"
+                      key={t}
+                      className="px-2.5 py-1 text-[11px] font-mono text-[#D3C29F] bg-[#160C07] border border-[#6B503C]/25"
                     >
-                      {tech}
+                      {t}
                     </span>
                   ))}
                 </div>
               </div>
 
-              <div className="flex items-center gap-3 pt-6 mt-4 border-t border-white/[0.06]">
+              {/* Action Cluster */}
+              <div className="pt-6 border-t border-[#6B503C]/20 flex flex-wrap items-center gap-4">
                 <Link
-                  href={`/projects/${project.slug}`}
-                  className="inline-flex items-center gap-1 text-xs font-semibold text-[#63DCC6] hover:underline"
+                  href={`/projects/${fraudDetection.slug}`}
+                  className="inline-flex items-center gap-2 px-5 py-2.5 bg-[#C43E17] hover:bg-[#DB4A1E] text-[#040202] font-mono text-xs font-bold uppercase tracking-wider transition-colors"
                 >
-                  Read Deep Dive
+                  <span>Read Case Study</span>
                   <ArrowUpRight className="w-3.5 h-3.5" />
                 </Link>
-                {project.links.github && (
+
+                {fraudDetection.links.paper && (
                   <a
-                    href={project.links.github}
+                    href={fraudDetection.links.paper}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="inline-flex items-center gap-1.5 text-xs text-[#A4ADBB] hover:text-[#F2F0E9] ml-auto transition-colors"
+                    className="inline-flex items-center gap-2 px-4 py-2.5 bg-[#120704] hover:bg-[#1C0E07] border border-[#6B503C]/35 text-[#DEA355] hover:text-[#F9F9F6] font-mono text-xs transition-colors"
                   >
-                    <GithubIcon className="w-3.5 h-3.5" />
-                    Code
+                    <BookOpen className="w-3.5 h-3.5 text-[#DEA355]" />
+                    <span>Research Paper</span>
+                    <ArrowUpRight className="w-3 h-3 text-[#8E7F70]" />
                   </a>
                 )}
-                {project.links.article && (
+
+                {fraudDetection.links.github && (
                   <a
-                    href={project.links.article}
+                    href={fraudDetection.links.github}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="inline-flex items-center gap-1 text-xs text-[#A4ADBB] hover:text-[#F2F0E9] transition-colors"
+                    className="inline-flex items-center gap-2 px-4 py-2.5 bg-[#120704] hover:bg-[#1C0E07] border border-[#6B503C]/35 text-[#F9F9F6] font-mono text-xs transition-colors"
                   >
-                    <ExternalLink className="w-3.5 h-3.5" />
-                    Article
+                    <GithubIcon className="w-3.5 h-3.5 text-[#D3C29F]" />
+                    <span>Repository</span>
                   </a>
                 )}
               </div>
             </div>
-          ))}
+          </div>
+        )}
 
-          {/* Cards 4 & 5: NOIR Downloader (Span 6) & Real Estate Tokenization DApp (Span 6) */}
-          {featured.slice(3, 5).map((project) => (
-            <div
-              key={project.slug}
-              className="md:col-span-6 rounded-3xl bg-[#0D1422] border border-white/[0.08] hover:border-[#63DCC6]/30 transition-all duration-300 p-6 sm:p-8 flex flex-col justify-between group shadow-lg"
-            >
-              <div className="space-y-4">
-                <div className="flex items-center justify-between">
-                  <span className="px-3 py-1 rounded-full text-xs font-mono bg-[#183F43] text-[#63DCC6] border border-[#63DCC6]/20">
-                    {project.category}
-                  </span>
-                  <span className="text-xs font-mono text-[#69778A]">{project.year}</span>
-                </div>
-
-                <h3 className="text-xl sm:text-2xl font-bold text-[#F2F0E9] tracking-tight group-hover:text-[#63DCC6] transition-colors">
-                  <Link href={`/projects/${project.slug}`}>{project.title}</Link>
-                </h3>
-
-                <p className="text-sm text-[#A4ADBB] leading-relaxed line-clamp-3">
-                  {project.summary}
-                </p>
-
-                {/* Metrics */}
-                <div className="grid grid-cols-2 gap-2.5 pt-1">
-                  {project.results.slice(0, 2).map((r, i) => (
-                    <div key={i} className="bg-[#080D18] p-3 rounded-xl border border-white/[0.06]">
-                      <div className="text-[10px] font-mono text-[#69778A]">{r.label}</div>
-                      <div className="text-xs font-bold font-mono text-[#F2F0E9] mt-0.5">{r.value}</div>
-                    </div>
-                  ))}
-                </div>
-
-                {/* Tech tags */}
-                <div className="flex flex-wrap gap-1.5 pt-1">
-                  {project.techStack.slice(0, 4).map((tech) => (
-                    <span
-                      key={tech}
-                      className="px-2.5 py-1 text-[11px] font-mono rounded-lg bg-white/[0.03] text-[#A4ADBB] border border-white/[0.06]"
-                    >
-                      {tech}
-                    </span>
-                  ))}
-                </div>
-              </div>
-
-              <div className="flex items-center gap-3 pt-6 mt-4 border-t border-white/[0.06]">
-                <Link
-                  href={`/projects/${project.slug}`}
-                  className="inline-flex items-center gap-1 text-xs font-semibold text-[#63DCC6] hover:underline"
-                >
-                  Read Deep Dive
-                  <ArrowUpRight className="w-3.5 h-3.5" />
-                </Link>
-                {project.links.github && (
-                  <a
-                    href={project.links.github}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="inline-flex items-center gap-1.5 text-xs text-[#A4ADBB] hover:text-[#F2F0E9] ml-auto transition-colors"
-                  >
-                    <GithubIcon className="w-3.5 h-3.5" />
-                    Code
-                  </a>
-                )}
-              </div>
-            </div>
-          ))}
-        </div>
       </div>
     </section>
   );

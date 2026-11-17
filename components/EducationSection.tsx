@@ -1,76 +1,80 @@
-import { GraduationCap, Award, Calendar, MapPin, CheckCircle2 } from "lucide-react";
+"use client";
+
+import Image from "next/image";
+import { GraduationCap, Award, BookOpen, CheckCircle2 } from "lucide-react";
 import { educationList } from "@/content/education";
+import { getAssetPath } from "@/lib/utils";
 
 export default function EducationSection() {
   return (
-    <section id="education" className="py-20 md:py-28 border-t border-white/[0.08] relative bg-[#080D18]">
-      <div className="max-w-6xl mx-auto px-4 sm:px-6">
-        <div className="max-w-2xl mb-14">
-          <div className="inline-flex items-center gap-2 text-xs font-mono text-[#63DCC6] uppercase tracking-wider mb-2.5">
-            <GraduationCap className="w-3.5 h-3.5" />
-            <span>Academic Foundations</span>
+    <section id="education" className="py-24 lg:py-32 border-b border-[#6B503C]/20 bg-[#040202]">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+
+        {/* Section Header */}
+        <div className="flex flex-col md:flex-row md:items-end justify-between gap-6 pb-12 border-b border-[#6B503C]/20">
+          <div className="space-y-2">
+            <div className="font-mono text-xs uppercase tracking-widest text-[#C43E17]">
+              06 // Academic History
+            </div>
+            <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold tracking-tight text-[#F9F9F6] font-sans">
+              Degrees, credentials & transcripts.
+            </h2>
           </div>
-          <h2 className="text-3xl sm:text-5xl font-bold text-[#F2F0E9] tracking-tight">
-            Education &{" "}
-            <span className="font-serif italic font-normal text-[#63DCC6]">
-              Qualifications
-            </span>
-          </h2>
-          <p className="text-sm text-[#A4ADBB] mt-3 leading-relaxed">
-            British degree and higher diploma programmes covering data science, algorithmic computation, and verified software engineering rigor.
+          <p className="max-w-md text-sm text-[#D3C29F] leading-relaxed font-light">
+            British undergraduate degree in progress and Pearson BTEC Higher National Diploma completed with 11 Distinctions.
           </p>
         </div>
 
-        {/* Education Grid */}
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+        {/* Academic Ledger */}
+        <div className="divide-y divide-[#6B503C]/25">
           {educationList.map((edu, idx) => (
             <div
               key={idx}
-              className="p-6 sm:p-8 rounded-3xl bg-[#0D1422] border border-white/[0.08] hover:border-[#63DCC6]/30 transition-all flex flex-col justify-between shadow-lg"
+              className="py-12 lg:py-16 grid grid-cols-1 lg:grid-cols-12 gap-8 items-start group"
             >
-              <div>
-                <div className="flex items-center justify-between gap-2 mb-3">
-                  <span className="px-3 py-1 rounded-full text-xs font-mono bg-[#183F43] text-[#63DCC6] border border-[#63DCC6]/20">
-                    {edu.status}
-                  </span>
-                  <span className="text-xs font-mono text-[#69778A] flex items-center gap-1.5">
-                    <Calendar className="w-3.5 h-3.5" />
-                    {edu.period}
-                  </span>
+              {/* Left Column: Timeline & Awarding Body (3 cols) */}
+              <div className="lg:col-span-3 space-y-2 font-mono">
+                <div className="text-xl sm:text-2xl font-bold text-[#F9F9F6] font-sans">
+                  {edu.period}
                 </div>
-
-                <h3 className="text-xl font-bold text-[#F2F0E9] tracking-tight mt-1">
-                  {edu.degree}
-                </h3>
-
-                <div className="text-sm font-semibold text-[#D9A441] mt-1">
+                <div className="text-xs text-[#8E7F70]">
                   {edu.institution}
                 </div>
-                <div className="text-xs font-mono text-[#A4ADBB] mt-0.5">
-                  Awarded by <span className="text-[#63DCC6]">{edu.awardingBody}</span>
+                <div className="inline-block px-2 py-0.5 text-[10px] uppercase tracking-wider text-[#DEA355] border border-[#DEA355]/30 bg-[#DEA355]/10">
+                  {edu.status}
+                </div>
+              </div>
+
+              {/* Center Column: Degree, Awarding Body, Transcript (6 cols) */}
+              <div className="lg:col-span-6 space-y-5">
+                <div>
+                  <h3 className="text-xl sm:text-2xl font-bold text-[#F9F9F6] font-sans">
+                    {edu.degree}
+                  </h3>
+                  <div className="text-sm font-mono text-[#DEA355] mt-1">
+                    Awarded by: {edu.awardingBody}
+                  </div>
+                  {edu.grade && (
+                    <div className="text-xs font-mono text-[#C43E17] mt-1 font-semibold">
+                      Verified Grade: {edu.grade}
+                    </div>
+                  )}
                 </div>
 
-                {edu.grade && (
-                  <div className="inline-flex items-center gap-1.5 mt-3.5 px-3 py-1 rounded-xl bg-[#D9A441]/10 border border-[#D9A441]/20 text-xs font-mono text-[#D9A441]">
-                    <Award className="w-3.5 h-3.5" />
-                    {edu.grade}
-                  </div>
-                )}
-
-                <p className="text-sm text-[#A4ADBB] mt-4 leading-relaxed">
+                <p className="text-xs sm:text-sm text-[#D3C29F] font-light leading-relaxed">
                   {edu.description}
                 </p>
 
-                {/* Modules */}
-                <div className="mt-5 pt-4 border-t border-white/[0.06]">
-                  <div className="text-xs font-mono text-[#69778A] uppercase tracking-wider mb-2.5">
-                    Verified Key Modules:
+                {/* Key Verified Modules */}
+                <div className="space-y-2 pt-2">
+                  <div className="text-[11px] font-mono text-[#8E7F70] uppercase tracking-wider">
+                    Verified Curricular Modules:
                   </div>
                   <div className="flex flex-wrap gap-1.5">
                     {edu.modules.map((m) => (
                       <span
                         key={m}
-                        className="px-2.5 py-1 text-[11px] font-mono rounded-lg bg-white/[0.03] text-[#F2F0E9] border border-white/[0.06]"
+                        className="px-2.5 py-1 text-[11px] font-mono text-[#D3C29F] bg-[#120704] border border-[#6B503C]/25"
                       >
                         {m}
                       </span>
@@ -78,9 +82,68 @@ export default function EducationSection() {
                   </div>
                 </div>
               </div>
+
+              {/* Right Column: Verified Photograph (3 cols) */}
+              <div className="lg:col-span-3">
+                {edu.degree.startsWith("BSc") && (
+                  <div className="border border-[#6B503C]/35 bg-[#0D0704] p-2 space-y-2">
+                    <div className="relative aspect-[3/4] w-full overflow-hidden bg-[#040202]">
+                      <Image
+                        src={getAssetPath("/images/profile/mohamed-riham-portrait.webp")}
+                        alt="Mohamed Riham Cardiff Met academic candidate portrait"
+                        fill
+                        className="object-cover object-top group-hover:scale-103 transition-transform duration-700"
+                        sizes="(max-width: 1024px) 100vw, 280px"
+                      />
+                    </div>
+                    <div className="p-2 bg-[#120704] text-[10px] font-mono text-[#D3C29F] flex justify-between">
+                      <span>Cardiff Met Candidate</span>
+                      <span className="text-[#C43E17]">Expected 2027</span>
+                    </div>
+                  </div>
+                )}
+
+                {edu.degree.startsWith("BTEC") && (
+                  <div className="border border-[#6B503C]/35 bg-[#0D0704] p-2 space-y-2">
+                    <div className="relative aspect-[3/4] w-full overflow-hidden bg-[#040202]">
+                      <Image
+                        src={getAssetPath("/images/profile/mohamed-riham-campus.webp")}
+                        alt="Mohamed Riham on campus during BTEC HND"
+                        fill
+                        className="object-cover object-top group-hover:scale-103 transition-transform duration-700"
+                        sizes="(max-width: 1024px) 100vw, 280px"
+                      />
+                    </div>
+                    <div className="p-2 bg-[#120704] text-[10px] font-mono text-[#D3C29F] flex justify-between">
+                      <span>Campus Diploma Studies</span>
+                      <span className="text-[#DEA355]">11 Distinctions</span>
+                    </div>
+                  </div>
+                )}
+
+                {edu.degree.startsWith("Diploma") && (
+                  <div className="border border-[#6B503C]/35 bg-[#0D0704] p-2 space-y-2">
+                    <div className="relative aspect-[3/4] w-full overflow-hidden bg-[#040202]">
+                      <Image
+                        src={getAssetPath("/images/profile/mohamed-riham-diploma.webp")}
+                        alt="Mohamed Riham during Diploma in IT studies"
+                        fill
+                        className="object-cover object-top group-hover:scale-103 transition-transform duration-700"
+                        sizes="(max-width: 1024px) 100vw, 280px"
+                      />
+                    </div>
+                    <div className="p-2 bg-[#120704] text-[10px] font-mono text-[#D3C29F] flex justify-between">
+                      <span>Foundation Studies</span>
+                      <span className="text-[#DEA355]">Pearson Assured</span>
+                    </div>
+                  </div>
+                )}
+              </div>
+
             </div>
           ))}
         </div>
+
       </div>
     </section>
   );

@@ -1,8 +1,9 @@
 "use client";
 
 import { useState, useEffect } from "react";
+import Image from "next/image";
 import Link from "next/link";
-import { Download, Menu, X, Search, Sparkles } from "lucide-react";
+import { Download, Menu, X, Search, ArrowUpRight } from "lucide-react";
 import { getAssetPath } from "@/lib/utils";
 
 export default function Navbar() {
@@ -17,136 +18,182 @@ export default function Navbar() {
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
+  // Prevent background scrolling when mobile menu is open
+  useEffect(() => {
+    if (mobileOpen) {
+      document.body.style.overflow = "hidden";
+    } else {
+      document.body.style.overflow = "unset";
+    }
+    return () => {
+      document.body.style.overflow = "unset";
+    };
+  }, [mobileOpen]);
+
   const triggerPalette = () => {
     window.dispatchEvent(new KeyboardEvent("keydown", { key: "k", ctrlKey: true }));
   };
 
   const navLinks = [
-    { label: "Projects", href: "/#projects" },
-    { label: "Skills", href: "/#skills" },
-    { label: "Experience", href: "/#experience" },
-    { label: "Education", href: "/#education" },
-    { label: "Writing", href: "/#writing" },
-    { label: "Contact", href: "/#contact" },
+    { num: "01", label: "Showcase", href: "/#showcase" },
+    { num: "02", label: "Dossier", href: "/#dossier" },
+    { num: "03", label: "Systems", href: "/#systems" },
+    { num: "04", label: "Capabilities", href: "/#capabilities" },
+    { num: "05", label: "Experience", href: "/#experience" },
+    { num: "06", label: "Writing", href: "/#writing" },
   ];
 
   return (
     <header
-      className={`fixed top-0 left-0 right-0 z-40 transition-all duration-300 ${
-        scrolled
-          ? "bg-[#080D18]/85 backdrop-blur-md border-b border-white/[0.08] shadow-lg shadow-black/40"
-          : "bg-transparent border-b border-transparent"
+      className={`fixed top-0 left-0 right-0 transition-all duration-300 ${
+        mobileOpen
+          ? "inset-0 z-50 bg-[#040202] flex flex-col justify-between overflow-y-auto"
+          : scrolled
+          ? "z-40 bg-[#040202]/92 backdrop-blur-md border-b border-[#6B503C]/25 shadow-xl shadow-black/60"
+          : "z-40 bg-[#040202]/40 backdrop-blur-sm border-b border-[#6B503C]/15"
       }`}
     >
-      <div className="max-w-6xl mx-auto px-4 sm:px-6 h-16 flex items-center justify-between">
-        {/* Brand */}
-        <Link href="/" className="flex items-center gap-3 group">
-          <div className="relative w-9 h-9 rounded-lg bg-[#0D1422] border border-white/10 flex items-center justify-center text-[#63DCC6] font-mono font-bold text-xs tracking-wider group-hover:border-[#63DCC6]/50 transition-colors shadow-sm">
-            MR
-            <span className="absolute -top-1 -right-1 w-2.5 h-2.5 bg-[#63DCC6] rounded-full border-2 border-[#080D18]" />
+      {/* Top Masthead Bar */}
+      <div className="max-w-7xl mx-auto w-full px-4 sm:px-6 lg:px-8 h-[72px] flex items-center justify-between shrink-0 border-b border-[#6B503C]/20">
+        {/* Editorial Brand Mark */}
+        <Link
+          href="/"
+          onClick={() => setMobileOpen(false)}
+          className="flex items-center gap-3.5 group shrink-0"
+        >
+          <div className="relative w-8 h-8 rounded-sm bg-[#160C07] border border-[#6B503C]/40 overflow-hidden group-hover:border-[#C43E17] transition-colors shrink-0">
+            <Image
+              src={getAssetPath("/images/profile/mohamed-riham-github.webp")}
+              alt="Mohamed Riham"
+              fill
+              sizes="32px"
+              priority
+              className="object-cover"
+            />
           </div>
-          <div>
-            <div className="text-sm font-semibold tracking-tight text-[#F2F0E9] group-hover:text-[#63DCC6] transition-colors">
+          <div className="flex flex-col shrink-0">
+            <span className="text-sm font-bold tracking-tight text-[#F9F9F6] group-hover:text-[#DEA355] transition-colors font-sans whitespace-nowrap">
               Mohamed Riham
-            </div>
-            <div className="text-[11px] font-mono text-[#A4ADBB]">
-              Data Science Undergraduate
-            </div>
+            </span>
+            <span className="text-[10px] font-mono uppercase tracking-wider text-[#8E7F70] whitespace-nowrap">
+              Data Science // Applied AI
+            </span>
           </div>
         </Link>
 
-        {/* Desktop Navigation Links */}
-        <nav className="hidden lg:flex items-center gap-1 bg-[#0D1422]/90 px-3 py-1.5 rounded-full border border-white/[0.08] shadow-inner shadow-black/20">
+        {/* Editorial Spaced Navigation Links (Desktop) */}
+        <nav className="hidden lg:flex items-center space-x-5 xl:space-x-7">
           {navLinks.map((link) => (
             <Link
               key={link.label}
               href={link.href}
-              className="text-xs font-medium text-[#A4ADBB] hover:text-[#F2F0E9] px-3.5 py-1.5 rounded-full hover:bg-white/[0.05] transition-colors"
+              className="group inline-flex items-center gap-1.5 text-xs text-[#D3C29F] hover:text-[#F9F9F6] transition-colors py-1 relative"
             >
-              {link.label}
+              <span className="text-[10px] font-mono text-[#8E7F70] group-hover:text-[#C43E17] transition-colors">
+                {link.num}
+              </span>
+              <span className="tracking-wide uppercase font-medium">{link.label}</span>
+              <span className="absolute bottom-0 left-0 w-0 h-[1px] bg-[#C43E17] group-hover:w-full transition-all duration-300" />
             </Link>
           ))}
         </nav>
 
-        {/* Quick Search & Actions (Desktop) */}
-        <div className="hidden lg:flex items-center gap-2.5">
-          {/* Search Trigger */}
+        {/* Right Action Array (Desktop) */}
+        <div className="hidden lg:flex items-center gap-3">
           <button
             onClick={triggerPalette}
-            className="flex items-center gap-2 text-xs text-[#A4ADBB] hover:text-[#F2F0E9] bg-[#0D1422] hover:bg-[#131E30] border border-white/10 hover:border-white/20 px-3 py-1.5 rounded-lg transition-colors group"
+            className="inline-flex items-center gap-2 text-xs text-[#D3C29F] hover:text-[#F9F9F6] bg-[#120A07] hover:bg-[#1C100B] border border-[#6B503C]/30 px-3 py-1.5 rounded-sm transition-colors group"
             title="Search or jump to section (Ctrl+K)"
           >
-            <Search className="w-3.5 h-3.5 text-[#63DCC6]" />
-            <span>Search</span>
-            <kbd className="text-[10px] font-mono bg-white/5 border border-white/10 px-1.5 py-0.5 rounded text-[#69778A] group-hover:text-[#F2F0E9]">
-              Ctrl+K
-            </kbd>
+            <Search className="w-3.5 h-3.5 text-[#DEA355]" />
+            <span className="font-mono text-[11px] text-[#8E7F70] group-hover:text-[#D3C29F]">⌘K</span>
           </button>
 
           <a
-            href={getAssetPath("/cv.pdf")}
+            href={getAssetPath("/Mohamed_Riham_CV.pdf")}
             download="Mohamed_Riham_CV.pdf"
-            className="flex items-center gap-1.5 text-xs font-medium text-[#F2F0E9] bg-[#0D1422] hover:bg-[#131E30] border border-white/10 px-3 py-1.5 rounded-lg transition-colors"
+            className="inline-flex items-center gap-1.5 text-xs font-mono text-[#D3C29F] hover:text-[#F9F9F6] bg-[#120A07] hover:bg-[#1C100B] border border-[#6B503C]/30 px-3 py-1.5 rounded-sm transition-colors"
           >
-            <Download className="w-3.5 h-3.5 text-[#63DCC6]" />
-            CV
+            <Download className="w-3 h-3 text-[#DEA355]" />
+            <span>CV</span>
           </a>
+
           <Link
             href="/#contact"
-            className="flex items-center gap-1 text-xs font-semibold text-[#080D18] bg-[#63DCC6] hover:bg-[#78e3ce] px-3.5 py-1.5 rounded-lg transition-all shadow-sm shadow-[#63DCC6]/20 hover:shadow-[#63DCC6]/30 active:scale-95"
+            className="inline-flex items-center gap-1.5 text-xs font-semibold text-[#040202] bg-[#C43E17] hover:bg-[#DB4A1E] px-4 py-1.5 rounded-sm transition-colors uppercase tracking-wider shadow-sm font-mono"
           >
-            Get in touch
+            <span>Contact</span>
+            <ArrowUpRight className="w-3.5 h-3.5" />
           </Link>
         </div>
 
-        {/* Mobile / Tablet Menu Button */}
+        {/* Mobile Controls */}
         <div className="flex lg:hidden items-center gap-2">
           <button
             onClick={triggerPalette}
-            className="p-2 rounded-lg bg-[#0D1422] border border-white/10 text-[#63DCC6]"
+            className="p-2 text-[#D3C29F] hover:text-[#F9F9F6] bg-[#120A07] border border-[#6B503C]/30 rounded-sm"
             aria-label="Search"
           >
-            <Search className="w-4 h-4" />
+            <Search className="w-4 h-4 text-[#DEA355]" />
           </button>
+
           <button
             onClick={() => setMobileOpen(!mobileOpen)}
-            className="p-2 rounded-lg bg-[#0D1422] border border-white/10 text-[#F2F0E9]"
-            aria-label="Toggle navigation menu"
+            className="p-2 text-[#F9F9F6] bg-[#120A07] border border-[#6B503C]/30 rounded-sm hover:border-[#C43E17] transition-colors"
+            aria-label="Toggle menu"
           >
-            {mobileOpen ? <X className="w-5 h-5" /> : <Menu className="w-5 h-5" />}
+            {mobileOpen ? <X className="w-5 h-5 text-[#C43E17]" /> : <Menu className="w-5 h-5" />}
           </button>
         </div>
       </div>
 
-      {/* Mobile Drawer */}
+      {/* Mobile Full-Screen Editorial Menu Body */}
       {mobileOpen && (
-        <div className="lg:hidden bg-[#080D18]/95 backdrop-blur-xl border-b border-white/10 px-4 pt-3 pb-6 flex flex-col gap-3">
-          {navLinks.map((link) => (
-            <Link
-              key={link.label}
-              href={link.href}
-              onClick={() => setMobileOpen(false)}
-              className="text-sm font-medium text-[#A4ADBB] hover:text-[#F2F0E9] py-2 border-b border-white/[0.04]"
-            >
-              {link.label}
-            </Link>
-          ))}
-          <div className="flex gap-2 pt-2">
-            <a
-              href={getAssetPath("/cv.pdf")}
-              download="Mohamed_Riham_CV.pdf"
-              className="flex-1 flex items-center justify-center gap-2 text-xs font-medium text-[#F2F0E9] bg-[#0D1422] border border-white/10 py-2.5 rounded-lg"
-            >
-              <Download className="w-3.5 h-3.5 text-[#63DCC6]" />
-              Download CV
-            </a>
-            <Link
-              href="/#contact"
-              onClick={() => setMobileOpen(false)}
-              className="flex-1 flex items-center justify-center text-xs font-semibold text-[#080D18] bg-[#63DCC6] py-2.5 rounded-lg"
-            >
-              Contact
-            </Link>
+        <div className="lg:hidden flex-1 px-6 py-8 flex flex-col justify-between max-w-md mx-auto w-full">
+          <div className="space-y-6">
+            <div className="font-mono text-xs uppercase tracking-widest text-[#8E7F70]">
+              Index Directory
+            </div>
+
+            <nav className="flex flex-col space-y-4">
+              {navLinks.map((link) => (
+                <Link
+                  key={link.label}
+                  href={link.href}
+                  onClick={() => setMobileOpen(false)}
+                  className="flex items-baseline justify-between border-b border-[#6B503C]/20 pb-3 group"
+                >
+                  <span className="text-2xl font-bold text-[#F9F9F6] group-hover:text-[#DEA355] transition-colors font-sans">
+                    {link.label}
+                  </span>
+                  <span className="font-mono text-xs text-[#C43E17]">/{link.num}</span>
+                </Link>
+              ))}
+            </nav>
+          </div>
+
+          <div className="pt-8 border-t border-[#6B503C]/20 space-y-4">
+            <div className="grid grid-cols-2 gap-3">
+              <a
+                href={getAssetPath("/Mohamed_Riham_CV.pdf")}
+                download="Mohamed_Riham_CV.pdf"
+                className="flex items-center justify-center gap-2 py-3 rounded-sm bg-[#120A07] border border-[#6B503C]/40 text-xs font-mono text-[#F9F9F6]"
+              >
+                <Download className="w-3.5 h-3.5 text-[#DEA355]" />
+                Download CV
+              </a>
+              <Link
+                href="/#contact"
+                onClick={() => setMobileOpen(false)}
+                className="flex items-center justify-center gap-1.5 py-3 rounded-sm bg-[#C43E17] text-xs font-mono font-bold text-[#040202] uppercase tracking-wider"
+              >
+                Contact
+                <ArrowUpRight className="w-3.5 h-3.5" />
+              </Link>
+            </div>
+            <p className="text-[11px] font-mono text-[#8E7F70] text-center">
+              Cardiff Metropolitan University // ICBT Campus
+            </p>
           </div>
         </div>
       )}

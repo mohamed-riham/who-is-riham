@@ -41,6 +41,7 @@ export default function CommandPalette() {
 
   const navigationItems = [
     { label: "Featured Projects", href: "#projects", category: "Navigation", icon: FolderGit2 },
+    { label: "Open Source & GitHub", href: "#github", category: "Navigation", icon: FolderGit2 },
     { label: "Technical Skills Matrix", href: "#skills", category: "Navigation", icon: Sparkles },
     { label: "Experience & Leadership", href: "#experience", category: "Navigation", icon: Briefcase },
     { label: "Education (Cardiff Met / Pearson)", href: "#education", category: "Navigation", icon: GraduationCap },
@@ -60,7 +61,7 @@ export default function CommandPalette() {
     {
       label: "Download CV (PDF)",
       action: () => {
-        window.open(getAssetPath("/cv.pdf"), "_blank");
+        window.open(getAssetPath("/Mohamed_Riham_CV.pdf"), "_blank");
         setOpen(false);
       },
       category: "Quick Actions",
@@ -94,6 +95,15 @@ export default function CommandPalette() {
       category: "External Links",
       icon: ExternalLink,
     },
+    {
+      label: "Hugging Face Profile",
+      action: () => {
+        window.open(profile.socials.huggingface, "_blank");
+        setOpen(false);
+      },
+      category: "External Links",
+      icon: ExternalLink,
+    },
   ];
 
   const filteredNavigation = navigationItems.filter((i) =>
@@ -111,25 +121,25 @@ export default function CommandPalette() {
   if (!open) return null;
 
   return (
-    <div className="fixed inset-0 z-50 flex items-start justify-center pt-20 sm:pt-28 px-4 bg-[#080D18]/80 backdrop-blur-md transition-all">
+    <div className="fixed inset-0 z-50 flex items-start justify-center pt-20 sm:pt-28 px-4 bg-[#040202]/85 backdrop-blur-md transition-all">
       <div
-        className="relative w-full max-w-xl rounded-3xl bg-[#0D1422] border border-white/15 shadow-2xl shadow-black/90 overflow-hidden flex flex-col"
+        className="relative w-full max-w-xl rounded-3xl bg-[#120A07] border border-[#6B503C]/35 shadow-2xl shadow-black/90 overflow-hidden flex flex-col"
         onClick={(e) => e.stopPropagation()}
       >
         {/* Search Input Bar */}
-        <div className="flex items-center px-5 py-4 border-b border-white/10 gap-3">
-          <Search className="w-4 h-4 text-[#63DCC6]" />
+        <div className="flex items-center px-5 py-4 border-b border-[#6B503C]/25 gap-3">
+          <Search className="w-4 h-4 text-[#DEA355]" />
           <input
             type="text"
             placeholder="Search projects, research, skills, or navigate..."
             value={query}
             onChange={(e) => setQuery(e.target.value)}
             autoFocus
-            className="flex-1 bg-transparent text-sm text-[#F2F0E9] placeholder-[#69778A] focus:outline-none"
+            className="flex-1 bg-transparent text-sm text-[#F9F9F6] placeholder-[#8E7F70] focus:outline-none"
           />
           <button
             onClick={() => setOpen(false)}
-            className="p-1 rounded-lg text-[#A4ADBB] hover:text-[#F2F0E9] transition-colors"
+            className="p-1 rounded-lg text-[#D3C29F] hover:text-[#F9F9F6] transition-colors"
             aria-label="Close command palette"
           >
             <X className="w-4 h-4" />
@@ -141,7 +151,7 @@ export default function CommandPalette() {
           {/* Projects */}
           {filteredProjects.length > 0 && (
             <div>
-              <div className="px-3 py-1 text-[10px] font-mono uppercase tracking-wider text-[#69778A]">
+              <div className="px-3 py-1 text-[10px] font-mono uppercase tracking-wider text-[#8E7F70]">
                 Projects & Research
               </div>
               <div className="space-y-1 mt-1">
@@ -152,22 +162,22 @@ export default function CommandPalette() {
                       router.push(item.href);
                       setOpen(false);
                     }}
-                    className="w-full flex items-center justify-between px-3.5 py-2.5 rounded-xl text-left hover:bg-white/[0.05] transition-colors group"
+                    className="w-full flex items-center justify-between px-3.5 py-2.5 rounded-xl text-left hover:bg-white/[0.04] transition-colors group"
                   >
                     <div className="flex items-center gap-3">
-                      <FolderGit2 className="w-4 h-4 text-[#63DCC6]" />
+                      <FolderGit2 className="w-4 h-4 text-[#DEA355]" />
                       <div>
-                        <div className="text-xs font-semibold text-[#F2F0E9] group-hover:text-[#63DCC6] transition-colors">
+                        <div className="text-xs font-semibold text-[#F9F9F6] group-hover:text-[#DEA355] transition-colors">
                           {item.label}
                         </div>
                         {item.sublabel && (
-                          <div className="text-[11px] font-mono text-[#A4ADBB]">
+                          <div className="text-[11px] font-mono text-[#D3C29F]">
                             {item.sublabel}
                           </div>
                         )}
                       </div>
                     </div>
-                    <span className="text-[10px] font-mono text-[#69778A] group-hover:text-[#F2F0E9]">
+                    <span className="text-[10px] font-mono text-[#8E7F70] group-hover:text-[#F9F9F6]">
                       Jump →
                     </span>
                   </button>
@@ -179,7 +189,7 @@ export default function CommandPalette() {
           {/* Navigation */}
           {filteredNavigation.length > 0 && (
             <div>
-              <div className="px-3 py-1 text-[10px] font-mono uppercase tracking-wider text-[#69778A]">
+              <div className="px-3 py-1 text-[10px] font-mono uppercase tracking-wider text-[#8E7F70]">
                 Sections
               </div>
               <div className="space-y-1 mt-1">
@@ -188,13 +198,13 @@ export default function CommandPalette() {
                     key={item.label}
                     href={item.href}
                     onClick={() => setOpen(false)}
-                    className="flex items-center justify-between px-3.5 py-2.5 rounded-xl text-left hover:bg-white/[0.05] transition-colors group"
+                    className="flex items-center justify-between px-3.5 py-2.5 rounded-xl text-left hover:bg-white/[0.04] transition-colors group"
                   >
-                    <div className="flex items-center gap-3 text-xs font-medium text-[#F2F0E9] group-hover:text-[#63DCC6]">
-                      <item.icon className="w-3.5 h-3.5 text-[#69778A] group-hover:text-[#63DCC6]" />
+                    <div className="flex items-center gap-3 text-xs font-medium text-[#F9F9F6] group-hover:text-[#DEA355]">
+                      <item.icon className="w-3.5 h-3.5 text-[#8E7F70] group-hover:text-[#DEA355]" />
                       {item.label}
                     </div>
-                    <span className="text-[10px] font-mono text-[#69778A]">Section</span>
+                    <span className="text-[10px] font-mono text-[#8E7F70]">Section</span>
                   </a>
                 ))}
               </div>
@@ -204,7 +214,7 @@ export default function CommandPalette() {
           {/* Actions */}
           {filteredActions.length > 0 && (
             <div>
-              <div className="px-3 py-1 text-[10px] font-mono uppercase tracking-wider text-[#69778A]">
+              <div className="px-3 py-1 text-[10px] font-mono uppercase tracking-wider text-[#8E7F70]">
                 Actions
               </div>
               <div className="space-y-1 mt-1">
@@ -212,10 +222,10 @@ export default function CommandPalette() {
                   <button
                     key={item.label}
                     onClick={item.action}
-                    className="w-full flex items-center justify-between px-3.5 py-2.5 rounded-xl text-left hover:bg-white/[0.05] transition-colors group"
+                    className="w-full flex items-center justify-between px-3.5 py-2.5 rounded-xl text-left hover:bg-white/[0.04] transition-colors group"
                   >
-                    <div className="flex items-center gap-3 text-xs font-medium text-[#F2F0E9] group-hover:text-[#63DCC6]">
-                      <item.icon className="w-3.5 h-3.5 text-[#63DCC6]" />
+                    <div className="flex items-center gap-3 text-xs font-medium text-[#F9F9F6] group-hover:text-[#C43E17]">
+                      <item.icon className="w-3.5 h-3.5 text-[#DEA355]" />
                       {item.label}
                     </div>
                   </button>
@@ -226,20 +236,20 @@ export default function CommandPalette() {
         </div>
 
         {/* Footer shortcuts */}
-        <div className="px-5 py-2.5 bg-[#080D18] border-t border-white/5 flex items-center justify-between text-xs font-mono text-[#69778A]">
+        <div className="px-5 py-2.5 bg-[#040202] border-t border-[#6B503C]/20 flex items-center justify-between text-xs font-mono text-[#8E7F70]">
           <div className="flex items-center gap-2">
             <span>Nav:</span>
-            <kbd className="px-1.5 py-0.5 rounded bg-white/5 border border-white/10 text-[10px]">
+            <kbd className="px-1.5 py-0.5 rounded bg-white/5 border border-[#6B503C]/25 text-[10px]">
               ↑↓
             </kbd>
             <span>Select:</span>
-            <kbd className="px-1.5 py-0.5 rounded bg-white/5 border border-white/10 text-[10px]">
+            <kbd className="px-1.5 py-0.5 rounded bg-white/5 border border-[#6B503C]/25 text-[10px]">
               ↵
             </kbd>
           </div>
           <div className="flex items-center gap-1.5">
             <span>Close:</span>
-            <kbd className="px-1.5 py-0.5 rounded bg-white/5 border border-white/10 text-[10px]">
+            <kbd className="px-1.5 py-0.5 rounded bg-white/5 border border-[#6B503C]/25 text-[10px]">
               ESC
             </kbd>
           </div>
