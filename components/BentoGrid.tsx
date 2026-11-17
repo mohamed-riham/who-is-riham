@@ -1,13 +1,47 @@
 "use client";
 
+import { useState, useEffect } from "react";
 import Image from "next/image";
 import Link from "next/link";
-import { ArrowUpRight, Cpu, Shield, Award, Wrench, Terminal, Database } from "lucide-react";
+import { ArrowUpRight, Cpu, Shield, Award, Wrench, Terminal, Database, Shuffle } from "lucide-react";
 import { getAssetPath } from "@/lib/utils";
 import { HuggingFaceIcon, GithubIcon, InstagramIcon } from "@/components/Icons";
 import { profile } from "@/content/profile";
 
+const BENTO_CANDIDS = [
+  {
+    src: "/images/profile/mohamed-riham-lifestyle.webp",
+    alt: "Mohamed Riham Addalaichenai motorbike candid",
+    location: "Addalaichenai, Sri Lanka",
+    badge: "Motorbike Candid",
+  },
+  {
+    src: "/images/profile/random/colombo-urban-candid.webp",
+    alt: "Mohamed Riham Colombo urban candid",
+    location: "Colombo, Sri Lanka",
+    badge: "Urban Candid",
+  },
+  {
+    src: "/images/profile/random/motorbike-sunset-portrait.webp",
+    alt: "Mohamed Riham outdoor golden hour portrait",
+    location: "Addalaichenai, Sri Lanka",
+    badge: "Golden Hour Candid",
+  },
+];
+
 export default function BentoGrid() {
+  const [bentoIdx, setBentoIdx] = useState(0);
+
+  useEffect(() => {
+    const rand = Math.floor(Math.random() * BENTO_CANDIDS.length);
+    setBentoIdx(rand);
+  }, []);
+
+  const handleNextBentoPhoto = () => {
+    setBentoIdx((prev) => (prev + 1) % BENTO_CANDIDS.length);
+  };
+
+  const currentBentoPhoto = BENTO_CANDIDS[bentoIdx];
   return (
     <section id="dossier" className="py-20 lg:py-28 border-b border-[#6B503C]/20 bg-[#040202]">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -112,16 +146,27 @@ export default function BentoGrid() {
             </div>
 
             <div className="p-6 space-y-4">
-              <div className="relative aspect-[16/10] w-full border border-[#6B503C]/30 bg-[#040202] overflow-hidden">
+              {/* Lifestyle Photo Embed with Auto-Refresh Randomizer */}
+              <div
+                onClick={handleNextBentoPhoto}
+                className="relative aspect-[16/10] w-full border border-[#6B503C]/30 bg-[#040202] overflow-hidden cursor-pointer select-none"
+                title="Click or tap to shuffle candid snapshot"
+              >
                 <Image
-                  src={getAssetPath("/images/profile/mohamed-riham-lifestyle.webp")}
-                  alt="Mohamed Riham lifestyle candid photograph"
+                  key={currentBentoPhoto.src}
+                  src={getAssetPath(currentBentoPhoto.src)}
+                  alt={currentBentoPhoto.alt}
                   fill
                   className="object-cover object-[center_35%] group-hover:scale-105 transition-transform duration-700"
                   sizes="(max-width: 768px) 100vw, 360px"
                 />
-                <div className="absolute bottom-2 left-2 bg-[#040202]/85 backdrop-blur-sm border border-[#6B503C]/30 px-2 py-0.5 text-[10px] font-mono text-[#F9F9F6]">
-                  Addalaichenai, Sri Lanka
+                <div className="absolute top-2 right-2 bg-[#040202]/85 backdrop-blur-sm border border-[#6B503C]/30 px-2 py-0.5 text-[9px] font-mono text-[#D3C29F] flex items-center gap-1">
+                  <Shuffle className="w-2.5 h-2.5 text-[#DEA355]" />
+                  <span>Tap to Shuffle</span>
+                </div>
+                <div className="absolute bottom-2 left-2 bg-[#040202]/85 backdrop-blur-sm border border-[#6B503C]/30 px-2 py-0.5 text-[10px] font-mono text-[#F9F9F6] flex items-center gap-1.5">
+                  <span className="w-1.5 h-1.5 rounded-full bg-[#DEA355] animate-pulse" />
+                  <span>{currentBentoPhoto.location}</span>
                 </div>
               </div>
 

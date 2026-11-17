@@ -1,12 +1,77 @@
 "use client";
 
+import { useState, useEffect } from "react";
 import Image from "next/image";
-import { User, Terminal, Compass, Layers, ShieldCheck } from "lucide-react";
+import { User, Terminal, Compass, Layers, ShieldCheck, Shuffle } from "lucide-react";
 import { profile } from "@/content/profile";
 import { getAssetPath } from "@/lib/utils";
 import { InstagramIcon } from "@/components/Icons";
 
+const RANDOM_SNAPSHOTS = [
+  {
+    id: "colombo-urban",
+    src: "/images/profile/random/colombo-urban-candid.webp",
+    alt: "Mohamed Riham authentic urban portrait in Colombo, Data Science Undergraduate",
+    location: "Colombo, Sri Lanka",
+    badge: "Urban Candid",
+  },
+  {
+    id: "addalaichenai-motorbike",
+    src: "/images/profile/random/addalaichenai-motorbike-candid.webp",
+    alt: "Mohamed Riham candid with motorbike in Addalaichenai",
+    location: "Addalaichenai, Sri Lanka",
+    badge: "Motorbike Candid",
+  },
+  {
+    id: "motorbike-sunset",
+    src: "/images/profile/random/motorbike-sunset-portrait.webp",
+    alt: "Mohamed Riham golden hour outdoor candid portrait",
+    location: "Addalaichenai, Sri Lanka",
+    badge: "Golden Hour Candid",
+  },
+  {
+    id: "formal-sunglasses",
+    src: "/images/profile/random/formal-sunglasses-portrait.webp",
+    alt: "Mohamed Riham formal suit & sunglasses portrait",
+    location: "Addalaichenai, Sri Lanka",
+    badge: "Editorial Formal",
+  },
+  {
+    id: "formal-tie-adjust",
+    src: "/images/profile/random/formal-tie-adjust.webp",
+    alt: "Mohamed Riham executive portrait candid",
+    location: "Addalaichenai, Sri Lanka",
+    badge: "Executive Candid",
+  },
+  {
+    id: "diploma-ceremony",
+    src: "/images/profile/random/diploma-awards-convocation.webp",
+    alt: "Mohamed Riham graduation awards convocation",
+    location: "Kalmunai, Sri Lanka",
+    badge: "Academic Convocation",
+  },
+];
+
 export default function AboutSection() {
+  const [photoIndex, setPhotoIndex] = useState(0);
+  const [isChanging, setIsChanging] = useState(false);
+
+  useEffect(() => {
+    // Automatically select a random snapshot on every page load/refresh
+    const rand = Math.floor(Math.random() * RANDOM_SNAPSHOTS.length);
+    setPhotoIndex(rand);
+  }, []);
+
+  const handleNextPhoto = () => {
+    setIsChanging(true);
+    setTimeout(() => {
+      setPhotoIndex((prev) => (prev + 1) % RANDOM_SNAPSHOTS.length);
+      setIsChanging(false);
+    }, 180);
+  };
+
+  const currentPhoto = RANDOM_SNAPSHOTS[photoIndex];
+
   return (
     <section id="about" className="py-24 lg:py-32 border-b border-[#6B503C]/20 bg-[#040202]">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -38,28 +103,50 @@ export default function AboutSection() {
               <span className="absolute -bottom-1.5 -left-1.5 font-mono text-[10px] text-[#C43E17] select-none">+</span>
               <span className="absolute -bottom-1.5 -right-1.5 font-mono text-[10px] text-[#C43E17] select-none">+</span>
 
-              <div className="relative aspect-[4/5] w-full overflow-hidden bg-[#040202]">
+              {/* Photo Frame with Auto-Refresh Randomizer */}
+              <div
+                onClick={handleNextPhoto}
+                className="relative aspect-[4/5] w-full overflow-hidden bg-[#040202] cursor-pointer select-none"
+                title="Click or tap to shuffle candid snapshot"
+              >
                 <Image
-                  src={getAssetPath("/images/profile/mohamed-riham-colombo-portrait.webp")}
-                  alt="Mohamed Riham authentic portrait in Colombo, Data Science Undergraduate"
+                  key={currentPhoto.src}
+                  src={getAssetPath(currentPhoto.src)}
+                  alt={currentPhoto.alt}
                   fill
                   priority
-                  className="object-cover object-top group-hover:scale-102 transition-transform duration-700"
+                  className={`object-cover object-top group-hover:scale-102 transition-all duration-700 ${
+                    isChanging ? "opacity-30 scale-98" : "opacity-100 scale-100"
+                  }`}
                   sizes="(max-width: 1024px) 100vw, 440px"
                 />
                 <div className="absolute inset-0 bg-gradient-to-t from-[#040202] via-transparent to-transparent opacity-60 pointer-events-none" />
 
+                {/* Top Shuffle Control Chip */}
+                <div className="absolute top-3 left-3 right-3 flex items-center justify-between text-[10px] font-mono pointer-events-none">
+                  <span className="bg-[#040202]/90 border border-[#6B503C]/40 px-2 py-0.5 text-[#8E7F70]">
+                    SNAPSHOT <span className="text-[#DEA355]">0{photoIndex + 1}</span> / 0{RANDOM_SNAPSHOTS.length}
+                  </span>
+                  <span className="bg-[#040202]/90 border border-[#6B503C]/40 px-2 py-0.5 text-[#D3C29F] flex items-center gap-1 group-hover:text-[#DEA355] transition-colors">
+                    <Shuffle className="w-2.5 h-2.5 text-[#DEA355]" />
+                    <span>Tap to Shuffle</span>
+                  </span>
+                </div>
+
+                {/* Bottom Verified Location & Social Bar */}
                 <div className="absolute bottom-3 left-3 right-3 flex items-center justify-between text-[11px] font-mono text-[#F9F9F6]">
-                  <span className="bg-[#040202]/90 border border-[#6B503C]/30 px-2.5 py-1">
-                    Colombo, Sri Lanka
+                  <span className="bg-[#040202]/90 border border-[#6B503C]/30 px-2.5 py-1 flex items-center gap-1.5">
+                    <span className="w-1.5 h-1.5 rounded-full bg-[#DEA355] animate-pulse" />
+                    <span>{currentPhoto.location}</span>
                   </span>
                   <a
                     href="https://www.instagram.com/_mohamed_riham/"
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="bg-[#040202]/90 border border-[#6B503C]/30 px-2.5 py-1 text-[#DEA355] hover:text-[#F9F9F6] flex items-center gap-1.5 transition-colors"
+                    onClick={(e) => e.stopPropagation()}
+                    className="bg-[#040202]/90 border border-[#6B503C]/30 px-2.5 py-1 text-[#DEA355] hover:text-[#F9F9F6] flex items-center gap-1.5 transition-colors pointer-events-auto"
                   >
-                    <span>@_mohamed_riham</span>
+                    <span>{currentPhoto.badge}</span>
                     <InstagramIcon className="w-3 h-3" />
                   </a>
                 </div>
