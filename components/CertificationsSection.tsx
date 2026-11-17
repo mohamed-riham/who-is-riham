@@ -56,7 +56,8 @@ export default function CertificationsSection() {
                     <div className="mt-3 relative aspect-[16/10] max-w-md border border-[#6B503C]/35 bg-[#040202] overflow-hidden group/img">
                       <Image
                         src={getAssetPath("/images/certifications/bcas-pc-clinic-award-stage.webp")}
-                        alt="Mohamed Riham receiving Certificate of Appreciation for PC Clinic on stage at BCAS Kalmunai Auditorium"
+                        alt="Mohamed Riham (Riham) receiving Certificate of Appreciation for PC Clinic on stage at BCAS Kalmunai Auditorium"
+                        title="Mohamed Riham (Riham) — Stage Award Handover"
                         fill
                         className="object-cover object-[center_35%] group-hover/img:scale-102 transition-transform duration-700"
                         sizes="(max-width: 768px) 100vw, 400px"

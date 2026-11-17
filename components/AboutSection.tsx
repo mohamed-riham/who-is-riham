@@ -11,42 +11,42 @@ const RANDOM_SNAPSHOTS = [
   {
     id: "colombo-urban",
     src: "/images/profile/random/colombo-urban-candid.webp",
-    alt: "Mohamed Riham authentic urban portrait in Colombo, Data Science Undergraduate",
+    alt: "Mohamed Riham (Riham) authentic urban portrait in Colombo, Data Science Undergraduate",
     location: "Colombo, Sri Lanka",
     badge: "Urban Candid",
   },
   {
     id: "addalaichenai-motorbike",
     src: "/images/profile/random/addalaichenai-motorbike-candid.webp",
-    alt: "Mohamed Riham candid with motorbike in Addalaichenai",
+    alt: "Mohamed Riham (Riham) candid with motorbike in Addalaichenai, Sri Lanka",
     location: "Addalaichenai, Sri Lanka",
     badge: "Motorbike Candid",
   },
   {
     id: "motorbike-sunset",
     src: "/images/profile/random/motorbike-sunset-portrait.webp",
-    alt: "Mohamed Riham golden hour outdoor candid portrait",
+    alt: "Mohamed Riham (Riham) golden hour outdoor candid portrait with motorbike",
     location: "Addalaichenai, Sri Lanka",
     badge: "Golden Hour Candid",
   },
   {
     id: "formal-sunglasses",
     src: "/images/profile/random/formal-sunglasses-portrait.webp",
-    alt: "Mohamed Riham formal suit & sunglasses portrait",
+    alt: "Mohamed Riham (Riham) formal editorial suit and sunglasses portrait",
     location: "Addalaichenai, Sri Lanka",
     badge: "Editorial Formal",
   },
   {
     id: "formal-tie-adjust",
     src: "/images/profile/random/formal-tie-adjust.webp",
-    alt: "Mohamed Riham executive portrait candid",
+    alt: "Mohamed Riham (Riham) executive tie adjustment candid portrait",
     location: "Addalaichenai, Sri Lanka",
     badge: "Executive Candid",
   },
   {
     id: "diploma-ceremony",
     src: "/images/profile/random/diploma-awards-convocation.webp",
-    alt: "Mohamed Riham graduation awards convocation",
+    alt: "Mohamed Riham (Riham) graduation awards convocation ceremony in Kalmunai",
     location: "Kalmunai, Sri Lanka",
     badge: "Academic Convocation",
   },
@@ -214,7 +214,8 @@ export default function AboutSection() {
               <div className="relative aspect-[16/7] w-full overflow-hidden bg-[#040202]">
                 <Image
                   src={getAssetPath("/images/workspace/mohamed-riham-craft-studio.webp")}
-                  alt="Mohamed Riham at creative maker and hardware craft studio"
+                  alt="Mohamed Riham (Riham) at creative maker and hardware craft studio desk"
+                  title="Mohamed Riham (Riham) — Hardware Craft Studio"
                   fill
                   className="object-cover group-hover:scale-102 transition-transform duration-700"
                   sizes="(max-width: 1024px) 100vw, 700px"

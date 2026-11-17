@@ -106,7 +106,8 @@ export default function ExperienceSection() {
                     <div className="relative aspect-[4/3] w-full overflow-hidden bg-[#040202]">
                       <Image
                         src={getAssetPath("/images/experience/bcas-bits-honour.webp")}
-                        alt="Mohamed Riham receiving official BITS commendation certificate"
+                        alt="Mohamed Riham (Riham) receiving official BITS commendation certificate at BCAS Kalmunai Campus Auditorium"
+                        title="Mohamed Riham (Riham) — BITS Leadership Honour"
                         fill
                         className="object-cover group-hover:scale-103 transition-transform duration-700"
                         sizes="(max-width: 1024px) 100vw, 360px"
@@ -124,7 +125,8 @@ export default function ExperienceSection() {
                     <div className="relative aspect-[16/10] w-full overflow-hidden bg-[#040202]">
                       <Image
                         src={getAssetPath("/images/experience/bcas-pc-clinic-team.webp")}
-                        alt="Mohamed Riham as PC Clinic Official with technical diagnostics team"
+                        alt="Mohamed Riham (Riham) as PC Clinic Official with technical diagnostics engineering team"
+                        title="Mohamed Riham (Riham) — PC Clinic Official"
                         fill
                         className="object-cover group-hover:scale-103 transition-transform duration-700"
                         sizes="(max-width: 1024px) 100vw, 360px"
@@ -135,7 +137,8 @@ export default function ExperienceSection() {
                       <div className="relative aspect-[16/10] w-full overflow-hidden bg-[#040202] border border-[#6B503C]/20">
                         <Image
                           src={getAssetPath("/images/experience/pcclinic-hardware-repairs.webp")}
-                          alt="Hands-on PC hardware component diagnostics and motherboard repair"
+                          alt="Mohamed Riham (Riham) hands-on PC hardware component diagnostics and motherboard repair bench"
+                          title="Mohamed Riham (Riham) — Hardware Diagnostics"
                           fill
                           className="object-cover group-hover:scale-105 transition-transform duration-700"
                           sizes="180px"
@@ -144,7 +147,8 @@ export default function ExperienceSection() {
                       <div className="relative aspect-[16/10] w-full overflow-hidden bg-[#040202] border border-[#6B503C]/20">
                         <Image
                           src={getAssetPath("/images/experience/pcclinic-team-monitor.webp")}
-                          alt="Software and operating system diagnostic bench testing"
+                          alt="Mohamed Riham (Riham) and team analyzing operating system boot processes and diagnostics"
+                          title="Mohamed Riham (Riham) — Systems Diagnostics Bench"
                           fill
                           className="object-cover group-hover:scale-105 transition-transform duration-700"
                           sizes="180px"

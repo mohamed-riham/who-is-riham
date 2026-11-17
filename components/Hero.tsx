@@ -179,7 +179,8 @@ export default function Hero() {
 
                   <Image
                     src={getAssetPath("/images/profile/mohamed-riham-portrait-cutout.webp")}
-                    alt="Editorial portrait of Mohamed Riham, Data Science Undergraduate"
+                    alt="Mohamed Riham (Riham) — Data Science Undergraduate editorial portrait photograph"
+                    title="Mohamed Riham (Riham) — Data Science Undergraduate"
                     fill
                     priority
                     className="object-contain object-bottom"

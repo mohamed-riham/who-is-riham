@@ -90,7 +90,8 @@ export default function EducationSection() {
                     <div className="relative aspect-[3/4] w-full overflow-hidden bg-[#040202]">
                       <Image
                         src={getAssetPath("/images/profile/mohamed-riham-portrait.webp")}
-                        alt="Mohamed Riham Cardiff Met academic candidate portrait"
+                        alt="Mohamed Riham (Riham) — Cardiff Metropolitan University academic candidate portrait"
+                        title="Mohamed Riham (Riham) — Cardiff Metropolitan University"
                         fill
                         className="object-cover object-top group-hover:scale-103 transition-transform duration-700"
                         sizes="(max-width: 1024px) 100vw, 280px"
@@ -108,7 +109,8 @@ export default function EducationSection() {
                     <div className="relative aspect-[3/4] w-full overflow-hidden bg-[#040202]">
                       <Image
                         src={getAssetPath("/images/profile/mohamed-riham-campus.webp")}
-                        alt="Mohamed Riham on campus during BTEC HND"
+                        alt="Mohamed Riham (Riham) on campus balcony during BTEC Higher National Diploma coursework"
+                        title="Mohamed Riham (Riham) — Campus Academic Life"
                         fill
                         className="object-cover object-top group-hover:scale-103 transition-transform duration-700"
                         sizes="(max-width: 1024px) 100vw, 280px"
@@ -126,7 +128,8 @@ export default function EducationSection() {
                     <div className="relative aspect-[3/4] w-full overflow-hidden bg-[#040202]">
                       <Image
                         src={getAssetPath("/images/profile/mohamed-riham-diploma.webp")}
-                        alt="Mohamed Riham during Diploma in IT studies"
+                        alt="Mohamed Riham (Riham) during Pearson Assured Diploma in IT studies"
+                        title="Mohamed Riham (Riham) — Foundation Studies"
                         fill
                         className="object-cover object-top group-hover:scale-103 transition-transform duration-700"
                         sizes="(max-width: 1024px) 100vw, 280px"
