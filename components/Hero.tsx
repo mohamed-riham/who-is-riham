@@ -26,7 +26,7 @@ export default function Hero() {
             {/* Identity Ledger Marker */}
             <div className="inline-flex items-center gap-2.5 font-mono text-xs tracking-wider text-[#D3C29F]">
               <span className="w-2 h-2 rounded-full bg-[#C43E17] animate-pulse" />
-              <span>BSC (HONS) DATA SCIENCE // ICBT × CARDIFF METROPOLITAN</span>
+              <span>WHO IS RIHAM // BSC (HONS) DATA SCIENCE // ICBT × CARDIFF METROPOLITAN</span>
             </div>
 
             {/* Monumental Editorial Headline */}
@@ -35,13 +35,13 @@ export default function Hero() {
                 Building applied intelligence with empirical rigor.
               </h1>
 
-              <div className="flex items-center gap-3 pt-1">
+              <div className="flex flex-wrap items-center gap-3 pt-1">
                 <span className="text-xl sm:text-2xl font-serif italic text-[#DEA355]">
-                  Mohamed Riham
+                  Mohamed Riham (Riham)
                 </span>
                 <span className="text-[#6B503C]">/</span>
                 <span className="text-xs sm:text-sm font-mono text-[#D3C29F]">
-                  Data Science Undergraduate
+                  Data Science Undergraduate & AI Systems Developer
                 </span>
               </div>
             </div>

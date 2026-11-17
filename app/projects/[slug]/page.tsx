@@ -38,13 +38,34 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const project = projects.find((p) => p.slug === slug);
   if (!project) return { title: "Project Not Found" };
 
+  const baseUrl = "https://mohamed-riham.github.io/who-is-riham";
+  const canonicalUrl = `${baseUrl}/projects/${project.slug}/`;
+
   return {
-    title: `${project.title} | Case Study | Mohamed Riham`,
-    description: project.summary,
+    title: `${project.title} | Case Study | Mohamed Riham (Riham)`,
+    description: `Case study on ${project.title} by Mohamed Riham (Riham), Data Science Undergraduate. ${project.summary}`,
+    alternates: {
+      canonical: canonicalUrl,
+    },
     openGraph: {
       title: `${project.title} | Case Study | Mohamed Riham`,
       description: project.summary,
+      url: canonicalUrl,
       type: "article",
+      images: [
+        {
+          url: `${baseUrl}/og-image.png`,
+          width: 1200,
+          height: 630,
+          alt: `${project.title} — Mohamed Riham`,
+        },
+      ],
+    },
+    twitter: {
+      card: "summary_large_image",
+      title: `${project.title} | Mohamed Riham Case Study`,
+      description: project.summary,
+      images: [`${baseUrl}/og-image.png`],
     },
   };
 }

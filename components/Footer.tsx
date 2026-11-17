@@ -14,10 +14,10 @@ export default function Footer() {
         <div className="flex flex-col lg:flex-row items-start lg:items-center justify-between gap-8 pb-12 border-b border-[#6B503C]/20">
           <div className="space-y-1.5 font-mono">
             <div className="text-base font-bold text-[#F9F9F6] font-sans">
-              Mohamed Riham
+              Mohamed Riham (Riham)
             </div>
             <div className="text-xs text-[#8E7F70]">
-              BSc (Hons) Data Science // Cardiff Metropolitan University, UK (via ICBT Campus)
+              Who is Mohamed Riham? — BSc (Hons) Data Science // Cardiff Metropolitan University, UK (via ICBT Campus)
             </div>
             <div className="text-[11px] text-[#DEA355]">
               Former Pearson BTEC HND Software Engineering // 11 Distinctions

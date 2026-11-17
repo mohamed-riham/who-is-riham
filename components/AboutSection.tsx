@@ -80,10 +80,10 @@ export default function AboutSection() {
         <div className="flex flex-col md:flex-row md:items-end justify-between gap-6 pb-12 border-b border-[#6B503C]/20">
           <div className="space-y-2">
             <div className="font-mono text-xs uppercase tracking-widest text-[#C43E17]">
-              04 // Personal Dossier
+              04 // Personal Dossier & Biography
             </div>
             <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold tracking-tight text-[#F9F9F6] font-sans">
-              Identity, curriculum & engineering philosophy.
+              Who is Mohamed Riham? Identity, curriculum & engineering philosophy.
             </h2>
           </div>
           <div className="font-mono text-xs text-[#8E7F70]">
@@ -233,6 +233,56 @@ export default function AboutSection() {
             </div>
           </div>
 
+        </div>
+
+        {/* Fast Facts & Key Inquiries: Who is Mohamed Riham? */}
+        <div className="mt-16 pt-12 border-t border-[#6B503C]/20 space-y-8">
+          <div className="space-y-1">
+            <div className="font-mono text-xs uppercase tracking-widest text-[#DEA355]">
+              Dossier FAQ // Identity & Verification
+            </div>
+            <h3 className="text-xl sm:text-2xl font-bold tracking-tight text-[#F9F9F6] font-sans">
+              Frequently Asked Inquiries: Who is Mohamed Riham?
+            </h3>
+          </div>
+
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+            <div className="p-6 bg-[#0D0704] border border-[#6B503C]/25 space-y-3">
+              <div className="font-mono text-xs text-[#C43E17] uppercase tracking-wider">
+                01 // Identity & Origins
+              </div>
+              <h4 className="text-sm font-bold text-[#F9F9F6] font-sans">
+                Who is Mohamed Riham (Riham)?
+              </h4>
+              <p className="text-xs text-[#D3C29F] font-light leading-relaxed">
+                Mohamed Riham (commonly known as Riham) is a Sri Lankan Data Science undergraduate, software engineer, and applied AI developer based in Addalaichenai and Colombo. He is currently completing his BSc (Hons) in Data Science awarded by Cardiff Metropolitan University, UK via ICBT Campus.
+              </p>
+            </div>
+
+            <div className="p-6 bg-[#0D0704] border border-[#6B503C]/25 space-y-3">
+              <div className="font-mono text-xs text-[#DEA355] uppercase tracking-wider">
+                02 // Core Specializations
+              </div>
+              <h4 className="text-sm font-bold text-[#F9F9F6] font-sans">
+                What are his technical disciplines?
+              </h4>
+              <p className="text-xs text-[#D3C29F] font-light leading-relaxed">
+                Specialized in practical Computer Vision (custom YOLOv8 architectures), machine learning benchmarks on empirical datasets (Random Forest vs XGBoost fraud analytics), offline neural voice automation (EDITH), and IoT telemetry hardware.
+              </p>
+            </div>
+
+            <div className="p-6 bg-[#0D0704] border border-[#6B503C]/25 space-y-3">
+              <div className="font-mono text-xs text-[#8E7F70] uppercase tracking-wider">
+                03 // Published Work & Code
+              </div>
+              <h4 className="text-sm font-bold text-[#F9F9F6] font-sans">
+                Where to explore his research & repositories?
+              </h4>
+              <p className="text-xs text-[#D3C29F] font-light leading-relaxed">
+                His research is cataloged on Academia.edu and DEV Community, open-source model weights are hosted on HuggingFace, and production repositories are accessible on GitHub (@mohamed-riham).
+              </p>
+            </div>
+          </div>
         </div>
 
       </div>

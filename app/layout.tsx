@@ -31,45 +31,85 @@ const basePath = isGithubPages ? "/who-is-riham" : "";
 
 export const metadata: Metadata = {
   metadataBase: new URL("https://mohamed-riham.github.io/who-is-riham"),
-  title: "Mohamed Riham | Data Science Undergraduate",
+  title: {
+    default: "Mohamed Riham (Riham) | Who is Mohamed Riham? — Official Portfolio",
+    template: "%s | Mohamed Riham (Riham)",
+  },
   description:
-    "Portfolio of Mohamed Riham, Data Science Undergraduate at Cardiff Metropolitan University / ICBT Campus. Practical AI, Computer Vision (YOLOv8 99.2% mAP@50), Local Voice Automation, and Big Data Research.",
+    "Who is Mohamed Riham? Mohamed Riham (also known as Riham) is a Data Science Undergraduate at Cardiff Metropolitan University / ICBT Campus. Creator of YOLOv8 Currency Detector (99.2% mAP), EDITH Voice AI, & published Big Data researcher.",
   keywords: [
     "Mohamed Riham",
-    "Data Science",
-    "Machine Learning",
-    "Computer Vision",
-    "YOLOv8",
-    "AI Systems",
-    "Cardiff Metropolitan University",
-    "ICBT Campus",
-    "Sri Lanka",
-    "EDITH Assistant",
+    "Riham",
+    "who is riham",
+    "who is mohamed riham",
+    "who is riham sri lanka",
+    "who is mohamed riham sri lanka",
+    "Mohamed Ansar Mohamed Riham",
+    "M. Riham",
+    "M. A. M. Riham",
+    "Riham Data Science",
+    "Mohamed Riham Portfolio",
+    "Mohamed Riham AI",
+    "Mohamed Riham Cardiff Metropolitan University",
+    "Mohamed Riham ICBT Campus",
+    "Mohamed Riham Sri Lanka",
+    "Mohamed Riham GitHub",
+    "Mohamed Riham LinkedIn",
+    "Mohamed Riham HuggingFace",
+    "Sri Lankan Currency Detector YOLOv8",
+    "EDITH Assistant Mohamed Riham",
+    "Credit Card Fraud Detection Big Data Mohamed Riham",
+    "Automated Student Attendance Face Recognition",
+    "Azirah Horror Game Mohamed Riham",
   ],
-  authors: [{ name: "Mohamed Riham" }],
+  authors: [{ name: "Mohamed Riham", url: "https://mohamed-riham.github.io/who-is-riham/" }],
   creator: "Mohamed Riham",
+  publisher: "Mohamed Riham",
+  alternates: {
+    canonical: "https://mohamed-riham.github.io/who-is-riham/",
+  },
+  robots: {
+    index: true,
+    follow: true,
+    nocache: false,
+    googleBot: {
+      index: true,
+      follow: true,
+      noimageindex: false,
+      "max-video-preview": -1,
+      "max-image-preview": "large",
+      "max-snippet": -1,
+    },
+  },
   openGraph: {
-    title: "Mohamed Riham | Data Science Undergraduate",
+    type: "profile",
+    firstName: "Mohamed",
+    lastName: "Riham",
+    username: "mohamed-riham",
+    gender: "male",
+    title: "Who is Mohamed Riham? (Riham) | Data Science Undergraduate & AI Systems",
     description:
-      "I build practical AI, machine learning, computer vision, and intelligent systems that solve real-world problems.",
+      "Official portfolio and personal dossier of Mohamed Riham (Riham). Data Science Undergraduate at Cardiff Met / ICBT Campus, creator of YOLOv8 Currency Detector, EDITH Voice AI, & published Big Data researcher.",
     url: "https://mohamed-riham.github.io/who-is-riham/",
-    siteName: "Mohamed Riham Portfolio",
+    siteName: "Who is Mohamed Riham? — Official Portfolio",
     locale: "en_US",
-    type: "website",
     images: [
       {
         url: "https://mohamed-riham.github.io/who-is-riham/og-image.png",
         width: 1200,
         height: 630,
-        alt: "Mohamed Riham | Data Science Undergraduate",
+        alt: "Mohamed Riham (Riham) — Data Science Undergraduate & AI Systems Engineer",
+        type: "image/png",
       },
     ],
   },
   twitter: {
     card: "summary_large_image",
-    title: "Mohamed Riham | Data Science Undergraduate",
+    title: "Who is Mohamed Riham? (Riham) | Data Science & AI Portfolio",
     description:
-      "Data Science undergraduate at Cardiff Met / ICBT. Creator of Sri Lankan Currency Detector (YOLOv8n 99.2% mAP@50) & EDITH voice automation system.",
+      "Who is Mohamed Riham? Data Science undergraduate at Cardiff Met / ICBT Campus. Creator of Sri Lankan Currency Detector (YOLOv8 99.2% mAP), EDITH local voice automation & Big Data research.",
+    site: "@_mohamed_riham",
+    creator: "@_mohamed_riham",
     images: ["https://mohamed-riham.github.io/who-is-riham/og-image.png"],
   },
   icons: {
@@ -82,6 +122,20 @@ export const metadata: Metadata = {
     ],
   },
   manifest: `${basePath}/manifest.json`,
+  other: {
+    subject: "Who is Mohamed Riham? Portfolio and Research Dossier of Data Science Undergraduate Mohamed Riham",
+    author: "Mohamed Riham",
+    owner: "Mohamed Riham",
+    designer: "Mohamed Riham",
+    "reply-to": "mohamedriham93@gmail.com",
+    "identifier-URL": "https://mohamed-riham.github.io/who-is-riham/",
+    directory: "submission",
+    category: "Data Science, Artificial Intelligence, Software Engineering, Research",
+    coverage: "Worldwide",
+    distribution: "Global",
+    rating: "General",
+    "revisit-after": "7 days",
+  },
 };
 
 export default function RootLayout({
@@ -91,46 +145,192 @@ export default function RootLayout({
 }) {
   const jsonLd = {
     "@context": "https://schema.org",
-    "@type": "ProfilePage",
-    mainEntity: {
-      "@type": "Person",
-      name: "Mohamed Riham",
-      alternateName: "Mohamed Ansar Mohamed Riham",
-      jobTitle: "Data Science Undergraduate",
-      description:
-        "I build practical AI, machine learning, computer vision, and intelligent systems that solve real-world problems.",
-      url: "https://mohamed-riham.github.io/who-is-riham/",
-      email: "mohamedriham93@gmail.com",
-      alumniOf: [
-        {
-          "@type": "EducationalOrganization",
-          name: "BCAS Campus Kalmunai",
+    "@graph": [
+      {
+        "@type": "WebSite",
+        "@id": "https://mohamed-riham.github.io/who-is-riham/#website",
+        url: "https://mohamed-riham.github.io/who-is-riham/",
+        name: "Who is Mohamed Riham? | Official Portfolio",
+        alternateName: [
+          "Mohamed Riham",
+          "Riham",
+          "Who is Riham",
+          "Who is Mohamed Riham",
+          "Mohamed Riham Portfolio",
+          "who-is-riham",
+        ],
+        description:
+          "Official personal dossier and engineering portfolio of Mohamed Riham, Data Science Undergraduate at Cardiff Metropolitan University / ICBT Campus.",
+        publisher: {
+          "@id": "https://mohamed-riham.github.io/who-is-riham/#person",
         },
-      ],
-      affiliation: {
-        "@type": "EducationalOrganization",
-        name: "ICBT Campus / Cardiff Metropolitan University",
+        inLanguage: "en-US",
       },
-      sameAs: [
-        "https://github.com/mohamed-riham",
-        "https://www.linkedin.com/in/mohamedriham",
-        "https://www.instagram.com/_mohamed_riham/",
-        "https://huggingface.co/mohamedriham",
-        "https://dev.to/mohamed-riham",
-        "https://medium.com/@mohamed-riham",
-        "https://cleverchecklist.academia.edu/mohamedriham",
-      ],
-      knowsAbout: [
-        "Data Science",
-        "Machine Learning",
-        "Computer Vision",
-        "Deep Learning",
-        "YOLOv8",
-        "Python",
-        "Power BI",
-        "Applied AI Systems",
-      ],
-    },
+      {
+        "@type": "ProfilePage",
+        "@id": "https://mohamed-riham.github.io/who-is-riham/#webpage",
+        url: "https://mohamed-riham.github.io/who-is-riham/",
+        name: "Who is Mohamed Riham? (Riham) — Data Science Undergraduate Portfolio & Dossier",
+        isPartOf: {
+          "@id": "https://mohamed-riham.github.io/who-is-riham/#website",
+        },
+        about: {
+          "@id": "https://mohamed-riham.github.io/who-is-riham/#person",
+        },
+        mainEntity: {
+          "@id": "https://mohamed-riham.github.io/who-is-riham/#person",
+        },
+        primaryImageOfPage: {
+          "@type": "ImageObject",
+          url: "https://mohamed-riham.github.io/who-is-riham/og-image.png",
+          width: 1200,
+          height: 630,
+        },
+        breadcrumb: {
+          "@id": "https://mohamed-riham.github.io/who-is-riham/#breadcrumb",
+        },
+      },
+      {
+        "@type": "BreadcrumbList",
+        "@id": "https://mohamed-riham.github.io/who-is-riham/#breadcrumb",
+        itemListElement: [
+          {
+            "@type": "ListItem",
+            position: 1,
+            name: "Home",
+            item: "https://mohamed-riham.github.io/who-is-riham/",
+          },
+          {
+            "@type": "ListItem",
+            position: 2,
+            name: "Who is Mohamed Riham?",
+            item: "https://mohamed-riham.github.io/who-is-riham/#about",
+          },
+        ],
+      },
+      {
+        "@type": "Person",
+        "@id": "https://mohamed-riham.github.io/who-is-riham/#person",
+        name: "Mohamed Riham",
+        givenName: "Mohamed",
+        familyName: "Riham",
+        additionalName: "Ansar",
+        alternateName: [
+          "Riham",
+          "who is riham",
+          "who is mohamed riham",
+          "Mohamed Ansar Mohamed Riham",
+          "M. Riham",
+          "M. A. M. Riham",
+          "MR",
+        ],
+        gender: "https://schema.org/Male",
+        nationality: {
+          "@type": "Country",
+          name: "Sri Lanka",
+        },
+        homeLocation: {
+          "@type": "Place",
+          name: "Addalaichenai, Sri Lanka",
+        },
+        workLocation: {
+          "@type": "Place",
+          name: "Colombo, Sri Lanka",
+        },
+        jobTitle: "Data Science Undergraduate & AI Systems Engineer",
+        description:
+          "Mohamed Riham (commonly known as Riham) is a final-year Data Science Undergraduate at Cardiff Metropolitan University and ICBT Campus. He specializes in practical Artificial Intelligence, Computer Vision (YOLOv8 99.2% mAP), offline voice automation (EDITH), and Big Data fraud analytics.",
+        disambiguatingDescription:
+          "Mohamed Riham is a Sri Lankan Data Science undergraduate, software engineer, and AI researcher at Cardiff Metropolitan University / ICBT Campus.",
+        url: "https://mohamed-riham.github.io/who-is-riham/",
+        image: "https://mohamed-riham.github.io/who-is-riham/images/profile/mohamed-riham-portrait-cutout.webp",
+        email: "mailto:mohamedriham93@gmail.com",
+        alumniOf: [
+          {
+            "@type": "EducationalOrganization",
+            name: "BCAS Campus Kalmunai",
+            url: "https://bcas.lk",
+          },
+        ],
+        affiliation: [
+          {
+            "@type": "EducationalOrganization",
+            name: "Cardiff Metropolitan University",
+            url: "https://www.cardiffmet.ac.uk",
+          },
+          {
+            "@type": "EducationalOrganization",
+            name: "ICBT Campus",
+            url: "https://icbt.lk",
+          },
+        ],
+        sameAs: [
+          "https://github.com/mohamed-riham",
+          "https://www.linkedin.com/in/mohamedriham",
+          "https://www.instagram.com/_mohamed_riham/",
+          "https://huggingface.co/mohamedriham",
+          "https://dev.to/mohamed-riham",
+          "https://medium.com/@mohamed-riham",
+          "https://cleverchecklist.academia.edu/mohamedriham",
+          "https://www.academia.edu/129361586/A_Comparative_Study_of_Random_Forest_and_XGBoost_for_Detecting_Credit_Card_Fraud_Transactions_using_Big_Data",
+          "https://www.academia.edu/129361519/Automated_Student_Attendance_System_Using_Face_Recognition",
+        ],
+        knowsAbout: [
+          "Data Science",
+          "Artificial Intelligence",
+          "Machine Learning",
+          "Computer Vision",
+          "YOLOv8",
+          "Deep Learning",
+          "Python",
+          "Power BI",
+          "Big Data Analytics",
+          "Credit Card Fraud Detection",
+          "Voice Automation Systems",
+          "Internet of Things (IoT)",
+          "Unity Game Engine",
+          "C#",
+        ],
+      },
+      {
+        "@type": "FAQPage",
+        "@id": "https://mohamed-riham.github.io/who-is-riham/#faq",
+        mainEntity: [
+          {
+            "@type": "Question",
+            name: "Who is Mohamed Riham?",
+            acceptedAnswer: {
+              "@type": "Answer",
+              text: "Mohamed Riham (commonly known as Riham) is a final-year Data Science Undergraduate at Cardiff Metropolitan University / ICBT Campus in Sri Lanka. He is an applied Artificial Intelligence developer, machine learning researcher, and software engineer recognized for his work in computer vision (YOLOv8 99.2% mAP), offline voice automation (EDITH), and big data fraud detection research.",
+            },
+          },
+          {
+            "@type": "Question",
+            name: "Who is Riham?",
+            acceptedAnswer: {
+              "@type": "Answer",
+              text: "Riham refers to Mohamed Riham, a Sri Lankan software engineer and Data Science student with a Pearson BTEC Higher National Diploma in Software Engineering (11 Distinctions). He is the creator of the Sri Lankan Currency Detection model on HuggingFace and the EDITH local voice assistant system.",
+            },
+          },
+          {
+            "@type": "Question",
+            name: "What research papers and projects has Mohamed Riham published?",
+            acceptedAnswer: {
+              "@type": "Answer",
+              text: "Mohamed Riham has published big data research including 'A Comparative Study of Random Forest and XGBoost for Detecting Credit Card Fraud Transactions using Big Data' and 'Automated Student Attendance System Using Face Recognition'. His engineering projects include the Sri Lankan Currency Detector on HuggingFace (YOLOv8 99.2% mAP), EDITH local-first voice automation assistant, and Smart Home Door Lock IoT telemetry.",
+            },
+          },
+          {
+            "@type": "Question",
+            name: "What is the official website of Mohamed Riham?",
+            acceptedAnswer: {
+              "@type": "Answer",
+              text: "The official portfolio and personal dossier of Mohamed Riham is hosted at https://mohamed-riham.github.io/who-is-riham/.",
+            },
+          },
+        ],
+      },
+    ],
   };
 
   return (
