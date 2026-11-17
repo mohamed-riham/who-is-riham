@@ -237,11 +237,11 @@ export default function RootLayout({
           "@type": "Place",
           name: "Colombo, Sri Lanka",
         },
-        jobTitle: "Data Science Undergraduate & AI Systems Engineer",
+        jobTitle: "Data Science Undergraduate",
         description:
           "Mohamed Riham (commonly known as Riham) is a final-year Data Science Undergraduate at Cardiff Metropolitan University and ICBT Campus. He specializes in practical Artificial Intelligence, Computer Vision (YOLOv8 99.2% mAP), offline voice automation (EDITH), and Big Data fraud analytics.",
         disambiguatingDescription:
-          "Mohamed Riham is a Sri Lankan Data Science undergraduate, software engineer, and AI researcher at Cardiff Metropolitan University / ICBT Campus.",
+          "Mohamed Riham is a Sri Lankan Data Science undergraduate, applied AI developer, and machine learning researcher at Cardiff Metropolitan University / ICBT Campus.",
         url: "https://mohamed-riham.github.io/who-is-riham/",
         image: "https://mohamed-riham.github.io/who-is-riham/images/profile/mohamed-riham-portrait-cutout.webp",
         email: "mailto:mohamedriham93@gmail.com",
@@ -301,7 +301,7 @@ export default function RootLayout({
             name: "Who is Mohamed Riham?",
             acceptedAnswer: {
               "@type": "Answer",
-              text: "Mohamed Riham (commonly known as Riham) is a final-year Data Science Undergraduate at Cardiff Metropolitan University / ICBT Campus in Sri Lanka. He is an applied Artificial Intelligence developer, machine learning researcher, and software engineer recognized for his work in computer vision (YOLOv8 99.2% mAP), offline voice automation (EDITH), and big data fraud detection research.",
+              text: "Mohamed Riham (commonly known as Riham) is a final-year Data Science Undergraduate at Cardiff Metropolitan University / ICBT Campus in Sri Lanka. He is an applied Artificial Intelligence developer and machine learning researcher recognized for his work in computer vision (YOLOv8 99.2% mAP), offline voice automation (EDITH), and big data fraud detection research.",
             },
           },
           {
@@ -309,7 +309,7 @@ export default function RootLayout({
             name: "Who is Riham?",
             acceptedAnswer: {
               "@type": "Answer",
-              text: "Riham refers to Mohamed Riham, a Sri Lankan software engineer and Data Science student with a Pearson BTEC Higher National Diploma in Software Engineering (11 Distinctions). He is the creator of the Sri Lankan Currency Detection model on HuggingFace and the EDITH local voice assistant system.",
+              text: "Riham refers to Mohamed Riham, a Sri Lankan Data Science undergraduate at Cardiff Metropolitan University / ICBT Campus with a Pearson BTEC Higher National Diploma in Software Engineering (11 Distinctions). He is the creator of the Sri Lankan Currency Detection model on HuggingFace and the EDITH local voice assistant system.",
             },
           },
           {

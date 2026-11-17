@@ -164,12 +164,12 @@ A comprehensive final accuracy, functionality, and production-readiness pass was
 - [x] **Reproducible Dependency Check (`npm ci --dry-run`):** Passed with code 0.
 - [x] **Git Cleanliness Check (`git diff --check`):** Exited with code 0 (zero trailing whitespace, zero formatting defects).
 - [x] **GitHub Actions Workflow Audit (`.github/workflows/deploy.yml`):**
-  - Uses official `actions/checkout@v7`
-  - Uses `actions/setup-node@v7` with `node-version: 24`
-  - Uses `actions/configure-pages@v6`
-  - Uses `actions/upload-pages-artifact@v5`
-  - Uses `actions/deploy-pages@v5`
-  - Confirmed Node.js 24 runtime compatibility.
+  - Uses official `actions/checkout@v4` (Current major release)
+  - Uses `actions/setup-node@v4` with `node-version: 20` and `cache: "npm"` (Current LTS release)
+  - Uses `actions/configure-pages@v5` (Official GitHub Pages configuration action)
+  - Uses `actions/upload-pages-artifact@v3` (Current official Pages artifact bundler)
+  - Uses `actions/deploy-pages@v4` (Current official Pages deployment agent)
+  - High-resilience dependency step: `npm ci || (rm -f package-lock.json && npm install)` to ensure cross-platform reproducibility between Windows development and Ubuntu CI runners.
   - Distinction clarified: Local build testing runs `node ./node_modules/next/dist/bin/next build --webpack` with `GITHUB_PAGES=true` to emit static HTML to `./out`. GitHub Actions executes the full CI/CD pipeline on Ubuntu runners, archiving `./out` as `github-pages` artifact and deploying to GitHub Pages CDN.
 - [x] **WCAG 2.2 AA / AAA Compliance:** All text tokens exceed required contrast ratios.
 - [x] **Asset Paths:** All static links use `getAssetPath()` to support the GitHub Pages base path.

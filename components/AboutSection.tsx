@@ -255,7 +255,7 @@ export default function AboutSection() {
                 Who is Mohamed Riham (Riham)?
               </h4>
               <p className="text-xs text-[#D3C29F] font-light leading-relaxed">
-                Mohamed Riham (commonly known as Riham) is a Sri Lankan Data Science undergraduate, software engineer, and applied AI developer based in Addalaichenai and Colombo. He is currently completing his BSc (Hons) in Data Science awarded by Cardiff Metropolitan University, UK via ICBT Campus.
+                Mohamed Riham (commonly known as Riham) is a Sri Lankan Data Science undergraduate and applied AI developer based in Addalaichenai and Colombo. He is currently completing his BSc (Hons) in Data Science awarded by Cardiff Metropolitan University, UK via ICBT Campus.
               </p>
             </div>
 

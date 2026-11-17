@@ -41,7 +41,7 @@ export default function Hero() {
                 </span>
                 <span className="text-[#6B503C]">/</span>
                 <span className="text-xs sm:text-sm font-mono text-[#D3C29F]">
-                  Data Science Undergraduate & AI Systems Developer
+                  Data Science Undergraduate
                 </span>
               </div>
             </div>
