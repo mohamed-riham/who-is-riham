@@ -354,6 +354,8 @@ export default function RootLayout({
           name: "Mohamed Riham",
         },
         copyrightNotice: "© Mohamed Riham",
+        license: "https://creativecommons.org/licenses/by-nc/4.0/",
+        acquireLicensePage: "https://mohamed-riham.github.io/who-is-riham/#contact",
         representativeOfPage: true,
       },
       {
@@ -369,6 +371,8 @@ export default function RootLayout({
           name: "Mohamed Riham",
         },
         copyrightNotice: "© Mohamed Riham",
+        license: "https://creativecommons.org/licenses/by-nc/4.0/",
+        acquireLicensePage: "https://mohamed-riham.github.io/who-is-riham/#contact",
       },
       {
         "@type": "ImageObject",
@@ -383,6 +387,8 @@ export default function RootLayout({
           name: "Mohamed Riham",
         },
         copyrightNotice: "© Mohamed Riham",
+        license: "https://creativecommons.org/licenses/by-nc/4.0/",
+        acquireLicensePage: "https://mohamed-riham.github.io/who-is-riham/#contact",
       },
       {
         "@type": "ImageObject",
@@ -397,6 +403,8 @@ export default function RootLayout({
           name: "Mohamed Riham",
         },
         copyrightNotice: "© Mohamed Riham",
+        license: "https://creativecommons.org/licenses/by-nc/4.0/",
+        acquireLicensePage: "https://mohamed-riham.github.io/who-is-riham/#contact",
       },
     ],
   };
