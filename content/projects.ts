@@ -63,7 +63,7 @@ export const projects: Project[] = [
     links: {
       github: "https://github.com/mohamed-riham/Sri-Lankan-Currency-Detector-YOLOv8",
       video: "https://youtu.be/IeytAWt0NNw",
-      article: "https://dev.to/mohamed-riham/building-an-accessible-currency-detector-for-the-sri-lankan-visually-impaired-with-yolov8-esp32-cam-audio-feedback-3b5f",
+      article: "https://dev.to/mohamed-riham/building-an-accessible-currency-detector-for-the-sri-lankan-visually-impaired-with-yolov8-3flc",
     },
     image: "/images/projects/sri-lankan-currency-detector/val_batch0_pred.jpg",
     diagram: "/images/projects/sri-lankan-currency-detector/confusion_matrix.png",
@@ -140,7 +140,7 @@ export const projects: Project[] = [
     ],
     techStack: ["Python", "speech_recognition", "edge-tts", "OpenCV", "pyautogui", "fuzzywuzzy", "pydub"],
     links: {
-      article: "https://dev.to/mohamed-riham/i-built-an-offline-jarvis-in-python-no-internet-needed-29bc",
+      article: "https://dev.to/mohamed-riham/i-built-an-offline-jarvis-in-python-no-internet-needed-demo-video-inside-4bhn",
     },
     architectureDetails:
       "Microphone Audio Stream → Speech Recognition Engine → Levenshtein Fuzzy Intent Matcher → Action Dispatcher (System Control / Webcam / Media / App Launcher) → Vocal Response Buffer via edge-tts & pydub.",
