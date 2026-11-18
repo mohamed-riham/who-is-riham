@@ -2,10 +2,11 @@
 
 import { useState, useEffect } from "react";
 import Image from "next/image";
-import { User, Terminal, Compass, Layers, ShieldCheck, Shuffle, ChevronDown } from "lucide-react";
-import { profile } from "@/content/profile";
+import { Layers, ShieldCheck, Shuffle } from "lucide-react";
 import { getAssetPath } from "@/lib/utils";
 import { InstagramIcon } from "@/components/Icons";
+import ExpandControl from "@/components/ExpandControl";
+import SmoothExpand from "@/components/SmoothExpand";
 
 const RANDOM_SNAPSHOTS = [
   {
@@ -58,9 +59,11 @@ export default function AboutSection() {
   const [showExtendedDossier, setShowExtendedDossier] = useState(false);
 
   useEffect(() => {
-    // Automatically select a random snapshot on every page load/refresh
-    const rand = Math.floor(Math.random() * RANDOM_SNAPSHOTS.length);
-    setPhotoIndex(rand);
+    // Automatically select a random snapshot on page load asynchronously
+    const timer = setTimeout(() => {
+      setPhotoIndex(Math.floor(Math.random() * RANDOM_SNAPSHOTS.length));
+    }, 0);
+    return () => clearTimeout(timer);
   }, []);
 
   const handleNextPhoto = () => {
@@ -74,20 +77,21 @@ export default function AboutSection() {
   const currentPhoto = RANDOM_SNAPSHOTS[photoIndex];
 
   return (
-    <section id="about" className="py-24 lg:py-32 border-b border-[#6B503C]/20 bg-transparent">
+    <section id="dossier" className="py-24 lg:py-32 border-b border-white/10 bg-transparent">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
 
         {/* Section Header */}
-        <div className="flex flex-col md:flex-row md:items-end justify-between gap-6 pb-12 border-b border-[#6B503C]/20">
-          <div className="space-y-2">
-            <div className="font-mono text-xs uppercase tracking-widest text-[#C43E17]">
-              04 // Personal Dossier & Biography
+        <div className="flex flex-col md:flex-row md:items-end justify-between gap-6 pb-12 border-b border-white/10">
+          <div className="space-y-3">
+            <div className="inline-flex items-center gap-2 font-mono text-xs uppercase tracking-widest text-[#C43E17]">
+              <span className="w-1.5 h-1.5 rounded-full bg-[#C43E17]" />
+              04 // PERSONAL DOSSIER &amp; BIOGRAPHY
             </div>
-            <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold tracking-tight text-[#F9F9F6] font-sans">
-              Who is Mohamed Riham? Identity, curriculum & engineering philosophy.
+            <h2 className="text-3xl sm:text-4xl lg:text-5xl font-extrabold tracking-tight text-white font-sans">
+              Who is Mohamed Riham? <span className="text-[#C43E17]">Identity &amp; Curriculum.</span>
             </h2>
           </div>
-          <div className="font-mono text-xs text-[#8E7F70]">
+          <div className="font-mono text-xs text-[#A09383] bg-[#0E0604] border border-white/10 px-3 py-1.5 rounded-sm">
             LOCATION: ADDALAICHENAI / COLOMBO, SRI LANKA
           </div>
         </div>
@@ -97,7 +101,7 @@ export default function AboutSection() {
 
           {/* Left Column: Authentic Lifestyle Photography & Ledger (5 cols) */}
           <div className="lg:col-span-5 space-y-6">
-            <div className="border border-[#6B503C]/35 bg-[#0D0704] p-2 shadow-2xl relative group">
+            <div className="border border-white/10 bg-[#0A0503] p-2 relative group hover:border-[#C43E17]/40 transition-colors">
               {/* Corner crosshairs */}
               <span className="absolute -top-1.5 -left-1.5 font-mono text-[10px] text-[#C43E17] select-none">+</span>
               <span className="absolute -top-1.5 -right-1.5 font-mono text-[10px] text-[#C43E17] select-none">+</span>
@@ -121,23 +125,23 @@ export default function AboutSection() {
                   }`}
                   sizes="(max-width: 1024px) 100vw, 440px"
                 />
-                <div className="absolute inset-0 bg-gradient-to-t from-[#040202] via-transparent to-transparent opacity-60 pointer-events-none" />
+                <div className="absolute inset-0 bg-gradient-to-t from-[#040202] via-transparent to-transparent opacity-70 pointer-events-none" />
 
                 {/* Top Shuffle Control Chip */}
                 <div className="absolute top-3 left-3 right-3 flex items-center justify-between text-[10px] font-mono pointer-events-none">
-                  <span className="bg-[#040202]/90 border border-[#6B503C]/40 px-2 py-0.5 text-[#8E7F70]">
-                    SNAPSHOT <span className="text-[#DEA355]">0{photoIndex + 1}</span> / 0{RANDOM_SNAPSHOTS.length}
+                  <span className="bg-[#040202]/90 border border-white/10 px-2 py-0.5 text-[#A09383]">
+                    SNAPSHOT <span className="text-[#C43E17] font-bold">0{photoIndex + 1}</span> / 0{RANDOM_SNAPSHOTS.length}
                   </span>
-                  <span className="bg-[#040202]/90 border border-[#6B503C]/40 px-2 py-0.5 text-[#D3C29F] flex items-center gap-1 group-hover:text-[#DEA355] transition-colors">
-                    <Shuffle className="w-2.5 h-2.5 text-[#DEA355]" />
+                  <span className="bg-[#040202]/90 border border-white/10 px-2 py-0.5 text-white flex items-center gap-1 group-hover:text-[#C43E17] transition-colors pointer-events-auto">
+                    <Shuffle className="w-2.5 h-2.5 text-[#C43E17]" />
                     <span>Tap to Shuffle</span>
                   </span>
                 </div>
 
                 {/* Bottom Verified Location & Social Bar */}
-                <div className="absolute bottom-3 left-3 right-3 flex items-center justify-between text-[11px] font-mono text-[#F9F9F6]">
-                  <span className="bg-[#040202]/90 border border-[#6B503C]/30 px-2.5 py-1 flex items-center gap-1.5">
-                    <span className="w-1.5 h-1.5 rounded-full bg-[#DEA355] animate-pulse" />
+                <div className="absolute bottom-3 left-3 right-3 flex items-center justify-between text-[11px] font-mono text-white">
+                  <span className="bg-[#040202]/90 border border-white/10 px-2.5 py-1 flex items-center gap-1.5 backdrop-blur-sm">
+                    <span className="w-1.5 h-1.5 rounded-full bg-[#C43E17] animate-pulse" />
                     <span>{currentPhoto.location}</span>
                   </span>
                   <a
@@ -145,36 +149,36 @@ export default function AboutSection() {
                     target="_blank"
                     rel="noopener noreferrer"
                     onClick={(e) => e.stopPropagation()}
-                    className="bg-[#040202]/90 border border-[#6B503C]/30 px-2.5 py-1 text-[#DEA355] hover:text-[#F9F9F6] flex items-center gap-1.5 transition-colors pointer-events-auto"
+                    className="bg-[#040202]/90 border border-white/10 px-2.5 py-1 text-white hover:text-[#C43E17] flex items-center gap-1.5 transition-colors pointer-events-auto backdrop-blur-sm"
                   >
                     <span>{currentPhoto.badge}</span>
-                    <InstagramIcon className="w-3 h-3" />
+                    <InstagramIcon className="w-3 h-3 text-[#C43E17]" />
                   </a>
                 </div>
               </div>
 
               {/* Technical Ledger */}
-              <div className="p-4 bg-[#140A06] border-t border-[#6B503C]/20 space-y-2 text-xs font-mono">
+              <div className="p-4 bg-[#070302] border-t border-white/10 space-y-2 text-xs font-mono">
                 <div className="flex justify-between">
-                  <span className="text-[#8E7F70]">Awarding Body:</span>
-                  <span className="text-[#F9F9F6]">Cardiff Metropolitan University, UK</span>
+                  <span className="text-[#A09383]">Awarding Body:</span>
+                  <span className="text-white font-medium">Cardiff Metropolitan University, UK</span>
                 </div>
                 <div className="flex justify-between">
-                  <span className="text-[#8E7F70]">Study Centre:</span>
-                  <span className="text-[#F9F9F6]">ICBT Campus, Sri Lanka</span>
+                  <span className="text-[#A09383]">Study Centre:</span>
+                  <span className="text-white font-medium">ICBT Campus, Sri Lanka</span>
                 </div>
                 <div className="flex justify-between">
-                  <span className="text-[#8E7F70]">Prior Diploma:</span>
-                  <span className="text-[#DEA355]">Pearson BTEC HND (11 Distinctions)</span>
+                  <span className="text-[#A09383]">Prior Diploma:</span>
+                  <span className="text-[#C43E17] font-semibold">Pearson BTEC HND (11 Distinctions)</span>
                 </div>
               </div>
             </div>
           </div>
 
-          {/* Right Column: Editorial Narrative, Studio Inset & Principles (7 cols) */}
+          {/* Right Column: Editorial Narrative & Studio Inset (7 cols) */}
           <div className="lg:col-span-7 space-y-8">
             <div className="space-y-4">
-              <h3 className="text-2xl sm:text-3xl lg:text-4xl font-bold text-[#F9F9F6] font-sans leading-tight">
+              <h3 className="text-2xl sm:text-3xl lg:text-4xl font-extrabold text-white font-sans leading-tight">
                 Bridging statistical data science with hands-on systems engineering.
               </h3>
 
@@ -187,31 +191,31 @@ export default function AboutSection() {
               </p>
             </div>
 
-            {/* Core Pillars / Principles */}
-            <div className="pt-6 border-t border-[#6B503C]/20 grid grid-cols-1 sm:grid-cols-2 gap-6">
-              <div className="p-5 bg-[#0D0704] border border-[#6B503C]/25 space-y-2">
-                <div className="flex items-center gap-2 text-xs font-mono text-[#C43E17] uppercase">
+            {/* Core Pillars */}
+            <div className="pt-6 border-t border-white/10 grid grid-cols-1 sm:grid-cols-2 gap-4">
+              <div className="p-5 bg-[#0A0503] border border-white/10 space-y-2 rounded-sm hover:border-[#C43E17]/40 transition-colors">
+                <div className="flex items-center gap-2 text-xs font-mono text-[#C43E17] uppercase font-semibold">
                   <ShieldCheck className="w-4 h-4" />
                   <span>Empirical Verification</span>
                 </div>
-                <p className="text-xs text-[#D3C29F] font-light leading-relaxed">
+                <p className="text-xs text-[#A09383] font-light leading-relaxed">
                   Every metric published is measured directly against confusion matrices, PR curves, and test sets. No arbitrary proficiency bars.
                 </p>
               </div>
 
-              <div className="p-5 bg-[#0D0704] border border-[#6B503C]/25 space-y-2">
-                <div className="flex items-center gap-2 text-xs font-mono text-[#DEA355] uppercase">
+              <div className="p-5 bg-[#0A0503] border border-white/10 space-y-2 rounded-sm hover:border-[#C43E17]/40 transition-colors">
+                <div className="flex items-center gap-2 text-xs font-mono text-[#C43E17] uppercase font-semibold">
                   <Layers className="w-4 h-4" />
-                  <span>Physical Hardware Constraints</span>
+                  <span>Physical Edge Constraints</span>
                 </div>
-                <p className="text-xs text-[#D3C29F] font-light leading-relaxed">
+                <p className="text-xs text-[#A09383] font-light leading-relaxed">
                   Designing lightweight models (YOLOv8n) and local-first software that run reliably on accessible edge hardware with minimal latency.
                 </p>
               </div>
             </div>
 
-            {/* Secondary Creative Studio Photograph (Balanced Placement) */}
-            <div className="border border-[#6B503C]/35 bg-[#0D0704] p-2 relative group shadow-xl">
+            {/* Studio Workspace Image */}
+            <div className="border border-white/10 bg-[#0A0503] p-2 relative group hover:border-[#C43E17]/40 transition-colors rounded-sm">
               <div className="relative aspect-[16/7] w-full overflow-hidden bg-[#040202]">
                 <Image
                   src={getAssetPath("/images/workspace/mohamed-riham-craft-studio.webp")}
@@ -222,61 +226,51 @@ export default function AboutSection() {
                   sizes="(max-width: 1024px) 100vw, 700px"
                 />
                 <div className="absolute inset-0 bg-gradient-to-t from-[#040202] via-transparent to-transparent opacity-60 pointer-events-none" />
-                <div className="absolute bottom-2 left-2 bg-[#040202]/90 border border-[#6B503C]/30 px-2 py-0.5 text-[10px] font-mono text-[#D3C29F]">
-                  Maker Mindset // Hardware Craft & Design Precision
+                <div className="absolute bottom-2 left-2 bg-[#040202]/90 border border-white/10 px-2.5 py-1 text-[10px] font-mono text-white backdrop-blur-sm">
+                  Maker Mindset // Hardware Craft &amp; Design Precision
                 </div>
               </div>
             </div>
 
-            {/* Language & Research Focus Strip */}
-            <div className="p-4 bg-[#120704] border border-[#6B503C]/20 flex flex-wrap items-center justify-between gap-4 text-xs font-mono text-[#8E7F70]">
+            {/* Communication & Focus Strip */}
+            <div className="p-4 bg-[#0A0503] border border-white/10 flex flex-wrap items-center justify-between gap-4 text-xs font-mono text-[#A09383] rounded-sm">
               <span>COMMUNICATION: ENGLISH (PROFICIENT), TAMIL (NATIVE)</span>
-              <span className="text-[#F9F9F6]">OPEN FOR RESEARCH & APPLIED AI ROLES</span>
+              <span className="text-[#C43E17] font-semibold">AVAILABLE FOR APPLIED AI ROLES</span>
             </div>
           </div>
 
         </div>
 
-        {/* Smart Progressive Disclosure Action: Extended Dossier (Noir Editorial 5.2) */}
-        <div className="mt-12 flex justify-center">
-          <button
-            onClick={() => setShowExtendedDossier(!showExtendedDossier)}
-            aria-expanded={showExtendedDossier}
-            aria-controls="extended-dossier-faq"
-            className="inline-flex items-center gap-2.5 px-6 py-3 bg-[#120704] hover:bg-[#1C0E07] border border-[#6B503C]/35 hover:border-[#DEA355] text-xs font-mono font-bold text-[#F9F9F6] transition-all group shadow-md"
-          >
-            <span className="w-1.5 h-1.5 rounded-full bg-[#DEA355] group-hover:scale-125 transition-transform" />
-            <span>
-              {showExtendedDossier
-                ? "Hide Extended Dossier & FAQ"
-                : "View Extended Dossier & Verified FAQ (3 Inquiries)"}
-            </span>
-            <ChevronDown
-              className={`w-3.5 h-3.5 text-[#DEA355] transition-transform duration-300 ${
-                showExtendedDossier ? "rotate-180" : ""
-              }`}
-            />
-          </button>
-        </div>
+        {/* Smooth Progressive Disclosure Control */}
+        <ExpandControl
+          isExpanded={showExtendedDossier}
+          onToggle={() => setShowExtendedDossier(!showExtendedDossier)}
+          controlsId="extended-dossier-faq"
+          collapsedIndicator="EXECUTIVE PROFILE SUMMARY DISPLAYED"
+          expandedIndicator="EXTENDED DOSSIER &amp; VERIFIED FAQ UNLOCKED"
+          collapsedLabel="View Extended Dossier &amp; Verified FAQ (3 Inquiries)"
+          expandedLabel="Hide Extended Dossier &amp; FAQ"
+          className="mt-8"
+        />
 
-        {/* Fast Facts & Key Inquiries: Who is Mohamed Riham? (Revealed on Demand) */}
-        {showExtendedDossier && (
-          <div id="extended-dossier-faq" className="mt-10 pt-10 border-t border-[#6B503C]/20 space-y-8 animate-in fade-in duration-300">
+        {/* Fast Facts & Key Inquiries: Who is Mohamed Riham? */}
+        <SmoothExpand id="extended-dossier-faq" isExpanded={showExtendedDossier}>
+          <div className="mt-10 pt-10 border-t border-white/10 space-y-6">
             <div className="space-y-1">
-              <div className="font-mono text-xs uppercase tracking-widest text-[#DEA355]">
-                Dossier FAQ // Identity & Verification
+              <div className="font-mono text-xs uppercase tracking-widest text-[#C43E17]">
+                DOSSIER FAQ // IDENTITY &amp; VERIFICATION
               </div>
-              <h3 className="text-xl sm:text-2xl font-bold tracking-tight text-[#F9F9F6] font-sans">
+              <h3 className="text-xl sm:text-2xl font-bold tracking-tight text-white font-sans">
                 Frequently Asked Inquiries: Who is Mohamed Riham?
               </h3>
             </div>
 
             <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-              <div className="p-6 bg-[#0D0704] border border-[#6B503C]/25 space-y-3">
-                <div className="font-mono text-xs text-[#C43E17] uppercase tracking-wider">
-                  01 // Identity & Origins
+              <div className="p-6 bg-[#0A0503] border border-white/10 rounded-sm space-y-3 hover:border-[#C43E17]/40 transition-colors">
+                <div className="font-mono text-xs text-[#C43E17] uppercase tracking-wider font-semibold">
+                  01 // Identity &amp; Origins
                 </div>
-                <h4 className="text-sm font-bold text-[#F9F9F6] font-sans">
+                <h4 className="text-sm font-bold text-white font-sans">
                   Who is Mohamed Riham?
                 </h4>
                 <p className="text-xs text-[#D3C29F] font-light leading-relaxed">
@@ -284,11 +278,11 @@ export default function AboutSection() {
                 </p>
               </div>
 
-              <div className="p-6 bg-[#0D0704] border border-[#6B503C]/25 space-y-3">
-                <div className="font-mono text-xs text-[#DEA355] uppercase tracking-wider">
+              <div className="p-6 bg-[#0A0503] border border-white/10 rounded-sm space-y-3 hover:border-[#C43E17]/40 transition-colors">
+                <div className="font-mono text-xs text-[#C43E17] uppercase tracking-wider font-semibold">
                   02 // Core Specializations
                 </div>
-                <h4 className="text-sm font-bold text-[#F9F9F6] font-sans">
+                <h4 className="text-sm font-bold text-white font-sans">
                   What are his technical disciplines?
                 </h4>
                 <p className="text-xs text-[#D3C29F] font-light leading-relaxed">
@@ -296,12 +290,12 @@ export default function AboutSection() {
                 </p>
               </div>
 
-              <div className="p-6 bg-[#0D0704] border border-[#6B503C]/25 space-y-3">
-                <div className="font-mono text-xs text-[#8E7F70] uppercase tracking-wider">
-                  03 // Published Work & Code
+              <div className="p-6 bg-[#0A0503] border border-white/10 rounded-sm space-y-3 hover:border-[#C43E17]/40 transition-colors">
+                <div className="font-mono text-xs text-[#C43E17] uppercase tracking-wider font-semibold">
+                  03 // Published Work &amp; Code
                 </div>
-                <h4 className="text-sm font-bold text-[#F9F9F6] font-sans">
-                  Where to explore his research & repositories?
+                <h4 className="text-sm font-bold text-white font-sans">
+                  Where to explore his research &amp; repositories?
                 </h4>
                 <p className="text-xs text-[#D3C29F] font-light leading-relaxed">
                   His research is cataloged on Academia.edu and DEV Community, open-source model weights are hosted on HuggingFace, and production repositories are accessible on GitHub (@mohamed-riham).
@@ -309,7 +303,7 @@ export default function AboutSection() {
               </div>
             </div>
           </div>
-        )}
+        </SmoothExpand>
 
       </div>
     </section>

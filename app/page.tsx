@@ -1,5 +1,5 @@
 import Hero from "@/components/Hero";
-import BentoGrid from "@/components/BentoGrid";
+import PrinciplesSection from "@/components/PrinciplesSection";
 import FeaturedProjects from "@/components/FeaturedProjects";
 import AllProjects from "@/components/AllProjects";
 import AboutSection from "@/components/AboutSection";
@@ -15,7 +15,7 @@ export default function Home() {
   return (
     <div className="flex flex-col bg-transparent relative z-10">
       <Hero />
-      <BentoGrid />
+      <PrinciplesSection />
       <FeaturedProjects />
       <AllProjects />
       <AboutSection />

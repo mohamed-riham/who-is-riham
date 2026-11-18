@@ -3,7 +3,7 @@
 import { useState, useEffect } from "react";
 import Image from "next/image";
 import Link from "next/link";
-import { ArrowUpRight, Cpu, Shield, Award, Wrench, Terminal, Database, Shuffle } from "lucide-react";
+import { ArrowUpRight, Cpu, Award, Wrench, Shuffle } from "lucide-react";
 import { getAssetPath } from "@/lib/utils";
 import { HuggingFaceIcon, GithubIcon, InstagramIcon } from "@/components/Icons";
 import { profile } from "@/content/profile";
@@ -33,8 +33,10 @@ export default function BentoGrid() {
   const [bentoIdx, setBentoIdx] = useState(0);
 
   useEffect(() => {
-    const rand = Math.floor(Math.random() * BENTO_CANDIDS.length);
-    setBentoIdx(rand);
+    const timer = setTimeout(() => {
+      setBentoIdx(Math.floor(Math.random() * BENTO_CANDIDS.length));
+    }, 0);
+    return () => clearTimeout(timer);
   }, []);
 
   const handleNextBentoPhoto = () => {

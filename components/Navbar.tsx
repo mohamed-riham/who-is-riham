@@ -36,7 +36,7 @@ export default function Navbar() {
 
   const navLinks = [
     { num: "01", label: "Showcase", href: "/#showcase" },
-    { num: "02", label: "Dossier", href: "/#dossier" },
+    { num: "02", label: "About", href: "/#dossier" },
     { num: "03", label: "Systems", href: "/#systems" },
     { num: "04", label: "Capabilities", href: "/#capabilities" },
     { num: "05", label: "Experience", href: "/#experience" },
@@ -49,51 +49,54 @@ export default function Navbar() {
         mobileOpen
           ? "inset-0 z-50 bg-[#040202] flex flex-col justify-between overflow-y-auto"
           : scrolled
-          ? "z-40 bg-[#040202]/92 backdrop-blur-md border-b border-[#6B503C]/25 shadow-xl shadow-black/60"
-          : "z-40 bg-[#040202]/40 backdrop-blur-sm border-b border-[#6B503C]/15"
+          ? "z-40 bg-[#040202]/95 backdrop-blur-md border-b border-white/10 shadow-2xl shadow-black/80"
+          : "z-40 bg-[#040202]/60 backdrop-blur-sm border-b border-white/5"
       }`}
     >
-      {/* Top Masthead Bar */}
-      <div className="max-w-7xl mx-auto w-full px-4 sm:px-6 lg:px-8 h-[72px] flex items-center justify-between shrink-0 border-b border-[#6B503C]/20">
-        {/* Editorial Brand Mark */}
+      {/* Top Bar (Height 64px) */}
+      <div className="max-w-7xl mx-auto w-full px-4 sm:px-6 lg:px-8 h-16 flex items-center justify-between shrink-0">
+        {/* Brand Mark with Monogram & Status Dot */}
         <Link
           href="/"
           onClick={() => setMobileOpen(false)}
-          className="flex items-center gap-3.5 group shrink-0"
+          className="flex items-center gap-3 group shrink-0"
         >
-          <div className="relative w-8 h-8 rounded-sm bg-[#160C07] border border-[#6B503C]/40 overflow-hidden group-hover:border-[#C43E17] transition-colors shrink-0">
+          <div className="relative w-8 h-8 rounded-sm bg-[#0E0604] border border-white/10 overflow-hidden group-hover:border-[#C43E17] transition-colors shrink-0 flex items-center justify-center">
             <Image
               src={getAssetPath("/images/profile/mohamed-riham-github.webp")}
               alt="Mohamed Riham"
               fill
               sizes="32px"
               priority
-              className="object-cover"
+              className="object-cover opacity-85 group-hover:opacity-100 transition-opacity"
             />
           </div>
           <div className="flex flex-col shrink-0">
-            <span className="text-sm font-bold tracking-tight text-[#F9F9F6] group-hover:text-[#DEA355] transition-colors font-sans whitespace-nowrap">
-              Mohamed Riham
-            </span>
-            <span className="text-[10px] font-mono uppercase tracking-wider text-[#8E7F70] whitespace-nowrap">
-              Data Science // Applied AI
+            <div className="flex items-center gap-1.5">
+              <span className="text-sm font-bold tracking-tight text-[#F9F9F6] group-hover:text-white transition-colors font-sans whitespace-nowrap">
+                Mohamed Riham
+              </span>
+              <span className="w-1.5 h-1.5 rounded-full bg-[#C43E17] inline-block animate-pulse shadow-[0_0_8px_#C43E17]" />
+            </div>
+            <span className="text-[10px] font-mono uppercase tracking-wider text-[#A09383] whitespace-nowrap">
+              DATA SCIENCE // APPLIED AI
             </span>
           </div>
         </Link>
 
-        {/* Editorial Spaced Navigation Links (Desktop) */}
-        <nav className="hidden lg:flex items-center space-x-5 xl:space-x-7">
+        {/* Desktop Navigation Links */}
+        <nav className="hidden lg:flex items-center space-x-6 xl:space-x-8">
           {navLinks.map((link) => (
             <Link
               key={link.label}
               href={link.href}
-              className="group inline-flex items-center gap-1.5 text-xs text-[#D3C29F] hover:text-[#F9F9F6] transition-colors py-1 relative"
+              className="group inline-flex items-center gap-1.5 text-xs text-[#D3C29F] hover:text-[#FFFFFF] transition-colors py-1 relative"
             >
               <span className="text-[10px] font-mono text-[#8E7F70] group-hover:text-[#C43E17] transition-colors">
                 {link.num}
               </span>
-              <span className="tracking-wide uppercase font-medium">{link.label}</span>
-              <span className="absolute bottom-0 left-0 w-0 h-[1px] bg-[#C43E17] group-hover:w-full transition-all duration-300" />
+              <span className="tracking-wider uppercase font-medium">{link.label}</span>
+              <span className="absolute bottom-0 left-0 w-0 h-[1.5px] bg-[#C43E17] group-hover:w-full transition-all duration-300" />
             </Link>
           ))}
         </nav>
@@ -102,27 +105,27 @@ export default function Navbar() {
         <div className="hidden lg:flex items-center gap-3">
           <button
             onClick={triggerPalette}
-            className="inline-flex items-center gap-2 text-xs text-[#D3C29F] hover:text-[#F9F9F6] bg-[#120A07] hover:bg-[#1C100B] border border-[#6B503C]/30 px-3 py-1.5 rounded-sm transition-colors group"
+            className="inline-flex items-center gap-2 text-xs text-[#D3C29F] hover:text-[#F9F9F6] bg-[#0E0604] hover:bg-[#1A0B07] border border-white/10 hover:border-white/20 px-3 py-1.5 rounded-sm transition-all group"
             title="Search or jump to section (Ctrl+K)"
           >
-            <Search className="w-3.5 h-3.5 text-[#DEA355]" />
+            <Search className="w-3.5 h-3.5 text-[#C43E17]" />
             <span className="font-mono text-[11px] text-[#8E7F70] group-hover:text-[#D3C29F]">⌘K</span>
           </button>
 
           <a
             href={getAssetPath("/Mohamed_Riham_CV.pdf")}
             download="Mohamed_Riham_CV.pdf"
-            className="inline-flex items-center gap-1.5 text-xs font-mono text-[#D3C29F] hover:text-[#F9F9F6] bg-[#120A07] hover:bg-[#1C100B] border border-[#6B503C]/30 px-3 py-1.5 rounded-sm transition-colors"
+            className="inline-flex items-center gap-1.5 text-xs font-mono text-[#D3C29F] hover:text-[#F9F9F6] bg-[#0E0604] hover:bg-[#1A0B07] border border-white/10 hover:border-white/20 px-3 py-1.5 rounded-sm transition-all"
           >
-            <Download className="w-3 h-3 text-[#DEA355]" />
+            <Download className="w-3 h-3 text-[#C43E17]" />
             <span>CV</span>
           </a>
 
           <Link
             href="/#contact"
-            className="inline-flex items-center gap-1.5 text-xs font-semibold text-[#040202] bg-[#C43E17] hover:bg-[#DB4A1E] px-4 py-1.5 rounded-sm transition-colors uppercase tracking-wider shadow-sm font-mono"
+            className="inline-flex items-center gap-1.5 text-xs font-semibold text-[#040202] bg-[#C43E17] hover:bg-[#D94519] px-4 py-1.5 rounded-sm transition-all uppercase tracking-wider font-mono shadow-[0_0_18px_rgba(196,62,23,0.45),0_0_36px_rgba(196,62,23,0.18)] hover:shadow-[0_0_28px_rgba(196,62,23,0.70),0_0_50px_rgba(196,62,23,0.30)] hover:-translate-y-0.5"
           >
-            <span>Contact</span>
+            <span>Let&apos;s Talk</span>
             <ArrowUpRight className="w-3.5 h-3.5" />
           </Link>
         </div>
@@ -131,15 +134,15 @@ export default function Navbar() {
         <div className="flex lg:hidden items-center gap-2">
           <button
             onClick={triggerPalette}
-            className="p-2 text-[#D3C29F] hover:text-[#F9F9F6] bg-[#120A07] border border-[#6B503C]/30 rounded-sm"
+            className="p-2 text-[#D3C29F] hover:text-[#F9F9F6] bg-[#0E0604] border border-white/10 rounded-sm"
             aria-label="Search"
           >
-            <Search className="w-4 h-4 text-[#DEA355]" />
+            <Search className="w-4 h-4 text-[#C43E17]" />
           </button>
 
           <button
             onClick={() => setMobileOpen(!mobileOpen)}
-            className="p-2 text-[#F9F9F6] bg-[#120A07] border border-[#6B503C]/30 rounded-sm hover:border-[#C43E17] transition-colors"
+            className="p-2 text-[#F9F9F6] bg-[#0E0604] border border-white/10 rounded-sm hover:border-[#C43E17] transition-colors"
             aria-label="Toggle menu"
           >
             {mobileOpen ? <X className="w-5 h-5 text-[#C43E17]" /> : <Menu className="w-5 h-5" />}
@@ -161,9 +164,9 @@ export default function Navbar() {
                   key={link.label}
                   href={link.href}
                   onClick={() => setMobileOpen(false)}
-                  className="flex items-baseline justify-between border-b border-[#6B503C]/20 pb-3 group"
+                  className="flex items-baseline justify-between border-b border-white/10 pb-3 group"
                 >
-                  <span className="text-2xl font-bold text-[#F9F9F6] group-hover:text-[#DEA355] transition-colors font-sans">
+                  <span className="text-2xl font-bold text-[#F9F9F6] group-hover:text-white transition-colors font-sans">
                     {link.label}
                   </span>
                   <span className="font-mono text-xs text-[#C43E17]">/{link.num}</span>
@@ -172,14 +175,14 @@ export default function Navbar() {
             </nav>
           </div>
 
-          <div className="pt-8 border-t border-[#6B503C]/20 space-y-4">
+          <div className="pt-8 border-t border-white/10 space-y-4">
             <div className="grid grid-cols-2 gap-3">
               <a
                 href={getAssetPath("/Mohamed_Riham_CV.pdf")}
                 download="Mohamed_Riham_CV.pdf"
-                className="flex items-center justify-center gap-2 py-3 rounded-sm bg-[#120A07] border border-[#6B503C]/40 text-xs font-mono text-[#F9F9F6]"
+                className="flex items-center justify-center gap-2 py-3 rounded-sm bg-[#0E0604] border border-white/10 text-xs font-mono text-[#F9F9F6]"
               >
-                <Download className="w-3.5 h-3.5 text-[#DEA355]" />
+                <Download className="w-3.5 h-3.5 text-[#C43E17]" />
                 Download CV
               </a>
               <Link
@@ -187,7 +190,7 @@ export default function Navbar() {
                 onClick={() => setMobileOpen(false)}
                 className="flex items-center justify-center gap-1.5 py-3 rounded-sm bg-[#C43E17] text-xs font-mono font-bold text-[#040202] uppercase tracking-wider"
               >
-                Contact
+                Let&apos;s Talk
                 <ArrowUpRight className="w-3.5 h-3.5" />
               </Link>
             </div>

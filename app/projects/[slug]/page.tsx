@@ -2,7 +2,7 @@ import { notFound } from "next/navigation";
 import Image from "next/image";
 import Link from "next/link";
 import type { Metadata } from "next";
-import { ArrowLeft, ArrowUpRight, Play, ExternalLink, Cpu, CheckCircle2, AlertTriangle, Layers, BookOpen, ChevronRight, ChevronLeft } from "lucide-react";
+import { ArrowLeft, ArrowUpRight, Play, CheckCircle2, AlertTriangle, BookOpen, ChevronRight, ChevronLeft } from "lucide-react";
 import { GithubIcon } from "@/components/Icons";
 import { projects } from "@/content/projects";
 import { getAssetPath } from "@/lib/utils";
@@ -85,16 +85,16 @@ export default async function ProjectCaseStudy({ params }: Props) {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-16">
 
         {/* Navigation Breadcrumb */}
-        <div className="flex items-center justify-between pb-6 border-b border-[#6B503C]/20">
+        <div className="flex items-center justify-between pb-6 border-b border-white/10">
           <Link
             href="/#systems"
-            className="inline-flex items-center gap-2 font-mono text-xs text-[#8E7F70] hover:text-[#DEA355] transition-colors group"
+            className="inline-flex items-center gap-2 font-mono text-xs text-[#A09383] hover:text-white transition-colors group"
           >
             <ArrowLeft className="w-3.5 h-3.5 group-hover:-translate-x-1 transition-transform" />
-            <span>← Back to Systems Catalog</span>
+            <span>Back to Systems Catalog</span>
           </Link>
 
-          <span className="font-mono text-xs text-[#C43E17] uppercase tracking-wider">
+          <span className="font-mono text-xs text-[#C43E17] uppercase tracking-wider font-semibold">
             System // {indexStr}
           </span>
         </div>
@@ -104,40 +104,40 @@ export default async function ProjectCaseStudy({ params }: Props) {
             ========================================================================= */}
         <div className="space-y-8">
           <div className="space-y-4 max-w-4xl">
-            <div className="inline-flex items-center gap-2 font-mono text-xs text-[#DEA355] uppercase tracking-wider">
-              <span>{project.category}</span>
-              <span className="text-[#6B503C]">·</span>
-              <span className="text-[#8E7F70]">{project.year}</span>
-              <span className="text-[#6B503C]">·</span>
-              <span className="text-[#C43E17]">{project.status}</span>
+            <div className="inline-flex items-center gap-2 font-mono text-xs uppercase tracking-wider">
+              <span className="text-[#C43E17] font-semibold">{project.category}</span>
+              <span className="text-white/20">·</span>
+              <span className="text-[#A09383]">{project.year}</span>
+              <span className="text-white/20">·</span>
+              <span className="text-white bg-[#1A0B07] border border-[#C43E17]/30 px-2 py-0.5 rounded-sm">{project.status}</span>
             </div>
 
-            <h1 className="text-3xl sm:text-5xl lg:text-6xl font-bold text-[#F9F9F6] tracking-tight font-sans leading-[1.08]">
+            <h1 className="text-3xl sm:text-5xl lg:text-6xl font-extrabold text-white tracking-tight font-sans leading-[1.08]">
               {project.title}
             </h1>
 
-            <p className="text-lg sm:text-xl text-[#DEA355] font-serif italic max-w-3xl leading-relaxed">
+            <p className="text-lg sm:text-xl text-[#D3C29F] font-sans max-w-3xl leading-relaxed">
               {project.tagline}
             </p>
           </div>
 
           {/* Full-Width Metadata Ledger */}
-          <div className="p-6 bg-[#0D0704] border border-[#6B503C]/30 grid grid-cols-2 sm:grid-cols-4 gap-6 font-mono text-xs">
+          <div className="p-6 bg-[#0A0503] border border-white/10 rounded-sm grid grid-cols-2 sm:grid-cols-4 gap-6 font-mono text-xs">
             <div>
-              <span className="text-[#8E7F70] block text-[10px] uppercase">Discipline</span>
-              <span className="text-[#F9F9F6] font-semibold mt-1 block">{project.category}</span>
+              <span className="text-[#A09383] block text-[10px] uppercase">Discipline</span>
+              <span className="text-white font-semibold mt-1 block">{project.category}</span>
             </div>
             <div>
-              <span className="text-[#8E7F70] block text-[10px] uppercase">Role</span>
-              <span className="text-[#F9F9F6] font-semibold mt-1 block">Lead Engineer / Research</span>
+              <span className="text-[#A09383] block text-[10px] uppercase">Role</span>
+              <span className="text-white font-semibold mt-1 block">Lead Engineer / Research</span>
             </div>
             <div>
-              <span className="text-[#8E7F70] block text-[10px] uppercase">Timeline</span>
-              <span className="text-[#F9F9F6] font-semibold mt-1 block">{project.year}</span>
+              <span className="text-[#A09383] block text-[10px] uppercase">Timeline</span>
+              <span className="text-white font-semibold mt-1 block">{project.year}</span>
             </div>
             <div>
-              <span className="text-[#8E7F70] block text-[10px] uppercase">Evaluation</span>
-              <span className="text-[#DEA355] font-semibold mt-1 block">Empirically Verified</span>
+              <span className="text-[#A09383] block text-[10px] uppercase">Evaluation</span>
+              <span className="text-[#C43E17] font-semibold mt-1 block">Empirically Verified</span>
             </div>
           </div>
 
@@ -148,7 +148,7 @@ export default async function ProjectCaseStudy({ params }: Props) {
                 href={project.links.github}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="inline-flex items-center gap-2 px-5 py-2.5 bg-[#C43E17] hover:bg-[#DB4A1E] text-xs font-mono font-bold text-[#040202] uppercase tracking-wider transition-colors"
+                className="inline-flex items-center gap-2 px-5 py-2.5 bg-[#C43E17] hover:bg-[#D94519] text-xs font-mono font-bold text-[#040202] uppercase tracking-wider rounded-sm transition-all shadow-[0_0_15px_rgba(196,62,23,0.35)]"
               >
                 <GithubIcon className="w-4 h-4" />
                 <span>Source Repository</span>
@@ -161,9 +161,9 @@ export default async function ProjectCaseStudy({ params }: Props) {
                 href={project.links.video.startsWith("/") ? getAssetPath(project.links.video) : project.links.video}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="inline-flex items-center gap-2 px-4 py-2.5 bg-[#140A06] hover:bg-[#1E1008] border border-[#6B503C]/35 text-xs font-mono text-[#DEA355] transition-colors"
+                className="inline-flex items-center gap-2 px-4 py-2.5 bg-[#0E0604] hover:bg-[#1A0B07] border border-white/10 hover:border-white/20 text-xs font-mono text-white rounded-sm transition-all"
               >
-                <Play className="w-3.5 h-3.5" />
+                <Play className="w-3.5 h-3.5 text-[#C43E17]" />
                 <span>Video Demonstration</span>
               </a>
             )}
@@ -173,11 +173,11 @@ export default async function ProjectCaseStudy({ params }: Props) {
                 href={project.links.paper}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="inline-flex items-center gap-2 px-4 py-2.5 bg-[#140A06] hover:bg-[#1E1008] border border-[#6B503C]/35 text-xs font-mono text-[#DEA355] transition-colors"
+                className="inline-flex items-center gap-2 px-4 py-2.5 bg-[#0E0604] hover:bg-[#1A0B07] border border-white/10 hover:border-white/20 text-xs font-mono text-white rounded-sm transition-all"
               >
-                <BookOpen className="w-3.5 h-3.5" />
-                <span>Research Paper (Academia.edu)</span>
-                <ArrowUpRight className="w-3.5 h-3.5" />
+                <BookOpen className="w-3.5 h-3.5 text-[#C43E17]" />
+                <span>Research Paper</span>
+                <ArrowUpRight className="w-3.5 h-3.5 text-[#A09383]" />
               </a>
             )}
 
@@ -186,11 +186,11 @@ export default async function ProjectCaseStudy({ params }: Props) {
                 href={project.links.article}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="inline-flex items-center gap-2 px-4 py-2.5 bg-[#140A06] hover:bg-[#1E1008] border border-[#6B503C]/35 text-xs font-mono text-[#D3C29F] transition-colors"
+                className="inline-flex items-center gap-2 px-4 py-2.5 bg-[#0E0604] hover:bg-[#1A0B07] border border-white/10 hover:border-white/20 text-xs font-mono text-[#D3C29F] hover:text-white rounded-sm transition-all"
               >
-                <BookOpen className="w-3.5 h-3.5" />
-                <span>Read Technical Breakdown</span>
-                <ArrowUpRight className="w-3.5 h-3.5" />
+                <BookOpen className="w-3.5 h-3.5 text-[#C43E17]" />
+                <span>Technical Breakdown</span>
+                <ArrowUpRight className="w-3.5 h-3.5 text-[#A09383]" />
               </a>
             )}
           </div>
@@ -198,7 +198,7 @@ export default async function ProjectCaseStudy({ params }: Props) {
 
         {/* Primary Showcase Image */}
         {project.image && (
-          <div className="border border-[#6B503C]/35 bg-[#0D0704] p-2 space-y-3">
+          <div className="border border-white/10 bg-[#0A0503] p-2 rounded-sm space-y-3">
             <div className="relative aspect-[16/9] w-full overflow-hidden bg-[#040202]">
               <Image
                 src={getAssetPath(project.image)}
@@ -209,32 +209,32 @@ export default async function ProjectCaseStudy({ params }: Props) {
                 sizes="(max-width: 1200px) 100vw, 1200px"
               />
             </div>
-            <div className="p-2 bg-[#120704] text-[11px] font-mono text-[#8E7F70] flex justify-between">
+            <div className="p-2 bg-[#070302] text-[11px] font-mono text-[#A09383] flex justify-between">
               <span>Primary Visual Demonstration</span>
-              <span className="text-[#DEA355]">Inference Output // Real-World Data</span>
+              <span className="text-[#C43E17] font-semibold">Inference Output // Real-World Data</span>
             </div>
           </div>
         )}
 
         {/* =========================================================================
-            TWO-COLUMN EDITORIAL SPREAD
+            TWO-COLUMN SPREAD
             ========================================================================= */}
-        <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16 items-start pt-8 border-t border-[#6B503C]/20">
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16 items-start pt-8 border-t border-white/10">
 
           {/* Left Column: Sticky Sidebar (4 cols) */}
           <aside className="lg:col-span-4 space-y-8 lg:sticky lg:top-24">
             {/* Scorecard Ledger */}
             {project.results && project.results.length > 0 && (
-              <div className="border border-[#6B503C]/30 bg-[#0D0704] p-5 space-y-4">
-                <div className="font-mono text-xs uppercase tracking-wider text-[#C43E17] flex items-center gap-2">
+              <div className="border border-white/10 bg-[#0A0503] p-5 space-y-4 rounded-sm">
+                <div className="font-mono text-xs uppercase tracking-wider text-[#C43E17] flex items-center gap-2 font-semibold">
                   <CheckCircle2 className="w-4 h-4" />
                   <span>Evaluation Scorecard</span>
                 </div>
-                <div className="space-y-3 font-mono text-xs divide-y divide-[#6B503C]/20">
+                <div className="space-y-3 font-mono text-xs divide-y divide-white/10">
                   {project.results.map((r, i) => (
                     <div key={i} className="pt-2.5 flex justify-between items-baseline">
-                      <span className="text-[#8E7F70]">{r.label}:</span>
-                      <span className="text-[#F9F9F6] font-bold text-sm">{r.value}</span>
+                      <span className="text-[#A09383]">{r.label}:</span>
+                      <span className="text-white font-bold text-sm">{r.value}</span>
                     </div>
                   ))}
                 </div>
@@ -242,15 +242,15 @@ export default async function ProjectCaseStudy({ params }: Props) {
             )}
 
             {/* Technology Stack Matrix */}
-            <div className="border border-[#6B503C]/30 bg-[#0D0704] p-5 space-y-3">
-              <div className="font-mono text-xs uppercase tracking-wider text-[#DEA355]">
-                Stack & Technologies
+            <div className="border border-white/10 bg-[#0A0503] p-5 space-y-3 rounded-sm">
+              <div className="font-mono text-xs uppercase tracking-wider text-[#C43E17] font-semibold">
+                Stack &amp; Technologies
               </div>
               <div className="flex flex-wrap gap-1.5">
                 {project.techStack.map((t) => (
                   <span
                     key={t}
-                    className="px-2.5 py-1 text-[11px] font-mono text-[#D3C29F] bg-[#140A06] border border-[#6B503C]/25"
+                    className="px-2.5 py-1 text-[11px] font-mono text-[#D3C29F] bg-[#120704] border border-white/10 rounded-sm"
                   >
                     {t}
                   </span>
@@ -259,8 +259,8 @@ export default async function ProjectCaseStudy({ params }: Props) {
             </div>
 
             {/* Quick Summary Box */}
-            <div className="p-5 bg-[#120704] border border-[#6B503C]/20 font-mono text-xs text-[#8E7F70] space-y-2">
-              <div className="text-[#F9F9F6]">Repository Status</div>
+            <div className="p-5 bg-[#070302] border border-white/10 rounded-sm font-mono text-xs text-[#A09383] space-y-2">
+              <div className="text-white font-semibold">Repository Status</div>
               <div>Available under open-source MIT / Academic license on GitHub.</div>
             </div>
           </aside>
@@ -270,10 +270,10 @@ export default async function ProjectCaseStudy({ params }: Props) {
 
             {/* 1. Problem Statement */}
             <section className="space-y-4">
-              <div className="font-mono text-xs uppercase tracking-widest text-[#C43E17]">
-                01 // Problem & Context
+              <div className="font-mono text-xs uppercase tracking-widest text-[#C43E17] font-semibold">
+                01 // PROBLEM &amp; CONTEXT
               </div>
-              <h2 className="text-2xl sm:text-3xl font-bold text-[#F9F9F6] font-sans">
+              <h2 className="text-2xl sm:text-3xl font-extrabold text-white font-sans">
                 The core problem statement.
               </h2>
               <p className="text-base sm:text-lg text-[#D3C29F] font-light leading-relaxed">
@@ -282,12 +282,12 @@ export default async function ProjectCaseStudy({ params }: Props) {
             </section>
 
             {/* 2. Technical Approach & Methodology */}
-            <section className="space-y-6 pt-8 border-t border-[#6B503C]/20">
-              <div className="font-mono text-xs uppercase tracking-widest text-[#DEA355]">
-                02 // Methodology & Architecture
+            <section className="space-y-6 pt-8 border-t border-white/10">
+              <div className="font-mono text-xs uppercase tracking-widest text-[#C43E17] font-semibold">
+                02 // METHODOLOGY &amp; ARCHITECTURE
               </div>
-              <h2 className="text-2xl sm:text-3xl font-bold text-[#F9F9F6] font-sans">
-                Technical approach & pipeline.
+              <h2 className="text-2xl sm:text-3xl font-extrabold text-white font-sans">
+                Technical approach &amp; pipeline.
               </h2>
               <p className="text-base text-[#D3C29F] font-light leading-relaxed">
                 {project.solution}
@@ -296,24 +296,24 @@ export default async function ProjectCaseStudy({ params }: Props) {
               {/* Implementation Steps */}
               <div className="space-y-3 pt-2">
                 {project.approach.map((step, i) => (
-                  <div key={i} className="p-4 bg-[#0D0704] border border-[#6B503C]/20 flex items-start gap-3">
+                  <div key={i} className="p-4 bg-[#0A0503] border border-white/10 rounded-sm flex items-start gap-3">
                     <span className="font-mono text-xs text-[#C43E17] font-bold">↳ 0{i + 1}</span>
-                    <span className="text-xs sm:text-sm text-[#F9F9F6] leading-relaxed">{step}</span>
+                    <span className="text-xs sm:text-sm text-white leading-relaxed">{step}</span>
                   </div>
                 ))}
               </div>
 
               {/* Architecture Blueprint Details */}
               {project.architectureDetails && (
-                <div className="p-6 bg-[#070302] border border-[#6B503C]/30 space-y-2 font-mono text-xs text-[#DEA355]">
-                  <div className="text-[10px] uppercase text-[#8E7F70]">Architectural Specification</div>
+                <div className="p-6 bg-[#070302] border border-white/10 rounded-sm space-y-2 font-mono text-xs text-white">
+                  <div className="text-[10px] uppercase text-[#A09383]">Architectural Specification</div>
                   <div className="leading-relaxed">{project.architectureDetails}</div>
                 </div>
               )}
 
               {/* Architecture Diagram (if present) */}
               {project.diagram && (
-                <div className="border border-[#6B503C]/30 bg-[#0D0704] p-2 space-y-2">
+                <div className="border border-white/10 bg-[#0A0503] p-2 space-y-2 rounded-sm">
                   <div className="relative aspect-[16/9] w-full overflow-hidden bg-[#040202]">
                     <Image
                       src={getAssetPath(project.diagram)}
@@ -322,19 +322,19 @@ export default async function ProjectCaseStudy({ params }: Props) {
                       className="object-contain p-4"
                     />
                   </div>
-                  <div className="p-2 bg-[#120704] text-[10px] font-mono text-[#8E7F70]">
-                    System Architecture Diagram & Data Flow
+                  <div className="p-2 bg-[#070302] text-[10px] font-mono text-[#A09383]">
+                    System Architecture Diagram &amp; Data Flow
                   </div>
                 </div>
               )}
             </section>
 
             {/* 3. Personal Engineering Contribution */}
-            <section className="space-y-4 pt-8 border-t border-[#6B503C]/20">
-              <div className="font-mono text-xs uppercase tracking-widest text-[#C43E17]">
-                03 // Authorship
+            <section className="space-y-4 pt-8 border-t border-white/10">
+              <div className="font-mono text-xs uppercase tracking-widest text-[#C43E17] font-semibold">
+                03 // AUTHORSHIP
               </div>
-              <h2 className="text-2xl sm:text-3xl font-bold text-[#F9F9F6] font-sans">
+              <h2 className="text-2xl sm:text-3xl font-extrabold text-white font-sans">
                 My personal engineering contribution.
               </h2>
               <p className="text-base text-[#D3C29F] font-light leading-relaxed">
@@ -344,18 +344,18 @@ export default async function ProjectCaseStudy({ params }: Props) {
 
             {/* 4. Engineering Challenges & Known Limitations */}
             {project.limitations && (
-              <section className="space-y-6 pt-8 border-t border-[#6B503C]/20">
-                <div className="font-mono text-xs uppercase tracking-widest text-[#DEA355]">
-                  04 // Rigor & Honest Limitations
+              <section className="space-y-6 pt-8 border-t border-white/10">
+                <div className="font-mono text-xs uppercase tracking-widest text-[#C43E17] font-semibold">
+                  04 // RIGOR &amp; HONEST LIMITATIONS
                 </div>
-                <h2 className="text-2xl sm:text-3xl font-bold text-[#F9F9F6] font-sans">
-                  Engineering challenges & known limitations.
+                <h2 className="text-2xl sm:text-3xl font-extrabold text-white font-sans">
+                  Engineering challenges &amp; known limitations.
                 </h2>
 
-                <div className="p-6 bg-[#0D0704] border border-[#6B503C]/25 space-y-3">
-                  <div className="flex items-center gap-2 text-xs font-mono text-[#C43E17] uppercase">
+                <div className="p-6 bg-[#0A0503] border border-white/10 rounded-sm space-y-3">
+                  <div className="flex items-center gap-2 text-xs font-mono text-[#C43E17] uppercase font-semibold">
                     <AlertTriangle className="w-4 h-4" />
-                    <span>Edge Hardware Constraints & Boundary Conditions</span>
+                    <span>Edge Hardware Constraints &amp; Boundary Conditions</span>
                   </div>
                   <p className="text-xs sm:text-sm text-[#D3C29F] font-light leading-relaxed">
                     {project.limitations}
@@ -366,16 +366,16 @@ export default async function ProjectCaseStudy({ params }: Props) {
 
             {/* 5. Live Video Demonstration */}
             {project.links.video && (
-              <section className="space-y-6 pt-8 border-t border-[#6B503C]/20">
-                <div className="font-mono text-xs uppercase tracking-widest text-[#DEA355] flex items-center gap-2">
-                  <Play className="w-3.5 h-3.5 text-[#DEA355]" />
-                  <span>05 // Live Video Demonstration</span>
+              <section className="space-y-6 pt-8 border-t border-white/10">
+                <div className="font-mono text-xs uppercase tracking-widest text-[#C43E17] flex items-center gap-2 font-semibold">
+                  <Play className="w-3.5 h-3.5 text-[#C43E17]" />
+                  <span>05 // LIVE VIDEO DEMONSTRATION</span>
                 </div>
-                <h2 className="text-2xl sm:text-3xl font-bold text-[#F9F9F6] font-sans">
-                  Real-time operation & test footage.
+                <h2 className="text-2xl sm:text-3xl font-extrabold text-white font-sans">
+                  Real-time operation &amp; test footage.
                 </h2>
 
-                <div className="border border-[#6B503C]/35 bg-[#0D0704] p-2 space-y-2">
+                <div className="border border-white/10 bg-[#0A0503] p-2 space-y-2 rounded-sm">
                   <div className="relative aspect-[16/9] w-full overflow-hidden bg-[#040202]">
                     {getEmbedUrl(project.links.video) ? (
                       <iframe
@@ -395,20 +395,20 @@ export default async function ProjectCaseStudy({ params }: Props) {
                       />
                     )}
                   </div>
-                  <div className="p-2 bg-[#120704] text-[10px] font-mono text-[#8E7F70] flex justify-between items-center">
+                  <div className="p-2 bg-[#070302] text-[10px] font-mono text-[#A09383] flex justify-between items-center">
                     <span>Direct Recorded Demonstration Footage</span>
                     {getEmbedUrl(project.links.video) ? (
                       <a
                         href={project.links.video}
                         target="_blank"
                         rel="noopener noreferrer"
-                        className="text-[#DEA355] hover:text-[#F9F9F6] inline-flex items-center gap-1 transition-colors"
+                        className="text-white hover:text-[#C43E17] inline-flex items-center gap-1 transition-colors font-medium"
                       >
                         <span>Watch on YouTube</span>
-                        <ArrowUpRight className="w-3 h-3" />
+                        <ArrowUpRight className="w-3 h-3 text-[#C43E17]" />
                       </a>
                     ) : (
-                      <span className="text-[#DEA355]">In-Engine Gameplay Capture (Unity 6)</span>
+                      <span className="text-white">In-Engine Gameplay Capture (Unity 6)</span>
                     )}
                   </div>
                 </div>
@@ -421,16 +421,16 @@ export default async function ProjectCaseStudy({ params }: Props) {
         {/* =========================================================================
             PREV / NEXT PROJECT NAVIGATION
             ========================================================================= */}
-        <div className="pt-12 border-t border-[#6B503C]/20 grid grid-cols-1 sm:grid-cols-2 gap-6">
+        <div className="pt-12 border-t border-white/10 grid grid-cols-1 sm:grid-cols-2 gap-6">
           {prevProject ? (
             <Link
               href={`/projects/${prevProject.slug}`}
-              className="p-6 border border-[#6B503C]/25 bg-[#0D0704] hover:border-[#DEA355] transition-colors group flex items-start gap-4"
+              className="p-6 border border-white/10 bg-[#0A0503] hover:border-[#C43E17]/50 rounded-sm transition-all group flex items-start gap-4"
             >
-              <ChevronLeft className="w-5 h-5 text-[#8E7F70] group-hover:text-[#DEA355] mt-1 shrink-0" />
+              <ChevronLeft className="w-5 h-5 text-[#A09383] group-hover:text-[#C43E17] mt-1 shrink-0" />
               <div>
-                <span className="text-[10px] font-mono uppercase text-[#8E7F70]">Previous System</span>
-                <div className="text-base font-bold text-[#F9F9F6] font-sans group-hover:text-[#DEA355] transition-colors mt-0.5">
+                <span className="text-[10px] font-mono uppercase text-[#A09383]">Previous System</span>
+                <div className="text-base font-bold text-white font-sans group-hover:text-white transition-colors mt-0.5">
                   {prevProject.title}
                 </div>
               </div>
@@ -440,15 +440,15 @@ export default async function ProjectCaseStudy({ params }: Props) {
           {nextProject ? (
             <Link
               href={`/projects/${nextProject.slug}`}
-              className="p-6 border border-[#6B503C]/25 bg-[#0D0704] hover:border-[#DEA355] transition-colors group flex items-start justify-between gap-4 text-right"
+              className="p-6 border border-white/10 bg-[#0A0503] hover:border-[#C43E17]/50 rounded-sm transition-all group flex items-start justify-between gap-4 text-right"
             >
               <div className="w-full">
-                <span className="text-[10px] font-mono uppercase text-[#8E7F70]">Next System</span>
-                <div className="text-base font-bold text-[#F9F9F6] font-sans group-hover:text-[#DEA355] transition-colors mt-0.5">
+                <span className="text-[10px] font-mono uppercase text-[#A09383]">Next System</span>
+                <div className="text-base font-bold text-white font-sans group-hover:text-white transition-colors mt-0.5">
                   {nextProject.title}
                 </div>
               </div>
-              <ChevronRight className="w-5 h-5 text-[#8E7F70] group-hover:text-[#DEA355] mt-1 shrink-0" />
+              <ChevronRight className="w-5 h-5 text-[#A09383] group-hover:text-[#C43E17] mt-1 shrink-0" />
             </Link>
           ) : <div />}
         </div>
