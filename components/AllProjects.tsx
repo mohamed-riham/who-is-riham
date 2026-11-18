@@ -2,7 +2,7 @@
 
 import { useState } from "react";
 import Link from "next/link";
-import { ArrowUpRight, FolderGit2, ExternalLink, BookOpen, Play } from "lucide-react";
+import { ArrowUpRight, FolderGit2, ExternalLink, BookOpen, Play, ChevronDown } from "lucide-react";
 import { GithubIcon } from "@/components/Icons";
 import { projects } from "@/content/projects";
 
@@ -18,14 +18,18 @@ const categories = [
 
 export default function AllProjects() {
   const [selectedCategory, setSelectedCategory] = useState<string>("All");
+  const [showAll, setShowAll] = useState(false);
 
   const filtered =
     selectedCategory === "All"
       ? projects
       : projects.filter((p) => p.category === selectedCategory);
 
+  const INITIAL_COUNT = 4;
+  const visibleProjects = showAll ? filtered : filtered.slice(0, INITIAL_COUNT);
+
   return (
-    <section id="systems" className="py-24 lg:py-32 border-b border-[#6B503C]/20 bg-[#040202]">
+    <section id="systems" className="py-24 lg:py-32 border-b border-[#6B503C]/20 bg-transparent">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
 
         {/* Section Header & Filters */}
@@ -44,7 +48,10 @@ export default function AllProjects() {
             {categories.map((cat) => (
               <button
                 key={cat}
-                onClick={() => setSelectedCategory(cat)}
+                onClick={() => {
+                  setSelectedCategory(cat);
+                  setShowAll(false);
+                }}
                 className={`text-xs font-mono px-3.5 py-1.5 transition-colors border ${
                   selectedCategory === cat
                     ? "bg-[#C43E17] text-[#040202] border-[#C43E17] font-bold"
@@ -58,13 +65,13 @@ export default function AllProjects() {
         </div>
 
         {/* Editorial Tabular Project Ledger */}
-        <div className="divide-y divide-[#6B503C]/20">
-          {filtered.map((project, idx) => {
+        <div id="projects-catalog-ledger" className="divide-y divide-[#6B503C]/20">
+          {visibleProjects.map((project, idx) => {
             const indexStr = String(idx + 1).padStart(2, "0");
             return (
               <div
                 key={project.slug}
-                className="py-8 group hover:bg-[#0D0704] transition-colors px-4 -mx-4 flex flex-col lg:flex-row lg:items-center justify-between gap-6"
+                className="py-8 group hover:bg-[#0D0704] transition-colors px-3 sm:px-4 flex flex-col lg:flex-row lg:items-center justify-between gap-6"
               >
                 {/* Left: Index & Title & Problem */}
                 <div className="flex items-start gap-6 lg:w-1/2">
@@ -173,6 +180,30 @@ export default function AllProjects() {
             );
           })}
         </div>
+
+        {/* Smart View More / Show Less Controls (Noir Editorial 5.2) */}
+        {filtered.length > INITIAL_COUNT && (
+          <div className="pt-10 flex justify-center">
+            <button
+              onClick={() => setShowAll(!showAll)}
+              aria-expanded={showAll}
+              aria-controls="projects-catalog-ledger"
+              className="inline-flex items-center gap-2.5 px-6 py-3 bg-[#120704] hover:bg-[#1C0E07] border border-[#6B503C]/35 hover:border-[#DEA355] text-xs font-mono font-bold text-[#F9F9F6] transition-all group shadow-md"
+            >
+              <span className="w-1.5 h-1.5 rounded-full bg-[#C43E17] group-hover:scale-125 transition-transform" />
+              <span>
+                {showAll
+                  ? "Show Fewer Projects"
+                  : `View All Projects (${filtered.length} Total)`}
+              </span>
+              <ChevronDown
+                className={`w-3.5 h-3.5 text-[#DEA355] transition-transform duration-300 ${
+                  showAll ? "rotate-180" : ""
+                }`}
+              />
+            </button>
+          </div>
+        )}
 
       </div>
     </section>

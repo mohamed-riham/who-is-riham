@@ -1,0 +1,8 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" width="512" height="512">
+    <!-- Pure monochrome black paths on transparent background -->
+    <path d="M 132 100 H 188 V 412 H 132 Z" fill="#000000"/>
+    <path d="M 188 100 H 286 C 348 100, 394 136, 394 196 C 394 252, 348 288, 286 288 H 188 Z M 188 152 H 282 C 316 152, 340 170, 340 196 C 340 222, 316 236, 282 236 H 188 Z" fill="#000000"/>
+    <path d="M 270 274 L 364 412 H 300 L 220 286 H 260 Z" fill="#000000"/>
+    <rect x="238" y="184" width="20" height="20" transform="rotate(45 248 194)" fill="#000000"/>
+    <circle cx="376" cy="406" r="8" fill="#000000"/>
+  </svg>

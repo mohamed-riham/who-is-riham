@@ -73,3 +73,41 @@ The portfolio visual identity has been completely restructured into **NOIR EDITO
 | **Credential Registry** | Document-inspired verification table | Pearson, BCAS, and Udacity credentials with verification links |
 | **Case Study Template** | Research whitepaper layout with 2-column sticky spread | Publication masthead, metadata ledger, sticky sidebar scorecard, deep technical narrative, architectural diagrams, honest limitations |
 | **Colophon Footer** | Minimalist publication colophon | Astronomical coordinates, time zone (`GMT+5:30`), copyright, technical build specs |
+
+---
+
+## 7. NOIR EDITORIAL 5.1 & 5.2 SPECIFICATION
+
+### 7.1 Atmospheric Lighting Layer (`AtmosphericBackground.tsx`)
+- **Base Obsidian**: Pure `#040202`
+- **Upper Ambient Green Glow**: Muted Emerald (`#426B4A`) and Supporting Green (`#527A51`) offset toward upper-left (`blur-[140px]`, `opacity-40`, `mix-blend-screen`).
+- **Upper-Right Warm Ember Glow**: Warm Burnt Orange (`#C43E17`) and Dark Brown (`#5C2712`) offset toward upper-right (`blur-[130px]`, `opacity-45`, matching reference background).
+- **Mid-Left Warm Glow**: Deep Earthy Brown (`#5C2712` / `#411F16`) offset at 38% viewport height.
+- **Lower Ambient Green Glow**: Forest Emerald (`#426B4A`) offset toward lower-right (`blur-[150px]`, `opacity-35`).
+- **Lower-Left Warm Grounding**: Dark Brown (`#5C2712` / `#190A06`) at bottom-left.
+- **Architecture**: `pointer-events-none fixed inset-0 -z-10`, non-blocking hardware-accelerated stacking context.
+
+### 7.2 Academic History Hierarchy (Section 5)
+- **Primary Featured Entry**:
+  - `BSc (Hons) in Data Science`
+  - Study Centre: `ICBT Campus, Colombo`
+  - Awarding University: `Cardiff Metropolitan University, UK`
+  - Status: `In Progress (Final Year) // Expected June 2027`
+  - Visual: High-resolution academic candidate portrait (`/images/profile/mohamed-riham-portrait.webp`).
+- **Expandable Prior Credentials (`aria-expanded`, `aria-controls`)**:
+  - Action: `More Academic History (3 Prior Qualifications)` toggling to `Show Less Academic History`.
+  - Content: 1. BTEC HND Computing (Software Engineering, 11 Distinctions), 2. Diploma in IT (Pearson Assured), 3. Certificate in English Language.
+  - Non-duplication rule: BSc is strictly absent from the expanded list.
+
+### 7.3 Progressive Disclosure Controls (NOIR EDITORIAL 5.2)
+- **Projects**: Top 4 initial → `View All Projects (11 Total)` / `Show Fewer Projects`
+- **Capabilities Matrix**: Top 2 flagship categories → `View Complete Skills Inventory (4 Categories, 28 Skills)` / `Show Core Capabilities Only`
+- **Experience**: Top 2 primary roles → `View More Experience (3 Total Roles)` / `Show Fewer Roles`
+- **Certifications**: Top 3 credentials → `View All Credentials (5 Verified Records)` / `Show Fewer Credentials`
+- **Writing**: Top 4 publications → `View All Publications & Research (9 Total)` / `Show Fewer Publications`
+- **About Section**: Concise 2-paragraph overview → `View Extended Dossier & Verified FAQ (3 Inquiries)` / `Hide Extended Dossier`
+
+### 7.4 Identity Presentation Standard
+- **Full Legal/Professional Name**: `Mohamed Riham` (exact, zero typos, never "Mohamed Riyaz")
+- **Professional Title**: `Data Science Undergraduate` (consistent across Meta, Hero, About, Education, Footer)
+- **Short Name Usage**: `"Riham"` preserved only for contextual brand markers (`WHO IS RIHAM //`), never redundantly bracketed as `Mohamed Riham (Riham)`.

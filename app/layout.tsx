@@ -1,9 +1,10 @@
-import type { Metadata } from "next";
+import type { Metadata, Viewport } from "next";
 import { Manrope, Instrument_Serif, IBM_Plex_Mono } from "next/font/google";
 import "./globals.css";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import CommandPalette from "@/components/CommandPalette";
+import AtmosphericBackground from "@/components/AtmosphericBackground";
 
 const manrope = Manrope({
   variable: "--font-manrope",
@@ -29,14 +30,24 @@ const ibmPlexMono = IBM_Plex_Mono({
 const isGithubPages = process.env.GITHUB_PAGES === "true";
 const basePath = isGithubPages ? "/who-is-riham" : "";
 
+export const viewport: Viewport = {
+  themeColor: [
+    { media: "(prefers-color-scheme: dark)", color: "#040202" },
+    { media: "(prefers-color-scheme: light)", color: "#040202" },
+  ],
+  colorScheme: "dark",
+  width: "device-width",
+  initialScale: 1,
+};
+
 export const metadata: Metadata = {
   metadataBase: new URL("https://mohamed-riham.github.io/who-is-riham"),
   title: {
-    default: "Mohamed Riham (Riham) | Who is Mohamed Riham? — Official Portfolio",
-    template: "%s | Mohamed Riham (Riham)",
+    default: "Mohamed Riham | Data Science Undergraduate",
+    template: "%s | Mohamed Riham",
   },
   description:
-    "Who is Mohamed Riham? Mohamed Riham (also known as Riham) is a Data Science Undergraduate at Cardiff Metropolitan University / ICBT Campus. Creator of YOLOv8 Currency Detector (99.2% mAP), EDITH Voice AI, & published Big Data researcher.",
+    "Data Science undergraduate at ICBT Campus, pursuing a BSc (Hons) awarded by Cardiff Metropolitan University. Exploring applied AI, computer vision, and empirical machine learning.",
   keywords: [
     "Mohamed Riham",
     "Riham",
@@ -87,45 +98,64 @@ export const metadata: Metadata = {
     lastName: "Riham",
     username: "mohamed-riham",
     gender: "male",
-    title: "Who is Mohamed Riham? (Riham) | Data Science Undergraduate & AI Systems",
+    title: "Mohamed Riham | Data Science Undergraduate",
     description:
-      "Official portfolio and personal dossier of Mohamed Riham (Riham). Data Science Undergraduate at Cardiff Met / ICBT Campus, creator of YOLOv8 Currency Detector, EDITH Voice AI, & published Big Data researcher.",
+      "Data Science undergraduate at ICBT Campus, pursuing a BSc (Hons) awarded by Cardiff Metropolitan University. Exploring applied AI, computer vision, and empirical machine learning.",
     url: "https://mohamed-riham.github.io/who-is-riham/",
-    siteName: "Who is Mohamed Riham? — Official Portfolio",
+    siteName: "Mohamed Riham — Official Portfolio",
     locale: "en_US",
     images: [
       {
         url: "https://mohamed-riham.github.io/who-is-riham/og-image.png",
+        secureUrl: "https://mohamed-riham.github.io/who-is-riham/og-image.png",
         width: 1200,
         height: 630,
-        alt: "Mohamed Riham (Riham) — Data Science Undergraduate & AI Systems",
+        alt: "Mohamed Riham, Data Science Undergraduate, with selected achievements in computer vision and machine learning.",
         type: "image/png",
       },
       {
         url: "https://mohamed-riham.github.io/who-is-riham/og-image-square.png",
+        secureUrl: "https://mohamed-riham.github.io/who-is-riham/og-image-square.png",
         width: 600,
         height: 600,
-        alt: "Mohamed Riham (Riham) — Data Science Undergraduate (Square Portrait)",
+        alt: "Mohamed Riham, Data Science Undergraduate, with selected achievements in computer vision and machine learning (Square Preview).",
         type: "image/png",
       },
     ],
   },
   twitter: {
     card: "summary_large_image",
-    title: "Who is Mohamed Riham? (Riham) | Data Science & AI Portfolio",
+    title: "Mohamed Riham | Data Science Undergraduate",
     description:
-      "Who is Mohamed Riham? Data Science undergraduate at Cardiff Met / ICBT Campus. Creator of Sri Lankan Currency Detector (YOLOv8 99.2% mAP), EDITH local voice automation & Big Data research.",
+      "Data Science undergraduate at ICBT Campus, pursuing a BSc (Hons) awarded by Cardiff Metropolitan University. Exploring applied AI, computer vision, and empirical machine learning.",
     site: "@_mohamed_riham",
     creator: "@_mohamed_riham",
-    images: ["https://mohamed-riham.github.io/who-is-riham/og-image.png"],
+    images: [
+      {
+        url: "https://mohamed-riham.github.io/who-is-riham/og-image.png",
+        width: 1200,
+        height: 630,
+        alt: "Mohamed Riham, Data Science Undergraduate, with selected achievements in computer vision and machine learning.",
+      },
+    ],
   },
   icons: {
     icon: [
       { url: `${basePath}/favicon.ico`, sizes: "any" },
-      { url: `${basePath}/icon.png`, type: "image/png" },
+      { url: `${basePath}/favicon.svg`, type: "image/svg+xml" },
+      { url: `${basePath}/favicon-16x16.png`, sizes: "16x16", type: "image/png" },
+      { url: `${basePath}/favicon-32x32.png`, sizes: "32x32", type: "image/png" },
+      { url: `${basePath}/icon-192.png`, sizes: "192x192", type: "image/png" },
     ],
     apple: [
       { url: `${basePath}/apple-touch-icon.png`, sizes: "180x180", type: "image/png" },
+    ],
+    other: [
+      {
+        rel: "mask-icon",
+        url: `${basePath}/safari-pinned-tab.svg`,
+        color: "#C43E17",
+      },
     ],
   },
   manifest: `${basePath}/manifest.json`,
@@ -177,7 +207,7 @@ export default function RootLayout({
         "@type": "ProfilePage",
         "@id": "https://mohamed-riham.github.io/who-is-riham/#webpage",
         url: "https://mohamed-riham.github.io/who-is-riham/",
-        name: "Who is Mohamed Riham? (Riham) — Data Science Undergraduate Portfolio & Dossier",
+        name: "Who is Mohamed Riham? — Data Science Undergraduate Portfolio & Dossier",
         isPartOf: {
           "@id": "https://mohamed-riham.github.io/who-is-riham/#website",
         },
@@ -351,10 +381,10 @@ export default function RootLayout({
       {
         "@type": "ImageObject",
         "@id": "https://mohamed-riham.github.io/who-is-riham/#portrait-cutout",
-        name: "Mohamed Riham (Riham) — Flagship Editorial Portrait",
+        name: "Mohamed Riham — Flagship Editorial Portrait",
         contentUrl: "https://mohamed-riham.github.io/who-is-riham/images/profile/mohamed-riham-portrait-cutout.webp",
         url: "https://mohamed-riham.github.io/who-is-riham/images/profile/mohamed-riham-portrait-cutout.webp",
-        caption: "Mohamed Riham (Riham) Data Science Undergraduate at Cardiff Metropolitan University / ICBT Campus",
+        caption: "Mohamed Riham Data Science Undergraduate at Cardiff Metropolitan University / ICBT Campus",
         creditText: "Mohamed Riham",
         creator: {
           "@type": "Person",
@@ -368,7 +398,7 @@ export default function RootLayout({
       {
         "@type": "ImageObject",
         "@id": "https://mohamed-riham.github.io/who-is-riham/#candid-urban",
-        name: "Mohamed Riham (Riham) — Colombo Urban Candid Portrait",
+        name: "Mohamed Riham — Colombo Urban Candid Portrait",
         contentUrl: "https://mohamed-riham.github.io/who-is-riham/images/profile/random/colombo-urban-candid.webp",
         url: "https://mohamed-riham.github.io/who-is-riham/images/profile/random/colombo-urban-candid.webp",
         caption: "Mohamed Riham authentic urban portrait in Colombo, Sri Lanka",
@@ -384,7 +414,7 @@ export default function RootLayout({
       {
         "@type": "ImageObject",
         "@id": "https://mohamed-riham.github.io/who-is-riham/#candid-motorbike",
-        name: "Mohamed Riham (Riham) — Addalaichenai Motorbike Candid Photograph",
+        name: "Mohamed Riham — Addalaichenai Motorbike Candid Photograph",
         contentUrl: "https://mohamed-riham.github.io/who-is-riham/images/profile/random/addalaichenai-motorbike-candid.webp",
         url: "https://mohamed-riham.github.io/who-is-riham/images/profile/random/addalaichenai-motorbike-candid.webp",
         caption: "Mohamed Riham candid with motorbike in Addalaichenai, Sri Lanka",
@@ -400,7 +430,7 @@ export default function RootLayout({
       {
         "@type": "ImageObject",
         "@id": "https://mohamed-riham.github.io/who-is-riham/#convocation-photo",
-        name: "Mohamed Riham (Riham) — Graduation Awards Convocation Ceremony",
+        name: "Mohamed Riham — Graduation Awards Convocation Ceremony",
         contentUrl: "https://mohamed-riham.github.io/who-is-riham/images/profile/random/diploma-awards-convocation.webp",
         url: "https://mohamed-riham.github.io/who-is-riham/images/profile/random/diploma-awards-convocation.webp",
         caption: "Mohamed Riham convocation ceremony stage in Kalmunai, Sri Lanka",
@@ -428,9 +458,10 @@ export default function RootLayout({
           dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
         />
       </head>
-      <body className="min-h-screen flex flex-col bg-[#080D18] text-[#F2F0E9] font-sans antialiased selection:bg-[#63DCC6]/20 selection:text-white">
+      <body className="min-h-screen flex flex-col bg-[#040202] text-[#F9F9F6] font-sans antialiased selection:bg-[#C43E17]/35 selection:text-[#F9F9F6] relative">
+        <AtmosphericBackground />
         <Navbar />
-        <main className="flex-grow">{children}</main>
+        <main className="flex-grow relative z-10">{children}</main>
         <Footer />
         <CommandPalette />
       </body>

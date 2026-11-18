@@ -13,7 +13,7 @@ import ContactSection from "@/components/ContactSection";
 
 export default function Home() {
   return (
-    <div className="flex flex-col bg-[#040202]">
+    <div className="flex flex-col bg-transparent relative z-10">
       <Hero />
       <BentoGrid />
       <FeaturedProjects />

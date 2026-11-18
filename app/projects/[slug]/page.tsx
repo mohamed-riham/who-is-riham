@@ -42,8 +42,8 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const canonicalUrl = `${baseUrl}/projects/${project.slug}/`;
 
   return {
-    title: `${project.title} | Case Study | Mohamed Riham (Riham)`,
-    description: `Case study on ${project.title} by Mohamed Riham (Riham), Data Science Undergraduate. ${project.summary}`,
+    title: `${project.title} | Case Study | Mohamed Riham`,
+    description: `Case study on ${project.title} by Mohamed Riham, Data Science Undergraduate. ${project.summary}`,
     alternates: {
       canonical: canonicalUrl,
     },
@@ -81,7 +81,7 @@ export default async function ProjectCaseStudy({ params }: Props) {
   const indexStr = String(projectIndex + 1).padStart(2, "0");
 
   return (
-    <article className="pt-28 pb-24 lg:pt-36 lg:pb-32 bg-[#040202] text-[#D3C29F]">
+    <article className="pt-28 pb-24 lg:pt-36 lg:pb-32 bg-transparent text-[#D3C29F]">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-16">
 
         {/* Navigation Breadcrumb */}

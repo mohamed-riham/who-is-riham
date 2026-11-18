@@ -1,22 +1,30 @@
 {
-  "name": "Who is Mohamed Riham? (Riham) | Official Portfolio",
-  "short_name": "Mohamed Riham (Riham)",
-  "description": "Official personal dossier and engineering portfolio of Mohamed Riham (Riham) — Data Science Undergraduate at Cardiff Metropolitan University / ICBT Campus.",
+  "name": "Mohamed Riham | Data Science Undergraduate",
+  "short_name": "Mohamed Riham",
+  "description": "Official portfolio and personal dossier of Mohamed Riham — Data Science Undergraduate at Cardiff Metropolitan University / ICBT Campus.",
   "start_url": "/who-is-riham/",
   "scope": "/who-is-riham/",
   "display": "standalone",
   "background_color": "#040202",
-  "theme_color": "#C43E17",
+  "theme_color": "#040202",
   "icons": [
     {
       "src": "/who-is-riham/icon-192.png",
       "sizes": "192x192",
-      "type": "image/png"
+      "type": "image/png",
+      "purpose": "any"
     },
     {
       "src": "/who-is-riham/icon-512.png",
       "sizes": "512x512",
-      "type": "image/png"
+      "type": "image/png",
+      "purpose": "any"
+    },
+    {
+      "src": "/who-is-riham/icon-512-maskable.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "maskable"
     }
   ]
 }

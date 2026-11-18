@@ -9,12 +9,12 @@ export default function Footer() {
   };
 
   return (
-    <footer className="border-t border-[#6B503C]/20 bg-[#040202] py-16 text-xs text-[#D3C29F]">
+    <footer className="border-t border-[#6B503C]/20 bg-[#040202]/90 backdrop-blur-md py-16 text-xs text-[#D3C29F]">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-12">
         <div className="flex flex-col lg:flex-row items-start lg:items-center justify-between gap-8 pb-12 border-b border-[#6B503C]/20">
           <div className="space-y-1.5 font-mono">
             <div className="text-base font-bold text-[#F9F9F6] font-sans">
-              Mohamed Riham (Riham)
+              Mohamed Riham
             </div>
             <div className="text-xs text-[#8E7F70]">
               Who is Mohamed Riham? — BSc (Hons) Data Science // Cardiff Metropolitan University, UK (via ICBT Campus)

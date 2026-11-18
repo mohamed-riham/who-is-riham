@@ -2,7 +2,7 @@
 
 import { useState, useEffect } from "react";
 import Image from "next/image";
-import { User, Terminal, Compass, Layers, ShieldCheck, Shuffle } from "lucide-react";
+import { User, Terminal, Compass, Layers, ShieldCheck, Shuffle, ChevronDown } from "lucide-react";
 import { profile } from "@/content/profile";
 import { getAssetPath } from "@/lib/utils";
 import { InstagramIcon } from "@/components/Icons";
@@ -11,42 +11,42 @@ const RANDOM_SNAPSHOTS = [
   {
     id: "colombo-urban",
     src: "/images/profile/random/colombo-urban-candid.webp",
-    alt: "Mohamed Riham (Riham) authentic urban portrait in Colombo, Data Science Undergraduate",
+    alt: "Mohamed Riham authentic urban portrait in Colombo, Data Science Undergraduate",
     location: "Colombo, Sri Lanka",
     badge: "Urban Candid",
   },
   {
     id: "addalaichenai-motorbike",
     src: "/images/profile/random/addalaichenai-motorbike-candid.webp",
-    alt: "Mohamed Riham (Riham) candid with motorbike in Addalaichenai, Sri Lanka",
+    alt: "Mohamed Riham candid with motorbike in Addalaichenai, Sri Lanka",
     location: "Addalaichenai, Sri Lanka",
     badge: "Motorbike Candid",
   },
   {
     id: "motorbike-sunset",
     src: "/images/profile/random/motorbike-sunset-portrait.webp",
-    alt: "Mohamed Riham (Riham) golden hour outdoor candid portrait with motorbike",
+    alt: "Mohamed Riham golden hour outdoor candid portrait with motorbike",
     location: "Addalaichenai, Sri Lanka",
     badge: "Golden Hour Candid",
   },
   {
     id: "formal-sunglasses",
     src: "/images/profile/random/formal-sunglasses-portrait.webp",
-    alt: "Mohamed Riham (Riham) formal editorial suit and sunglasses portrait",
+    alt: "Mohamed Riham formal editorial suit and sunglasses portrait",
     location: "Addalaichenai, Sri Lanka",
     badge: "Editorial Formal",
   },
   {
     id: "formal-tie-adjust",
     src: "/images/profile/random/formal-tie-adjust.webp",
-    alt: "Mohamed Riham (Riham) executive tie adjustment candid portrait",
+    alt: "Mohamed Riham executive tie adjustment candid portrait",
     location: "Addalaichenai, Sri Lanka",
     badge: "Executive Candid",
   },
   {
     id: "diploma-ceremony",
     src: "/images/profile/random/diploma-awards-convocation.webp",
-    alt: "Mohamed Riham (Riham) graduation awards convocation ceremony in Kalmunai",
+    alt: "Mohamed Riham graduation awards convocation ceremony in Kalmunai",
     location: "Kalmunai, Sri Lanka",
     badge: "Academic Convocation",
   },
@@ -55,6 +55,7 @@ const RANDOM_SNAPSHOTS = [
 export default function AboutSection() {
   const [photoIndex, setPhotoIndex] = useState(0);
   const [isChanging, setIsChanging] = useState(false);
+  const [showExtendedDossier, setShowExtendedDossier] = useState(false);
 
   useEffect(() => {
     // Automatically select a random snapshot on every page load/refresh
@@ -73,7 +74,7 @@ export default function AboutSection() {
   const currentPhoto = RANDOM_SNAPSHOTS[photoIndex];
 
   return (
-    <section id="about" className="py-24 lg:py-32 border-b border-[#6B503C]/20 bg-[#040202]">
+    <section id="about" className="py-24 lg:py-32 border-b border-[#6B503C]/20 bg-transparent">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
 
         {/* Section Header */}
@@ -214,8 +215,8 @@ export default function AboutSection() {
               <div className="relative aspect-[16/7] w-full overflow-hidden bg-[#040202]">
                 <Image
                   src={getAssetPath("/images/workspace/mohamed-riham-craft-studio.webp")}
-                  alt="Mohamed Riham (Riham) at creative maker and hardware craft studio desk"
-                  title="Mohamed Riham (Riham) — Hardware Craft Studio"
+                  alt="Mohamed Riham at creative maker and hardware craft studio desk"
+                  title="Mohamed Riham — Hardware Craft Studio"
                   fill
                   className="object-cover group-hover:scale-102 transition-transform duration-700"
                   sizes="(max-width: 1024px) 100vw, 700px"
@@ -236,55 +237,79 @@ export default function AboutSection() {
 
         </div>
 
-        {/* Fast Facts & Key Inquiries: Who is Mohamed Riham? */}
-        <div className="mt-16 pt-12 border-t border-[#6B503C]/20 space-y-8">
-          <div className="space-y-1">
-            <div className="font-mono text-xs uppercase tracking-widest text-[#DEA355]">
-              Dossier FAQ // Identity & Verification
-            </div>
-            <h3 className="text-xl sm:text-2xl font-bold tracking-tight text-[#F9F9F6] font-sans">
-              Frequently Asked Inquiries: Who is Mohamed Riham?
-            </h3>
-          </div>
-
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-            <div className="p-6 bg-[#0D0704] border border-[#6B503C]/25 space-y-3">
-              <div className="font-mono text-xs text-[#C43E17] uppercase tracking-wider">
-                01 // Identity & Origins
-              </div>
-              <h4 className="text-sm font-bold text-[#F9F9F6] font-sans">
-                Who is Mohamed Riham (Riham)?
-              </h4>
-              <p className="text-xs text-[#D3C29F] font-light leading-relaxed">
-                Mohamed Riham (commonly known as Riham) is a Sri Lankan Data Science undergraduate and applied AI developer based in Addalaichenai and Colombo. He is currently completing his BSc (Hons) in Data Science awarded by Cardiff Metropolitan University, UK via ICBT Campus.
-              </p>
-            </div>
-
-            <div className="p-6 bg-[#0D0704] border border-[#6B503C]/25 space-y-3">
-              <div className="font-mono text-xs text-[#DEA355] uppercase tracking-wider">
-                02 // Core Specializations
-              </div>
-              <h4 className="text-sm font-bold text-[#F9F9F6] font-sans">
-                What are his technical disciplines?
-              </h4>
-              <p className="text-xs text-[#D3C29F] font-light leading-relaxed">
-                Specialized in practical Computer Vision (custom YOLOv8 architectures), machine learning benchmarks on empirical datasets (Random Forest vs XGBoost fraud analytics), offline neural voice automation (EDITH), and IoT telemetry hardware.
-              </p>
-            </div>
-
-            <div className="p-6 bg-[#0D0704] border border-[#6B503C]/25 space-y-3">
-              <div className="font-mono text-xs text-[#8E7F70] uppercase tracking-wider">
-                03 // Published Work & Code
-              </div>
-              <h4 className="text-sm font-bold text-[#F9F9F6] font-sans">
-                Where to explore his research & repositories?
-              </h4>
-              <p className="text-xs text-[#D3C29F] font-light leading-relaxed">
-                His research is cataloged on Academia.edu and DEV Community, open-source model weights are hosted on HuggingFace, and production repositories are accessible on GitHub (@mohamed-riham).
-              </p>
-            </div>
-          </div>
+        {/* Smart Progressive Disclosure Action: Extended Dossier (Noir Editorial 5.2) */}
+        <div className="mt-12 flex justify-center">
+          <button
+            onClick={() => setShowExtendedDossier(!showExtendedDossier)}
+            aria-expanded={showExtendedDossier}
+            aria-controls="extended-dossier-faq"
+            className="inline-flex items-center gap-2.5 px-6 py-3 bg-[#120704] hover:bg-[#1C0E07] border border-[#6B503C]/35 hover:border-[#DEA355] text-xs font-mono font-bold text-[#F9F9F6] transition-all group shadow-md"
+          >
+            <span className="w-1.5 h-1.5 rounded-full bg-[#DEA355] group-hover:scale-125 transition-transform" />
+            <span>
+              {showExtendedDossier
+                ? "Hide Extended Dossier & FAQ"
+                : "View Extended Dossier & Verified FAQ (3 Inquiries)"}
+            </span>
+            <ChevronDown
+              className={`w-3.5 h-3.5 text-[#DEA355] transition-transform duration-300 ${
+                showExtendedDossier ? "rotate-180" : ""
+              }`}
+            />
+          </button>
         </div>
+
+        {/* Fast Facts & Key Inquiries: Who is Mohamed Riham? (Revealed on Demand) */}
+        {showExtendedDossier && (
+          <div id="extended-dossier-faq" className="mt-10 pt-10 border-t border-[#6B503C]/20 space-y-8 animate-in fade-in duration-300">
+            <div className="space-y-1">
+              <div className="font-mono text-xs uppercase tracking-widest text-[#DEA355]">
+                Dossier FAQ // Identity & Verification
+              </div>
+              <h3 className="text-xl sm:text-2xl font-bold tracking-tight text-[#F9F9F6] font-sans">
+                Frequently Asked Inquiries: Who is Mohamed Riham?
+              </h3>
+            </div>
+
+            <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+              <div className="p-6 bg-[#0D0704] border border-[#6B503C]/25 space-y-3">
+                <div className="font-mono text-xs text-[#C43E17] uppercase tracking-wider">
+                  01 // Identity & Origins
+                </div>
+                <h4 className="text-sm font-bold text-[#F9F9F6] font-sans">
+                  Who is Mohamed Riham?
+                </h4>
+                <p className="text-xs text-[#D3C29F] font-light leading-relaxed">
+                  Mohamed Riham (commonly known as Riham) is a Sri Lankan Data Science undergraduate and applied AI developer based in Addalaichenai and Colombo. He is currently completing his BSc (Hons) in Data Science awarded by Cardiff Metropolitan University, UK via ICBT Campus.
+                </p>
+              </div>
+
+              <div className="p-6 bg-[#0D0704] border border-[#6B503C]/25 space-y-3">
+                <div className="font-mono text-xs text-[#DEA355] uppercase tracking-wider">
+                  02 // Core Specializations
+                </div>
+                <h4 className="text-sm font-bold text-[#F9F9F6] font-sans">
+                  What are his technical disciplines?
+                </h4>
+                <p className="text-xs text-[#D3C29F] font-light leading-relaxed">
+                  Specialized in practical Computer Vision (custom YOLOv8 architectures), machine learning benchmarks on empirical datasets (Random Forest vs XGBoost fraud analytics), offline neural voice automation (EDITH), and IoT telemetry hardware.
+                </p>
+              </div>
+
+              <div className="p-6 bg-[#0D0704] border border-[#6B503C]/25 space-y-3">
+                <div className="font-mono text-xs text-[#8E7F70] uppercase tracking-wider">
+                  03 // Published Work & Code
+                </div>
+                <h4 className="text-sm font-bold text-[#F9F9F6] font-sans">
+                  Where to explore his research & repositories?
+                </h4>
+                <p className="text-xs text-[#D3C29F] font-light leading-relaxed">
+                  His research is cataloged on Academia.edu and DEV Community, open-source model weights are hosted on HuggingFace, and production repositories are accessible on GitHub (@mohamed-riham).
+                </p>
+              </div>
+            </div>
+          </div>
+        )}
 
       </div>
     </section>

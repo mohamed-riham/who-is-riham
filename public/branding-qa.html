@@ -1,0 +1,247 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>NOIR EDITORIAL 5.4 — Social Branding & Favicon QA Sheet</title>
+  <style>
+    :root {
+      --bg: #040202;
+      --card: #0D0806;
+      --border: #5C2712;
+      --gold: #DEA355;
+      --ivory: #F9F9F6;
+      --sand: #D3C29F;
+      --orange: #C43E17;
+    }
+    body {
+      margin: 0;
+      padding: 40px;
+      background: var(--bg);
+      color: var(--ivory);
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+    }
+    h1 {
+      font-family: Georgia, serif;
+      font-size: 28px;
+      color: var(--gold);
+      margin-bottom: 8px;
+      letter-spacing: -0.5px;
+    }
+    .eyebrow {
+      font-size: 11px;
+      letter-spacing: 3px;
+      color: var(--orange);
+      text-transform: uppercase;
+      font-weight: 600;
+    }
+    .section-title {
+      font-family: Georgia, serif;
+      font-size: 20px;
+      color: var(--ivory);
+      margin: 40px 0 16px 0;
+      border-bottom: 1px solid var(--border);
+      padding-bottom: 8px;
+    }
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+      gap: 24px;
+      margin-top: 16px;
+    }
+    .asset-card {
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      padding: 20px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+    .asset-title {
+      font-size: 14px;
+      font-weight: 600;
+      color: var(--gold);
+      margin-bottom: 4px;
+      align-self: flex-start;
+    }
+    .asset-meta {
+      font-size: 12px;
+      color: var(--sand);
+      opacity: 0.8;
+      margin-bottom: 16px;
+      align-self: flex-start;
+      font-family: monospace;
+    }
+    .preview-box {
+      width: 100%;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      padding: 20px;
+      border-radius: 6px;
+      background: #000;
+      overflow: hidden;
+    }
+    .preview-box.light {
+      background: #FFFFFF;
+      border: 1px solid #E5E5E5;
+    }
+    .preview-box img {
+      max-width: 100%;
+      height: auto;
+      display: block;
+      border-radius: 4px;
+    }
+    .pixelated {
+      image-rendering: pixelated;
+    }
+    .mask-overlay {
+      position: relative;
+      display: inline-block;
+    }
+    .mask-circle {
+      position: absolute;
+      top: 10%;
+      left: 10%;
+      width: 80%;
+      height: 80%;
+      border: 2px dashed #00FF66;
+      border-radius: 50%;
+      pointer-events: none;
+      box-sizing: border-box;
+    }
+  </style>
+</head>
+<body>
+  <div class="eyebrow">Visual QA Inspection</div>
+  <h1>NOIR EDITORIAL 5.4 — Brand Assets Contact Sheet</h1>
+  <p style="color: var(--sand); font-size: 14px; max-width: 700px;">
+    Inspection sheet for all 10 generated Open Graph and Favicon assets. Validated against safe margins, contrast, color calibration, and pixel integrity across light and dark backgrounds.
+  </p>
+
+  <!-- Part 1: Open Graph Assets -->
+  <div class="section-title">Part 1: Social Preview (Open Graph) Assets</div>
+  <div class="grid" style="grid-template-columns: 1fr;">
+    <div class="asset-card">
+      <div class="asset-title">1. Landscape Open Graph (Primary)</div>
+      <div class="asset-meta">public/og-image.png · 1200 × 630 pixels · PNG</div>
+      <div class="preview-box">
+        <img src="og-image.png" alt="OG Image Landscape Preview" style="max-height: 480px;">
+      </div>
+    </div>
+  </div>
+
+  <div class="grid" style="grid-template-columns: minmax(320px, 600px);">
+    <div class="asset-card">
+      <div class="asset-title">2. Square Open Graph (WhatsApp / Profiles)</div>
+      <div class="asset-meta">public/og-image-square.png · 600 × 600 pixels · PNG</div>
+      <div class="preview-box">
+        <img src="og-image-square.png" alt="OG Image Square Preview" style="max-width: 440px;">
+      </div>
+    </div>
+  </div>
+
+  <!-- Part 2: Favicon Family -->
+  <div class="section-title">Part 2: Favicon & PWA Family (Inspected on Dark & Light Themes)</div>
+  <div class="grid">
+    <!-- 16x16 -->
+    <div class="asset-card">
+      <div class="asset-title">3. Favicon 16×16 (Scaled 1×, 2×, 4×)</div>
+      <div class="asset-meta">public/favicon-16x16.png · 16 × 16</div>
+      <div style="display: flex; gap: 16px; width: 100%;">
+        <div class="preview-box" style="flex: 1; flex-direction: column; gap: 12px;">
+          <span style="font-size: 10px; color: var(--sand);">Dark (1× / 2× / 4×)</span>
+          <div style="display: flex; align-items: center; gap: 12px;">
+            <img src="favicon-16x16.png" class="pixelated" width="16" height="16">
+            <img src="favicon-16x16.png" class="pixelated" width="32" height="32">
+            <img src="favicon-16x16.png" class="pixelated" width="64" height="64">
+          </div>
+        </div>
+        <div class="preview-box light" style="flex: 1; flex-direction: column; gap: 12px;">
+          <span style="font-size: 10px; color: #666;">Light (1× / 2× / 4×)</span>
+          <div style="display: flex; align-items: center; gap: 12px;">
+            <img src="favicon-16x16.png" class="pixelated" width="16" height="16">
+            <img src="favicon-16x16.png" class="pixelated" width="32" height="32">
+            <img src="favicon-16x16.png" class="pixelated" width="64" height="64">
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- 32x32 -->
+    <div class="asset-card">
+      <div class="asset-title">4. Favicon 32×32 (Browser Tab Standard)</div>
+      <div class="asset-meta">public/favicon-32x32.png · 32 × 32</div>
+      <div style="display: flex; gap: 16px; width: 100%;">
+        <div class="preview-box" style="flex: 1; flex-direction: column; gap: 12px;">
+          <span style="font-size: 10px; color: var(--sand);">Dark</span>
+          <img src="favicon-32x32.png" width="32" height="32">
+          <img src="favicon-32x32.png" width="64" height="64">
+        </div>
+        <div class="preview-box light" style="flex: 1; flex-direction: column; gap: 12px;">
+          <span style="font-size: 10px; color: #666;">Light</span>
+          <img src="favicon-32x32.png" width="32" height="32">
+          <img src="favicon-32x32.png" width="64" height="64">
+        </div>
+      </div>
+    </div>
+
+    <!-- Apple Touch Icon -->
+    <div class="asset-card">
+      <div class="asset-title">5. Apple Touch Icon (iOS Home Screen)</div>
+      <div class="asset-meta">public/apple-touch-icon.png · 180 × 180</div>
+      <div class="preview-box">
+        <img src="apple-touch-icon.png" width="120" height="120" style="border-radius: 26px;">
+      </div>
+    </div>
+
+    <!-- PWA Icon 192 -->
+    <div class="asset-card">
+      <div class="asset-title">6. PWA Icon 192×192</div>
+      <div class="asset-meta">public/icon-192.png · 192 × 192</div>
+      <div class="preview-box">
+        <img src="icon-192.png" width="120" height="120">
+      </div>
+    </div>
+
+    <!-- PWA Icon 512 -->
+    <div class="asset-card">
+      <div class="asset-title">7. PWA Icon 512×512 (Splash Screen)</div>
+      <div class="asset-meta">public/icon-512.png · 512 × 512</div>
+      <div class="preview-box">
+        <img src="icon-512.png" width="160" height="160">
+      </div>
+    </div>
+
+    <!-- Maskable Icon 512 with safe area -->
+    <div class="asset-card">
+      <div class="asset-title">8. PWA Maskable Icon (Green Dashed = Safe Area)</div>
+      <div class="asset-meta">public/icon-512-maskable.png · 512 × 512 (80% Safe Zone)</div>
+      <div class="preview-box">
+        <div class="mask-overlay">
+          <img src="icon-512-maskable.png" width="160" height="160">
+          <div class="mask-circle"></div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Scalable Vector SVG -->
+    <div class="asset-card">
+      <div class="asset-title">9. Scalable Favicon SVG</div>
+      <div class="asset-meta">public/favicon.svg · Scalable Vector</div>
+      <div class="preview-box">
+        <img src="favicon.svg" width="140" height="140">
+      </div>
+    </div>
+
+    <!-- Safari Pinned Tab SVG -->
+    <div class="asset-card">
+      <div class="asset-title">10. Safari Pinned Tab SVG (Monochrome)</div>
+      <div class="asset-meta">public/safari-pinned-tab.svg · Monochrome Vector</div>
+      <div class="preview-box light">
+        <img src="safari-pinned-tab.svg" width="140" height="140">
+      </div>
+    </div>
+  </div>
+</body>
+</html>

@@ -13,6 +13,10 @@
   --text-sand: #D3C29F;            /* Secondary typography & metadata */
   --accent-steel-blue: #678292;    /* Restrained technical/data accent */
 
+  /* Atmospheric Ambient Lighting Extensions (Noir Editorial 5.1) */
+  --ambient-emerald-muted: #426B4A;       /* Muted Emerald ambient glow */
+  --ambient-emerald-supporting: #527A51;  /* Supporting forest green ambient tone */
+
   /* Derived Surface Tones for Editorial Depth */
   --surface-warm-card: #0D0907;
   --surface-warm-elevated: #160E0A;
@@ -26,6 +30,7 @@
   --accent-burnt-orange-glow: rgba(196, 62, 23, 0.16);
   --accent-amber-glow: rgba(222, 163, 85, 0.18);
   --accent-dark-brown-glow: rgba(92, 39, 18, 0.25);
+  --ambient-emerald-glow: rgba(66, 107, 74, 0.22);
 
   --border-subtle: rgba(211, 194, 159, 0.10);
   --border-medium: rgba(211, 194, 159, 0.20);
@@ -64,6 +69,8 @@
   --color-amber-gold: #DEA355;
   --color-sand: #D3C29F;
   --color-steel-blue: #678292;
+  --color-emerald-muted: #426B4A;
+  --color-emerald-supporting: #527A51;
 
   --color-noir-primary: var(--bg-primary);
   --color-noir-secondary: var(--bg-secondary);

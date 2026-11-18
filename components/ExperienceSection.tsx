@@ -1,13 +1,19 @@
 "use client";
 
+import { useState } from "react";
 import Image from "next/image";
-import { Award, Wrench, Briefcase, Calendar, MapPin } from "lucide-react";
+import { Award, Wrench, Briefcase, Calendar, MapPin, ChevronDown } from "lucide-react";
 import { experiences } from "@/content/experience";
 import { getAssetPath } from "@/lib/utils";
 
 export default function ExperienceSection() {
+  const [showAllExperience, setShowAllExperience] = useState(false);
+
+  const INITIAL_COUNT = 2;
+  const visibleExperiences = showAllExperience ? experiences : experiences.slice(0, INITIAL_COUNT);
+
   return (
-    <section id="experience" className="py-24 lg:py-32 border-b border-[#6B503C]/20 bg-[#040202]">
+    <section id="experience" className="py-24 lg:py-32 border-b border-[#6B503C]/20 bg-transparent">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
 
         {/* Section Header */}
@@ -26,8 +32,8 @@ export default function ExperienceSection() {
         </div>
 
         {/* Chronological Ledger (Hairline Divisions) */}
-        <div className="divide-y divide-[#6B503C]/25">
-          {experiences.map((exp, idx) => (
+        <div id="experience-ledger" className="divide-y divide-[#6B503C]/25">
+          {visibleExperiences.map((exp, idx) => (
             <div
               key={idx}
               className="py-12 lg:py-16 grid grid-cols-1 lg:grid-cols-12 gap-8 items-start group"
@@ -106,8 +112,8 @@ export default function ExperienceSection() {
                     <div className="relative aspect-[4/3] w-full overflow-hidden bg-[#040202]">
                       <Image
                         src={getAssetPath("/images/experience/bcas-bits-honour.webp")}
-                        alt="Mohamed Riham (Riham) receiving official BITS commendation certificate at BCAS Kalmunai Campus Auditorium"
-                        title="Mohamed Riham (Riham) — BITS Leadership Honour"
+                        alt="Mohamed Riham receiving official BITS commendation certificate at BCAS Kalmunai Campus Auditorium"
+                        title="Mohamed Riham — BITS Leadership Honour"
                         fill
                         className="object-cover group-hover:scale-103 transition-transform duration-700"
                         sizes="(max-width: 1024px) 100vw, 360px"
@@ -125,8 +131,8 @@ export default function ExperienceSection() {
                     <div className="relative aspect-[16/10] w-full overflow-hidden bg-[#040202]">
                       <Image
                         src={getAssetPath("/images/experience/bcas-pc-clinic-team.webp")}
-                        alt="Mohamed Riham (Riham) as PC Clinic Official with technical diagnostics engineering team"
-                        title="Mohamed Riham (Riham) — PC Clinic Official"
+                        alt="Mohamed Riham as PC Clinic Official with technical diagnostics engineering team"
+                        title="Mohamed Riham — PC Clinic Official"
                         fill
                         className="object-cover group-hover:scale-103 transition-transform duration-700"
                         sizes="(max-width: 1024px) 100vw, 360px"
@@ -137,8 +143,8 @@ export default function ExperienceSection() {
                       <div className="relative aspect-[16/10] w-full overflow-hidden bg-[#040202] border border-[#6B503C]/20">
                         <Image
                           src={getAssetPath("/images/experience/pcclinic-hardware-repairs.webp")}
-                          alt="Mohamed Riham (Riham) hands-on PC hardware component diagnostics and motherboard repair bench"
-                          title="Mohamed Riham (Riham) — Hardware Diagnostics"
+                          alt="Mohamed Riham hands-on PC hardware component diagnostics and motherboard repair bench"
+                          title="Mohamed Riham — Hardware Diagnostics"
                           fill
                           className="object-cover group-hover:scale-105 transition-transform duration-700"
                           sizes="180px"
@@ -147,8 +153,8 @@ export default function ExperienceSection() {
                       <div className="relative aspect-[16/10] w-full overflow-hidden bg-[#040202] border border-[#6B503C]/20">
                         <Image
                           src={getAssetPath("/images/experience/pcclinic-team-monitor.webp")}
-                          alt="Mohamed Riham (Riham) and team analyzing operating system boot processes and diagnostics"
-                          title="Mohamed Riham (Riham) — Systems Diagnostics Bench"
+                          alt="Mohamed Riham and team analyzing operating system boot processes and diagnostics"
+                          title="Mohamed Riham — Systems Diagnostics Bench"
                           fill
                           className="object-cover group-hover:scale-105 transition-transform duration-700"
                           sizes="180px"
@@ -166,6 +172,30 @@ export default function ExperienceSection() {
             </div>
           ))}
         </div>
+
+        {/* Smart View More / Show Less Controls (Noir Editorial 5.2) */}
+        {experiences.length > INITIAL_COUNT && (
+          <div className="pt-10 flex justify-center">
+            <button
+              onClick={() => setShowAllExperience(!showAllExperience)}
+              aria-expanded={showAllExperience}
+              aria-controls="experience-ledger"
+              className="inline-flex items-center gap-2.5 px-6 py-3 bg-[#120704] hover:bg-[#1C0E07] border border-[#6B503C]/35 hover:border-[#DEA355] text-xs font-mono font-bold text-[#F9F9F6] transition-all group shadow-md"
+            >
+              <span className="w-1.5 h-1.5 rounded-full bg-[#DEA355] group-hover:scale-125 transition-transform" />
+              <span>
+                {showAllExperience
+                  ? "Show Fewer Roles"
+                  : `View More Experience (${experiences.length} Total Roles)`}
+              </span>
+              <ChevronDown
+                className={`w-3.5 h-3.5 text-[#DEA355] transition-transform duration-300 ${
+                  showAllExperience ? "rotate-180" : ""
+                }`}
+              />
+            </button>
+          </div>
+        )}
 
       </div>
     </section>

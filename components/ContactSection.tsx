@@ -16,7 +16,7 @@ export default function ContactSection() {
   };
 
   return (
-    <section id="contact" className="py-24 lg:py-36 border-b border-[#6B503C]/20 bg-[#040202] relative overflow-hidden">
+    <section id="contact" className="py-24 lg:py-36 border-b border-[#6B503C]/20 bg-transparent relative overflow-hidden">
       {/* Background radial ambient warmth */}
       <div className="absolute bottom-0 left-1/2 -translate-x-1/2 w-[700px] h-[350px] bg-radial from-[#5C2712]/30 via-[#C43E17]/05 to-transparent blur-3xl pointer-events-none" />
 

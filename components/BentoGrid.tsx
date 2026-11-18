@@ -11,19 +11,19 @@ import { profile } from "@/content/profile";
 const BENTO_CANDIDS = [
   {
     src: "/images/profile/mohamed-riham-lifestyle.webp",
-    alt: "Mohamed Riham (Riham) Addalaichenai motorbike candid photograph",
+    alt: "Mohamed Riham Addalaichenai motorbike candid photograph",
     location: "Addalaichenai, Sri Lanka",
     badge: "Motorbike Candid",
   },
   {
     src: "/images/profile/random/colombo-urban-candid.webp",
-    alt: "Mohamed Riham (Riham) Colombo urban candid portrait",
+    alt: "Mohamed Riham Colombo urban candid portrait",
     location: "Colombo, Sri Lanka",
     badge: "Urban Candid",
   },
   {
     src: "/images/profile/random/motorbike-sunset-portrait.webp",
-    alt: "Mohamed Riham (Riham) outdoor golden hour portrait with motorbike",
+    alt: "Mohamed Riham outdoor golden hour portrait with motorbike",
     location: "Addalaichenai, Sri Lanka",
     badge: "Golden Hour Candid",
   },
@@ -43,7 +43,7 @@ export default function BentoGrid() {
 
   const currentBentoPhoto = BENTO_CANDIDS[bentoIdx];
   return (
-    <section id="dossier" className="py-20 lg:py-28 border-b border-[#6B503C]/20 bg-[#040202]">
+    <section id="dossier" className="py-20 lg:py-28 border-b border-[#6B503C]/20 bg-transparent">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
 
         {/* Section Header */}
@@ -199,7 +199,7 @@ export default function BentoGrid() {
               <div className="relative aspect-[16/10] w-full border border-[#6B503C]/30 bg-[#040202] overflow-hidden">
                 <Image
                   src={getAssetPath("/images/experience/bcas-bits-honour.webp")}
-                  alt="Mohamed Riham (Riham) receiving official commendation at BCAS IT Society ceremony in Kalmunai"
+                  alt="Mohamed Riham receiving official commendation at BCAS IT Society ceremony in Kalmunai"
                   fill
                   className="object-cover object-[center_30%] group-hover:scale-105 transition-transform duration-700"
                   sizes="(max-width: 768px) 100vw, 360px"
@@ -242,7 +242,7 @@ export default function BentoGrid() {
               <div className="relative aspect-[16/10] w-full border border-[#6B503C]/30 bg-[#040202] overflow-hidden">
                 <Image
                   src={getAssetPath("/images/experience/bcas-pc-clinic-software-bench.webp")}
-                  alt="Mohamed Riham (Riham) and technical team at BCAS PC Clinic software and diagnostics bench"
+                  alt="Mohamed Riham and technical team at BCAS PC Clinic software and diagnostics bench"
                   fill
                   className="object-cover object-[center_35%] group-hover:scale-105 transition-transform duration-700"
                   sizes="(max-width: 768px) 100vw, 360px"

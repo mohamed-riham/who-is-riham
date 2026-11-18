@@ -66,3 +66,43 @@ All primary text combinations exceed WCAG 2.2 AA contrast requirements ($> 4.5:1
 3. **Experience Ceremony Photo (`bcas-bits-honour.webp`):**
    - Verified event photo at BCAS Kalmunai Auditorium on July 30, 2025.
    - Confirms BITS Batch Representative role.
+
+---
+
+## NOIR EDITORIAL 5.1 & 5.2 VERIFICATION AUDIT (18 Nov 2026)
+
+### 1. Viewport Responsive Stress Test (Horizontal Overflow Check)
+- Evaluated via Chrome DevTools DOM layout geometry: `document.documentElement.scrollWidth > window.innerWidth`:
+
+| Viewport Width | Device Target | `scrollWidth` | `innerWidth` | Overflow Detected? | Verdict |
+| :--- | :--- | :--- | :--- | :--- | :--- |
+| **360px** | Small Mobile (Galaxy S8/S9) | 360px | 360px | `false` | **PASS** |
+| **390px** | iPhone 12/13/14 Pro | 390px | 390px | `false` | **PASS** |
+| **430px** | iPhone 14/15/16 Pro Max | 430px | 430px | `false` | **PASS** |
+| **768px** | iPad Mini / Tablet Portrait | 760px | 768px | `false` | **PASS** |
+| **1024px** | iPad Pro / Small Laptop | 1016px | 1024px | `false` | **PASS** |
+| **1366px** | Standard HD Desktop | 1358px | 1366px | `false` | **PASS** |
+| **1600px** | Ultrawide Workstation | 1592px | 1600px | `false` | **PASS** |
+
+### 2. Smart Progressive Disclosure Verification
+- Evaluated interactive button toggles, DOM re-rendering, and `aria-expanded` attributes:
+
+| Component | Target Ledger | Initial Visible Count | Expanded Count | Toggle Reversibility | Verdict |
+| :--- | :--- | :--- | :--- | :--- | :--- |
+| `AllProjects` | `#projects-catalog-ledger` | 4 projects | 11 projects | Yes (`Show Fewer Projects`) | **PASS** |
+| `SkillsMatrix` | `#skills-inventory-ledger` | 2 core categories | 4 categories (28 skills) | Yes (`Show Core Capabilities`) | **PASS** |
+| `ExperienceSection`| `#experience-ledger` | 2 primary roles | 3 total roles | Yes (`Show Fewer Roles`) | **PASS** |
+| `EducationSection` | `#academic-history-expanded`| 1 featured BSc | 1 featured + 3 revealed | Yes (`Show Less History`) | **PASS** |
+| `Certifications` | `#certifications-registry-ledger`| 3 credentials | 5 credentials | Yes (`Show Fewer Credentials`) | **PASS** |
+| `WritingSection` | `#writing-publications-ledger` | 4 publications | 9 publications | Yes (`Show Fewer Publications`)| **PASS** |
+| `AboutSection` | `#extended-dossier-faq` | Hidden (concise) | 3 FAQ panels revealed | Yes (`Hide Extended Dossier`)| **PASS** |
+
+### 3. Atmospheric Lighting & Palette Verification
+- **Upper Ambient Green Glow**: Rendered with muted emerald (`#426B4A`) and supporting tone (`#527A51`), smoothly blending into `#040202` without neon glare or text obstruction.
+- **Warm Ember Corners**: Perfectly matches uploaded pattern with burnt orange (`#C43E17`) and dark brown (`#5C2712`).
+- **Contrast Ratios**: Body text (`#F9F9F6`, `#D3C29F`) on dark surfaces exceeds WCAG AAA standards (> 11:1).
+
+### 4. Identity & Naming Audit
+- **Spelling**: Cleaned to `Mohamed Riham` (0 occurrences of "Riyaz", 0 redundant `(Riham)` in body headings).
+- **Professional Title**: Strictly standardized as `Data Science Undergraduate` across Hero, Navigation, About, Education, and Metadata.
+- **Privacy**: 0 student registration numbers and 0 coordinates present in rendered markup.

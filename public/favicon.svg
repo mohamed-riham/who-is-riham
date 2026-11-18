@@ -1,0 +1,80 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" width="512" height="512">
+    <defs>
+      <!-- Base deep obsidian gradient -->
+      <linearGradient id="bgGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+        <stop offset="0%" stop-color="#070302"/>
+        <stop offset="60%" stop-color="#040202"/>
+        <stop offset="100%" stop-color="#020101"/>
+      </linearGradient>
+
+      <!-- Warm Amber / Burnt Orange atmospheric glow in tile -->
+      <radialGradient id="tileGlow" cx="80%" cy="15%" r="65%">
+        <stop offset="0%" stop-color="#C43E17" stop-opacity="0.32"/>
+        <stop offset="60%" stop-color="#5C2712" stop-opacity="0.10"/>
+        <stop offset="100%" stop-color="#040202" stop-opacity="0"/>
+      </radialGradient>
+
+      <!-- Subtle emerald rim accent -->
+      <radialGradient id="emeraldRim" cx="15%" cy="85%" r="50%">
+        <stop offset="0%" stop-color="#426B4A" stop-opacity="0.22"/>
+        <stop offset="100%" stop-color="#040202" stop-opacity="0"/>
+      </radialGradient>
+
+      <!-- Ivory to Amber-Gold gradient for Monogram -->
+      <linearGradient id="rGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+        <stop offset="0%" stop-color="#F9F9F6"/>
+        <stop offset="60%" stop-color="#F9F9F6"/>
+        <stop offset="100%" stop-color="#DEA355"/>
+      </linearGradient>
+
+      <!-- Burnt orange linear for diagonal leg -->
+      <linearGradient id="legGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+        <stop offset="0%" stop-color="#DEA355"/>
+        <stop offset="100%" stop-color="#C43E17"/>
+      </linearGradient>
+    </defs>
+
+    <!-- Obsidian Tile Background -->
+    <rect width="512" height="512" rx="113" fill="url(#bgGrad)"/>
+    <rect width="512" height="512" rx="113" fill="url(#tileGlow)"/>
+    <rect width="512" height="512" rx="113" fill="url(#emeraldRim)"/>
+
+    <rect x="8" y="8" width="496" height="496" rx="109" fill="none" stroke="#5C2712" stroke-width="3" stroke-opacity="0.55"/>
+
+    <!-- Transformed Geometric 'R' Monogram -->
+    <g transform="translate(256, 256) scale(0.86) translate(-256, -256)">
+      <!-- 1. Vertical Stem (Heavy editorial serif backbone) -->
+      <rect x="132" y="100" width="56" height="312" rx="4" fill="url(#rGrad)"/>
+
+      <!-- 2. Upper Bowl (Sleek geometric arch) -->
+      <!-- Outer arch path -->
+      <path d="M 188 100 
+               H 286 
+               C 348 100, 394 136, 394 196 
+               C 394 252, 348 288, 286 288 
+               H 188 
+               Z
+               M 188 152 
+               H 282 
+               C 316 152, 340 170, 340 196 
+               C 340 222, 316 236, 282 236 
+               H 188 
+               Z" 
+            fill="url(#rGrad)" />
+
+      <!-- 3. Dynamic Architectural Leg -->
+      <path d="M 270 274 
+               L 364 412 
+               H 300 
+               L 220 286 
+               H 260 
+               Z" 
+            fill="url(#legGrad)"/>
+
+      <!-- 4. Burnt Orange Diamond Pin (Geometric signature brand accent in bowl counter) -->
+      <rect x="238" y="184" width="20" height="20" rx="2" transform="rotate(45 248 194)" fill="#C43E17"/>
+
+      <!-- 5. Fine Amber Gold Accent Terminal -->
+      <circle cx="376" cy="406" r="8" fill="#DEA355"/>
+    </g>
+  </svg>

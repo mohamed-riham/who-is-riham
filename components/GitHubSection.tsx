@@ -1,8 +1,9 @@
 "use client";
 
+import { useState } from "react";
 import Image from "next/image";
 import Link from "next/link";
-import { ArrowUpRight, GitBranch, ExternalLink, Code2, Terminal } from "lucide-react";
+import { ArrowUpRight, GitBranch, ExternalLink, Code2, Terminal, ChevronDown } from "lucide-react";
 import { GithubIcon, HuggingFaceIcon } from "@/components/Icons";
 import { profile } from "@/content/profile";
 import { getAssetPath } from "@/lib/utils";
@@ -74,8 +75,13 @@ const curatedRepos: CuratedRepo[] = [
 ];
 
 export default function GitHubSection() {
+  const [showAllRepos, setShowAllRepos] = useState(false);
+
+  const INITIAL_COUNT = 4;
+  const visibleRepos = showAllRepos ? curatedRepos : curatedRepos.slice(0, INITIAL_COUNT);
+
   return (
-    <section id="github" className="py-24 lg:py-32 border-b border-[#6B503C]/20 bg-[#040202]">
+    <section id="github" className="py-24 lg:py-32 border-b border-[#6B503C]/20 bg-transparent">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-12">
 
         {/* Section Header */}
@@ -144,11 +150,11 @@ export default function GitHubSection() {
         </div>
 
         {/* Editorial Repository Table */}
-        <div className="divide-y divide-[#6B503C]/20 border-t border-b border-[#6B503C]/20">
-          {curatedRepos.map((repo, idx) => (
+        <div id="github-repos-ledger" className="divide-y divide-[#6B503C]/20 border-t border-b border-[#6B503C]/20">
+          {visibleRepos.map((repo, idx) => (
             <div
               key={repo.name}
-              className="py-6 flex flex-col md:flex-row md:items-center justify-between gap-4 group hover:bg-[#0D0704] transition-colors px-4 -mx-4"
+              className="py-6 flex flex-col md:flex-row md:items-center justify-between gap-4 group hover:bg-[#0D0704] transition-colors px-3 sm:px-4"
             >
               <div className="space-y-1 md:w-2/3">
                 <div className="flex items-center gap-2.5">
@@ -201,6 +207,30 @@ export default function GitHubSection() {
             </div>
           ))}
         </div>
+
+        {/* Smart View More / Show Less Controls (Noir Editorial 5.2) */}
+        {curatedRepos.length > INITIAL_COUNT && (
+          <div className="pt-8 flex justify-center">
+            <button
+              onClick={() => setShowAllRepos(!showAllRepos)}
+              aria-expanded={showAllRepos}
+              aria-controls="github-repos-ledger"
+              className="inline-flex items-center gap-2.5 px-6 py-3 bg-[#120704] hover:bg-[#1C0E07] border border-[#6B503C]/35 hover:border-[#DEA355] text-xs font-mono font-bold text-[#F9F9F6] transition-all group shadow-md"
+            >
+              <span className="w-1.5 h-1.5 rounded-full bg-[#DEA355] group-hover:scale-125 transition-transform" />
+              <span>
+                {showAllRepos
+                  ? "Show Fewer Repositories"
+                  : `View All Repositories (${curatedRepos.length} Curated Repos)`}
+              </span>
+              <ChevronDown
+                className={`w-3.5 h-3.5 text-[#DEA355] transition-transform duration-300 ${
+                  showAllRepos ? "rotate-180" : ""
+                }`}
+              />
+            </button>
+          </div>
+        )}
 
       </div>
     </section>

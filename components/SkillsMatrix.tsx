@@ -1,26 +1,25 @@
 "use client";
 
-import { Code2, BrainCircuit, Terminal, Database, Cpu, Layers } from "lucide-react";
+import { useState } from "react";
+import { Code2, BrainCircuit, Terminal, Database, Cpu, Layers, ChevronDown } from "lucide-react";
 import { skillCategories } from "@/content/skills";
 
 export default function SkillsMatrix() {
-  const getIcon = (idx: number) => {
-    switch (idx) {
-      case 0:
-        return <Code2 className="w-4 h-4 text-[#DEA355]" />;
-      case 1:
-        return <BrainCircuit className="w-4 h-4 text-[#C43E17]" />;
-      case 2:
-        return <Terminal className="w-4 h-4 text-[#DEA355]" />;
-      case 3:
-        return <Database className="w-4 h-4 text-[#678292]" />;
-      default:
-        return <Cpu className="w-4 h-4 text-[#DEA355]" />;
-    }
+  const [showAllSkills, setShowAllSkills] = useState(false);
+
+  // Core 2 categories for initial concise display (Data Science & AI + Analytics)
+  const initialCategories = skillCategories.slice(1, 3);
+  const visibleCategories = showAllSkills ? skillCategories : initialCategories;
+
+  const getIcon = (title: string) => {
+    if (title.includes("Machine Learning")) return <BrainCircuit className="w-4 h-4 text-[#C43E17]" />;
+    if (title.includes("Data Science")) return <Database className="w-4 h-4 text-[#DEA355]" />;
+    if (title.includes("Programming")) return <Code2 className="w-4 h-4 text-[#DEA355]" />;
+    return <Terminal className="w-4 h-4 text-[#678292]" />;
   };
 
   return (
-    <section id="capabilities" className="py-24 lg:py-32 border-b border-[#6B503C]/20 bg-[#040202]">
+    <section id="capabilities" className="py-24 lg:py-32 border-b border-[#6B503C]/20 bg-transparent">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
 
         {/* Section Header */}
@@ -39,8 +38,8 @@ export default function SkillsMatrix() {
         </div>
 
         {/* Architectural Capability Ledger */}
-        <div className="divide-y divide-[#6B503C]/25">
-          {skillCategories.map((category, idx) => (
+        <div id="skills-inventory-ledger" className="divide-y divide-[#6B503C]/25">
+          {visibleCategories.map((category) => (
             <div
               key={category.title}
               className="py-10 lg:py-12 grid grid-cols-1 lg:grid-cols-12 gap-8 items-start group"
@@ -49,7 +48,7 @@ export default function SkillsMatrix() {
               <div className="lg:col-span-4 space-y-3">
                 <div className="flex items-center gap-3">
                   <div className="p-2 bg-[#140A06] border border-[#6B503C]/30 text-[#DEA355]">
-                    {getIcon(idx)}
+                    {getIcon(category.title)}
                   </div>
                   <h3 className="text-xl font-bold text-[#F9F9F6] font-sans group-hover:text-[#DEA355] transition-colors">
                     {category.title}
@@ -82,6 +81,28 @@ export default function SkillsMatrix() {
               </div>
             </div>
           ))}
+        </div>
+
+        {/* Smart View More / Show Less Controls (Noir Editorial 5.2) */}
+        <div className="pt-10 flex justify-center">
+          <button
+            onClick={() => setShowAllSkills(!showAllSkills)}
+            aria-expanded={showAllSkills}
+            aria-controls="skills-inventory-ledger"
+            className="inline-flex items-center gap-2.5 px-6 py-3 bg-[#120704] hover:bg-[#1C0E07] border border-[#6B503C]/35 hover:border-[#DEA355] text-xs font-mono font-bold text-[#F9F9F6] transition-all group shadow-md"
+          >
+            <span className="w-1.5 h-1.5 rounded-full bg-[#DEA355] group-hover:scale-125 transition-transform" />
+            <span>
+              {showAllSkills
+                ? "Show Core Capabilities Only"
+                : `View Complete Skills Inventory (${skillCategories.length} Categories, 28 Skills)`}
+            </span>
+            <ChevronDown
+              className={`w-3.5 h-3.5 text-[#DEA355] transition-transform duration-300 ${
+                showAllSkills ? "rotate-180" : ""
+              }`}
+            />
+          </button>
         </div>
 
       </div>

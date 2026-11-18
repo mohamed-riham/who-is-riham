@@ -13,7 +13,7 @@ export default function FeaturedProjects() {
   const edith = projects.find((p) => p.slug === "edith-voice-assistant");
 
   return (
-    <section id="showcase" className="py-24 lg:py-32 border-b border-[#6B503C]/20 bg-[#040202]">
+    <section id="showcase" className="py-24 lg:py-32 border-b border-[#6B503C]/20 bg-transparent">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-24">
 
         {/* Section Masthead */}

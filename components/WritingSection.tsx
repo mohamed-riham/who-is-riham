@@ -1,11 +1,17 @@
 "use client";
 
-import { ArrowUpRight, Calendar, Clock, BookOpen } from "lucide-react";
+import { useState } from "react";
+import { ArrowUpRight, Calendar, Clock, BookOpen, ChevronDown } from "lucide-react";
 import { writingArticles } from "@/content/writing";
 
 export default function WritingSection() {
+  const [showAllArticles, setShowAllArticles] = useState(false);
+
+  const INITIAL_COUNT = 4;
+  const visibleArticles = showAllArticles ? writingArticles : writingArticles.slice(0, INITIAL_COUNT);
+
   return (
-    <section id="writing" className="py-24 lg:py-32 border-b border-[#6B503C]/20 bg-[#040202]">
+    <section id="writing" className="py-24 lg:py-32 border-b border-[#6B503C]/20 bg-transparent">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
 
         {/* Section Header */}
@@ -24,14 +30,14 @@ export default function WritingSection() {
         </div>
 
         {/* Numbered Editorial Publication List */}
-        <div className="divide-y divide-[#6B503C]/20">
-          {writingArticles.map((article, idx) => (
+        <div id="writing-publications-ledger" className="divide-y divide-[#6B503C]/20">
+          {visibleArticles.map((article, idx) => (
             <a
               key={idx}
               href={article.link}
               target="_blank"
               rel="noopener noreferrer"
-              className="py-8 flex flex-col lg:flex-row lg:items-center justify-between gap-6 group hover:bg-[#0D0704] transition-colors px-4 -mx-4"
+              className="py-8 flex flex-col lg:flex-row lg:items-center justify-between gap-6 group hover:bg-[#0D0704] transition-colors px-3 sm:px-4"
             >
               <div className="flex items-start gap-6 lg:w-2/3">
                 <span className="font-mono text-xs text-[#8E7F70] group-hover:text-[#C43E17] transition-colors pt-1">
@@ -69,13 +75,37 @@ export default function WritingSection() {
                   ))}
                 </div>
 
-                <div className="p-2 bg-[#120704] text-[#D3C29F] group-hover:text-[#F9F9F6] group-hover:bg-[#C43E17] group-hover:text-[#040202] transition-colors">
+                <div className="p-2 bg-[#120704] text-[#D3C29F] group-hover:text-[#040202] group-hover:bg-[#C43E17] transition-colors">
                   <ArrowUpRight className="w-4 h-4" />
                 </div>
               </div>
             </a>
           ))}
         </div>
+
+        {/* Smart View More / Show Less Controls (Noir Editorial 5.2) */}
+        {writingArticles.length > INITIAL_COUNT && (
+          <div className="pt-10 flex justify-center">
+            <button
+              onClick={() => setShowAllArticles(!showAllArticles)}
+              aria-expanded={showAllArticles}
+              aria-controls="writing-publications-ledger"
+              className="inline-flex items-center gap-2.5 px-6 py-3 bg-[#120704] hover:bg-[#1C0E07] border border-[#6B503C]/35 hover:border-[#DEA355] text-xs font-mono font-bold text-[#F9F9F6] transition-all group shadow-md"
+            >
+              <span className="w-1.5 h-1.5 rounded-full bg-[#DEA355] group-hover:scale-125 transition-transform" />
+              <span>
+                {showAllArticles
+                  ? "Show Fewer Publications"
+                  : `View All Publications & Research (${writingArticles.length} Total)`}
+              </span>
+              <ChevronDown
+                className={`w-3.5 h-3.5 text-[#DEA355] transition-transform duration-300 ${
+                  showAllArticles ? "rotate-180" : ""
+                }`}
+              />
+            </button>
+          </div>
+        )}
 
       </div>
     </section>

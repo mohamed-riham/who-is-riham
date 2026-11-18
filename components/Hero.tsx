@@ -14,7 +14,7 @@ import {
 
 export default function Hero() {
   return (
-    <section className="relative pt-28 pb-16 lg:pt-36 lg:pb-24 border-b border-[#6B503C]/20 bg-[#040202] overflow-hidden">
+    <section className="relative pt-28 pb-16 lg:pt-36 lg:pb-24 border-b border-[#6B503C]/20 bg-transparent overflow-hidden">
       {/* Subtle Background Architectural Ambient Warmth */}
       <div className="absolute top-0 right-1/4 w-[500px] h-[500px] bg-radial from-[#5C2712]/30 via-[#C43E17]/05 to-transparent blur-3xl pointer-events-none" />
 
@@ -37,7 +37,7 @@ export default function Hero() {
 
               <div className="flex flex-wrap items-center gap-3 pt-1">
                 <span className="text-xl sm:text-2xl font-serif italic text-[#DEA355]">
-                  Mohamed Riham (Riham)
+                  Mohamed Riham
                 </span>
                 <span className="text-[#6B503C]">/</span>
                 <span className="text-xs sm:text-sm font-mono text-[#D3C29F]">
@@ -179,8 +179,8 @@ export default function Hero() {
 
                   <Image
                     src={getAssetPath("/images/profile/mohamed-riham-portrait-cutout.webp")}
-                    alt="Mohamed Riham (Riham) — Data Science Undergraduate editorial portrait photograph"
-                    title="Mohamed Riham (Riham) — Data Science Undergraduate"
+                    alt="Mohamed Riham — Data Science Undergraduate editorial portrait photograph"
+                    title="Mohamed Riham — Data Science Undergraduate"
                     fill
                     priority
                     className="object-contain object-bottom"
