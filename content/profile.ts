@@ -31,7 +31,7 @@ export const profile: Profile = {
   role: "Data Science Student",
   positioning: "Data Science student at ICBT Campus pursuing a BSc (Hons) Data Science (Top-Up) delivered through Cardiff Metropolitan University. I build applied AI, computer vision models, and intelligent systems with empirical rigor.",
   summary:
-    "Data Science student at ICBT Campus, pursuing a BSc (Hons) Data Science (Top-Up) delivered through Cardiff Metropolitan University. Supported by a completed Pearson BTEC HND in Software Engineering, Distinction. Specializing in computer vision pipelines (YOLOv8 99.2% mAP), empirical machine learning validation, offline voice automation, and data analytics architectures.",
+    "Data Science student at ICBT Campus, pursuing a BSc (Hons) Data Science (Top-Up) delivered through Cardiff Metropolitan University. Supported by a completed Pearson BTEC HND in Software Engineering, Merit. Specializing in computer vision pipelines (YOLOv8 99.2% mAP), empirical machine learning validation, offline voice automation, and data analytics architectures.",
   location: "Addalaichenai & Colombo, Sri Lanka",
   email: "mohamedriham93@gmail.com",
   secondaryEmail: "mohamedrihamofficial@gmail.com",
@@ -60,7 +60,7 @@ export const profile: Profile = {
     {
       value: "Pearson",
       label: "BTEC HND",
-      sublabel: "Software Engineering, Distinction",
+      sublabel: "Software Engineering, Merit",
     },
     {
       value: "1,000+",

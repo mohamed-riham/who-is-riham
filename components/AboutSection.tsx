@@ -169,7 +169,7 @@ export default function AboutSection() {
                 </div>
                 <div className="flex justify-between">
                   <span className="text-[#A09383]">Prior Qualification:</span>
-                  <span className="text-[#C43E17] font-semibold">Pearson BTEC HND, Distinction</span>
+                  <span className="text-[#C43E17] font-semibold">Pearson BTEC HND, Merit</span>
                 </div>
               </div>
             </div>
@@ -187,7 +187,7 @@ export default function AboutSection() {
               </p>
 
               <p className="text-base text-[#D3C29F] font-light leading-relaxed">
-                His academic journey is supported by a completed Pearson BTEC HND in Software Engineering, Distinction. He specializes in practical artificial intelligence, computer vision architectures, and empirical machine learning validation.
+                His academic journey is supported by a completed Pearson BTEC HND in Software Engineering, Merit. He specializes in practical artificial intelligence, computer vision architectures, and empirical machine learning validation.
               </p>
 
               <p className="text-base text-[#D3C29F] font-light leading-relaxed">

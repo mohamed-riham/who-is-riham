@@ -208,7 +208,7 @@ export default function AboutPage() {
               <strong>Mohamed Riham</strong>, also known by his legal name <strong>Mohamed Ansar Mohamed Riham</strong> (commonly known as <strong>Riham</strong>), is a Sri Lankan Data Science student at ICBT Campus, pursuing a BSc (Hons) Data Science (Top-Up) delivered through Cardiff Metropolitan University.
             </p>
             <p>
-              His academic journey is supported by a completed Pearson BTEC HND in Software Engineering, Distinction. He specializes in practical artificial intelligence, computer vision architectures, and empirical machine learning validation.
+              His academic journey is supported by a completed Pearson BTEC HND in Software Engineering, Merit. He specializes in practical artificial intelligence, computer vision architectures, and empirical machine learning validation.
             </p>
             <p>
               Rather than relying on simulated datasets or synthetic claims, he tackles real-world engineering constraints: curating and annotating a 1,000+ custom banknote dataset to train a 99.20% mAP@50 YOLOv8 currency detector for the visually impaired, benchmark-testing fraud detection models across 284,807 European cardholder transactions (492 frauds, 0.172% ratio), and engineering local-first desktop automation with neural voice synthesis.

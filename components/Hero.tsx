@@ -44,7 +44,7 @@ export default function Hero() {
 
             {/* Concise Introduction */}
             <p className="text-sm sm:text-base text-[#D3C29F]/85 max-w-xl font-light leading-relaxed font-sans">
-              Data Science student at ICBT Campus, pursuing a BSc (Hons) Data Science (Top-Up) delivered through Cardiff Metropolitan University. I build applied AI systems, computer vision models, and practical machine learning solutions supported by a Pearson BTEC HND in Software Engineering, Distinction.
+              Data Science student at ICBT Campus, pursuing a BSc (Hons) Data Science (Top-Up) delivered through Cardiff Metropolitan University. I build applied AI systems, computer vision models, and practical machine learning solutions supported by a Pearson BTEC HND in Software Engineering, Merit.
             </p>
 
             {/* Action Buttons & Verified Profiles */}
@@ -154,53 +154,6 @@ export default function Hero() {
                   <span>Mohamed Riham</span>
                   <span className="text-[#C43E17]">Cardiff Met · ICBT Campus</span>
                 </div>
-              </div>
-            </div>
-          </div>
-        </div>
-
-        {/* =========================================================================
-            SECTION 5: HORIZONTAL ACHIEVEMENT STRIP (AI ROBOTICS REFERENCE PATTERN)
-            ========================================================================= */}
-        <div className="pt-8 border-t border-white/10">
-          <div className="grid grid-cols-2 lg:grid-cols-4 gap-6 lg:gap-8 divide-y sm:divide-y-0 sm:divide-x divide-white/10">
-            {/* Metric 01 */}
-            <div className="pt-4 sm:pt-0 sm:px-4 space-y-1">
-              <div className="text-3xl sm:text-4xl lg:text-5xl font-black text-[#F9F9F6] tracking-tight font-sans">
-                99.20<span className="text-[#C43E17]">%</span>
-              </div>
-              <div className="text-xs font-mono text-[#8E7F70] uppercase tracking-wider">
-                YOLOv8n mAP@50 Accuracy
-              </div>
-            </div>
-
-            {/* Metric 02 */}
-            <div className="pt-4 sm:pt-0 sm:px-4 space-y-1">
-              <div className="text-3xl sm:text-4xl lg:text-5xl font-black text-[#F9F9F6] tracking-tight font-sans">
-                284,807
-              </div>
-              <div className="text-xs font-mono text-[#8E7F70] uppercase tracking-wider">
-                Transactions Analyzed
-              </div>
-            </div>
-
-            {/* Metric 03 */}
-            <div className="pt-4 sm:pt-0 sm:px-4 space-y-1">
-              <div className="text-2xl sm:text-3xl lg:text-4xl font-black text-[#C43E17] tracking-tight font-sans">
-                Distinction
-              </div>
-              <div className="text-xs font-mono text-[#8E7F70] uppercase tracking-wider">
-                Pearson BTEC HND (Software Eng)
-              </div>
-            </div>
-
-            {/* Metric 04 */}
-            <div className="pt-4 sm:pt-0 sm:px-4 space-y-1">
-              <div className="text-3xl sm:text-4xl lg:text-5xl font-black text-[#F9F9F6] tracking-tight font-sans">
-                6 <span className="text-lg text-[#F9F9F6]">Classes</span>
-              </div>
-              <div className="text-xs font-mono text-[#8E7F70] uppercase tracking-wider">
-                Banknote Denominations
               </div>
             </div>
           </div>

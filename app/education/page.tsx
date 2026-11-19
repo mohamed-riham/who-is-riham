@@ -8,14 +8,14 @@ export const metadata: Metadata = {
     absolute: "Mohamed Riham | Education and Academic Background",
   },
   description:
-    "Discover the academic credentials of Mohamed Riham: BSc (Hons) Data Science (Top-Up) at ICBT Campus / Cardiff Metropolitan University and Pearson BTEC HND in Software Engineering, Distinction.",
+    "Discover the academic credentials of Mohamed Riham: BSc (Hons) Data Science (Top-Up) at ICBT Campus / Cardiff Metropolitan University and Pearson BTEC HND in Software Engineering, Merit.",
   alternates: {
     canonical: "https://mohamed-riham.github.io/who-is-riham/education/",
   },
   openGraph: {
     title: "Mohamed Riham | Education and Academic Background",
     description:
-      "Discover the academic credentials of Mohamed Riham: BSc (Hons) Data Science (Top-Up) at ICBT Campus / Cardiff Metropolitan University and Pearson BTEC HND in Software Engineering, Distinction.",
+      "Discover the academic credentials of Mohamed Riham: BSc (Hons) Data Science (Top-Up) at ICBT Campus / Cardiff Metropolitan University and Pearson BTEC HND in Software Engineering, Merit.",
     url: "https://mohamed-riham.github.io/who-is-riham/education/",
     images: [
       {
@@ -105,7 +105,7 @@ export default function EducationPage() {
           </h1>
 
           <p className="text-base sm:text-lg text-[#D3C29F] font-light leading-relaxed">
-            Factual record of degree programs, British higher education credentials, awarding universities, and verified distinction grades achieved by Mohamed Riham.
+            Factual record of degree programs, British higher education credentials, awarding universities, and verified academic grades achieved by Mohamed Riham.
           </p>
         </div>
 

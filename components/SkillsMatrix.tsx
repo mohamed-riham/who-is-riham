@@ -68,7 +68,7 @@ export default function SkillsMatrix() {
             </h2>
           </div>
           <p className="max-w-md text-sm text-[#A09383] leading-relaxed font-light">
-            Every capability cited below is substantiated by an open repository, benchmarked evaluation, or academic distinction. No arbitrary meters.
+            Every capability cited below is substantiated by an open repository, benchmarked evaluation, or academic credential. No arbitrary meters.
           </p>
         </div>
 

@@ -34,7 +34,7 @@ export default function EducationSection() {
             </h2>
           </div>
           <p className="max-w-md text-sm text-[#A09383] leading-relaxed font-light">
-            British undergraduate degree in progress with previous Pearson BTEC HND in Software Engineering, Distinction.
+            British undergraduate degree in progress with previous Pearson BTEC HND in Software Engineering, Merit.
           </p>
         </div>
 
@@ -151,7 +151,7 @@ export default function EducationSection() {
         )}
 
         {/* =========================================================================
-            FEATURED SECONDARY QUALIFICATION (PEARSON BTEC HND IN SOFTWARE ENGINEERING, DISTINCTION)
+            FEATURED SECONDARY QUALIFICATION (PEARSON BTEC HND IN SOFTWARE ENGINEERING, MERIT)
             ========================================================================= */}
         {hndQualification && (
           <div className="border border-white/10 bg-[#0A0503] relative group rounded-sm hover:border-[#C43E17]/60 hover:shadow-[0_0_40px_rgba(196,62,23,0.18)] transition-all duration-300 overflow-hidden">
@@ -171,7 +171,7 @@ export default function EducationSection() {
               </div>
               <div className="inline-flex items-center gap-2 px-3 py-1 bg-[#1A0B07] border border-[#C43E17]/30 text-xs font-mono text-[#C43E17]">
                 <span className="w-2 h-2 rounded-full bg-[#C43E17]" />
-                <span>COMPLETED // PEARSON BTEC HND IN SOFTWARE ENGINEERING, DISTINCTION</span>
+                <span>COMPLETED // PEARSON BTEC HND IN SOFTWARE ENGINEERING, MERIT</span>
               </div>
             </div>
 
@@ -205,7 +205,7 @@ export default function EducationSection() {
                   <div>
                     <span className="text-[#A09383] block text-[10px] uppercase">Verified Result</span>
                     <span className="text-white mt-0.5 block">
-                      Distinction
+                      Merit
                     </span>
                   </div>
                   <div>
@@ -223,7 +223,7 @@ export default function EducationSection() {
                 {/* Verified Modules */}
                 <div className="space-y-2.5 pt-2">
                   <div className="text-[11px] font-mono text-[#A09383] uppercase tracking-wider">
-                    Curriculum &amp; Distinction Breakdown:
+                    Curriculum &amp; Assessed Modules:
                   </div>
                   <div className="flex flex-wrap gap-2">
                     {hndQualification.modules.map((m) => (
@@ -254,7 +254,7 @@ export default function EducationSection() {
                   </div>
                   <div className="p-2 bg-[#0A0503] text-[10px] font-mono text-white flex items-center justify-between border-t border-white/10">
                     <span>Pearson BTEC HND</span>
-                    <span className="text-[#C43E17] font-semibold">Distinction</span>
+                    <span className="text-[#C43E17] font-semibold">Merit</span>
                   </div>
                 </div>
               </div>

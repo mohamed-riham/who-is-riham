@@ -20,7 +20,7 @@ export default function Footer() {
               Who is Mohamed Riham? — Data Science Student // Cardiff Metropolitan University, UK (studied at ICBT Campus)
             </div>
             <div className="text-[11px] text-[#C43E17] font-semibold">
-              Pearson BTEC HND in Software Engineering, Distinction
+              Pearson BTEC HND in Software Engineering, Merit
             </div>
           </div>
 
