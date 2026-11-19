@@ -140,7 +140,7 @@ async function makeWide() {
 
     <rect x="738" y="416" width="194" height="74" rx="4" fill="#0A0503" stroke="${C.darkBrown}" stroke-width="1"/>
     <rect x="738" y="416" width="3" height="74" rx="1" fill="${C.amberGold}"/>
-    <text x="752" y="448" font-family="Georgia, serif" font-size="20" font-weight="bold" fill="${C.ivory}">11 DISTINCTIONS</text>
+    <text x="752" y="448" font-family="Georgia, serif" font-size="20" font-weight="bold" fill="${C.ivory}">MERIT</text>
     <text x="752" y="472" font-family="Arial, Helvetica, sans-serif" font-size="11" font-weight="500" fill="${C.amberGold}" letter-spacing="1">Pearson BTEC HND</text>
 
     <rect x="944" y="416" width="192" height="74" rx="4" fill="#0A0503" stroke="${C.darkBrown}" stroke-width="1"/>
@@ -244,7 +244,7 @@ async function makeSquare() {
     <text x="135" y="504" text-anchor="middle" font-family="Arial, Helvetica, sans-serif" font-size="9" fill="${C.amberGold}" letter-spacing="0.5">YOLOv8n mAP@50</text>
 
     <!-- Col 2 -->
-    <text x="300" y="488" text-anchor="middle" font-family="Georgia, serif" font-size="14" font-weight="bold" fill="${C.ivory}">11 DISTINCTIONS</text>
+    <text x="300" y="488" text-anchor="middle" font-family="Georgia, serif" font-size="16" font-weight="bold" fill="${C.ivory}">MERIT</text>
     <text x="300" y="504" text-anchor="middle" font-family="Arial, Helvetica, sans-serif" font-size="9" fill="${C.amberGold}" letter-spacing="0.5">Pearson BTEC HND</text>
 
     <!-- Col 3 -->
