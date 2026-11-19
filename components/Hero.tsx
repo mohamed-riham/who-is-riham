@@ -26,24 +26,25 @@ export default function Hero() {
             {/* Identity Eyebrow Pill */}
             <div className="inline-flex items-center gap-2.5 px-3.5 py-1.5 bg-[#140A06] border border-[#C43E17]/40 shadow-[0_0_15px_rgba(196,62,23,0.18)] text-xs font-mono tracking-widest text-[#F9F9F6] uppercase">
               <span className="w-2 h-2 rounded-full bg-[#C43E17] animate-pulse shadow-[0_0_8px_#C43E17]" />
-              <span>MOHAMED RIHAM // DATA SCIENCE UNDERGRADUATE · APPLIED AI</span>
+              <span>MOHAMED RIHAM // DATA SCIENCE STUDENT · APPLIED AI</span>
             </div>
 
             {/* Massive Bold Geometric Headline (AI Robotics Reference Style) */}
             <div className="space-y-4">
               <h1 className="text-5xl sm:text-6xl md:text-7xl xl:text-8xl font-black text-[#F9F9F6] tracking-tighter leading-[0.96] font-sans">
+                <span className="sr-only">Mohamed Riham — </span>
                 Data Science <br />
                 <span className="text-[#C43E17] drop-shadow-[0_0_35px_rgba(196,62,23,0.45)]">&amp; Applied AI.</span>
               </h1>
 
               <p className="text-xl sm:text-2xl font-bold text-[#F9F9F6] font-sans tracking-tight pt-1">
-                Building applied intelligence with empirical rigor.
+                Mohamed Riham — Building applied intelligence with empirical rigor.
               </p>
             </div>
 
             {/* Concise Introduction */}
             <p className="text-sm sm:text-base text-[#D3C29F]/85 max-w-xl font-light leading-relaxed font-sans">
-              Final-year Data Science undergraduate at ICBT Campus, pursuing a BSc (Hons) awarded by Cardiff Metropolitan University. I build applied AI systems, computer vision models, and practical machine learning solutions supported by a Pearson BTEC HND with 11 Distinctions.
+              Data Science student at ICBT Campus, pursuing a BSc (Hons) Data Science (Top-Up) delivered through Cardiff Metropolitan University. I build applied AI systems, computer vision models, and practical machine learning solutions supported by a Pearson BTEC HND in Software Engineering, Distinction.
             </p>
 
             {/* Action Buttons & Verified Profiles */}
@@ -185,11 +186,11 @@ export default function Hero() {
 
             {/* Metric 03 */}
             <div className="pt-4 sm:pt-0 sm:px-4 space-y-1">
-              <div className="text-3xl sm:text-4xl lg:text-5xl font-black text-[#C43E17] tracking-tight font-sans">
-                11 <span className="text-lg text-[#F9F9F6]">/ 15</span>
+              <div className="text-2xl sm:text-3xl lg:text-4xl font-black text-[#C43E17] tracking-tight font-sans">
+                Distinction
               </div>
               <div className="text-xs font-mono text-[#8E7F70] uppercase tracking-wider">
-                Pearson HND Distinctions
+                Pearson BTEC HND (Software Eng)
               </div>
             </div>
 

@@ -17,31 +17,28 @@ export default function Footer() {
               Mohamed Riham
             </div>
             <div className="text-xs text-[#A09383]">
-              Who is Mohamed Riham? — BSc (Hons) Data Science // Cardiff Metropolitan University, UK (via ICBT Campus)
+              Who is Mohamed Riham? — Data Science Student // Cardiff Metropolitan University, UK (studied at ICBT Campus)
             </div>
             <div className="text-[11px] text-[#C43E17] font-semibold">
-              Former Pearson BTEC HND Software Engineering // 11 Distinctions
+              Pearson BTEC HND in Software Engineering, Distinction
             </div>
           </div>
 
           <div className="flex flex-wrap items-center gap-6 font-mono text-xs">
-            <Link href="/#showcase" className="text-[#D3C29F] hover:text-white transition-colors">
-              Showcase
-            </Link>
-            <Link href="/#dossier" className="text-[#D3C29F] hover:text-white transition-colors">
+            <Link href="/about/" className="text-[#D3C29F] hover:text-white transition-colors">
               About
             </Link>
-            <Link href="/#systems" className="text-[#D3C29F] hover:text-white transition-colors">
-              Systems
+            <Link href="/projects/" className="text-[#D3C29F] hover:text-white transition-colors">
+              Projects
             </Link>
-            <Link href="/#capabilities" className="text-[#D3C29F] hover:text-white transition-colors">
-              Capabilities
+            <Link href="/education/" className="text-[#D3C29F] hover:text-white transition-colors">
+              Education
             </Link>
-            <Link href="/#experience" className="text-[#D3C29F] hover:text-white transition-colors">
-              Experience
+            <Link href="/articles/" className="text-[#D3C29F] hover:text-white transition-colors">
+              Articles
             </Link>
-            <Link href="/#writing" className="text-[#D3C29F] hover:text-white transition-colors">
-              Writing
+            <Link href="/media/" className="text-[#D3C29F] hover:text-white transition-colors">
+              Media
             </Link>
             <Link href="/#contact" className="text-[#C43E17] hover:text-white transition-colors font-semibold">
               Contact

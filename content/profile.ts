@@ -28,11 +28,11 @@ export interface Profile {
 export const profile: Profile = {
   name: "Mohamed Riham",
   legalName: "Mohamed Ansar Mohamed Riham",
-  role: "Data Science Undergraduate",
-  positioning: "I build practical AI, machine learning, computer vision, and intelligent systems that solve real-world problems.",
+  role: "Data Science Student",
+  positioning: "Data Science student at ICBT Campus pursuing a BSc (Hons) Data Science (Top-Up) delivered through Cardiff Metropolitan University. I build applied AI, computer vision models, and intelligent systems with empirical rigor.",
   summary:
-    "Final-year BSc (Hons) Data Science undergraduate delivered through Cardiff Metropolitan University at ICBT Campus, holding a Pearson BTEC Higher National Diploma in Software Engineering with Merit. Specializing in computer vision pipelines, localized offline intelligent automation, edge computing, and data analytics architectures.",
-  location: "Addalaichenai & Dehiwala, Colombo, Sri Lanka",
+    "Data Science student at ICBT Campus, pursuing a BSc (Hons) Data Science (Top-Up) delivered through Cardiff Metropolitan University. Supported by a completed Pearson BTEC HND in Software Engineering, Distinction. Specializing in computer vision pipelines (YOLOv8 99.2% mAP), empirical machine learning validation, offline voice automation, and data analytics architectures.",
+  location: "Addalaichenai & Colombo, Sri Lanka",
   email: "mohamedriham93@gmail.com",
   secondaryEmail: "mohamedrihamofficial@gmail.com",
   cvPath: "/Mohamed_Riham_CV.pdf",
@@ -58,9 +58,9 @@ export const profile: Profile = {
       sublabel: "Comparative fraud research (492 frauds, 0.172%)",
     },
     {
-      value: "11",
-      label: "HND Distinctions",
-      sublabel: "Pearson BTEC Software Engineering",
+      value: "Pearson",
+      label: "BTEC HND",
+      sublabel: "Software Engineering, Distinction",
     },
     {
       value: "1,000+",

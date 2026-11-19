@@ -12,14 +12,14 @@ export interface EducationItem {
 
 export const educationList: EducationItem[] = [
   {
-    degree: "BSc (Hons) in Data Science",
-    institution: "ICBT Campus Colombo",
-    awardingBody: "Cardiff Metropolitan University, UK",
+    degree: "BSc (Hons) Data Science (Top-Up)",
+    institution: "ICBT Campus",
+    awardingBody: "Cardiff Metropolitan University",
     period: "Nov 2025 – Expected Jun 2027",
     location: "Colombo, Sri Lanka",
     status: "In Progress",
     description:
-      "Advanced undergraduate curriculum specializing in machine learning algorithms, deep neural network architectures, statistical hypothesis testing, and enterprise business intelligence pipelines.",
+      "Studied at ICBT Campus and delivered through Cardiff Metropolitan University. Advanced undergraduate curriculum specializing in machine learning algorithms, deep neural network architectures, statistical hypothesis testing, and enterprise business intelligence pipelines.",
     modules: [
       "Machine Learning & Statistical Modeling",
       "Deep Learning & Computer Vision",
@@ -29,15 +29,15 @@ export const educationList: EducationItem[] = [
     ],
   },
   {
-    degree: "BTEC Higher National Diploma in Computing (Software Engineering)",
+    degree: "Pearson BTEC HND in Software Engineering",
     institution: "BCAS Campus Kalmunai",
     awardingBody: "Pearson, UK",
     period: "Dec 2023 – Mar 2025",
     location: "Kalmunai, Sri Lanka",
     status: "Completed",
-    grade: "Merit (11 Distinctions, 4 Merits across 15 Units)",
+    grade: "Distinction",
     description:
-      "Comprehensive British higher education computing program covering rigorous software architecture, object-oriented systems, database normalization, algorithms, and security.",
+      "Pearson BTEC Higher National Diploma in Software Engineering completed with Distinction, covering software architecture, object-oriented systems, database normalization, algorithms, and security.",
     modules: [
       "Programming (Distinction)",
       "Data Structures & Algorithms (Distinction)",

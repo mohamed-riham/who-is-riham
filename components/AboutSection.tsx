@@ -168,8 +168,8 @@ export default function AboutSection() {
                   <span className="text-white font-medium">ICBT Campus, Sri Lanka</span>
                 </div>
                 <div className="flex justify-between">
-                  <span className="text-[#A09383]">Prior Diploma:</span>
-                  <span className="text-[#C43E17] font-semibold">Pearson BTEC HND (11 Distinctions)</span>
+                  <span className="text-[#A09383]">Prior Qualification:</span>
+                  <span className="text-[#C43E17] font-semibold">Pearson BTEC HND, Distinction</span>
                 </div>
               </div>
             </div>
@@ -179,15 +179,19 @@ export default function AboutSection() {
           <div className="lg:col-span-7 space-y-8">
             <div className="space-y-4">
               <h3 className="text-2xl sm:text-3xl lg:text-4xl font-extrabold text-white font-sans leading-tight">
-                Bridging statistical data science with hands-on systems engineering.
+                Who is Riham? <span className="text-[#C43E17]">Applied Data Science &amp; AI.</span>
               </h3>
 
-              <p className="text-base text-[#D3C29F] font-light leading-relaxed">
-                I am a final-year Data Science undergraduate at ICBT Campus, studying for a BSc (Hons) in Data Science awarded by Cardiff Metropolitan University, UK. Before this, I completed a Pearson BTEC Higher National Diploma in Software Engineering with Merit, earning 11 Distinctions across 15 technical computing units.
+              <p className="text-base sm:text-lg text-[#F9F9F6] font-medium leading-relaxed">
+                Mohamed Riham, also known by his legal name Mohamed Ansar Mohamed Riham (commonly known as Riham), is a Sri Lankan Data Science student at ICBT Campus, pursuing a BSc (Hons) Data Science (Top-Up) delivered through Cardiff Metropolitan University.
               </p>
 
               <p className="text-base text-[#D3C29F] font-light leading-relaxed">
-                My engineering ethos is rooted in building working, verifiable systems. Rather than relying on simulated datasets or synthetic hype, I tackle genuine technical constraints—training a 99.20% mAP@50 YOLOv8 currency detector for the visually impaired, benchmark-testing fraud detection models across 284,807 real transactions (492 frauds, 0.172% ratio), and engineering local-first desktop automation with neural voice synthesis.
+                His academic journey is supported by a completed Pearson BTEC HND in Software Engineering, Distinction. He specializes in practical artificial intelligence, computer vision architectures, and empirical machine learning validation.
+              </p>
+
+              <p className="text-base text-[#D3C29F] font-light leading-relaxed">
+                His engineering ethos is rooted in building working, verifiable systems. Rather than relying on simulated datasets or synthetic hype, he tackles genuine technical challenges—training a 99.20% mAP@50 YOLOv8 currency detector for the visually impaired, benchmark-testing fraud detection models across 284,807 real transactions (492 frauds, 0.172% ratio), and engineering local-first desktop automation with neural voice synthesis.
               </p>
             </div>
 

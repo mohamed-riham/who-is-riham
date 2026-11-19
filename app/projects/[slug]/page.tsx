@@ -42,13 +42,13 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const canonicalUrl = `${baseUrl}/projects/${project.slug}/`;
 
   return {
-    title: `${project.title} | Case Study | Mohamed Riham`,
-    description: `Case study on ${project.title} by Mohamed Riham, Data Science Undergraduate. ${project.summary}`,
+    title: `${project.title} — Case Study`,
+    description: `Case study on ${project.title} by Mohamed Riham, Data Science Student at ICBT Campus. ${project.summary}`,
     alternates: {
       canonical: canonicalUrl,
     },
     openGraph: {
-      title: `${project.title} | Case Study | Mohamed Riham`,
+      title: `${project.title} — Case Study | Mohamed Riham`,
       description: project.summary,
       url: canonicalUrl,
       type: "article",
@@ -63,7 +63,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
     },
     twitter: {
       card: "summary_large_image",
-      title: `${project.title} | Mohamed Riham Case Study`,
+      title: `${project.title} — Case Study | Mohamed Riham`,
       description: project.summary,
       images: [`${baseUrl}/og-image.png`],
     },
@@ -80,8 +80,90 @@ export default async function ProjectCaseStudy({ params }: Props) {
   const nextProject = projectIndex < projects.length - 1 ? projects[projectIndex + 1] : null;
   const indexStr = String(projectIndex + 1).padStart(2, "0");
 
+  const baseUrl = "https://mohamed-riham.github.io/who-is-riham";
+  const canonicalUrl = `${baseUrl}/projects/${project.slug}/`;
+
+  const projectJsonLd = {
+    "@context": "https://schema.org",
+    "@graph": [
+      {
+        "@type": "BreadcrumbList",
+        "@id": `${canonicalUrl}#breadcrumb`,
+        itemListElement: [
+          {
+            "@type": "ListItem",
+            position: 1,
+            name: "Home",
+            item: `${baseUrl}/`,
+          },
+          {
+            "@type": "ListItem",
+            position: 2,
+            name: "Projects",
+            item: `${baseUrl}/projects/`,
+          },
+          {
+            "@type": "ListItem",
+            position: 3,
+            name: project.title,
+            item: canonicalUrl,
+          },
+        ],
+      },
+      {
+        "@type": "TechArticle",
+        "@id": `${canonicalUrl}#article`,
+        headline: `${project.title} — Technical Case Study`,
+        name: project.title,
+        description: project.summary,
+        url: canonicalUrl,
+        author: {
+          "@type": "Person",
+          "@id": `${baseUrl}/#person`,
+          name: "Mohamed Riham",
+          url: `${baseUrl}/`,
+        },
+        publisher: {
+          "@type": "Person",
+          "@id": `${baseUrl}/#person`,
+          name: "Mohamed Riham",
+        },
+        inLanguage: "en-US",
+        about: project.category,
+        keywords: project.techStack.join(", "),
+        ...(project.links.github ? { codeRepository: project.links.github } : {}),
+      },
+      ...(project.links.video
+        ? [
+            {
+              "@type": "VideoObject",
+              "@id": `${canonicalUrl}#video`,
+              name: `${project.title} — Demonstration Video`,
+              description: project.summary,
+              thumbnailUrl: project.image ? `${baseUrl}${project.image}` : `${baseUrl}/og-image.png`,
+              uploadDate: `${project.year}-01-01T00:00:00Z`,
+              ...(project.links.video.endsWith(".mp4") || project.links.video.startsWith("/")
+                ? {
+                    contentUrl: project.links.video.startsWith("http")
+                      ? project.links.video
+                      : `${baseUrl}${project.links.video}`,
+                  }
+                : {}),
+              ...(getEmbedUrl(project.links.video)
+                ? { embedUrl: getEmbedUrl(project.links.video)! }
+                : {}),
+            },
+          ]
+        : []),
+    ],
+  };
+
   return (
     <article className="pt-28 pb-24 lg:pt-36 lg:pb-32 bg-transparent text-[#D3C29F]">
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(projectJsonLd) }}
+      />
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-16">
 
         {/* Navigation Breadcrumb */}

@@ -41,14 +41,15 @@ export default function CommandPalette() {
   }, []);
 
   const navigationItems = [
+    { label: "Who is Mohamed Riham? (About Dossier)", href: "/about/", category: "Identity", icon: GraduationCap },
     { label: "Systems Showcase", href: "/#showcase", category: "Navigation", icon: FolderGit2 },
-    { label: "About & Dossier", href: "/#dossier", category: "Navigation", icon: GraduationCap },
-    { label: "Complete Systems Catalog", href: "/#systems", category: "Navigation", icon: FolderGit2 },
+    { label: "Complete Projects & Systems Catalog", href: "/projects/", category: "Projects", icon: FolderGit2 },
     { label: "Technical Capabilities Matrix", href: "/#capabilities", category: "Navigation", icon: Sparkles },
+    { label: "Academic Background & Degrees", href: "/education/", category: "Education", icon: GraduationCap },
     { label: "Experience & Service", href: "/#experience", category: "Navigation", icon: Briefcase },
-    { label: "Academic Record (Cardiff Met / Pearson)", href: "/#education", category: "Navigation", icon: GraduationCap },
+    { label: "Technical Articles & Research Papers", href: "/articles/", category: "Publications", icon: BookOpen },
+    { label: "Photos & Video Demonstrations", href: "/media/", category: "Media", icon: Sparkles },
     { label: "Open Source & GitHub", href: "/#github", category: "Navigation", icon: FolderGit2 },
-    { label: "Research & Writing", href: "/#writing", category: "Navigation", icon: BookOpen },
     { label: "Contact Dispatch", href: "/#contact", category: "Navigation", icon: Mail },
   ];
 
