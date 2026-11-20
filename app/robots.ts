@@ -22,7 +22,10 @@ export default function robots(): MetadataRoute.Robots {
         allow: "/",
       },
     ],
-    sitemap: "https://mohamed-riham.github.io/who-is-riham/sitemap.xml",
+    sitemap: [
+      "https://mohamed-riham.github.io/who-is-riham/sitemap.xml",
+      "https://mohamed-riham.github.io/who-is-riham/sitemap_index.xml",
+    ],
     host: "https://mohamed-riham.github.io/who-is-riham",
   };
 }
