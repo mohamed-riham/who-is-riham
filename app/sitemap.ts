@@ -48,6 +48,17 @@ export default function sitemap(): MetadataRoute.Sitemap {
       ],
     },
     {
+      url: `${baseUrl}/riham/`,
+      lastModified: new Date("2026-11-20T00:00:00Z"),
+      changeFrequency: "weekly" as const,
+      priority: 0.95,
+      images: [
+        `${baseUrl}/images/profile/mohamed-riham-portrait.webp`,
+        `${baseUrl}/images/profile/mohamed-riham-colombo-portrait.webp`,
+        `${baseUrl}/images/profile/mohamed-riham-lifestyle.webp`,
+      ],
+    },
+    {
       url: `${baseUrl}/projects/`,
       lastModified: buildDate,
       changeFrequency: "weekly" as const,
