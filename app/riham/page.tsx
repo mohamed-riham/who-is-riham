@@ -62,20 +62,20 @@ const VERIFIED_PROJECTS = [
   },
   {
     slug: "edith-voice-assistant",
-    title: "EDITH Offline Voice Assistant",
-    tagline: "Privacy-Preserving Edge Automation & Speech Processing",
+    title: "EDITH Intelligent Voice Assistant",
+    tagline: "Local-First Desktop Automation & Speech Synthesis",
     summary:
-      "Locally executed desktop automation agent designed to run system tasks, speech recognition, and queries with zero cloud telemetry.",
+      "Privacy-focused local-first desktop automation assistant built in Python, integrating local microphone speech recognition, fuzzy intent routing, and neural speech synthesis.",
     category: "Intelligent Automation",
-    badge: "100% Offline",
+    badge: "Local-First Automation",
     videoEmbed: null,
   },
   {
     slug: "face-recognition-attendance-system",
     title: "Face Recognition Attendance System",
-    tagline: "128D Deep Metric Embeddings & Anti-Spoofing",
+    tagline: "128D Deep Metric Facial Encodings & Attendance Automation",
     summary:
-      "Automated attendance tracking using dlib 128-dimensional facial encodings, real-time camera inference, and automated timestamp logging.",
+      "Automated attendance tracking system utilizing 128-dimensional facial encodings, real-time OpenCV camera inference, automated MySQL attendance logging, and SMTP email alerts.",
     category: "Computer Vision",
     badge: "128D Encodings",
     videoEmbed: "https://www.youtube-nocookie.com/embed/s1kjEoHqRIo",
@@ -83,11 +83,11 @@ const VERIFIED_PROJECTS = [
   {
     slug: "credit-card-fraud-detection",
     title: "Credit Card Fraud Detection Pipeline",
-    tagline: "Big Data Anomaly Detection on 284,807 Transactions",
+    tagline: "Empirical Machine Learning Research on 284,807 Transactions",
     summary:
-      "High-precision classification pipeline evaluating severely imbalanced financial data using Random Forest, XGBoost, and SMOTE resamplers.",
+      "Comparative big data research benchmarking Random Forest vs. XGBoost (p = 0.0003) under SMOTE resampling on an imbalanced dataset of 284,807 financial transactions (492 frauds, 0.172% ratio).",
     category: "Machine Learning & Big Data",
-    badge: "99.95% ROC-AUC",
+    badge: "284,807 Transactions",
     videoEmbed: null,
   },
   {
@@ -198,11 +198,11 @@ export default function RihamIdentityPage() {
       {
         "@type": "VideoObject",
         "@id": `${canonicalUrl}#video-currency`,
-        name: "Sri Lankan Currency Detector (Assistive AI) — YOLOv8 Inference Demo",
+        name: "Sri Lankan Currency Classifier — Test Demo (YOLOV8) by Mohamed Riham",
         description:
-          "Real-time edge computer vision model classifying 6 Sri Lankan banknote denominations with 99.20% mAP@50 and automated audio feedback developed by Riham.",
-        thumbnailUrl: `${baseUrl}/og-image.png`,
-        uploadDate: "2025-01-01T00:00:00Z",
+          "Real-time edge computer vision model classifying 6 Sri Lankan banknote denominations with 99.20% mAP@50 and automated audio feedback developed by Mohamed Riham (Riham).",
+        thumbnailUrl: "https://i.ytimg.com/vi/IeytAWt0NNw/hqdefault.jpg",
+        uploadDate: "2025-10-18T00:00:00Z",
         embedUrl: "https://www.youtube-nocookie.com/embed/IeytAWt0NNw",
         creator: {
           "@id": `${baseUrl}/#person`,
@@ -211,25 +211,12 @@ export default function RihamIdentityPage() {
       {
         "@type": "VideoObject",
         "@id": `${canonicalUrl}#video-attendance`,
-        name: "Face Recognition Attendance System Demonstration",
+        name: "Face Recognition Attendance System | Python + OpenCV + Real-Time Recognition",
         description:
-          "Automated student attendance evaluation loop utilizing 128D facial encodings developed by Riham.",
-        thumbnailUrl: `${baseUrl}/og-image.png`,
-        uploadDate: "2024-06-01T00:00:00Z",
+          "Automated student attendance evaluation loop utilizing 128D facial encodings, MySQL logging, and automated SMTP notifications developed by Mohamed Riham (Riham).",
+        thumbnailUrl: "https://i.ytimg.com/vi/s1kjEoHqRIo/hqdefault.jpg",
+        uploadDate: "2025-04-13T00:00:00Z",
         embedUrl: "https://www.youtube-nocookie.com/embed/s1kjEoHqRIo",
-        creator: {
-          "@id": `${baseUrl}/#person`,
-        },
-      },
-      {
-        "@type": "VideoObject",
-        "@id": `${canonicalUrl}#video-iot`,
-        name: "IoT Smart Home Door Lock System Demonstration",
-        description:
-          "Hardware prototype integrating ESP microcontrollers with RFID authentication and cloud telemetry developed by Riham.",
-        thumbnailUrl: `${baseUrl}/og-image.png`,
-        uploadDate: "2024-05-01T00:00:00Z",
-        embedUrl: "https://www.youtube-nocookie.com/embed/S1Fof4P0N-s",
         creator: {
           "@id": `${baseUrl}/#person`,
         },
@@ -290,7 +277,7 @@ export default function RihamIdentityPage() {
               <strong>Riham</strong> is the name commonly used by <strong>Mohamed Riham</strong> (legal name <em>Mohamed Ansar Mohamed Riham</em>), a Sri Lankan Data Science student at ICBT Campus. He is currently pursuing a BSc (Hons) in Data Science (Top-Up) awarded by Cardiff Metropolitan University, UK.
             </p>
             <p>
-              When people search for <em>&ldquo;Who is Riham?&rdquo;</em>, <em>&ldquo;Riham from Sri Lanka&rdquo;</em>, or <em>&ldquo;Riham Data Science&rdquo;</em>, they are referring to this official portfolio and dossier representing his work in practical artificial intelligence, computer vision, data analytics, and software engineering.
+              This page is the official identity profile of Mohamed Riham, commonly known as Riham. It brings together his academic background, technical projects, interests, and verified public profiles.
             </p>
           </div>
 
