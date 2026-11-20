@@ -1,6 +1,7 @@
 import { Metadata } from "next";
 import Image from "next/image";
 import Link from "next/link";
+import { getAssetPath } from "@/lib/utils";
 import {
   ArrowLeft,
   ArrowUpRight,
@@ -307,7 +308,7 @@ export default function RihamIdentityPage() {
           <div className="lg:col-span-5 relative group">
             <div className="relative aspect-[4/5] rounded-2xl overflow-hidden border border-white/10 bg-[#160B08] shadow-2xl">
               <Image
-                src="/images/profile/mohamed-riham-portrait.webp"
+                src={getAssetPath("/images/profile/mohamed-riham-portrait.webp")}
                 alt="Riham (Mohamed Riham) — Authentic portrait of Sri Lankan Data Science student"
                 fill
                 priority
